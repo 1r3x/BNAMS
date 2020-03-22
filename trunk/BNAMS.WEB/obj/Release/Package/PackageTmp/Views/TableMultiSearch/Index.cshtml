@@ -1,0 +1,25 @@
+﻿<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+
+<script src="~/CustomScripts/TableMultiSearch/dataTableMuliSearch.js"></script>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPageMetronic.cshtml";
+}
+
+<div role="main">
+    <div id="content">
+        <section id="widget-grid" class="">
+            <div class="row">
+                <article>
+                    @Html.Partial("View")
+                </article>
+                
+            </div>
+        </section>
+    </div>
+</div>
+
+

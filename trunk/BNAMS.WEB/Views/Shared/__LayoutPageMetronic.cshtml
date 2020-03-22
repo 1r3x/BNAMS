@@ -1,0 +1,304 @@
+﻿<script>
+    @if (@Session["roleId"] == null && @Session["userid"] == null)
+    {
+
+        Response.Redirect("~/Userlogins/Login");
+    }
+
+    var roleId = '@Session["roleId"]?.ToString()';
+    var userId = '@Session["userid"]';
+
+
+</script>
+@Scripts.RenderFormat("<script src='{0}' defer></script>")
+
+@using System.Collections
+@using SR.Controllers
+@using SR.Entities
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <title></title>
+
+
+    <meta charset="utf-8" />
+
+    <link href="~/CustomCSS/CommonEntryFormStyle.css" rel="stylesheet" />
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
+
+
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="../../assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css" />
+    <link id="style_color" href="../../assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/clockface/css/clockface.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <!-- END PAGE LEVEL STYLES -->
+    @*this is the icon list .....*@
+    @*<link rel="shortcut icon" href="../../Assets/admin/layout/img/favicon.ico">*@
+
+
+</head>
+
+<body class="page-header-fixed page-quick-sidebar-over-content">
+
+    <!-- BEGIN HEADER -->
+    <div class="page-header -i navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="/">
+                    @*<img src="../../assets/admin/layout/img/logo.png" alt="logo" class="logo-default"/>*@
+                </a>
+                <div class="menu-toggler sidebar-toggler hide">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+
+                <ul class="nav navbar-nav pull-right">
+
+                    <li class="dropdown dropdown-user">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="background-position: inherit; ">
+                            @if (@Session["roleId"] != null)
+                            {
+                                <img alt="" class="img-circle" src="../@HttpContext.Current.Session["imageUrl"].ToString()" />
+                                <span class="username username-hide-on-mobile">
+                                    @HttpContext.Current.Session["username"].ToString()
+                                </span>
+                            }
+                            @*<img alt="" class="img-circle" src="../@HttpContext.Current.Session["imageUrl"].ToString()" />*@
+
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="~/PasswordChange">
+                                    <i class="icon-user"></i> Change Passowrd
+                                </a>
+                            </li>
+
+
+                            <li>
+                                <a href="~/EmployeeVarityReport/EmpDetailsSecure">
+                                    <i class="icon-user"></i> My Profile
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="~/userlogins/logout">
+                                    <i class="icon-key"></i> Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                    <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                    <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <!-- END QUICK SIDEBAR TOGGLER -->
+                </ul>
+
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+<div class="page-container">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar-wrapper">
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <div class="page-sidebar navbar-collapse collapse" style="background: #97a39f; ">
+
+
+            <ul class="page-sidebar-menu" id="menus" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+                <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                <li class="sidebar-toggler-wrapper">
+                    <div class="sidebar-toggler">
+                    </div>
+                </li>
+                <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+
+
+                <li class="heading">
+                    <h3 class="uppercase"></h3>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <div class="page-bar">
+            </div>
+            <div class="row" style="margin-top: -62px !important">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-footer">
+        <div class="page-footer-inner">
+            2019 &copy; SIM Solution Ltd.
+        </div>
+        <div class="scroll-to-top">
+            <i class="icon-arrow-up"></i>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/CustomScripts/Shared/MenuLoadForSharedLayout.js"></script>
+
+    <script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/dataTables.bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/clockface/js/clockface.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script type="text/javascript" src="../../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+
+    <script src="../../assets/admin/pages/scripts/components-pickers.js"></script>
+    <script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+    <script src="../../assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="../../assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+    <script src="../../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+    <script src="~/Scripts/select2.js"></script>
+    <script src="~/Scripts/select2.min.js"></script>
+    <link href="~/Content/select2.css" rel="stylesheet" />
+    <link href="~/Content/select2.min.css" rel="stylesheet" />
+
+    <script>
+        jQuery(document).ready(function () {
+            Layout.init(); // init current layout
+        });
+    </script>
+
+
+
+
+    @*menu expand and close control start *@
+    <script>
+
+        $(document).ready(function () {
+            var timer;
+            $("ul").on("click", function (e) {
+                console.log("Click!");
+                // Clear previous timer if any.
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    // Get expanded states for each ul.
+                    var expanded = [];
+                    $("ul").each(function () {
+                        var thisExpanded = $(this).attr("aria-expanded");
+                        console.log(thisExpanded);
+
+                        if (typeof (thisExpanded) != "undefined") {
+                            expanded.push(thisExpanded);
+                        } else {
+                            expanded.push("undefined");
+                        }
+                    });
+                    // Show it in console.
+                    var expandedString = JSON.stringify(expanded);
+                    console.log(expandedString);
+
+                    // Save it in Storage.
+                    localStorage.setItem("ULexpanded", expandedString);
+                }, 600);
+
+
+            });
+
+            // On load, set ul to previous state.
+            console.log("---- On Load.");
+
+            // Parse the string back to an array.
+            var previousState = JSON.parse(localStorage.getItem("ULexpanded"));
+            console.log(previousState);
+
+            // If there is data in locaStorage.
+            if (previousState != null) {
+                console.log("Setting ul states on...");
+
+                $("ul").each(function (index) {
+
+                    // If the ul was expanded.
+                    if (previousState[index] == "true") {
+                        console.log("Index #" + index);
+                        $(this).addClass("show").attr("aria-expanded", previousState[index]);
+                    }
+                });
+            }
+
+        });
+
+
+    </script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
