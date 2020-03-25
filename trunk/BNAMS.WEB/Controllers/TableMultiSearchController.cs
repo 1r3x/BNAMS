@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
-namespace SR.Controllers
+namespace BNAMS.Controllers
 {
     public class TableMultiSearchController : Controller
     {

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SR.Entities;
-using SR.Manager.Interface;
-using SR.Repositories;
+﻿using BNAMS.Entities;
+using BNAMS.Manager.Interface;
 
-namespace SR.Manager.Manager
+namespace BNAMS.Manager.Manager
 {
 
     public class RoleWiseMenuManger: IRoleWiseMenu

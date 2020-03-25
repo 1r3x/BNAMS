@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using SR.Entities;
 using System.Web.Security;
 using System.Web.SessionState;
-using System.Security.Cryptography;
-using  SR.Helpers;
-using SR.Manager.Interface;
-using SR.Manager.Manager;
+using BNAMS.Entities;
+using BNAMS.Manager.Interface;
+using BNAMS.Manager.Manager;
+using SR.Helpers;
 
-namespace SR.Controllers.login
+namespace BNAMS.Controllers.login
 {
     [SessionState(SessionStateBehavior.Default)]
     public class UserLoginsController : Controller
@@ -137,7 +134,7 @@ namespace SR.Controllers.login
 
 
         [HttpPost]
-        public ActionResult Login(Models.login.User user)
+        public ActionResult Login(SR.Models.login.User user)
         {
             SmartRecordEntities usersEntities = new SmartRecordEntities();
             var keyNew = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) select s).FirstOrDefault();
@@ -189,7 +186,7 @@ namespace SR.Controllers.login
         }
 
         [HttpPost]
-        public ActionResult ResetRequest(Models.login.User user)
+        public ActionResult ResetRequest(SR.Models.login.User user)
         {
             var message = "";
            var keyNew = (from s in db.UserLogins where (s.UserName == user.Email || s.Email == user.Email) select s).FirstOrDefault();

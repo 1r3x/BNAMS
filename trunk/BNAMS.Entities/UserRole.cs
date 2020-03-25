@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SR.Entities
+namespace BNAMS.Entities
 {
     using System;
     using System.Collections.Generic;

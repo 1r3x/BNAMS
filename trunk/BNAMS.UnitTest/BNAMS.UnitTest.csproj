@@ -6,8 +6,8 @@
     <ProjectGuid>{2BBB727A-4116-4D40-A537-CCAD35B4FBB8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SR.UnitTest</RootNamespace>
-    <AssemblyName>SR.UnitTest</AssemblyName>
+    <RootNamespace>BNAMS.UnitTest</RootNamespace>
+    <AssemblyName>BNAMS.UnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

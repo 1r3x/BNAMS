@@ -17,45 +17,53 @@
                     </select>
                 </div>
             </div>
-            
-            
 
 
-            <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <thead>
-                <tr>
-                    <th>All<input type="checkbox" id="menuIdAll" />Menu</th>
-                    <th>Sub Menu</th>
-                    <th>View</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </thead>
-                <tfoot>
-                <tr>
-                    <th>Menu</th>
-                    <th>Sub Menu</th>
-                    <th>View</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-                </tfoot>
-                <tbody id="menuList">
-                </tbody>
-            </table>
+            <div class="panel panel-primary dialog-panel">
+
+                <table id="dataTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>All<input type="checkbox" id="menuIdAll" />Menu</th>
+                            <th>Sub Menu</th>
+                            <th>View</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Menu</th>
+                            <th>Sub Menu</th>
+                            <th>View</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </tfoot>
+                    <tbody id="menuList"></tbody>
+                </table>
+            </div>
 
 
-           
 
 
 
         </div>
         <div class="form-actions right1">
-            <button type="button" id="btnCancel" class="btn default">
+            @*<button type="button" id="btnCancel" class="btn default">
                 Cancel
             </button>
-            <button type="submit" id="btnSubmit" class="btn blue">
+            <button type="button" id="btnSubmit" class="btn blue">
                 Save
+            </button>*@
+            
+            
+            
+            <button type="submit" id="btnSubmit" class="btn btn-primary">
+                Save
+            </button>
+            <button type="button" id="btnCancel" class="btn btn-danger">
+                Reset
             </button>
         </div>
 

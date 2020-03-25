@@ -49,9 +49,9 @@
     <EntitySet Name="Emp_BasicInfo" EntityType="SmartRecordModel.Emp_BasicInfo" />
     <EntitySet Name="M_Menu" EntityType="SmartRecordModel.M_Menu" />
     <EntitySet Name="M_RoleForEmp" EntityType="SmartRecordModel.M_RoleForEmp" />
-    <EntitySet Name="UserLogins" EntityType="SmartRecordModel.UserLogin" />
     <EntitySet Name="UserPermissions" EntityType="SmartRecordModel.UserPermission" />
     <EntitySet Name="UserRoles" EntityType="SmartRecordModel.UserRole" />
+    <EntitySet Name="UserLogins" EntityType="SmartRecordModel.UserLogin" />
   </EntityContainer>
   <ComplexType Name="SessionHelper_Result">
     <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -198,26 +198,6 @@
     <Property Name="UpdateUserId" Type="Int32" />
     <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
   </EntityType>
-  <EntityType Name="UserLogin">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="EmailIsConfirmed" Type="Boolean" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="UserRole" Type="Int32" />
-    <Property Name="IsActive" Type="Boolean" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CreateDate" Type="DateTime" Precision="3" />
-    <Property Name="CreatedBy" Type="Int32" />
-    <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
-    <Property Name="EmpId" Type="Int32" />
-    <Property Name="SessionKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-    <Property Name="UserPhoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="UserPermission">
     <Key>
       <PropertyRef Name="PermId" />
@@ -235,5 +215,21 @@
     </Key>
     <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserRoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserRole" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+    <Property Name="EmpId" Type="Int32" />
+    <Property Name="SessionKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

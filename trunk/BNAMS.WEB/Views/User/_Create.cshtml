@@ -2,44 +2,91 @@
     <div class="panel-heading">
         <h5>User Create</h5>
     </div>
+    
+
     <div class="panel-body">
         <form class="form-horizontal" role="form" style="margin-left: 10px">
             <div class="row">
 
                 <div class="col-sm-12 col-md-8 col-lg-8">
+
                     <div class="col-sm-12 col-md-3 col-lg-6">
                         <div class="form-group">
                             <label for="txtFullName">
-                                Full Name:
+                                First Name:
                             </label>
-                            <input type="text" id="txtFullName" class="txt form-control" placeholder="User full Name Input" />
+                            <input type="text" id="txtFirstName" class="txt form-control" placeholder="Emloyee First Name Input" />
                         </div>
                     </div>
 
                     <div class="col-sm-12 col-md-3 col-lg-6">
                         <div class="form-group">
-                            <label for="txtUserName">
-                                User Name:
+                            <label>
+                                Last Name:
                             </label>
-                            <input type="text" id="txtUserName" class="txt form-control" placeholder="User Name Input" />
+                            <input type="text" id="txtLastName" class="txt form-control" placeholder="Emloyee Last Name Input" />
                         </div>
                     </div>
+
                     <div class="col-sm-12 col-md-3 col-lg-6">
                         <div class="form-group">
-                            <label for="password">
+                            <label>
+                                ID Number:
+                            </label>
+                            <input type="text" id="txtEmpIdNumber" class="txt form-control" placeholder="Emloyee ID Number" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-sm-12 col-md-3 col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Emloyee Phone No.:
+                            </label>
+                            <input type="text" id="txtEmployeePhone" class="txt form-control" placeholder="Employee Phone No." />
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-3 col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Emloyee E-Mail:
+                            </label>
+                            <input type="text" id="txtEmployeeEmail" class="txt form-control" placeholder="Employee Email" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-3 col-lg-6">
+                        <div class="form-group">
+                            <label>
+                                Emloyee User Name:
+                            </label>
+                            <input type="text" id="txtEmployeeEmail" class="txt form-control" placeholder="Employee Email" />
+                        </div>
+                    </div>
+
+                    @*<div class="col-sm-12 col-md-3 col-lg-6">
+                        <div class="form-group">
+                            <label>
                                 Password:
                             </label>
-                            <input type="password" id="password" class="txt form-control" placeholder="Enter Password"/>
+                            <input type="password" id="txtPassword" class="txt form-control" placeholder="Enter Password" />
                         </div>
                     </div>
+
                     <div class="col-sm-12 col-md-3 col-lg-6">
                         <div class="form-group">
-                            <label for="reTypepassword">
+                            <label>
                                 Retype Password:
                             </label>
-                            <input type="password" id="reTypepassword" class="txt form-control" placeholder="Enter Retype Password" />
+                            <input type="password" id="reTypepassword" class="txt form-control" placeholder="Retype Password" />
                         </div>
-                    </div>
+                    </div>*@
+
+
                     <div class="col-sm-12 col-md-3 col-lg-6">
                         <div class="form-group">
                             <label>User Role:</label>
@@ -48,6 +95,8 @@
                             </select>
                         </div>
                     </div>
+
+
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="row">
                             <div class="form-check">
@@ -58,7 +107,13 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
+                
+                
+                @*for image upload*@
+
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="form-group">
                         <input type='file' id="getFile" onchange="readURL(this);" style="display: none" />
@@ -66,6 +121,8 @@
                         <button type="button" style="display: block; width: 120px; height: 30px; margin-top: 10px" onclick="document.getElementById('getFile').click()">Add Photo</button>
                     </div>
                 </div>
+
+
             </div>
         </form>
 

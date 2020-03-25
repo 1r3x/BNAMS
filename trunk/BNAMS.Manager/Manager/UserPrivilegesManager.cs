@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SR.Entities;
+using BNAMS.Entities;
+using BNAMS.Manager.Interface;
+using BNAMS.Repositories;
+using SR.Manager;
 using SR.Manager.Interface;
 using SR.Repositories;
 
-namespace SR.Manager.Manager
+namespace BNAMS.Manager.Manager
 {
     public class UserPrivilegesManager:IUserPrivileges
     {

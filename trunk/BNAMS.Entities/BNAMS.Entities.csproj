@@ -7,8 +7,8 @@
     <ProjectGuid>{F63BE41A-4427-4B3E-A289-A7D7EE069163}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SR.Entities</RootNamespace>
-    <AssemblyName>SR.Entities</AssemblyName>
+    <RootNamespace>BNAMS.Entities</RootNamespace>
+    <AssemblyName>BNAMS.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

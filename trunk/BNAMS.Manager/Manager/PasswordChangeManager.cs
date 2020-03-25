@@ -2,12 +2,12 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using SR.Entities;
-using SR.Manager.Interface;
+using BNAMS.Entities;
+using BNAMS.Manager.Interface;
+using BNAMS.Repositories;
 using SR.Repositories;
 
-
-namespace SR.Manager.Manager
+namespace BNAMS.Manager.Manager
 {
     public class PasswordChangeManager: IPasswordChange
     {

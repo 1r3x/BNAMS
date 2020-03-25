@@ -3,25 +3,71 @@ var CreateMenuManager = {
 
     SaveMenu: function () {
         debugger;
+        if ($("#txtMenuName").val()=="") {
+            toastr.warning("Menu Name is Required.");
+        }
+        //else if ($("#txtMenuClass").val()=="") {
+        //    toastr.warning("Menu class is Required.");
+        //}
+        else {
+            $.ajax({
+                type: "POST",
+                url: "/Menu/CreateMenu",
+                data: JSON.stringify(MenuHelper.GetMenuData()),
+                success: function (response) {
+                    debugger;
+                    if (response != null) {
+
+                        toastr.success(response.data.Message);
+                        viewMenu.GetMenuDataTable();
+                        MenuHelper.ClearField();
+                        $("#btnSubmit").html("Save");
+                    }
+                },
+                error: function (response) {
+
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+        }
+       
+    },
+    IsDuplicate: function () {
+        debugger;
         $.ajax({
             type: "POST",
-            url: "/Menu/CreateMenu",
+            url: "/Menu/IsDuplicate",
+
             data: JSON.stringify(MenuHelper.GetMenuData()),
+            success: function (response) {
+                debugger;
+                if (response.data.Status == true) {
+                    toastr.warning(response.data.Message);
+
+                } else if (response.data.Status == false) {
+                    CreateMenuManager.SaveMenu();
+
+                }
+            },
+            error: function (response) {
+
+            },
             dataType: "json",
             contentType: "application/json"
+
         });
-    }
+    },
 
 };
 
 
 var MenuHelper = {
     InitMenu: function () {
-        
+
         $("#btnSubmit").unbind("click").click(function () {
-            CreateMenuManager.SaveMenu();
-            viewMenu.GetMenuDataTable();
-            MenuHelper.ClearField();
+            CreateMenuManager.IsDuplicate();
+
         });
         $("#btnCancel").unbind("click").click(function () {
             MenuHelper.ClearField();
@@ -57,8 +103,8 @@ var MenuHelper = {
             data: parentMenu
         });
     },
-    
-    
+
+
 
     ClearField: function () {
         $("#hdnMenuId").val("");

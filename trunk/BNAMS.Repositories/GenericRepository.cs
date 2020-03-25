@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using BNAMS.Entities;
+using SR.Repositories;
 
-namespace SR.Repositories
+namespace BNAMS.Repositories
 {
     public   class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        private readonly Entities.SmartRecordEntities _db;
+        private readonly SmartRecordEntities _db;
         private readonly DbSet<T> _aTable;
 
-        public GenericRepository(SR.Entities.SmartRecordEntities db)
+        public GenericRepository(BNAMS.Entities.SmartRecordEntities db)
         {
             _db = db;
             _aTable = _db.Set<T>();
@@ -18,7 +20,7 @@ namespace SR.Repositories
 
         public GenericRepository()
         {
-            _db = new SR.Entities.SmartRecordEntities();
+            _db = new BNAMS.Entities.SmartRecordEntities();
             _aTable = _db.Set<T>();
         }
         public void Dispose()

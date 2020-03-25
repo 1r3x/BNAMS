@@ -186,6 +186,8 @@
   <ItemGroup>
     <Content Include="Content\select2.css" />
     <Content Include="Content\select2.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="CustomCSS\CommonEntryFormStyle.css" />
     <Content Include="CustomScripts\Menu\CreateMenu.js" />
     <Content Include="CustomScripts\Menu\MenuSetting.js" />
@@ -389,6 +391,8 @@
     <Content Include="ReportFile\ReportDataSet.xsc">
       <DependentUpon>ReportDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\BNAMS.pubxml" />
     <None Include="ReportFile\ReportDataSet.xsd">
       <SubType>Designer</SubType>
@@ -406,6 +410,9 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.3.js" />
+    <Content Include="Scripts\jquery-1.6.3.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -419,6 +426,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\toastr.css" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="CustomScripts\TableMultiSearch\dataTableMuliSearch.js" />
     <Content Include="Web.config">

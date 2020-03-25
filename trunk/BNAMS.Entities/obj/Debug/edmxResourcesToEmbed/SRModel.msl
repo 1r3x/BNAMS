@@ -162,27 +162,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserLogins">
-      <EntityTypeMapping TypeName="SmartRecordModel.UserLogin">
-        <MappingFragment StoreEntitySet="UserLogin">
-          <ScalarProperty Name="UserPhoto" ColumnName="UserPhoto" />
-          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
-          <ScalarProperty Name="SessionKey" ColumnName="SessionKey" />
-          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
-          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
-          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="EmailIsConfirmed" ColumnName="EmailIsConfirmed" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="UserPermissions">
       <EntityTypeMapping TypeName="SmartRecordModel.UserPermission">
         <MappingFragment StoreEntitySet="UserPermission">
@@ -200,6 +179,23 @@
         <MappingFragment StoreEntitySet="UserRole">
           <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
           <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="SmartRecordModel.UserLogin">
+        <MappingFragment StoreEntitySet="UserLogin">
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="SessionKey" ColumnName="SessionKey" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

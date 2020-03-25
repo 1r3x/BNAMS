@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
-using SR.Entities;
-using SR.Manager.Interface;
+using BNAMS.Entities;
+using BNAMS.Manager.Interface;
+using BNAMS.Repositories;
 using SR.Repositories;
 
-namespace SR.Manager.Manager
+namespace BNAMS.Manager.Manager
 {
     public class UserManager : IUser
     {
@@ -32,66 +30,41 @@ namespace SR.Manager.Manager
                 {
                     aObj.UserRole = 0;
                 }
-                aObj.CreatedBy = (int?)HttpContext.Current.Session["userid"];
-                aObj.CreateDate = DateTime.Now;
+               
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
-                //for sorting order generation 
-                //if (aObj.ParentId == 0)
-                //{
-                //    var sortingOrder = aObj.Id;
-                //    aObj.SortingOrderHelper = sortingOrder;
-                //    _aRepository.Update(aObj);
-                //    _aRepository.Save();
-
-                //}
-                //else
-                //{
-                //    var sortingOrder = aObj.ParentId;
-                //    aObj.SortingOrderHelper = sortingOrder;
-                //    _aRepository.Update(aObj);
-                //    _aRepository.Save();
-                //}
-                //end
-
-
                 return _aModel.Respons(true, "New User Saved Successfully.");
             }
-            //if (aObj.ParentId == null)
-            //{
-            //    aObj.ParentId = 0;
-            //    aObj.SortingOrderHelper = aObj.Id;
-            //}
-            //else
-            //{
-            //    aObj.SortingOrderHelper = aObj.ParentId;
-            //}
-            aObj.CreatedBy = 1;
-            aObj.CreateDate = DateTime.Now;
+
             _aRepository.Update(aObj);
             _aRepository.Save();
             return _aModel.Respons(true, "User Updated Successfully");
         }
 
+        public ResponseModel CreateEmployee(Emp_BasicInfo aObj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ResponseModel DuplicateCheck(int empId, string userName)
+        {
+            throw new NotImplementedException();
+        }
+
         public ResponseModel GetAllUser()
         {
-            var data = from a in _db.UserLogins
+            var data = from a in _db.Emp_BasicInfo
                 select new
                 {
-                    a.Id,
-                    a.Email,
-                    a.EmailIsConfirmed,
-                    a.Password,
-                    a.PhoneNo,
-                    a.UserRole,
+                    a.EmpId,
+                    a.EmpFName,
+                    a.EmpLastName,
+                    a.EmpEmail,
+                    a.EmpIdNumber,
                     a.IsActive,
-                    a.UserName,
-                    a.CreateDate,
-                    a.CreatedBy,
-                    a.UserFullName,
-                    a.UserPhoto
-
+                    a.EmpCell,
+                    a.RoleId
                 };
             return _aModel.Respons(data);
         }

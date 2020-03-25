@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using BNAMS.Entities;
+using BNAMS.Manager.Interface;
+using BNAMS.Manager.Manager;
 using SR.Controllers.login;
-using SR.Entities;
-using SR.Manager.Interface;
-using SR.Manager.Manager;
 
-namespace SR.Controllers
+namespace BNAMS.Controllers
 {
     [Authorization]
     public class MenuController : Controller
@@ -31,6 +27,13 @@ namespace SR.Controllers
         public JsonResult CreateMenu(M_Menu aObj)
         {
             var data = _aManager.CreateMenu(aObj);
+            return Json(new { success = data.Status, data }, JsonRequestBehavior.AllowGet);
+        }
+
+        // SET: Manu/IsDuplicate
+        public JsonResult IsDuplicate(M_Menu aObj)
+        {
+            var data = _aManager.CheckDuplicate(aObj);
             return Json(new { success = data.Status, data }, JsonRequestBehavior.AllowGet);
         }
 

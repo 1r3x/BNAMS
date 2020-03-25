@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using SR.Entities;
+﻿using BNAMS.Entities;
 using SR.Manager.Interface;
-using SR.Repositories;
 
-namespace SR.Manager.Manager
+namespace BNAMS.Manager.Manager
 {
     public class HomeManager : IHome
     {

@@ -22,7 +22,7 @@ var CreateUserPrivilegesManager = {
         });
 
     },
-
+    //no use 
     GetUserPrivilegesDataTable: function () {
         var b = [];
         debugger;
@@ -78,9 +78,14 @@ var CreateUserPrivilegesManager = {
                 var row = "";
                 $("#menuList").html("");
                 $.each(b, function (index, item) {
+
                     if (item.ParentId == 0) {
+                        var menuSelected = (item.Selected != null) ? "checked" : "";
+                        //alert(selected);
                         row += "<tr>" +
-                            "<td><input type='checkbox' class='mainMenu'  data-id='" + item.Id + "' id='menuId_" + index + "'/>" + item.MenuName + " </td>" +
+                            "<td><input " +
+                            menuSelected
+                            +" type='checkbox' class='mainMenu'  data-id='" + item.Id + "' id='menuId_" + index + "' value='" + item.Id + "'/>" + item.MenuName + " </td>" +
                             "<td></td>" +
                             "<td></td>" +
                             "<td></td>" +
@@ -170,14 +175,23 @@ var UserPrivilegesHelper = {
     },
 
     GetUserPrivilegesData: function () {
-
+        debugger;
         var userPrivileges = new Array();
         $("#menuList tr").each(function (index) {
             var row = $("#menuList");
 
             var role = {};
 
+            if($("#menuId_" + index).is(":checked") == true) {
+                debugger;
+                var id = row.find("#MenuId_" + index).val();
+                role.RoleId = $("#ddlRoleName").val();
+                role.MenuId = id;
+                userPrivileges.push(role);
+            }
+
             if ($("#subMenuId_" + index).is(":checked") == true) {
+                debugger;
                 var id = row.find("#subMenuId_" + index).val();
                 var view = ($("#view_" + index).prop("checked") == true) ? 1 : 0;
                 var edit = ($("#edit_" + index).prop("checked") == true) ? 1 : 0;
@@ -189,6 +203,7 @@ var UserPrivilegesHelper = {
                 role.IsCreate = view;
                 userPrivileges.push(role);
             }
+            
 
         });
 

@@ -1,15 +1,9 @@
-﻿using SR.Controllers.login;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
-using System.Data.Entity;
-using SR.Entities;
-using SR.Manager.Manager;
 using System.Web.Security;
+using BNAMS.Manager.Manager;
 
-namespace SR.Controllers
+namespace BNAMS.Controllers
 {
     public class HomeController : Controller
     {

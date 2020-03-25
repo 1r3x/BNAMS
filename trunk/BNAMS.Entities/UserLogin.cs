@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SR.Entities
+namespace BNAMS.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -16,18 +16,14 @@ namespace SR.Entities
     {
         public int Id { get; set; }
         public string Email { get; set; }
-        public Nullable<bool> EmailIsConfirmed { get; set; }
         public string Password { get; set; }
         public string PhoneNo { get; set; }
         public Nullable<int> UserRole { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public string UserName { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
-        public Nullable<int> CreatedBy { get; set; }
         public Nullable<System.DateTime> LastLoginDate { get; set; }
         public Nullable<int> EmpId { get; set; }
         public string SessionKey { get; set; }
         public string UserFullName { get; set; }
-        public string UserPhoto { get; set; }
     }
 }

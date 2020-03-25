@@ -1,10 +1,12 @@
-﻿using SR.Entities;
+﻿using BNAMS.Entities;
+using SR.Manager;
 
-namespace SR.Manager.Interface
+namespace BNAMS.Manager.Interface
 {
     public interface IUser
     {
-        ResponseModel CreateUser(UserLogin aObj);
+        ResponseModel CreateEmployee(Emp_BasicInfo aObj);
+        ResponseModel DuplicateCheck(int empId,string userName);
         ResponseModel GetAllUser();
         ResponseModel LoadUserRole();
     }

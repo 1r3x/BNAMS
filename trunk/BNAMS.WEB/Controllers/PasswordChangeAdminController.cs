@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using BNAMS.Entities;
+using BNAMS.Manager.Interface;
+using BNAMS.Manager.Manager;
 using SR.Helpers;
-using SR.Manager.Interface;
-using SR.Manager.Manager;
-using SR.Entities;
 
-namespace SR.Controllers
+namespace BNAMS.Controllers
 {
     public class PasswordChangeAdminController : Controller
     {

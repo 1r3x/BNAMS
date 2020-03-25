@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SR.Entities
+namespace BNAMS.Entities
 {
     using System;
     using System.Data.Entity;
@@ -27,12 +27,12 @@ namespace SR.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Emp_BasicInfo> Emp_BasicInfo { get; set; }
         public virtual DbSet<M_Menu> M_Menu { get; set; }
         public virtual DbSet<M_RoleForEmp> M_RoleForEmp { get; set; }
-        public virtual DbSet<UserLogin> UserLogins { get; set; }
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<UserLogin> UserLogins { get; set; }
+        public virtual DbSet<Emp_BasicInfo> Emp_BasicInfo { get; set; }
     
         public virtual ObjectResult<SessionHelper_Result> SessionHelper(Nullable<int> empId)
         {

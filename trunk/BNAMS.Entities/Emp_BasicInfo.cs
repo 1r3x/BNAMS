@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SR.Entities
+namespace BNAMS.Entities
 {
     using System;
     using System.Collections.Generic;
@@ -23,17 +23,8 @@ namespace SR.Entities
         public Nullable<int> EmpDesignationId { get; set; }
         public Nullable<int> EmpDeptId { get; set; }
         public string EmpIdNumber { get; set; }
-        public Nullable<int> EmpOfficeId { get; set; }
         public string EmpJoiningDate { get; set; }
-        public Nullable<System.DateTime> EmpTerminationdate { get; set; }
-        public Nullable<int> provision_period { get; set; }
-        public Nullable<int> DeviceId { get; set; }
-        public Nullable<int> LeavePackageId { get; set; }
         public Nullable<int> EmpTypeId { get; set; }
-        public Nullable<int> EmpOfficeType { get; set; }
-        public string EmpContractEnd { get; set; }
-        public Nullable<int> SupDesigId { get; set; }
-        public Nullable<int> SupId { get; set; }
         public Nullable<int> RoleId { get; set; }
         public Nullable<bool> IsActive { get; set; }
     }

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SR.Entities;
+﻿using BNAMS.Entities;
 
-namespace SR.Manager.Interface
+namespace BNAMS.Manager.Interface
 {
     public interface IPasswordChangeAdmin
     {

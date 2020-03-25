@@ -7,8 +7,8 @@
     <ProjectGuid>{FBCECBA2-18B1-4FFB-8F41-73172D53F939}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SR.Repositories</RootNamespace>
-    <AssemblyName>SR.Repositories</AssemblyName>
+    <RootNamespace>BNAMS.Repositories</RootNamespace>
+    <AssemblyName>BNAMS.Repositories</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
