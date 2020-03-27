@@ -162,6 +162,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\PasswordChangeAdminController.cs" />
     <Compile Include="Controllers\PasswordChangeController.cs" />
+    <Compile Include="Controllers\RoleSetupController.cs" />
     <Compile Include="Controllers\RoleWiseMenuController.cs" />
     <Compile Include="Controllers\TableMultiSearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -197,6 +198,9 @@
     <Content Include="CustomScripts\ProfileEntry\CreateProfile.js" />
     <Content Include="CustomScripts\ProfileEntry\ProfileSetting.js" />
     <Content Include="CustomScripts\ProfileEntry\ViewProfile.js" />
+    <Content Include="CustomScripts\RoleSetup\CreateRoleSetup.js" />
+    <Content Include="CustomScripts\RoleSetup\RoleSetupSetting.js" />
+    <Content Include="CustomScripts\RoleSetup\ViewRoleSetup.js" />
     <Content Include="CustomScripts\Shared\MenuLoadForSharedLayout.js" />
     <Content Include="CustomScripts\UserPrivileges\CreateUserPrivileges.js" />
     <Content Include="CustomScripts\UserPrivileges\UserPrivilegesSetting.js" />
@@ -466,6 +470,9 @@
     <Content Include="Views\TableMultiSearch\Index.cshtml" />
     <Content Include="Views\TableMultiSearch\View.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\RoleSetup\Index.cshtml" />
+    <Content Include="Views\RoleSetup\_View.cshtml" />
+    <Content Include="Views\RoleSetup\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

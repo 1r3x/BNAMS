@@ -3,8 +3,6 @@ using System.Linq;
 using BNAMS.Entities;
 using BNAMS.Manager.Interface;
 using BNAMS.Repositories;
-using SR.Manager;
-using SR.Manager.Interface;
 using SR.Repositories;
 
 namespace BNAMS.Manager.Manager

@@ -12,6 +12,7 @@
           <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="EmpFName" Type="varchar" MaxLength="50" />
           <Property Name="EmpLastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmpUserName" Type="varchar" MaxLength="50" />
           <Property Name="EmpCell" Type="int" />
           <Property Name="EmpEmail" Type="varchar" MaxLength="50" />
           <Property Name="EmpImage" Type="varchar" MaxLength="100" />
@@ -22,6 +23,10 @@
           <Property Name="EmpTypeId" Type="int" />
           <Property Name="RoleId" Type="int" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
         </EntityType>
         <EntityType Name="M_Menu">
           <Key>
@@ -86,6 +91,11 @@
           </Key>
           <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserRoleName" Type="varchar" MaxLength="50" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
         </EntityType>
         <Function Name="SessionHelper" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="empId" Type="int" Mode="In" />
@@ -160,12 +170,12 @@
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="spNotVerifiedAddress" ReturnType="Collection(SmartRecordModel.spNotVerifiedAddress_Result)" />
           <FunctionImport Name="spVerifiedAddress" ReturnType="Collection(SmartRecordModel.spVerifiedAddress_Result)" />
+          <EntitySet Name="Emp_BasicInfo" EntityType="SmartRecordModel.Emp_BasicInfo" />
           <EntitySet Name="M_Menu" EntityType="SmartRecordModel.M_Menu" />
           <EntitySet Name="M_RoleForEmp" EntityType="SmartRecordModel.M_RoleForEmp" />
+          <EntitySet Name="UserLogins" EntityType="SmartRecordModel.UserLogin" />
           <EntitySet Name="UserPermissions" EntityType="SmartRecordModel.UserPermission" />
           <EntitySet Name="UserRoles" EntityType="SmartRecordModel.UserRole" />
-          <EntitySet Name="UserLogins" EntityType="SmartRecordModel.UserLogin" />
-          <EntitySet Name="Emp_BasicInfo" EntityType="SmartRecordModel.Emp_BasicInfo" />
           </EntityContainer>
         <ComplexType Name="SessionHelper_Result">
           <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -255,6 +265,29 @@
           <Property Type="Int32" Name="VilRecSt" Nullable="true" />
           <Property Type="Boolean" Name="VilIsVf" Nullable="true" />
         </ComplexType>
+        <EntityType Name="Emp_BasicInfo">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpCell" Type="Int32" />
+          <Property Name="EmpEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmpDesignationId" Type="Int32" />
+          <Property Name="EmpDeptId" Type="Int32" />
+          <Property Name="EmpIdNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpJoiningDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmpTypeId" Type="Int32" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
         <EntityType Name="M_Menu">
           <Key>
             <PropertyRef Name="Id" />
@@ -285,6 +318,22 @@
           <Property Name="UpdateUserId" Type="Int32" />
           <Property Name="UpdateDateTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserRole" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="EmpId" Type="Int32" />
+          <Property Name="SessionKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="UserPermission">
           <Key>
             <PropertyRef Name="PermId" />
@@ -302,40 +351,11 @@
           </Key>
           <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserRoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="UserLogin">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
-          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="UserRole" Type="Int32" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
-          <Property Name="EmpId" Type="Int32" />
-          <Property Name="SessionKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="Emp_BasicInfo">
-          <Key>
-            <PropertyRef Name="EmpId" />
-          </Key>
-          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmpFName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmpLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmpCell" Type="Int32" />
-          <Property Name="EmpEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmpImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="EmpDesignationId" Type="Int32" />
-          <Property Name="EmpDeptId" Type="Int32" />
-          <Property Name="EmpIdNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmpJoiningDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="EmpTypeId" Type="Int32" />
-          <Property Name="RoleId" Type="Int32" />
-          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -444,6 +464,30 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Emp_BasicInfo">
+            <EntityTypeMapping TypeName="SmartRecordModel.Emp_BasicInfo">
+              <MappingFragment StoreEntitySet="Emp_BasicInfo">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="EmpTypeId" ColumnName="EmpTypeId" />
+                <ScalarProperty Name="EmpJoiningDate" ColumnName="EmpJoiningDate" />
+                <ScalarProperty Name="EmpIdNumber" ColumnName="EmpIdNumber" />
+                <ScalarProperty Name="EmpDeptId" ColumnName="EmpDeptId" />
+                <ScalarProperty Name="EmpDesignationId" ColumnName="EmpDesignationId" />
+                <ScalarProperty Name="EmpImage" ColumnName="EmpImage" />
+                <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
+                <ScalarProperty Name="EmpCell" ColumnName="EmpCell" />
+                <ScalarProperty Name="EmpUserName" ColumnName="EmpUserName" />
+                <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
+                <ScalarProperty Name="EmpFName" ColumnName="EmpFName" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="M_Menu">
             <EntityTypeMapping TypeName="SmartRecordModel.M_Menu">
               <MappingFragment StoreEntitySet="M_Menu">
@@ -476,26 +520,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserPermissions">
-            <EntityTypeMapping TypeName="SmartRecordModel.UserPermission">
-              <MappingFragment StoreEntitySet="UserPermission">
-                <ScalarProperty Name="IsCreate" ColumnName="IsCreate" />
-                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
-                <ScalarProperty Name="IsEdit" ColumnName="IsEdit" />
-                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="PermId" ColumnName="PermId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserRoles">
-            <EntityTypeMapping TypeName="SmartRecordModel.UserRole">
-              <MappingFragment StoreEntitySet="UserRole">
-                <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
-                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UserLogins">
             <EntityTypeMapping TypeName="SmartRecordModel.UserLogin">
               <MappingFragment StoreEntitySet="UserLogin">
@@ -513,22 +537,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Emp_BasicInfo">
-            <EntityTypeMapping TypeName="SmartRecordModel.Emp_BasicInfo">
-              <MappingFragment StoreEntitySet="Emp_BasicInfo">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <EntitySetMapping Name="UserPermissions">
+            <EntityTypeMapping TypeName="SmartRecordModel.UserPermission">
+              <MappingFragment StoreEntitySet="UserPermission">
+                <ScalarProperty Name="IsCreate" ColumnName="IsCreate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsEdit" ColumnName="IsEdit" />
+                <ScalarProperty Name="MenuId" ColumnName="MenuId" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-                <ScalarProperty Name="EmpTypeId" ColumnName="EmpTypeId" />
-                <ScalarProperty Name="EmpJoiningDate" ColumnName="EmpJoiningDate" />
-                <ScalarProperty Name="EmpIdNumber" ColumnName="EmpIdNumber" />
-                <ScalarProperty Name="EmpDeptId" ColumnName="EmpDeptId" />
-                <ScalarProperty Name="EmpDesignationId" ColumnName="EmpDesignationId" />
-                <ScalarProperty Name="EmpImage" ColumnName="EmpImage" />
-                <ScalarProperty Name="EmpEmail" ColumnName="EmpEmail" />
-                <ScalarProperty Name="EmpCell" ColumnName="EmpCell" />
-                <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
-                <ScalarProperty Name="EmpFName" ColumnName="EmpFName" />
-                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+                <ScalarProperty Name="PermId" ColumnName="PermId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="SmartRecordModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -2,8 +2,8 @@
     <div class="panel-heading">
         <h5>User Create</h5>
     </div>
-    
 
+    <input type="text" id="hdnEmployeeId" hidden="" value="0" />
     <div class="panel-body">
         <form class="form-horizontal" role="form" style="margin-left: 10px">
             <div class="row">
@@ -12,7 +12,7 @@
 
                     <div class="col-sm-12 col-md-3 col-lg-6">
                         <div class="form-group">
-                            <label for="txtFullName">
+                            <label>
                                 First Name:
                             </label>
                             <input type="text" id="txtFirstName" class="txt form-control" placeholder="Emloyee First Name Input" />
@@ -64,27 +64,27 @@
                             <label>
                                 Emloyee User Name:
                             </label>
-                            <input type="text" id="txtEmployeeEmail" class="txt form-control" placeholder="Employee Email" />
+                            <input type="text" id="txtEmployeeUserName" class="txt form-control" placeholder="Employee User Name" />
                         </div>
                     </div>
 
                     @*<div class="col-sm-12 col-md-3 col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Password:
-                            </label>
-                            <input type="password" id="txtPassword" class="txt form-control" placeholder="Enter Password" />
+                            <div class="form-group">
+                                <label>
+                                    Password:
+                                </label>
+                                <input type="password" id="txtPassword" class="txt form-control" placeholder="Enter Password" />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col-sm-12 col-md-3 col-lg-6">
-                        <div class="form-group">
-                            <label>
-                                Retype Password:
-                            </label>
-                            <input type="password" id="reTypepassword" class="txt form-control" placeholder="Retype Password" />
-                        </div>
-                    </div>*@
+                        <div class="col-sm-12 col-md-3 col-lg-6">
+                            <div class="form-group">
+                                <label>
+                                    Retype Password:
+                                </label>
+                                <input type="password" id="reTypepassword" class="txt form-control" placeholder="Retype Password" />
+                            </div>
+                        </div>*@
 
 
                     <div class="col-sm-12 col-md-3 col-lg-6">
@@ -110,8 +110,8 @@
 
 
                 </div>
-                
-                
+
+
                 @*for image upload*@
 
                 <div class="col-sm-12 col-md-4 col-lg-4">
@@ -127,7 +127,7 @@
         </form>
 
         <div class="form-actions right1">
-            <button type="submit" id="btnSubmit" class="btn btn-primary">
+            <button type="button" id="btnSubmit" class="btn btn-primary">
                 Save
             </button>
             <button type="button" id="btnCancel" class="btn btn-danger">

@@ -51,7 +51,7 @@
     <Compile Include="Interface\IMenu.cs" />
     <Compile Include="Interface\IPasswordChange.cs" />
     <Compile Include="Interface\IPasswordChangeAdmin.cs" />
-    <Compile Include="Interface\IProfile.cs" />
+    <Compile Include="Interface\IRoleSetup.cs" />
     <Compile Include="Interface\IRoleWiseMenu.cs" />
     <Compile Include="Interface\IUser.cs" />
     <Compile Include="Interface\IUserPrivileges.cs" />
@@ -59,6 +59,7 @@
     <Compile Include="Manager\MenuManager.cs" />
     <Compile Include="Manager\PasswordChangeAdminManage.cs" />
     <Compile Include="Manager\PasswordChangeManager.cs" />
+    <Compile Include="Manager\RoleSetupManager.cs" />
     <Compile Include="Manager\RoleWiseMenuManger.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Manager\UserPrivilegesManager.cs" />

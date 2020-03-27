@@ -17,6 +17,7 @@ namespace BNAMS.Entities
         public int EmpId { get; set; }
         public string EmpFName { get; set; }
         public string EmpLastName { get; set; }
+        public string EmpUserName { get; set; }
         public Nullable<int> EmpCell { get; set; }
         public string EmpEmail { get; set; }
         public string EmpImage { get; set; }
@@ -27,5 +28,9 @@ namespace BNAMS.Entities
         public Nullable<int> EmpTypeId { get; set; }
         public Nullable<int> RoleId { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<int> SetUpBy { get; set; }
+        public Nullable<System.DateTime> SetUpDateTime { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDateTime { get; set; }
     }
 }

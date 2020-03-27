@@ -1,12 +1,12 @@
 ﻿using System;
+using BNAMS.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
-using SR.Models;
 
-namespace SR
+namespace BNAMS
 {
     public partial class Startup
     {

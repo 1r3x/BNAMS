@@ -23,22 +23,30 @@ namespace BNAMS.Controllers
             return View();
         }
 
-        // SET: Manu/CreateUser
-        public JsonResult CreateUser(UserLogin aObj)
+        // SET: User/CreateUser
+        public JsonResult CreateUser(Emp_BasicInfo aObj)
         {
-            var data = _aManager.CreateUser(aObj);
+            var data = _aManager.CreateEmployee(aObj);
             return Json(new { success = data.Status, data }, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Manu/GetAllUser
+        // SET: User/CheckDuplicate
+        public JsonResult CheckDuplicate(Emp_BasicInfo aObj)
+        {
+            var data = _aManager.DuplicateCheck(aObj);
+            return Json(new { success = data.Status, data }, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+        // GET: User/GetAllUser
         public JsonResult GetAllUser()
         {
             var data = _aManager.GetAllUser();
-            var dataView = data.Data.ToString();
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
 
-        // GET: Manu/LoadAllUser
+        // GET: User/LoadAllUser
         public JsonResult LoadAllRole()
         {
             var data = _aManager.LoadUserRole();

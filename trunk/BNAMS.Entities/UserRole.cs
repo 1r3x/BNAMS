@@ -16,5 +16,10 @@ namespace BNAMS.Entities
     {
         public int RoleId { get; set; }
         public string UserRoleName { get; set; }
+        public Nullable<int> SetUpBy { get; set; }
+        public Nullable<System.DateTime> SetUpDateTime { get; set; }
+        public Nullable<bool> IsActive { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDateTime { get; set; }
     }
 }

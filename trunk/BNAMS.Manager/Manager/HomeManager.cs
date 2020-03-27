@@ -1,5 +1,5 @@
 ﻿using BNAMS.Entities;
-using SR.Manager.Interface;
+using BNAMS.Manager.Interface;
 
 namespace BNAMS.Manager.Manager
 {

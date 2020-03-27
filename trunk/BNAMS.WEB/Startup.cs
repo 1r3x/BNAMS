@@ -1,8 +1,9 @@
-﻿using Microsoft.Owin;
+﻿using BNAMS;
+using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(SR.Startup))]
-namespace SR
+[assembly: OwinStartup(typeof(Startup))]
+namespace BNAMS
 {
     public partial class Startup
     {

@@ -1,44 +1,67 @@
 ﻿
 var CreateUserManager = {
 
+
     SaveUser: function () {
+        debugger;
+        if ($("#txtEmployeeUserName").val() == "") {
+            toastr.warning("Employee User Name is Required.");
+        }
+        //else if ($("#txtMenuClass").val()=="") {
+        //    toastr.warning("Menu class is Required.");
+        //}
+        else {
+            $.ajax({
+                type: "POST",
+                url: "/User/CreateUser",
+                data: JSON.stringify(UserHelper.GetUserData()),
+
+                success: function (response) {
+
+                    if (response != null) {
+                            toastr.success(response.data.Message);
+                            viewUser.GetUserDataTable();
+                            MenuHelper.ClearField();
+
+                            $("#btnSubmit").html("Save");
+                    }
+                },
+                error: function (response) {
+
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+        }
+
+      
+    },
+    IsDuplicate: function () {
         debugger;
         $.ajax({
             type: "POST",
-            url: "/User/CreateUser",
+            url: "/User/CheckDuplicate",
+
             data: JSON.stringify(UserHelper.GetUserData()),
-
             success: function (response) {
+                debugger;
+                if (response.data.Status == true) {
+                    toastr.warning(response.data.Message);
 
-                if (response != null) {
-                    $("#myModal #modal-body #headerId").html(response.data.message);
+                } else if (response.data.Status == false) {
+                    CreateUserManager.SaveUser();
 
-                    $("#myModal").appendTo("body").modal("show");
-
-                    //todo get data table refreshed..
-
-                    setTimeout(function () {
-                        $("#myModal").modal("hide");
-                    }, 2000);
-
-                    if (response.data.status) {
-                        //todo clear form..
-
-                        $("#btnSubmit").html("Save");
-                    }
                 }
             },
             error: function (response) {
-                $("#dialog_simple").html(response.data.Message);
-                $("#dialog_simple").dialog("open");
-                setTimeout(function () {
-                    $("#myModal").modal("hide");
-                }, 2000);
+
             },
             dataType: "json",
             contentType: "application/json"
+
         });
-    }
+    },
+
 
 };
 
@@ -47,8 +70,8 @@ var UserHelper = {
     InitUser: function () {
         UserHelper.LoadAllRoleDD();
         $("#btnSubmit").unbind("click").click(function () {
-            CreateUserManager.SaveUser();
-            UserHelper.ClearField();
+            CreateUserManager.IsDuplicate();
+            //UserHelper.ClearField();
         });
         $("#btnCancel").unbind("click").click(function () {
             UserHelper.ClearField();
@@ -85,34 +108,30 @@ var UserHelper = {
         });
     },
     
-    
-
     ClearField: function () {
-        $("#hdnUserId").val("");
-        $("#txtUserFullName").val("");
-        $("#ddlEmail").val("").trigger("change");
-        $("#ddlEmailIsConfirmed").val("");
-        $("#txtUserName").val("");
-        $("#password").val("");
+        $("#hdnEmployeeId").val("");
+        $("#txtFirstName").val("");
+        $("#txtLastName").val("");
+        $("#txtEmpIdNumber").val("");
+        $("#txtEmployeeEmail").val("");
+        $("#txtEmployeePhone").val("");
+        $("#txtEmployeeUserName").val("");
         $("#ddlUserRole").val("");
-        $("#txtPhoneNo").val("");
-        $("#getFile").val("");
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
-
-
+    
     GetUserData: function () {
+        debugger;
         var aObj = new Object();
-        aObj.Id = $("#hdnUserId").val();
-        aObj.UserFullName = $("#txtUserFullName").val();
-        aObj.Email = $("#ddlEmail").val();
-        aObj.EmailIsConfirmed = $("#ddlEmailIsConfirmed").val();
-        aObj.UserName = $("#txtUserName").val();
-        aObj.Password = $("#password").val();
-        aObj.UserRole = $("#ddlUserRole").val();
-        aObj.PhoneNo = $("#txtPhoneNo").val();
-        aObj.UserPhoto = $("#getFile").val();
+        aObj.EmpId = $("#hdnEmployeeId").val();
+        aObj.EmpFName = $("#txtFirstName").val();
+        aObj.EmpLastName = $("#txtLastName").val();
+        aObj.EmpIdNumber = $("#txtEmpIdNumber").val();
+        aObj.EmpEmail = $("#txtEmployeeEmail").val();
+        aObj.EmpCell = $("#txtEmployeePhone").val();
+        aObj.EmpUserName = $("#txtEmployeeUserName").val();
+        aObj.RoleId = $("#ddlUserRole").val();
         aObj.IsActive = ($("#chkIsActive").prop("checked") === true) ? 1 : 0;
         return aObj;
     }

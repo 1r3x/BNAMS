@@ -11,45 +11,59 @@ namespace BNAMS.Manager.Manager
     public class UserManager : IUser
     {
         private readonly ResponseModel _aModel;
-        private readonly IGenericRepository<UserLogin> _aRepository;
+        private readonly IGenericRepository<Emp_BasicInfo> _aRepository;
+        private readonly IGenericRepository<UserLogin> _anotherRepository;
         private readonly SmartRecordEntities _db;
 
         public UserManager()
         {
-            _aRepository = new GenericRepository<UserLogin>();
+            _aRepository = new GenericRepository<Emp_BasicInfo>();
+            _anotherRepository = new GenericRepository<UserLogin>();
             _db = new SmartRecordEntities();
             _aModel = new ResponseModel();
         }
 
-
-        public ResponseModel CreateUser(UserLogin aObj)
+        public ResponseModel CreateEmployee(Emp_BasicInfo aObj)
         {
-            if (aObj.Id == 0)
+            if (aObj.EmpId == 0)
             {
-                if (aObj.UserRole == null)
+                aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
+                aObj.SetUpDateTime = DateTime.Now;
+                aObj.IsActive = true;
+
+                var login = new UserLogin()
                 {
-                    aObj.UserRole = 0;
-                }
-               
+                    EmpId = aObj.EmpId,
+                    Email = aObj.EmpEmail,
+                    Password = "EA-03-29-73-61-E3-03-05-1B-FB-06-1C-49-0A-C7-2A",
+                    UserName = aObj.EmpUserName,
+                    UserRole = aObj.RoleId,
+                    IsActive = true,
+                    SessionKey= "PBqXTQjO6x"
+
+                };
+                _anotherRepository.Insert(login);
+                _anotherRepository.Save();
+
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
-                return _aModel.Respons(true, "New User Saved Successfully.");
-            }
 
+                return _aModel.Respons(true, "New Employee Saved Successfully.");
+            }
+            aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
+            aObj.UpdatedDateTime = DateTime.Now;
             _aRepository.Update(aObj);
             _aRepository.Save();
-            return _aModel.Respons(true, "User Updated Successfully");
+            return _aModel.Respons(true, "Employee Updated Successfully");
         }
 
-        public ResponseModel CreateEmployee(Emp_BasicInfo aObj)
+        public ResponseModel DuplicateCheck(Emp_BasicInfo aObj)
         {
-            throw new NotImplementedException();
-        }
-
-        public ResponseModel DuplicateCheck(int empId, string userName)
-        {
-            throw new NotImplementedException();
+            var data = (from e in _db.Emp_BasicInfo
+                        where e.EmpId != aObj.EmpId && e.EmpUserName == aObj.EmpUserName
+                select e.EmpId).FirstOrDefault();
+            return data != 0 ? _aModel.Respons(true, "This User Name already Exist") : _aModel.Respons(false, "");
         }
 
         public ResponseModel GetAllUser()
@@ -58,9 +72,11 @@ namespace BNAMS.Manager.Manager
                 select new
                 {
                     a.EmpId,
+                    EmployeeFullName=a.EmpFName +""+ a.EmpLastName,
+                    a.EmpEmail,
                     a.EmpFName,
                     a.EmpLastName,
-                    a.EmpEmail,
+                    a.EmpUserName,
                     a.EmpIdNumber,
                     a.IsActive,
                     a.EmpCell,

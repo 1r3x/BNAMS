@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="700a74c06c60408bb29af757d892b2b4" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="SmartRecordModel.Emp_BasicInfo" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_Menu" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_RoleForEmp" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserLogin" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="SmartRecordModel.UserPermission" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="0.75" PointY="6.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserLogin" Width="1.5" PointX="3.375" PointY="5.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.Emp_BasicInfo" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
