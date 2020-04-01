@@ -44,10 +44,43 @@
     <Compile Include="Emp_BasicInfo.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_Area.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_Authorirty.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_CapabilityOfWeapons.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_Country.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_FiscalYear.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_GunModelType.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_LocalAgent.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_Menu.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_NameOfGun.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_ProcurementCategory.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_QuantityCategory.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_RoleForEmp.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_StatusInformation.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

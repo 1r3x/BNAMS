@@ -6,11 +6,22 @@
     <edmx:Diagrams>
       <Diagram DiagramId="700a74c06c60408bb29af757d892b2b4" Name="Diagram1" ZoomLevel="65">
         <EntityTypeShape EntityType="SmartRecordModel.Emp_BasicInfo" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_Menu" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_RoleForEmp" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserLogin" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserPermission" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_Area" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_Authorirty" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_CapabilityOfWeapons" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_Country" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_FiscalYear" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_GunModelType" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_LocalAgent" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_Menu" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_NameOfGun" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_ProcurementCategory" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_QuantityCategory" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_RoleForEmp" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_StatusInformation" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserLogin" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserPermission" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="10.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

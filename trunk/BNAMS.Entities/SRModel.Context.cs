@@ -28,8 +28,19 @@ namespace BNAMS.Entities
         }
     
         public virtual DbSet<Emp_BasicInfo> Emp_BasicInfo { get; set; }
+        public virtual DbSet<M_Area> M_Area { get; set; }
+        public virtual DbSet<M_Authorirty> M_Authorirty { get; set; }
+        public virtual DbSet<M_CapabilityOfWeapons> M_CapabilityOfWeapons { get; set; }
+        public virtual DbSet<M_Country> M_Country { get; set; }
+        public virtual DbSet<M_FiscalYear> M_FiscalYear { get; set; }
+        public virtual DbSet<M_GunModelType> M_GunModelType { get; set; }
+        public virtual DbSet<M_LocalAgent> M_LocalAgent { get; set; }
         public virtual DbSet<M_Menu> M_Menu { get; set; }
+        public virtual DbSet<M_NameOfGun> M_NameOfGun { get; set; }
+        public virtual DbSet<M_ProcurementCategory> M_ProcurementCategory { get; set; }
+        public virtual DbSet<M_QuantityCategory> M_QuantityCategory { get; set; }
         public virtual DbSet<M_RoleForEmp> M_RoleForEmp { get; set; }
+        public virtual DbSet<M_StatusInformation> M_StatusInformation { get; set; }
         public virtual DbSet<UserLogin> UserLogins { get; set; }
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }

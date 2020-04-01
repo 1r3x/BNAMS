@@ -12796,10 +12796,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2018 14:27:45</publishTime>
     </File>
     <File Include="bin/BNAMS.dll">
-      <publishTime>03/15/2020 17:47:15</publishTime>
+      <publishTime>04/01/2020 05:38:20</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Entities.dll">
+      <publishTime>04/01/2020 05:38:12</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Entities.dll.config">
+      <publishTime>03/15/2020 16:56:37</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Entities.pdb">
+      <publishTime>04/01/2020 05:38:12</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Manager.dll">
+      <publishTime>04/01/2020 05:38:13</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Manager.dll.config">
+      <publishTime>09/07/2019 12:02:25</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Manager.pdb">
+      <publishTime>04/01/2020 05:38:13</publishTime>
     </File>
     <File Include="bin/BNAMS.pdb">
-      <publishTime>03/15/2020 17:47:15</publishTime>
+      <publishTime>04/01/2020 05:38:20</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Repositories.dll">
+      <publishTime>04/01/2020 05:38:12</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Repositories.dll.config">
+      <publishTime>04/11/2018 14:27:45</publishTime>
+    </File>
+    <File Include="bin/BNAMS.Repositories.pdb">
+      <publishTime>04/01/2020 05:38:12</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.ReportSource.dll">
       <publishTime>05/27/2018 14:21:45</publishTime>
@@ -12969,6 +12996,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/Site.css">
       <publishTime>04/11/2018 14:27:32</publishTime>
     </File>
+    <File Include="Content/toastr.css">
+      <publishTime>03/23/2020 23:37:15</publishTime>
+    </File>
+    <File Include="Content/toastr.less">
+      <publishTime>03/23/2020 23:37:15</publishTime>
+    </File>
+    <File Include="Content/toastr.min.css">
+      <publishTime>03/23/2020 23:37:15</publishTime>
+    </File>
+    <File Include="Content/toastr.scss">
+      <publishTime>03/23/2020 23:37:15</publishTime>
+    </File>
     <File Include="CustomCSS/CommonEntryFormStyle.css">
       <publishTime>09/16/2019 17:58:36</publishTime>
     </File>
@@ -13023,6 +13062,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CustomScripts/AttOrderEntry/ViewAttOrderEntry.js">
       <publishTime>11/05/2019 21:15:26</publishTime>
     </File>
+    <File Include="CustomScripts/AuthoritySetup/AuthoritySetupSetting.js">
+      <publishTime>03/30/2020 02:24:46</publishTime>
+    </File>
+    <File Include="CustomScripts/AuthoritySetup/CreateAuthoritySetup.js">
+      <publishTime>03/30/2020 16:40:19</publishTime>
+    </File>
+    <File Include="CustomScripts/AuthoritySetup/ViewAuthoritySetup.js">
+      <publishTime>03/30/2020 16:39:52</publishTime>
+    </File>
     <File Include="CustomScripts/AwdSetupPpt/AwdPptSetting.js">
       <publishTime>10/15/2019 09:09:16</publishTime>
     </File>
@@ -13059,6 +13107,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CustomScripts/Batch/ViewBatch.js">
       <publishTime>10/15/2019 09:09:14</publishTime>
     </File>
+    <File Include="CustomScripts/CapabilityOfWeapons/CapabilityOfWeaponsSetupSetting.js">
+      <publishTime>03/30/2020 17:34:08</publishTime>
+    </File>
+    <File Include="CustomScripts/CapabilityOfWeapons/CreateCapabilityOfWeaponsSetup.js">
+      <publishTime>03/30/2020 17:56:21</publishTime>
+    </File>
+    <File Include="CustomScripts/CapabilityOfWeapons/ViewCapabilityOfWeaponsSetup.js">
+      <publishTime>03/30/2020 18:29:35</publishTime>
+    </File>
     <File Include="CustomScripts/ChargeSetup/ChargeSetupSetting.js">
       <publishTime>10/19/2019 18:13:31</publishTime>
     </File>
@@ -13067,6 +13124,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="CustomScripts/ChargeSetup/ViewChargeSetup.js">
       <publishTime>10/19/2019 18:13:31</publishTime>
+    </File>
+    <File Include="CustomScripts/CountrySetup/CountrySetupSetting.js">
+      <publishTime>03/31/2020 03:52:43</publishTime>
+    </File>
+    <File Include="CustomScripts/CountrySetup/CreateCountrySetup.js">
+      <publishTime>03/31/2020 04:23:57</publishTime>
+    </File>
+    <File Include="CustomScripts/CountrySetup/ViewCountrySetup.js">
+      <publishTime>03/31/2020 04:16:51</publishTime>
     </File>
     <File Include="CustomScripts/CourseGrade/CourseGradeSetting.js">
       <publishTime>10/19/2019 18:13:33</publishTime>
@@ -13167,8 +13233,35 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CustomScripts/FamilyAndEducation/ViewFamily.js">
       <publishTime>11/05/2019 18:05:54</publishTime>
     </File>
+    <File Include="CustomScripts/FiscalYearSetup/CreateFiscalYearSetup.js">
+      <publishTime>03/29/2020 02:41:18</publishTime>
+    </File>
+    <File Include="CustomScripts/FiscalYearSetup/FiscalYearSetting.js">
+      <publishTime>03/29/2020 00:28:48</publishTime>
+    </File>
+    <File Include="CustomScripts/FiscalYearSetup/ViewFiscalYearSetup.js">
+      <publishTime>03/29/2020 12:48:16</publishTime>
+    </File>
+    <File Include="CustomScripts/GunModelType/CreateGunModelTypeSetup.js">
+      <publishTime>03/30/2020 23:59:51</publishTime>
+    </File>
+    <File Include="CustomScripts/GunModelType/GunModelTypeSetupSetting.js">
+      <publishTime>03/30/2020 18:21:23</publishTime>
+    </File>
+    <File Include="CustomScripts/GunModelType/ViewGunModelTypeSetup.js">
+      <publishTime>03/31/2020 00:00:50</publishTime>
+    </File>
     <File Include="CustomScripts/IndividualProfileEntry/IndividualProfileEntryJS.js">
       <publishTime>10/03/2019 16:07:52</publishTime>
+    </File>
+    <File Include="CustomScripts/LocalAgentSetup/CreateLocalAgentSetup.js">
+      <publishTime>03/31/2020 15:46:05</publishTime>
+    </File>
+    <File Include="CustomScripts/LocalAgentSetup/LocalAgentSetupSetting.js">
+      <publishTime>03/31/2020 15:49:07</publishTime>
+    </File>
+    <File Include="CustomScripts/LocalAgentSetup/ViewLocalAgentSetup.js">
+      <publishTime>03/31/2020 18:50:50</publishTime>
     </File>
     <File Include="CustomScripts/ManPowerAuthorizationSetup/CreateManPowerAuthorizationSetup.js">
       <publishTime>11/05/2019 19:16:19</publishTime>
@@ -13180,7 +13273,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/05/2019 15:35:21</publishTime>
     </File>
     <File Include="CustomScripts/Menu/CreateMenu.js">
-      <publishTime>11/04/2019 16:28:10</publishTime>
+      <publishTime>03/25/2020 00:58:37</publishTime>
     </File>
     <File Include="CustomScripts/Menu/MenuSetting.js">
       <publishTime>11/04/2019 16:23:13</publishTime>
@@ -13205,6 +13298,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="CustomScripts/MsnSetup/MsnUnitNameView.js">
       <publishTime>11/04/2019 17:04:12</publishTime>
+    </File>
+    <File Include="CustomScripts/NameOfGun/CreateGunNameSetup.js">
+      <publishTime>03/31/2020 00:30:30</publishTime>
+    </File>
+    <File Include="CustomScripts/NameOfGun/GunNameSetupSetting.js">
+      <publishTime>03/31/2020 00:19:57</publishTime>
+    </File>
+    <File Include="CustomScripts/NameOfGun/ViewGunNameSetup.js">
+      <publishTime>03/31/2020 00:27:19</publishTime>
     </File>
     <File Include="CustomScripts/PasswordChange/PasswordChange.js">
       <publishTime>08/30/2018 15:00:22</publishTime>
@@ -13239,6 +13341,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CustomScripts/PostingOrderEntry/ViewPostingOrderEntry.js">
       <publishTime>11/03/2019 12:08:06</publishTime>
     </File>
+    <File Include="CustomScripts/ProcurementCategorySetup/CreateProcurementSetup.js">
+      <publishTime>03/31/2020 20:52:23</publishTime>
+    </File>
+    <File Include="CustomScripts/ProcurementCategorySetup/ProcurementSetupSetting.js">
+      <publishTime>03/31/2020 20:44:15</publishTime>
+    </File>
+    <File Include="CustomScripts/ProcurementCategorySetup/ViewProcurementSetup.js">
+      <publishTime>03/31/2020 21:10:27</publishTime>
+    </File>
     <File Include="CustomScripts/ProfileEntry/CreateProfile.js">
       <publishTime>10/17/2019 18:47:18</publishTime>
     </File>
@@ -13247,6 +13358,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="CustomScripts/ProfileEntry/ViewProfile.js">
       <publishTime>10/17/2019 18:34:53</publishTime>
+    </File>
+    <File Include="CustomScripts/QuantitySetup/CreateQuantitySetup.js">
+      <publishTime>03/31/2020 21:50:40</publishTime>
+    </File>
+    <File Include="CustomScripts/QuantitySetup/QuantitySetupSetting.js">
+      <publishTime>03/31/2020 21:41:56</publishTime>
+    </File>
+    <File Include="CustomScripts/QuantitySetup/ViewQuantitySetup.js">
+      <publishTime>03/31/2020 21:50:57</publishTime>
     </File>
     <File Include="CustomScripts/Rank/CreateRank.js">
       <publishTime>10/15/2019 09:09:15</publishTime>
@@ -13257,8 +13377,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CustomScripts/Rank/ViewRank.js">
       <publishTime>10/15/2019 09:09:15</publishTime>
     </File>
+    <File Include="CustomScripts/RoleSetup/CreateRoleSetup.js">
+      <publishTime>03/27/2020 22:04:57</publishTime>
+    </File>
+    <File Include="CustomScripts/RoleSetup/RoleSetupSetting.js">
+      <publishTime>03/27/2020 21:47:12</publishTime>
+    </File>
+    <File Include="CustomScripts/RoleSetup/ViewRoleSetup.js">
+      <publishTime>03/27/2020 22:05:41</publishTime>
+    </File>
     <File Include="CustomScripts/Shared/MenuLoadForSharedLayout.js">
-      <publishTime>09/09/2019 15:09:28</publishTime>
+      <publishTime>03/24/2020 02:29:34</publishTime>
     </File>
     <File Include="CustomScripts/Sta/CreateSta.js">
       <publishTime>10/19/2019 18:13:33</publishTime>
@@ -13268,6 +13397,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="CustomScripts/Sta/ViewSta.js">
       <publishTime>10/19/2019 18:13:33</publishTime>
+    </File>
+    <File Include="CustomScripts/StatusInformation/CreateStatusInformationSetup.js">
+      <publishTime>04/01/2020 05:35:24</publishTime>
+    </File>
+    <File Include="CustomScripts/StatusInformation/StatusInformationSetupSetting.js">
+      <publishTime>04/01/2020 05:21:27</publishTime>
+    </File>
+    <File Include="CustomScripts/StatusInformation/ViewStatusInformationSetup.js">
+      <publishTime>04/01/2020 05:30:21</publishTime>
     </File>
     <File Include="CustomScripts/TableMultiSearch/dataTableMuliSearch.js">
       <publishTime>11/05/2019 22:08:29</publishTime>
@@ -13354,19 +13492,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2019 18:13:32</publishTime>
     </File>
     <File Include="CustomScripts/User/CreateUser.js">
-      <publishTime>09/09/2019 13:36:20</publishTime>
+      <publishTime>03/27/2020 18:05:52</publishTime>
     </File>
     <File Include="CustomScripts/User/UserSetting.js">
-      <publishTime>09/08/2019 17:24:13</publishTime>
+      <publishTime>03/27/2020 14:06:37</publishTime>
     </File>
     <File Include="CustomScripts/User/ViewUser.js">
-      <publishTime>09/14/2019 14:49:48</publishTime>
+      <publishTime>03/27/2020 14:20:09</publishTime>
     </File>
     <File Include="CustomScripts/UserPrivileges/CreateUserPrivileges.js">
-      <publishTime>09/29/2019 16:11:01</publishTime>
+      <publishTime>03/24/2020 16:22:03</publishTime>
     </File>
     <File Include="CustomScripts/UserPrivileges/UserPrivilegesSetting.js">
-      <publishTime>10/31/2018 15:31:47</publishTime>
+      <publishTime>03/24/2020 14:43:40</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>09/15/2019 14:44:52</publishTime>
@@ -13387,7 +13525,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/07/2019 12:06:49</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/29/2019 12:20:16</publishTime>
+      <publishTime>03/23/2020 23:37:15</publishTime>
     </File>
     <File Include="ReportFile/ReportDataSet.xsc">
       <publishTime>09/02/2019 13:08:46</publishTime>
@@ -13962,6 +14100,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/jquery-1.10.2.min.map">
       <publishTime>09/29/2019 12:47:02</publishTime>
     </File>
+    <File Include="Scripts/jquery-1.6.3.js">
+      <publishTime>03/23/2020 23:37:10</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.6.3.min.js">
+      <publishTime>03/23/2020 23:37:10</publishTime>
+    </File>
     <File Include="Scripts/jquery.dataTables.min.js">
       <publishTime>09/03/2018 12:15:51</publishTime>
     </File>
@@ -13997,6 +14141,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/select2.min.js">
       <publishTime>04/11/2018 14:26:30</publishTime>
+    </File>
+    <File Include="Scripts/toastr.css">
+      <publishTime>03/24/2020 00:01:12</publishTime>
+    </File>
+    <File Include="Scripts/toastr.js">
+      <publishTime>03/23/2020 23:37:15</publishTime>
+    </File>
+    <File Include="Scripts/toastr.min.js">
+      <publishTime>03/23/2020 23:37:15</publishTime>
     </File>
     <File Include="Scripts/_references.js">
       <publishTime>11/04/2019 16:56:10</publishTime>
@@ -14058,6 +14211,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/AttOrderEntry/_View.cshtml">
       <publishTime>11/05/2019 21:15:23</publishTime>
     </File>
+    <File Include="Views/AuthoritySetup/Index.cshtml">
+      <publishTime>03/30/2020 02:27:26</publishTime>
+    </File>
+    <File Include="Views/AuthoritySetup/_Create.cshtml">
+      <publishTime>03/30/2020 02:28:53</publishTime>
+    </File>
+    <File Include="Views/AuthoritySetup/_View.cshtml">
+      <publishTime>03/31/2020 13:06:55</publishTime>
+    </File>
     <File Include="Views/AwdByApptSetup/Index.cshtml">
       <publishTime>09/25/2019 16:45:46</publishTime>
     </File>
@@ -14094,6 +14256,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Batch/_View.cshtml">
       <publishTime>10/15/2019 09:09:18</publishTime>
     </File>
+    <File Include="Views/CapabilityOfWeapons/Index.cshtml">
+      <publishTime>03/30/2020 17:52:40</publishTime>
+    </File>
+    <File Include="Views/CapabilityOfWeapons/_Create.cshtml">
+      <publishTime>03/30/2020 18:11:13</publishTime>
+    </File>
+    <File Include="Views/CapabilityOfWeapons/_View.cshtml">
+      <publishTime>03/30/2020 17:31:23</publishTime>
+    </File>
     <File Include="Views/ChargeSetup/Index.cshtml">
       <publishTime>10/19/2019 18:13:31</publishTime>
     </File>
@@ -14117,6 +14288,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/CivilEducationSetup/_Create.cshtml">
       <publishTime>09/24/2019 17:59:32</publishTime>
+    </File>
+    <File Include="Views/CountrySetup/Index.cshtml">
+      <publishTime>03/31/2020 04:11:51</publishTime>
+    </File>
+    <File Include="Views/CountrySetup/_Create.cshtml">
+      <publishTime>03/31/2020 03:49:29</publishTime>
+    </File>
+    <File Include="Views/CountrySetup/_View.cshtml">
+      <publishTime>03/31/2020 03:50:12</publishTime>
     </File>
     <File Include="Views/CourseGradeSetup/Index.cshtml">
       <publishTime>10/19/2019 18:13:31</publishTime>
@@ -14175,6 +14355,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/FinalBill/Index.cshtml">
       <publishTime>09/17/2019 17:49:48</publishTime>
     </File>
+    <File Include="Views/FiscalYearSetup/Index.cshtml">
+      <publishTime>03/28/2020 20:49:46</publishTime>
+    </File>
+    <File Include="Views/FiscalYearSetup/_Create.cshtml">
+      <publishTime>03/29/2020 02:38:21</publishTime>
+    </File>
+    <File Include="Views/FiscalYearSetup/_View.cshtml">
+      <publishTime>03/29/2020 02:49:25</publishTime>
+    </File>
+    <File Include="Views/GunModelType/Index.cshtml">
+      <publishTime>03/30/2020 18:21:12</publishTime>
+    </File>
+    <File Include="Views/GunModelType/_Create.cshtml">
+      <publishTime>03/31/2020 00:12:55</publishTime>
+    </File>
+    <File Include="Views/GunModelType/_View.cshtml">
+      <publishTime>03/31/2020 00:16:02</publishTime>
+    </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>04/11/2018 14:26:29</publishTime>
     </File>
@@ -14201,6 +14399,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/IndividualProfileEntry/IndividualProfileEntryUI.cshtml">
       <publishTime>10/17/2019 15:02:32</publishTime>
+    </File>
+    <File Include="Views/LocalAgentSetup/Index.cshtml">
+      <publishTime>03/31/2020 14:57:19</publishTime>
+    </File>
+    <File Include="Views/LocalAgentSetup/_Create.cshtml">
+      <publishTime>03/31/2020 15:46:50</publishTime>
+    </File>
+    <File Include="Views/LocalAgentSetup/_View.cshtml">
+      <publishTime>03/31/2020 15:50:36</publishTime>
     </File>
     <File Include="Views/LPR/Index.cshtml">
       <publishTime>09/17/2019 17:49:48</publishTime>
@@ -14236,13 +14443,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/05/2019 16:27:38</publishTime>
     </File>
     <File Include="Views/Menu/Index.cshtml">
-      <publishTime>04/16/2018 15:01:43</publishTime>
+      <publishTime>03/25/2020 00:49:58</publishTime>
     </File>
     <File Include="Views/Menu/_Create.cshtml">
-      <publishTime>11/04/2019 16:33:10</publishTime>
+      <publishTime>03/25/2020 00:48:49</publishTime>
     </File>
     <File Include="Views/Menu/_View.cshtml">
-      <publishTime>09/03/2018 12:40:08</publishTime>
+      <publishTime>03/23/2020 18:16:12</publishTime>
     </File>
     <File Include="Views/MsnPostingMovO/Index.cshtml">
       <publishTime>10/24/2019 15:40:33</publishTime>
@@ -14267,6 +14474,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/MsnSetup/_View.cshtml">
       <publishTime>11/04/2019 11:58:21</publishTime>
+    </File>
+    <File Include="Views/NameOfGun/Index.cshtml">
+      <publishTime>03/31/2020 00:21:34</publishTime>
+    </File>
+    <File Include="Views/NameOfGun/_Create.cshtml">
+      <publishTime>03/31/2020 00:15:03</publishTime>
+    </File>
+    <File Include="Views/NameOfGun/_View.cshtml">
+      <publishTime>03/31/2020 00:11:43</publishTime>
     </File>
     <File Include="Views/PasswordChange/Index.cshtml">
       <publishTime>08/07/2018 13:30:49</publishTime>
@@ -14316,6 +14532,24 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/PostingOrderEntry/__modal.cshtml">
       <publishTime>10/03/2019 16:49:37</publishTime>
     </File>
+    <File Include="Views/ProcurementCategorySetup/Index.cshtml">
+      <publishTime>03/31/2020 20:45:22</publishTime>
+    </File>
+    <File Include="Views/ProcurementCategorySetup/_Create.cshtml">
+      <publishTime>04/01/2020 05:37:38</publishTime>
+    </File>
+    <File Include="Views/ProcurementCategorySetup/_View.cshtml">
+      <publishTime>03/31/2020 20:43:40</publishTime>
+    </File>
+    <File Include="Views/QuantitySetup/Index.cshtml">
+      <publishTime>03/31/2020 21:42:56</publishTime>
+    </File>
+    <File Include="Views/QuantitySetup/_Create.cshtml">
+      <publishTime>03/31/2020 21:49:51</publishTime>
+    </File>
+    <File Include="Views/QuantitySetup/_View.cshtml">
+      <publishTime>03/31/2020 21:41:27</publishTime>
+    </File>
     <File Include="Views/Rank/Index.cshtml">
       <publishTime>09/23/2019 17:51:56</publishTime>
     </File>
@@ -14324,6 +14558,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Rank/_View.cshtml">
       <publishTime>10/15/2019 09:09:17</publishTime>
+    </File>
+    <File Include="Views/RoleSetup/Index.cshtml">
+      <publishTime>03/27/2020 19:13:58</publishTime>
+    </File>
+    <File Include="Views/RoleSetup/_Create.cshtml">
+      <publishTime>03/27/2020 19:08:41</publishTime>
+    </File>
+    <File Include="Views/RoleSetup/_View.cshtml">
+      <publishTime>03/27/2020 19:08:56</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/11/2018 14:26:29</publishTime>
@@ -14335,7 +14578,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2018 14:26:29</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPageMetronic.cshtml">
-      <publishTime>03/15/2020 16:40:27</publishTime>
+      <publishTime>03/27/2020 18:03:55</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/11/2018 14:26:29</publishTime>
@@ -14351,6 +14594,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/StaSetup/_Create.cshtml">
       <publishTime>10/19/2019 18:13:31</publishTime>
+    </File>
+    <File Include="Views/StatusInformation/Index.cshtml">
+      <publishTime>04/01/2020 05:34:21</publishTime>
+    </File>
+    <File Include="Views/StatusInformation/_Create.cshtml">
+      <publishTime>04/01/2020 05:36:05</publishTime>
+    </File>
+    <File Include="Views/StatusInformation/_View.cshtml">
+      <publishTime>04/01/2020 05:20:18</publishTime>
     </File>
     <File Include="Views/TableMultiSearch/Index.cshtml">
       <publishTime>11/05/2019 22:08:27</publishTime>
@@ -14446,13 +14698,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/25/2019 16:45:46</publishTime>
     </File>
     <File Include="Views/User/Index.cshtml">
-      <publishTime>09/10/2019 17:06:47</publishTime>
+      <publishTime>03/27/2020 21:40:41</publishTime>
     </File>
     <File Include="Views/User/_Create.cshtml">
-      <publishTime>09/14/2019 15:39:04</publishTime>
+      <publishTime>03/27/2020 13:22:16</publishTime>
     </File>
     <File Include="Views/User/_View.cshtml">
-      <publishTime>09/14/2019 15:39:04</publishTime>
+      <publishTime>03/26/2020 01:58:29</publishTime>
     </File>
     <File Include="Views/UserLogins/Login.cshtml">
       <publishTime>03/14/2020 02:19:51</publishTime>
@@ -14461,7 +14713,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2018 12:45:44</publishTime>
     </File>
     <File Include="Views/UserPrivileges/_UserPrivileges.cshtml">
-      <publishTime>09/08/2018 16:35:28</publishTime>
+      <publishTime>03/24/2020 16:27:13</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>09/07/2019 12:41:05</publishTime>
@@ -14470,7 +14722,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2018 14:26:30</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/15/2020 17:47:16</publishTime>
+      <publishTime>03/28/2020 19:26:38</publishTime>
     </File>
   </ItemGroup>
 </Project>
