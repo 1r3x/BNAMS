@@ -26,6 +26,7 @@
         <EntityTypeShape EntityType="SmartRecordModel.M_Category" Width="1.5" PointX="3.375" PointY="12.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_TypeOfShip" Width="1.5" PointX="11.375" PointY="12.75" />
         <EntityTypeShape EntityType="SmartRecordModel.O_ShipOrDepotInfo" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_WareHouseType" Width="1.5" PointX="13.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

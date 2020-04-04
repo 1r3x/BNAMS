@@ -59,7 +59,7 @@ namespace BNAMS.Manager.Manager
             //for image
             if (aObj.EmpImage != null)
             {
-                aObj.EmpImage = "uploads/" + aObj.EmpIdNumber + aObj.EmpImage.Replace(@"/", ".");
+                aObj.EmpImage = "uploads/emloyeeimg/" + aObj.EmpIdNumber + aObj.EmpImage.Replace(@"/", ".");
 
             }
 

@@ -236,6 +236,18 @@
           <Property Name="TypeName" Type="varchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="M_WareHouseType">
+          <Key>
+            <PropertyRef Name="WareHouseTypeId" />
+          </Key>
+          <Property Name="WareHouseTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WarHouseType" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="O_DirectorateInfo">
           <Key>
             <PropertyRef Name="DirectorateID" />
@@ -349,6 +361,7 @@
           <EntitySet Name="M_RoleForEmp" EntityType="Self.M_RoleForEmp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_StatusInformation" EntityType="Self.M_StatusInformation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_TypeOfShip" EntityType="Self.M_TypeOfShip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_WareHouseType" EntityType="Self.M_WareHouseType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="O_DirectorateInfo" EntityType="Self.O_DirectorateInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="O_ShipOrDepotInfo" EntityType="Self.O_ShipOrDepotInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
@@ -426,6 +439,7 @@
           <EntitySet Name="M_Category" EntityType="SmartRecordModel.M_Category" />
           <EntitySet Name="M_TypeOfShip" EntityType="SmartRecordModel.M_TypeOfShip" />
           <EntitySet Name="O_ShipOrDepotInfo" EntityType="SmartRecordModel.O_ShipOrDepotInfo" />
+          <EntitySet Name="M_WareHouseType" EntityType="SmartRecordModel.M_WareHouseType" />
           </EntityContainer>
         <ComplexType Name="SessionHelper_Result">
           <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -821,6 +835,18 @@
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="WebAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="M_WareHouseType">
+          <Key>
+            <PropertyRef Name="WareHouseTypeId" />
+          </Key>
+          <Property Name="WareHouseTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WarHouseType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
@@ -1264,6 +1290,19 @@
                 <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
                 <ScalarProperty Name="ShipOrDepotCode" ColumnName="ShipOrDepotCode" />
                 <ScalarProperty Name="ShipOrDepotId" ColumnName="ShipOrDepotId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_WareHouseType">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_WareHouseType">
+              <MappingFragment StoreEntitySet="M_WareHouseType">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="WarHouseType" ColumnName="WarHouseType" />
+                <ScalarProperty Name="WareHouseTypeId" ColumnName="WareHouseTypeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

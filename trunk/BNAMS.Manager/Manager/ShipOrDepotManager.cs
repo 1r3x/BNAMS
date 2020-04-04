@@ -49,7 +49,7 @@ namespace BNAMS.Manager.Manager
         public ResponseModel GetAllShipOrDepotSetup()
         {
             var data = from a in _db.O_ShipOrDepotInfo
-                join auth in _db.O_DirectorateInfo on a.AuthorityId equals auth.DirectorateID
+                join auth in _db.M_Authorirty on a.AuthorityId equals auth.AuthorityId
                 join cap in _db.M_CapabilityOfWeapons on a.CapabilityOfWeaponsId equals cap.CapabilityOfWeaponsID
                 join type in _db.M_TypeOfShip on a.TypeOfShip equals type.ShipTypeId
                 join cat in _db.M_Category on a.ShipDepotCategory equals cat.CategoryId
@@ -66,7 +66,12 @@ namespace BNAMS.Manager.Manager
                     a.IsActive,
                     a.SetUpBy,
                     a.SetUpDateTime,
-                    auth.DirectorateName,
+                    a.ShipDepotName,
+                    a.ShipDepotCategory,
+                    a.WTCallSign,
+                    a.WebAddress,
+                    a.TypeOfShip,
+                    auth.AuthorityName,
                     cap.CapabilityName,
                     type.TypeName,
                     cat.CategoryName
@@ -114,6 +119,18 @@ namespace BNAMS.Manager.Manager
                 {
                     id = parentMenu.CapabilityOfWeaponsID,
                     text = parentMenu.CapabilityName
+                };
+            return _aModel.Respons(data);
+        }
+
+        public ResponseModel LoadAdminAuth()
+        {
+            var data = from parentMenu in _db.M_Authorirty
+                where parentMenu.IsActive == true
+                select new
+                {
+                    id = parentMenu.AuthorityId,
+                    text = parentMenu.AuthorityName
                 };
             return _aModel.Respons(data);
         }

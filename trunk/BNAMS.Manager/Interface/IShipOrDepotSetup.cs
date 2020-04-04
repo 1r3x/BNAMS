@@ -15,5 +15,6 @@ namespace BNAMS.Manager.Interface
         ResponseModel LoadShipOrdepotCategory();
         ResponseModel LoadShipOrdepoType();
         ResponseModel LoadCapbilityOfWeapons();
+        ResponseModel LoadAdminAuth();
     }
 }

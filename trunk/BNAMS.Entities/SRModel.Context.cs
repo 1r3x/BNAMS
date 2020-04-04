@@ -48,6 +48,7 @@ namespace BNAMS.Entities
         public virtual DbSet<M_Category> M_Category { get; set; }
         public virtual DbSet<M_TypeOfShip> M_TypeOfShip { get; set; }
         public virtual DbSet<O_ShipOrDepotInfo> O_ShipOrDepotInfo { get; set; }
+        public virtual DbSet<M_WareHouseType> M_WareHouseType { get; set; }
     
         public virtual ObjectResult<SessionHelper_Result> SessionHelper(Nullable<int> empId)
         {

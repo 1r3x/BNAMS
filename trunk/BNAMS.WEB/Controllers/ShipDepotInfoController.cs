@@ -67,6 +67,12 @@ namespace BNAMS.Controllers
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
 
+        // GET: ShipDepotInfo/LoadAdminAuth
+        public JsonResult LoadAdminAuth()
+        {
+            var data = _aManager.LoadAdminAuth();
+            return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
+        }
 
 
     }

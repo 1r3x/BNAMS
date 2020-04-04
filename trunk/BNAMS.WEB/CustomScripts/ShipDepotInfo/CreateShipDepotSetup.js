@@ -3,17 +3,14 @@ var CreateShipDepotSetupManager = {
 
     SaveShipDepotSetup: function () {
         debugger;
-        if ($("#txtLocalAgentName").val()=="") {
+        if ($("#txtShipDepotName").val()=="") {
             toastr.warning("LocalAgent Name is Required.");
-        }
-        else if ($("#ddlArea").val()=="") {
-            toastr.warning("Area is Required.");
         }
        
         else {
             $.ajax({
                 type: "POST",
-                url: "/ShipDepot/CreateShipDepot",
+                url: "/ShipDepotInfo/CreateShipOrDepotSetup",
                 data: JSON.stringify(ShipDepotSetupHelper.GetShipDepotSetupData()),
                 success: function (response) {
                     debugger;
@@ -38,7 +35,7 @@ var CreateShipDepotSetupManager = {
     IsDuplicate: function () {
         $.ajax({
             type: "POST",
-            url: "/ShipDepot/IsDuplicate",
+            url: "/ShipDepotInfo/IsDuplicate",
 
             data: JSON.stringify(ShipDepotSetupHelper.GetShipDepotSetupData()),
             success: function (response) {
@@ -75,14 +72,14 @@ var ShipDepotSetupHelper = {
         });
     },
 
-    LoadCountry: function () {
+    LoadAdmin: function () {
         var b = [];
         $.ajax({
             type: "GET",
             dataType: "json",
             cache: true,
             async: false,
-            url: "/ShipDepot/LoadCountry",
+            url: "/ShipDepotInfo/LoadAdminAuth",
             success: function (response) {
 
                 b = response.data;
@@ -96,31 +93,120 @@ var ShipDepotSetupHelper = {
         return b;
     },
 
-    LoadCountryDD: function () {
+    LoadAdminDD: function () {
         debugger;
-        var parentMenu = ShipDepotSetupHelper.LoadCountry();
-        $("#ddlCountry").select2({
-            placeholder: "Select Country",
+        var parentMenu = ShipDepotSetupHelper.LoadAdmin();
+        $("#ddlAdmin").select2({
+            placeholder: "Select Admin/Auth",
+            data: parentMenu
+        });
+    },
+    LoadCapOfWeapons: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/ShipDepotInfo/LoadCapbilityOfWeapons",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+
+    LoadCapOfWeaponsDD: function () {
+        debugger;
+        var parentMenu = ShipDepotSetupHelper.LoadCapOfWeapons();
+        $("#ddlCapabilityOfWeapons").select2({
+            placeholder: "Select Cap. Of Weapons",
             data: parentMenu
         });
     },
 
-    LoadEnlistmentDD: function () {
-        $("#ddlEnlistmentType").select2({
-            placeholder: "Select Enlistment Type",
+    LoadCategory: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/ShipDepotInfo/LoadShipOrdepotCategory",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+
+    LoadCategoryDD: function () {
+        debugger;
+        var parentMenu = ShipDepotSetupHelper.LoadCategory();
+        $("#ddlCategory").select2({
+            placeholder: "Select Category",
+            data: parentMenu
         });
     },
 
+    LoadType: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/ShipDepotInfo/LoadShipOrdepoType",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+
+    LoadTypeDD: function () {
+        debugger;
+        var parentMenu = ShipDepotSetupHelper.LoadType();
+        $("#ddlTypeOfShip").select2({
+            placeholder: "Select Type",
+            data: parentMenu
+        });
+    },
+
+
     ClearField: function () {
         debugger;
-        $("#hdnLocalAgentId").val();
-        $("#txtLocalAgentCode").val();
-        $("#txtSupplierName").val();
-        $("#txtAddress").val();
-        $("#ddlEnlistmentType").val();
-        $("#txtEmail").val();
-        $("#txtContractNumber").val();
-        $("#ddlCountry").val();
+        $("#hdnShipDepotId").val("");
+        $("#txtShipDepotCode").val("");
+        $("#ddlAdmin").val("").trigger("change");
+        $("#ddlCategory").val("").trigger("change");
+        $("#txtShipDepotName").val("");
+        $("#dateOfCommission").val("");
+        $("#txtWTCallSign").val("");
+        $("#ddlCapabilityOfWeapons").val("").trigger("change");
+        $("#ddlTypeOfShip").val("").trigger("change");
+        $("#txtTelephone ").val("");
+        $("#txtEmail").val("");
+        $("#txtFaxNo").val("");
+        $("#txtWebAddress").val("");
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
@@ -129,14 +215,24 @@ var ShipDepotSetupHelper = {
     GetShipDepotSetupData: function () {
         debugger;
         var aObj = new Object();
-        aObj.LocalAgentId = $("#hdnLocalAgentId").val();
-        aObj.Code = $("#txtLocalAgentCode").val();
-        aObj.SupplierName = $("#txtSupplierName").val();
-        aObj.Address = $("#txtAddress").val();
-        aObj.EnlistmintType = $("#ddlEnlistmentType").val();
+        aObj.ShipOrDepotId = $("#hdnShipDepotId").val();
+        aObj.ShipOrDepotCode = $("#txtShipDepotCode").val();
+        aObj.AuthorityId = $("#ddlAdmin").val();
+        aObj.ShipDepotCategory = $("#ddlCategory").val();
+        aObj.ShipDepotName = $("#txtShipDepotName").val();
+        aObj.DateOfCommmisson = $("#dateOfCommission").val();
+        aObj.WTCallSign = $("#txtWTCallSign").val();
+        aObj.CapabilityOfWeaponsId = $("#ddlCapabilityOfWeapons").val();
+        aObj.TypeOfShip = $("#ddlTypeOfShip").val();
+        aObj.Telephone = $("#txtTelephone ").val();
         aObj.Email = $("#txtEmail").val();
-        aObj.ContractNumber = $("#txtContractNumber").val();
-        aObj.Country = $("#ddlCountry").val();
+        aObj.FaxNo = $("#txtFaxNo").val();
+        aObj.WebAddress = $("#txtWebAddress").val();
+
+
+        aObj.SetUpBy = $("#hdnSetupBy").val();
+        aObj.SetUpDateTime = $("#hdnSetupDateTime").val();
+
         aObj.IsActive = ($("#chkIsActive").prop("checked") == true) ? 1 : 0;
         return aObj;
     }

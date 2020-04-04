@@ -3,8 +3,10 @@
     debugger;
     ShipDepotSetupHelper.InitShipDepotSetup();
     viewShipDepotSetup.GetShipDepotSetupDataTable();
-    ShipDepotSetupHelper.LoadCountryDD();
-    ShipDepotSetupHelper.LoadEnlistmentDD();
+    ShipDepotSetupHelper.LoadAdminDD();
+    ShipDepotSetupHelper.LoadCategoryDD();
+    ShipDepotSetupHelper.LoadTypeDD();
+    ShipDepotSetupHelper.LoadCapOfWeaponsDD();
     //this function is for go to top of the page
     function topFunction() {
         //for safari 
