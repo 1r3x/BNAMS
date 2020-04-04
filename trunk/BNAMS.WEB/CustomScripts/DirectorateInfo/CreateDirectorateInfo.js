@@ -1,28 +1,27 @@
 ﻿
-var CreateUserManager = {
+var CreateDirectorateInfoManager = {
 
-
-    SaveUser: function () {
+    SaveDirectorateInfo: function () {
         debugger;
-        if ($("#txtEmployeeUserName").val() == "") {
-            toastr.warning("Employee User Name is Required.");
+        if ($("#txtAuthorityName").val() == "") {
+            toastr.warning("Directorate Name is Required.");
         }
-        //else if ($("#txtMenuClass").val()=="") {
-        //    toastr.warning("Menu class is Required.");
-        //}
+        else if ($("#ddlArea").val() == "") {
+            toastr.warning("Area is Required.");
+        }
+
         else {
             $.ajax({
                 type: "POST",
-                url: "/User/CreateUser",
-                data: JSON.stringify(UserHelper.GetUserData()),
-
+                url: "/DirectorateInfo/CreateDirectorateInfo",
+                data: JSON.stringify(DirectorateInfoHelper.GetDirectorateInfoData()),
                 success: function (response) {
-
+                    debugger;
                     if (response != null) {
-                        toastr.success(response.data.Message);
-                        viewUser.GetUserDataTable();
-                        UserHelper.ClearField();
 
+                        toastr.success(response.data.Message);
+                        viewDirectorateInfo.GetDirectorateInfoDataTable();
+                        DirectorateInfoHelper.ClearField();
                         $("#btnSubmit").html("Save");
                     }
                 },
@@ -47,7 +46,7 @@ var CreateUserManager = {
                 }
 
                 $.ajax({
-                    url: "/User/UploadFiles",
+                    url: "/DirectorateInfo/UploadFiles",
                     type: "POST",
                     contentType: false, // Not to set any content header  
                     processData: false, // Not to process data  
@@ -63,24 +62,24 @@ var CreateUserManager = {
                 toastr.warning("File is not supported.");
             }
 
+
         }
 
-
     },
+
     IsDuplicate: function () {
-        debugger;
         $.ajax({
             type: "POST",
-            url: "/User/CheckDuplicate",
+            url: "/DirectorateInfo/IsDuplicate",
 
-            data: JSON.stringify(UserHelper.GetUserData()),
+            data: JSON.stringify(DirectorateInfoHelper.GetDirectorateInfoData()),
             success: function (response) {
                 debugger;
                 if (response.data.Status == true) {
                     toastr.warning(response.data.Message);
 
                 } else if (response.data.Status == false) {
-                    CreateUserManager.SaveUser();
+                    CreateDirectorateInfoManager.SaveDirectorateInfo();
 
                 }
             },
@@ -91,32 +90,31 @@ var CreateUserManager = {
             contentType: "application/json"
 
         });
-    },
-
+    }
 
 };
 
 
-var UserHelper = {
-    InitUser: function () {
-        UserHelper.LoadAllRoleDD();
+var DirectorateInfoHelper = {
+    InitDirectorateInfo: function () {
+
         $("#btnSubmit").unbind("click").click(function () {
-            CreateUserManager.IsDuplicate();
-            //UserHelper.ClearField();
+            CreateDirectorateInfoManager.IsDuplicate();
+
         });
         $("#btnCancel").unbind("click").click(function () {
-            UserHelper.ClearField();
+            DirectorateInfoHelper.ClearField();
         });
     },
 
-    LoadMasterUser: function () {
+    LoadArea: function () {
         var b = [];
         $.ajax({
             type: "GET",
             dataType: "json",
             cache: true,
             async: false,
-            url: "/User/LoadAllRole",
+            url: "/DirectorateInfo/LoadAllArea",
             success: function (response) {
 
                 b = response.data;
@@ -130,57 +128,62 @@ var UserHelper = {
         return b;
     },
 
-    LoadAllRoleDD: function () {
+    LoadAreaDD: function () {
         debugger;
-        var parentUser = UserHelper.LoadMasterUser();
-        $("#ddlUserRole").select2({
-            placeholder: "Select Master",
-            data: parentUser
+        var parentMenu = DirectorateInfoHelper.LoadArea();
+        $("#ddlArea").select2({
+            placeholder: "Select Area",
+            data: parentMenu
         });
     },
 
-
     ClearField: function () {
-        //for image
+        debugger;
+        //for image input
         var input = $("#getFile");
 
         input.replaceWith(input.val("").clone(true));
         $("#blah").attr("src", "http://placehold.it/180");
 
+        $("#hdnDirectorateId").val("");
+        $("#txtOrganizationCode").val("");
+        $("#txtAuthorityName").val("");
+        $("#txtAddress").val("");
+        $("#txtTelephone").val("");
+        $("#txtFaxNo").val("");
+        $("#txtWebAddress").val("");
+        $("#ddlArea").val("").trigger("change");
 
-        $("#hdnEmployeeId").val("");
-        $("#txtFirstName").val("");
-        $("#txtLastName").val("");
-        $("#txtEmpIdNumber").val("");
-        $("#txtEmployeeEmail").val("");
-        $("#txtEmployeePhone").val("");
-        $("#txtEmployeeUserName").val("");
-        $("#ddlUserRole").val("").trigger("change");
         $("#chkIsActive").removeAttr("checked", "checked");
+        $("#hdnSetupBy").val("");
+        $("#hdnSetupDateTime").val("");
         $("#btnSubmit").html("Save");
     },
 
-    GetUserData: function () {
+
+    GetDirectorateInfoData: function () {
         debugger;
         var aObj = new Object();
-        //for image
+
+
         if (document.getElementById("getFile").files[0] != undefined) {
-            aObj.EmpImage = document.getElementById("getFile").files[0].type.toString().replace(/application/i, "");
+            aObj.Logo = document.getElementById("getFile").files[0].type.toString().replace(/application/i, "");
         } else {
-            aObj.EmpImage = document.getElementById("blah").src;
+            aObj.Logo = document.getElementById("blah").src;    
         }
-
-
-
-        aObj.EmpId = $("#hdnEmployeeId").val();
-        aObj.EmpFName = $("#txtFirstName").val();
-        aObj.EmpLastName = $("#txtLastName").val();
-        aObj.EmpIdNumber = $("#txtEmpIdNumber").val();
-        aObj.EmpEmail = $("#txtEmployeeEmail").val();
-        aObj.EmpCell = $("#txtEmployeePhone").val();
-        aObj.EmpUserName = $("#txtEmployeeUserName").val();
-        aObj.RoleId = $("#ddlUserRole").val();
-        aObj.IsActive = ($("#chkIsActive").prop("checked") === true) ? 1 : 0;
+        
+        //
+        aObj.DirectorateID = $("#hdnDirectorateId").val();
+        aObj.DirectorateCode = $("#txtOrganizationCode").val();
+        aObj.DirectorateName = $("#txtAuthorityName").val();
+        aObj.Address = $("#txtAddress").val();
+        aObj.TelephoneNumber = $("#txtTelephone").val();
+        aObj.FaxNumber = $("#txtFaxNo").val();
+        aObj.WebAddress = $("#txtWebAddress").val();
+        aObj.AreaId = $("#ddlArea").val();
+        aObj.IsActive = ($("#chkIsActive").prop("checked") == true) ? 1 : 0;
+        aObj.SetUpBy = $("#hdnSetupBy").val();
+        aObj.SetUpDateTime = $("#hdnSetupDateTime").val();
         return aObj;
     }
 };

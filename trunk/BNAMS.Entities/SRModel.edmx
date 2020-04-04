@@ -67,6 +67,14 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="M_Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
         <EntityType Name="M_Country">
           <Key>
             <PropertyRef Name="CountryNameId" />
@@ -220,6 +228,56 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="M_TypeOfShip">
+          <Key>
+            <PropertyRef Name="ShipTypeId" />
+          </Key>
+          <Property Name="ShipTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="O_DirectorateInfo">
+          <Key>
+            <PropertyRef Name="DirectorateID" />
+          </Key>
+          <Property Name="DirectorateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DirectorateCode" Type="varchar" MaxLength="50" />
+          <Property Name="DirectorateName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="250" />
+          <Property Name="TelephoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="FaxNumber" Type="varchar" MaxLength="50" />
+          <Property Name="WebAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Logo" Type="varchar" MaxLength="150" />
+          <Property Name="AreaId" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="O_ShipOrDepotInfo">
+          <Key>
+            <PropertyRef Name="ShipOrDepotId" />
+          </Key>
+          <Property Name="ShipOrDepotId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShipOrDepotCode" Type="varchar" MaxLength="50" />
+          <Property Name="AuthorityId" Type="int" />
+          <Property Name="ShipDepotCategory" Type="int" />
+          <Property Name="ShipDepotName" Type="varchar" MaxLength="50" />
+          <Property Name="DateOfCommmisson" Type="datetime" />
+          <Property Name="WTCallSign" Type="varchar" MaxLength="50" />
+          <Property Name="CapabilityOfWeaponsId" Type="int" />
+          <Property Name="TypeOfShip" Type="int" />
+          <Property Name="Telephone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="FaxNo" Type="varchar" MaxLength="50" />
+          <Property Name="WebAddress" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="UserLogin">
           <Key>
             <PropertyRef Name="Id" />
@@ -232,7 +290,7 @@
           <Property Name="IsActive" Type="bit" />
           <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastLoginDate" Type="datetime" />
-          <Property Name="EmpId" Type="int" />
+          <Property Name="EmpId" Type="varchar" MaxLength="50" />
           <Property Name="SessionKey" Type="text" />
           <Property Name="UserFullName" Type="varchar" MaxLength="100" />
         </EntityType>
@@ -279,6 +337,7 @@
           <EntitySet Name="M_Area" EntityType="Self.M_Area" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Authorirty" EntityType="Self.M_Authorirty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_CapabilityOfWeapons" EntityType="Self.M_CapabilityOfWeapons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_Category" EntityType="Self.M_Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Country" EntityType="Self.M_Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_FiscalYear" EntityType="Self.M_FiscalYear" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_GunModelType" EntityType="Self.M_GunModelType" Schema="dbo" store:Type="Tables" />
@@ -289,6 +348,9 @@
           <EntitySet Name="M_QuantityCategory" EntityType="Self.M_QuantityCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_RoleForEmp" EntityType="Self.M_RoleForEmp" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_StatusInformation" EntityType="Self.M_StatusInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_TypeOfShip" EntityType="Self.M_TypeOfShip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_DirectorateInfo" EntityType="Self.O_DirectorateInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="O_ShipOrDepotInfo" EntityType="Self.O_ShipOrDepotInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserPermission" EntityType="Self.UserPermission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
@@ -357,9 +419,13 @@
           <EntitySet Name="M_QuantityCategory" EntityType="SmartRecordModel.M_QuantityCategory" />
           <EntitySet Name="M_RoleForEmp" EntityType="SmartRecordModel.M_RoleForEmp" />
           <EntitySet Name="M_StatusInformation" EntityType="SmartRecordModel.M_StatusInformation" />
+          <EntitySet Name="O_DirectorateInfo" EntityType="SmartRecordModel.O_DirectorateInfo" />
           <EntitySet Name="UserLogins" EntityType="SmartRecordModel.UserLogin" />
           <EntitySet Name="UserPermissions" EntityType="SmartRecordModel.UserPermission" />
           <EntitySet Name="UserRoles" EntityType="SmartRecordModel.UserRole" />
+          <EntitySet Name="M_Category" EntityType="SmartRecordModel.M_Category" />
+          <EntitySet Name="M_TypeOfShip" EntityType="SmartRecordModel.M_TypeOfShip" />
+          <EntitySet Name="O_ShipOrDepotInfo" EntityType="SmartRecordModel.O_ShipOrDepotInfo" />
           </EntityContainer>
         <ComplexType Name="SessionHelper_Result">
           <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -664,6 +730,25 @@
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="O_DirectorateInfo">
+          <Key>
+            <PropertyRef Name="DirectorateID" />
+          </Key>
+          <Property Name="DirectorateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DirectorateCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DirectorateName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TelephoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FaxNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="AreaId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
         <EntityType Name="UserLogin">
           <Key>
             <PropertyRef Name="Id" />
@@ -676,7 +761,7 @@
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
-          <Property Name="EmpId" Type="Int32" />
+          <Property Name="EmpId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SessionKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="UserFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
@@ -700,6 +785,45 @@
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="M_Category">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="M_TypeOfShip">
+          <Key>
+            <PropertyRef Name="ShipTypeId" />
+          </Key>
+          <Property Name="ShipTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="O_ShipOrDepotInfo">
+          <Key>
+            <PropertyRef Name="ShipOrDepotId" />
+          </Key>
+          <Property Name="ShipOrDepotId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShipOrDepotCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AuthorityId" Type="Int32" />
+          <Property Name="ShipDepotCategory" Type="Int32" />
+          <Property Name="ShipDepotName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfCommmisson" Type="DateTime" Precision="3" />
+          <Property Name="WTCallSign" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CapabilityOfWeaponsId" Type="Int32" />
+          <Property Name="TypeOfShip" Type="Int32" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WebAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
         </EntityType>
@@ -1039,6 +1163,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="O_DirectorateInfo">
+            <EntityTypeMapping TypeName="SmartRecordModel.O_DirectorateInfo">
+              <MappingFragment StoreEntitySet="O_DirectorateInfo">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+                <ScalarProperty Name="TelephoneNumber" ColumnName="TelephoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="DirectorateName" ColumnName="DirectorateName" />
+                <ScalarProperty Name="DirectorateCode" ColumnName="DirectorateCode" />
+                <ScalarProperty Name="DirectorateID" ColumnName="DirectorateID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UserLogins">
             <EntityTypeMapping TypeName="SmartRecordModel.UserLogin">
               <MappingFragment StoreEntitySet="UserLogin">
@@ -1078,6 +1222,48 @@
                 <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
                 <ScalarProperty Name="UserRoleName" ColumnName="UserRoleName" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_Category">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_Category">
+              <MappingFragment StoreEntitySet="M_Category">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_TypeOfShip">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_TypeOfShip">
+              <MappingFragment StoreEntitySet="M_TypeOfShip">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ShipTypeId" ColumnName="ShipTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="O_ShipOrDepotInfo">
+            <EntityTypeMapping TypeName="SmartRecordModel.O_ShipOrDepotInfo">
+              <MappingFragment StoreEntitySet="O_ShipOrDepotInfo">
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="WebAddress" ColumnName="WebAddress" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="TypeOfShip" ColumnName="TypeOfShip" />
+                <ScalarProperty Name="CapabilityOfWeaponsId" ColumnName="CapabilityOfWeaponsId" />
+                <ScalarProperty Name="WTCallSign" ColumnName="WTCallSign" />
+                <ScalarProperty Name="DateOfCommmisson" ColumnName="DateOfCommmisson" />
+                <ScalarProperty Name="ShipDepotName" ColumnName="ShipDepotName" />
+                <ScalarProperty Name="ShipDepotCategory" ColumnName="ShipDepotCategory" />
+                <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
+                <ScalarProperty Name="ShipOrDepotCode" ColumnName="ShipOrDepotCode" />
+                <ScalarProperty Name="ShipOrDepotId" ColumnName="ShipOrDepotId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

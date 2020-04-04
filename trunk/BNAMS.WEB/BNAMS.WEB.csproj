@@ -159,6 +159,7 @@
     <Compile Include="Controllers\AuthoritySetupController.cs" />
     <Compile Include="Controllers\CapabilityOfWeaponsController.cs" />
     <Compile Include="Controllers\CountrySetupController.cs" />
+    <Compile Include="Controllers\DirectorateInfoController.cs" />
     <Compile Include="Controllers\FiscalYearSetupController.cs" />
     <Compile Include="Controllers\GunModelTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Controllers\QuantitySetupController.cs" />
     <Compile Include="Controllers\RoleSetupController.cs" />
     <Compile Include="Controllers\RoleWiseMenuController.cs" />
+    <Compile Include="Controllers\ShipDepotInfoController.cs" />
     <Compile Include="Controllers\StatusInformationController.cs" />
     <Compile Include="Controllers\TableMultiSearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -209,6 +211,9 @@
     <Content Include="CustomScripts\CountrySetup\CreateCountrySetup.js" />
     <Content Include="CustomScripts\CountrySetup\CountrySetupSetting.js" />
     <Content Include="CustomScripts\CountrySetup\ViewCountrySetup.js" />
+    <Content Include="CustomScripts\DirectorateInfo\DirectorateInfoSetting.js" />
+    <Content Include="CustomScripts\DirectorateInfo\CreateDirectorateInfo.js" />
+    <Content Include="CustomScripts\DirectorateInfo\ViewDirectorateInfo.js" />
     <Content Include="CustomScripts\FiscalYearSetup\CreateFiscalYearSetup.js" />
     <Content Include="CustomScripts\FiscalYearSetup\FiscalYearSetting.js" />
     <Content Include="CustomScripts\FiscalYearSetup\ViewFiscalYearSetup.js" />
@@ -239,6 +244,9 @@
     <Content Include="CustomScripts\RoleSetup\RoleSetupSetting.js" />
     <Content Include="CustomScripts\RoleSetup\ViewRoleSetup.js" />
     <Content Include="CustomScripts\Shared\MenuLoadForSharedLayout.js" />
+    <Content Include="CustomScripts\ShipDepotInfo\CreateShipDepotSetup.js" />
+    <Content Include="CustomScripts\ShipDepotInfo\ShipDepotSetupSetting.js" />
+    <Content Include="CustomScripts\ShipDepotInfo\ViewShipDepotSetup.js" />
     <Content Include="CustomScripts\StatusInformation\CreateStatusInformationSetup.js" />
     <Content Include="CustomScripts\StatusInformation\StatusInformationSetupSetting.js" />
     <Content Include="CustomScripts\StatusInformation\ViewStatusInformationSetup.js" />
@@ -543,6 +551,12 @@
     <Content Include="Views\StatusInformation\Index.cshtml" />
     <Content Include="Views\StatusInformation\_Create.cshtml" />
     <Content Include="Views\StatusInformation\_View.cshtml" />
+    <Content Include="Views\DirectorateInfo\Index.cshtml" />
+    <Content Include="Views\DirectorateInfo\_Create.cshtml" />
+    <Content Include="Views\DirectorateInfo\_View.cshtml" />
+    <Content Include="Views\ShipDepotInfo\Index.cshtml" />
+    <Content Include="Views\ShipDepotInfo\_Create.cshtml" />
+    <Content Include="Views\ShipDepotInfo\_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

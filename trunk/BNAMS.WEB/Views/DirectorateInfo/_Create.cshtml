@@ -1,0 +1,158 @@
+﻿
+
+<div class="panel panel-primary dialog-panel">
+    <div class="panel-heading">
+        <h5>Directoraet Info Create</h5>
+    </div>
+
+
+    <input type="text" id="hdnDirectorateId" hidden="" value="0" />
+    <input type="text" id="hdnSetupBy" hidden="" value="0" />
+    <input type="text" id="hdnSetupDateTime" hidden="" value="0" />
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" style="margin-left: 10px">
+
+            <div class="form-group">
+
+                <label class="col-md-4 control-label">
+                    Organization Logo
+                </label>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <input type="file" id="getFile" onchange="readURL(this);" style="display: none" />
+                        <img style="max-width: 180px;" id="blah" src="http://placehold.it/180" alt="No Image Found Please Add An Image" />
+                        <button type="button" style="display: block; width: 120px; height: 30px; margin-top: 10px" onclick="document.getElementById('getFile').click()">Add Photo</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Organization code
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" readonly="" id="txtOrganizationCode" class="form-control" placeholder="Organization Code(Auto)">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Admin Authority Name
+                    </label>
+                    <div class="col-md-8">
+                        <input type="text" id="txtAuthorityName" class="form-control" placeholder="Enter Admin Authority Name">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Address
+                    </label>
+                    <div class="col-md-8">
+                        <textarea id="txtAddress" class="form-control" placeholder="Enter Address" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Telephone No
+                    </label>
+                    <div class="col-md-8">
+                        <input type="text" id="txtTelephone" class="form-control" placeholder="Enter Authority Telephone">
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Fax No
+                    </label>
+                    <div class="col-md-8">
+                        <input type="text" id="txtFaxNo" class="form-control" placeholder="Enter Authority Fax No.">
+                    </div>
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Web site Address
+                    </label>
+                    <div class="col-md-8">
+                        <input type="text" id="txtWebAddress" class="form-control" placeholder="Enter Authority Web Address">
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Area
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlArea">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="chkIsActive">
+                    <label class="form-check-label">
+                        Is Active
+                    </label>
+                </div>
+
+            </div>
+
+
+
+            <div class="form-actions right1">
+                <button type="button" id="btnSubmit" class="btn btn-primary">
+                    Save
+                </button>
+                <button type="button" id="btnCancel" class="btn btn-danger">
+                    Reset
+                </button>
+
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function readURL(input) {
+        debugger;
+        var fileType = document.getElementById("getFile").files[0].type.toString().replace(/application/i, "");
+        if (fileType == "image/jpeg" || fileType == "image/png") {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        } else {
+            toastr.warning("Only .jpg  or .png");
+        }
+
+
+    }
+</script>

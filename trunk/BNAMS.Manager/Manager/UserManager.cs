@@ -27,13 +27,21 @@ namespace BNAMS.Manager.Manager
         {
             if (aObj.EmpId == 0)
             {
+                //for image
+                if (aObj.EmpImage != null)
+                {
+                    aObj.EmpImage = "uploads/emloyeeimg/" + aObj.EmpIdNumber + aObj.EmpImage.Replace(@"/", ".");
+
+                }
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                _aRepository.Insert(aObj);
+                _aRepository.Save();
 
                 var login = new UserLogin()
                 {
-                    EmpId = aObj.EmpId,
+                    EmpId = aObj.EmpIdNumber,
                     Email = aObj.EmpEmail,
                     Password = "EA-03-29-73-61-E3-03-05-1B-FB-06-1C-49-0A-C7-2A",
                     UserName = aObj.EmpUserName,
@@ -45,12 +53,16 @@ namespace BNAMS.Manager.Manager
                 _anotherRepository.Insert(login);
                 _anotherRepository.Save();
 
-                _aRepository.Insert(aObj);
-                _aRepository.Save();
-
-
                 return _aModel.Respons(true, "New Employee Saved Successfully.");
             }
+
+            //for image
+            if (aObj.EmpImage != null)
+            {
+                aObj.EmpImage = "uploads/" + aObj.EmpIdNumber + aObj.EmpImage.Replace(@"/", ".");
+
+            }
+
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
             _aRepository.Update(aObj);
@@ -76,6 +88,7 @@ namespace BNAMS.Manager.Manager
                     a.EmpEmail,
                     a.EmpFName,
                     a.EmpLastName,
+                    a.EmpImage,
                     a.EmpUserName,
                     a.EmpIdNumber,
                     a.IsActive,

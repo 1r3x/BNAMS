@@ -51,6 +51,7 @@
     <Compile Include="Interface\ICapabilityOfWeaponsSetup.cs" />
     <Compile Include="Interface\IAuthoritySetup.cs" />
     <Compile Include="Interface\ICountrySetup.cs" />
+    <Compile Include="Interface\IDirectorateInfo.cs" />
     <Compile Include="Interface\IFiscalYearSetup.cs" />
     <Compile Include="Interface\IGunModel.cs" />
     <Compile Include="Interface\IHome.cs" />
@@ -63,12 +64,14 @@
     <Compile Include="Interface\IQuantitySetup.cs" />
     <Compile Include="Interface\IRoleSetup.cs" />
     <Compile Include="Interface\IRoleWiseMenu.cs" />
+    <Compile Include="Interface\IShipOrDepotSetup.cs" />
     <Compile Include="Interface\IStatusInformationSetup.cs" />
     <Compile Include="Interface\IUser.cs" />
     <Compile Include="Interface\IUserPrivileges.cs" />
     <Compile Include="Manager\AuthoritySetupManager.cs" />
     <Compile Include="Manager\CapabilityOfWaeponsSetupManager.cs" />
     <Compile Include="Manager\CountrySetupManager.cs" />
+    <Compile Include="Manager\DirectorateInfoManager.cs" />
     <Compile Include="Manager\FiscalYearSetupManager.cs" />
     <Compile Include="Manager\GunModelTypeSetupManager.cs" />
     <Compile Include="Manager\HomeManager.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="Manager\QuantitySetupManager.cs" />
     <Compile Include="Manager\RoleSetupManager.cs" />
     <Compile Include="Manager\RoleWiseMenuManger.cs" />
+    <Compile Include="Manager\ShipOrDepotManager.cs" />
     <Compile Include="Manager\StatusInformationSetipManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Manager\UserPrivilegesManager.cs" />

@@ -154,7 +154,7 @@ namespace BNAMS.Controllers.login
             if (validateDate != null && validateDate.Id > 0)
             {
                 var empId = validateDate.EmpId;
-                var sessionData = usersEntities.SessionHelper(empId).FirstOrDefault();
+                var sessionData = (from s in usersEntities.Emp_BasicInfo where (s.EmpIdNumber==validateDate.EmpId) select s).FirstOrDefault();
                 int? userId = validateDate.Id;
                 FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
                 Session["userid"] = validateDate.Id;

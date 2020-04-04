@@ -19,9 +19,13 @@
         <EntityTypeShape EntityType="SmartRecordModel.M_QuantityCategory" Width="1.5" PointX="8.75" PointY="5.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_RoleForEmp" Width="1.5" PointX="6.75" PointY="9.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_StatusInformation" Width="1.5" PointX="8.75" PointY="9.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserLogin" Width="1.5" PointX="10.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserPermission" Width="1.5" PointX="10.75" PointY="4.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.O_DirectorateInfo" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserLogin" Width="1.5" PointX="10.75" PointY="5.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserPermission" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_Category" Width="1.5" PointX="3.375" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_TypeOfShip" Width="1.5" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.O_ShipOrDepotInfo" Width="1.5" PointX="0.75" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

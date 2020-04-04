@@ -35,7 +35,7 @@ namespace BNAMS.Controllers
         // GET: PasswordChange/ChangePassword
         public JsonResult ChangePassword(UserLogin aObj)
         {
-            SmartRecordEntities usersEntities = new SmartRecordEntities();
+            var usersEntities = new SmartRecordEntities();
             var keyNew = (from s in usersEntities.UserLogins where (s.EmpId == aObj.EmpId) select s).FirstOrDefault();
             aObj.Password =  Helper.EncodePassword(aObj.Password, keyNew.SessionKey); ;
             var data = _aManager.ChangePassword(aObj);

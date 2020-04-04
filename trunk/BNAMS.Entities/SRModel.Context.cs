@@ -41,9 +41,13 @@ namespace BNAMS.Entities
         public virtual DbSet<M_QuantityCategory> M_QuantityCategory { get; set; }
         public virtual DbSet<M_RoleForEmp> M_RoleForEmp { get; set; }
         public virtual DbSet<M_StatusInformation> M_StatusInformation { get; set; }
+        public virtual DbSet<O_DirectorateInfo> O_DirectorateInfo { get; set; }
         public virtual DbSet<UserLogin> UserLogins { get; set; }
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
+        public virtual DbSet<M_Category> M_Category { get; set; }
+        public virtual DbSet<M_TypeOfShip> M_TypeOfShip { get; set; }
+        public virtual DbSet<O_ShipOrDepotInfo> O_ShipOrDepotInfo { get; set; }
     
         public virtual ObjectResult<SessionHelper_Result> SessionHelper(Nullable<int> empId)
         {

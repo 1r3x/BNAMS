@@ -12,18 +12,10 @@ namespace BNAMS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class UserLogin
+    public partial class M_Category
     {
-        public int Id { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-        public string PhoneNo { get; set; }
-        public Nullable<int> UserRole { get; set; }
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
         public Nullable<bool> IsActive { get; set; }
-        public string UserName { get; set; }
-        public Nullable<System.DateTime> LastLoginDate { get; set; }
-        public string EmpId { get; set; }
-        public string SessionKey { get; set; }
-        public string UserFullName { get; set; }
     }
 }

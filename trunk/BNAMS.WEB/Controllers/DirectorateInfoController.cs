@@ -1,47 +1,51 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using BNAMS.Entities;
 using BNAMS.Manager.Interface;
 using BNAMS.Manager.Manager;
-using SR.Controllers.login;
 
 namespace BNAMS.Controllers
 {
-    [Authorization]
-    public class UserController : Controller
+    public class DirectorateInfoController : Controller
     {
-        private IUser _aManager;
 
-        public UserController()
+        private IDirectorateInfo _aManager;
+
+        public DirectorateInfoController()
         {
-            _aManager = new UserManager();
+            _aManager = new DirectorateInfoManager();
         }
-        
 
-        // GET: User
+        // GET: DirectorateInfo
         public ActionResult Index()
         {
             return View();
         }
 
-        // SET: User/CreateUser
-        public JsonResult CreateUser(Emp_BasicInfo aObj)
+        // SET: DirectorateInfo/CreateDirectorateInfo
+        public JsonResult CreateDirectorateInfo(O_DirectorateInfo aObj)
         {
-            Session["employeeIdNumber"] = aObj.EmpIdNumber;
-            var data = _aManager.CreateEmployee(aObj);
+            Session["DirectorateName"] = aObj.DirectorateName;
+
+            var data = _aManager.CreateDirectorateInfo(aObj);
             return Json(new { success = data.Status, data }, JsonRequestBehavior.AllowGet);
         }
 
 
-        // SET: User/UploadFiles
+        // SET: DirectorateInfo/UploadFiles
         [HttpPost]
         public ActionResult UploadFiles()
         {
             if (Request.Files.Count > 0)
             {
-                var fileName = (string)System.Web.HttpContext.Current.Session["employeeIdNumber"];
+                var fileName = (string)System.Web.HttpContext.Current.Session["DirectorateName"];
                 if (fileName == null) return Json("Oops Something Went Wrong!");
                 var modifiedFile = fileName.Replace(@"/", "");
-                var path = Server.MapPath("~/uploads/emloyeeimg/");
+                var path = Server.MapPath("~/Uploads/");
                 var files = Request.Files;
                 for (var i = 0; i < files.Count; i++)
                 {
@@ -57,27 +61,28 @@ namespace BNAMS.Controllers
             }
         }
 
-        // SET: User/CheckDuplicate
-        public JsonResult CheckDuplicate(Emp_BasicInfo aObj)
+
+
+
+        // GET: DirectorateInfo/IsDuplicate
+        public JsonResult IsDuplicate(O_DirectorateInfo aObj)
         {
-            var data = _aManager.DuplicateCheck(aObj);
+            var data = _aManager.CheckDuplicate(aObj);
             return Json(new { success = data.Status, data }, JsonRequestBehavior.AllowGet);
         }
 
-
-
-        // GET: User/GetAllUser
-        public JsonResult GetAllUser()
+        // GET: DirectorateInfo/GetAllDirectorateInfo
+        public JsonResult GetAllDirectorateInfo()
         {
-            var data = _aManager.GetAllUser();
+            var data = _aManager.GetAllDirectorateInfo();
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
-
-        // GET: User/LoadAllUser
-        public JsonResult LoadAllRole()
+        // GET: DirectorateInfo/LoadAllArea
+        public JsonResult LoadAllArea()
         {
-            var data = _aManager.LoadUserRole();
+            var data = _aManager.LoadArea();
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
+        
     }
 }

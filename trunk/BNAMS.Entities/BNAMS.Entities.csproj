@@ -53,6 +53,9 @@
     <Compile Include="M_CapabilityOfWeapons.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_Category.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_Country.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
@@ -81,6 +84,15 @@
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_StatusInformation.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_TypeOfShip.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="O_DirectorateInfo.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="O_ShipOrDepotInfo.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

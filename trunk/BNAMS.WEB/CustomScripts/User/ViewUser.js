@@ -41,6 +41,11 @@ var viewUserHelper = {
 
     populateDataForEditButton: function (aObj) {
         debugger;
+        //for image
+        if (aObj.EmpImage != null) {
+            $("#blah").attr("src", aObj.EmpImage);
+        }
+
         $("#hdnEmployeeId").val(aObj.EmpId);
         $("#txtFirstName").val(aObj.EmpFName);
         $("#txtLastName").val(aObj.EmpLastName);

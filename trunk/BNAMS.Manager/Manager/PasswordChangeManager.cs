@@ -39,7 +39,7 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel GetCurrentPassword()
         {
-            var empId = Convert.ToInt32(HttpContext.Current.Session["empId"].ToString());
+            var empId = HttpContext.Current.Session["empId"].ToString();
 
             var data = from a in _db.UserLogins
                 where a.IsActive == true && a.EmpId==empId
