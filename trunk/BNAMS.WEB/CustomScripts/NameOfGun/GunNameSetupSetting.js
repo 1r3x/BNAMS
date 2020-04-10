@@ -3,6 +3,7 @@
 
     GunNameSetupHelper.InitGunNameSetup();
     viewGunNameSetup.GetGunNameSetupDataTable();
+    GunNameSetupHelper.LoadWeaponsTypeDD();
 
     //this function is for go to top of the page
     function topFunction() {

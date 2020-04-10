@@ -27,28 +27,34 @@ namespace BNAMS.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Emp_BasicInfo> Emp_BasicInfo { get; set; }
+        public virtual DbSet<I_BinLocation> I_BinLocation { get; set; }
+        public virtual DbSet<I_WeaponsInfo> I_WeaponsInfo { get; set; }
+        public virtual DbSet<M_Agent> M_Agent { get; set; }
+        public virtual DbSet<M_AgentEnlistment> M_AgentEnlistment { get; set; }
+        public virtual DbSet<M_AgentType> M_AgentType { get; set; }
         public virtual DbSet<M_Area> M_Area { get; set; }
         public virtual DbSet<M_Authorirty> M_Authorirty { get; set; }
         public virtual DbSet<M_CapabilityOfWeapons> M_CapabilityOfWeapons { get; set; }
         public virtual DbSet<M_Country> M_Country { get; set; }
+        public virtual DbSet<M_DepotShipCategory> M_DepotShipCategory { get; set; }
         public virtual DbSet<M_FiscalYear> M_FiscalYear { get; set; }
-        public virtual DbSet<M_GunModelType> M_GunModelType { get; set; }
-        public virtual DbSet<M_LocalAgent> M_LocalAgent { get; set; }
         public virtual DbSet<M_Menu> M_Menu { get; set; }
-        public virtual DbSet<M_NameOfGun> M_NameOfGun { get; set; }
+        public virtual DbSet<M_NameOfWeapon> M_NameOfWeapon { get; set; }
         public virtual DbSet<M_ProcurementCategory> M_ProcurementCategory { get; set; }
+        public virtual DbSet<M_ProductCategory> M_ProductCategory { get; set; }
         public virtual DbSet<M_QuantityCategory> M_QuantityCategory { get; set; }
-        public virtual DbSet<M_RoleForEmp> M_RoleForEmp { get; set; }
         public virtual DbSet<M_StatusInformation> M_StatusInformation { get; set; }
+        public virtual DbSet<M_TypeOfShip> M_TypeOfShip { get; set; }
+        public virtual DbSet<M_WareHouseType> M_WareHouseType { get; set; }
+        public virtual DbSet<M_WeaponsModelType> M_WeaponsModelType { get; set; }
+        public virtual DbSet<M_WeaponsType> M_WeaponsType { get; set; }
         public virtual DbSet<O_DirectorateInfo> O_DirectorateInfo { get; set; }
+        public virtual DbSet<O_ShipOrDepotInfo> O_ShipOrDepotInfo { get; set; }
+        public virtual DbSet<O_WareHouse> O_WareHouse { get; set; }
         public virtual DbSet<UserLogin> UserLogins { get; set; }
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<M_Category> M_Category { get; set; }
-        public virtual DbSet<M_TypeOfShip> M_TypeOfShip { get; set; }
-        public virtual DbSet<O_ShipOrDepotInfo> O_ShipOrDepotInfo { get; set; }
-        public virtual DbSet<M_WareHouseType> M_WareHouseType { get; set; }
+        public virtual DbSet<M_PriceType> M_PriceType { get; set; }
     
         public virtual ObjectResult<SessionHelper_Result> SessionHelper(Nullable<int> empId)
         {

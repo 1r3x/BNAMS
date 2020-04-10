@@ -14,26 +14,18 @@
             "columns": [
                 { "data": "Code", "autoWidth": true },
                 { "data": "SupplierName", "autoWidth": true },
-                { "data": "EnlistmintType", "autoWidth": true },
+                { "data": "AgentType", "autoWidth": true },
+                { "data": "EnlistmentType", "autoWidth": true },
                 { "data": "ContractNumber", "autoWidth": true },
-                { "data": "Country", "autoWidth": true },
+                { "data": "CountryName", "autoWidth": true },
                 { "data": "Email", "autoWidth": true },
                 { "data": "IsActive", "autoWidth": true },
                 { "defaultContent": '<button class="btn btn-primary glyphicon glyphicon-edit" id="btnEdit" type="button"></button>' }
                 //{ "defaultContent": '<button class="btn btn-danger glyphicon glyphicon-remove" id="btnDelete" type="button"></button>' }
             ],
-            "columnDefs1": [
-                {
-                    targets: [2],
-                    render: function (data, type, row) {
-                        alert(data);
-                        return data == "true" ? "Yes" : "No";
-                    }
-                }
-            ],
             "columnDefs": [
                 {
-                    targets: [6],
+                    targets: [7],
                     render: function (data, type, row) {
                         return data == "1" ? "Active" : "Inactive";
                     }
@@ -54,7 +46,8 @@ var viewLocalAgentSetupSetupHelper = {
         $("#txtLocalAgentCode").val(aObj.Code);
         $("#txtSupplierName").val(aObj.SupplierName);
         $("#txtAddress").val(aObj.Address);
-        $("#ddlEnlistmentType").val(aObj.EnlistmintType).trigger("change");
+        $("#ddlEnlistmentType").val(aObj.EnlistmentTypeId).trigger("change");
+        $("#ddlAgentType").val(aObj.AgentTypeId).trigger("change");
         $("#txtEmail").val(aObj.Email);
         $("#txtContractNumber").val(aObj.ContractNumber);
         $("#ddlCountry").val(aObj.Country).trigger("change");

@@ -14,7 +14,7 @@ namespace BNAMS.Entities
     
     public partial class M_WareHouseType
     {
-        public int WareHouseTypeId { get; set; }
+        public string WareHouseTypeId { get; set; }
         public string WarHouseType { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public Nullable<int> SetUpBy { get; set; }

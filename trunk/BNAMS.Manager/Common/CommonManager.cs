@@ -39,6 +39,8 @@ namespace BNAMS.Manager.Common
             builder.Append(RandomString(2, false));
             return builder.ToString();
         }
+
+
     }
 
 

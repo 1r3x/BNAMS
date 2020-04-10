@@ -13,16 +13,33 @@ namespace BNAMS.Controllers
     {
 
         private ICapabilityOfWaeponsSetup _aManager;
+        private readonly SmartRecordEntities _db;
 
         public CapabilityOfWeaponsController()
         {
             _aManager = new CapabilityOfWaeponsSetupManager();
+            _db = new SmartRecordEntities();
         }
 
         // GET: CapabilityOfWeapons
         public ActionResult Index()
         {
-            return View();
+            const string menuName = "CapabilityOfWeapons";
+            var roleId = (int?)System.Web.HttpContext.Current.Session["roleId"];
+
+            var menuId = (from a in _db.M_Menu
+                where a.MenuUrl == menuName
+                select a.Id).Single();
+
+
+            var permission = (from a in _db.UserPermissions
+                where a.RoleId == roleId && a.MenuId == menuId
+                select new
+                {
+                    a.PermId
+                }).Any();
+
+            return permission ? (ActionResult)View() : RedirectToAction("Login", "Userlogins");
         }
 
 

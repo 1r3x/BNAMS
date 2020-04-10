@@ -4,6 +4,10 @@
     </div>
 
     <input type="text" id="hdnEmployeeId" hidden="" value="0" />
+    <input type="text" id="hdnSetupBy" hidden="" value="0" />
+    <input type="text" id="hdnSetupDateTime" hidden="" value="0" />
+    <input type="text" id="hdnPasswordBearer" hidden="" value="0" />
+
     <div class="panel-body">
         <form class="form-horizontal" role="form" style="margin-left: 10px">
             <div class="row">
@@ -68,29 +72,23 @@
                         </div>
                     </div>
 
-                    @*<div class="col-sm-12 col-md-3 col-lg-6">
-                            <div class="form-group">
-                                <label>
-                                    Password:
-                                </label>
-                                <input type="password" id="txtPassword" class="txt form-control" placeholder="Enter Password" />
-                            </div>
-                        </div>
 
-                        <div class="col-sm-12 col-md-3 col-lg-6">
-                            <div class="form-group">
-                                <label>
-                                    Retype Password:
-                                </label>
-                                <input type="password" id="reTypepassword" class="txt form-control" placeholder="Retype Password" />
-                            </div>
-                        </div>*@
 
 
                     <div class="col-sm-12 col-md-3 col-lg-6">
                         <div class="form-group">
                             <label>User Role:</label>
                             <select class="form-control" id="ddlUserRole">
+                                <option></option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="col-sm-12 col-md-3 col-lg-6">
+                        <div class="form-group">
+                            <label>Under Directorate Info:</label>
+                            <select class="form-control" id="ddlDirectorate">
                                 <option></option>
                             </select>
                         </div>

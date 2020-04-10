@@ -14,6 +14,7 @@
             "columns": [
                 { "data": "DirectorateCode", "autoWidth": true },
                 { "data": "DirectorateName", "autoWidth": true },
+                { "data": "AuthorityName", "autoWidth": true },
                 { "data": "AreaName", "autoWidth": true },
                 { "data": "FaxNumber", "autoWidth": true },
                 { "data": "TelephoneNumber", "autoWidth": true },
@@ -23,7 +24,7 @@
             ],
             "columnDefs": [
                 {
-                    targets: [5],
+                    targets: [6],
                     render: function (data, type, row) {
                         return data == "1" ? "Active" : "Inactive";
                     }
@@ -45,6 +46,7 @@ var viewDirectorateInfoHelper = {
         }
 
         $("#hdnDirectorateId").val(aObj.DirectorateID);
+        $("#ddlAdmin").val(aObj.AuthorityId).trigger("change");
         $("#txtOrganizationCode").val(aObj.DirectorateCode);
         $("#txtAuthorityName").val(aObj.DirectorateName);
         $("#txtAddress").val(aObj.Address);

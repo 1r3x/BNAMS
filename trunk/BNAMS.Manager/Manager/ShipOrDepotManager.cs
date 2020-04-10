@@ -26,12 +26,16 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateShipOrDepotSetup(O_ShipOrDepotInfo aObj)
         {
-            if (aObj.ShipOrDepotId == 0)
+            if (aObj.ShipOrDepotId == "0")
             {
+                aObj.ShipOrDepotId = (string)HttpContext.Current.Session["directorateId"] + "-SHIP-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                 aObj.ShipOrDepotCode = "SHIP-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsBackup = false;
+                aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
@@ -40,6 +44,9 @@ namespace BNAMS.Manager.Manager
             }
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+
 
             _aRepository.Update(aObj);
             _aRepository.Save();
@@ -52,7 +59,7 @@ namespace BNAMS.Manager.Manager
                 join auth in _db.M_Authorirty on a.AuthorityId equals auth.AuthorityId
                 join cap in _db.M_CapabilityOfWeapons on a.CapabilityOfWeaponsId equals cap.CapabilityOfWeaponsID
                 join type in _db.M_TypeOfShip on a.TypeOfShip equals type.ShipTypeId
-                join cat in _db.M_Category on a.ShipDepotCategory equals cat.CategoryId
+                join cat in _db.M_DepotShipCategory on a.ShipDepotCategory equals cat.CategoryId
                 select new
                 {
                     a.ShipOrDepotId,
@@ -83,13 +90,13 @@ namespace BNAMS.Manager.Manager
         {
             var data = (from e in _db.O_ShipOrDepotInfo
                 where e.ShipOrDepotId != aObj.ShipOrDepotId && e.ShipDepotName == aObj.ShipDepotName
-                select e.ShipOrDepotId).FirstOrDefault();
-            return data != 0 ? _aModel.Respons(true, "This Ship Or Depot already Exist") : _aModel.Respons(false, "");
+                select e.ShipOrDepotId).Any();
+            return data == true ? _aModel.Respons(true, "This Ship Or Depot already Exist") : _aModel.Respons(false, "");
         }
 
         public ResponseModel LoadShipOrdepotCategory()
         {
-            var data = from parentMenu in _db.M_Category
+            var data = from parentMenu in _db.M_DepotShipCategory
                 where parentMenu.IsActive == true
                 select new
                 {

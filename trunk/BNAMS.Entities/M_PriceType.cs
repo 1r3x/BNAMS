@@ -12,14 +12,10 @@ namespace BNAMS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class M_RoleForEmp
+    public partial class M_PriceType
     {
-        public int RoleId { get; set; }
-        public string RoleName { get; set; }
+        public string PriceTypeId { get; set; }
+        public string PriceType { get; set; }
         public Nullable<bool> IsActive { get; set; }
-        public Nullable<int> SetUpUserId { get; set; }
-        public Nullable<System.DateTime> SetUpDateTime { get; set; }
-        public Nullable<int> UpdateUserId { get; set; }
-        public Nullable<System.DateTime> UpdateDateTime { get; set; }
     }
 }

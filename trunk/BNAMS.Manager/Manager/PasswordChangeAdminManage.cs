@@ -21,13 +21,13 @@ namespace BNAMS.Manager.Manager
         }
         public ResponseModel LoadEmpByUserId(string userName)
         {
-            var empData = (from a in _db.Emp_BasicInfo
-                where a.EmpIdNumber == userName
+            var empData = (from a in _db.UserLogins
+                where a.UserName == userName
                 select new
                 {
-                    a.EmpId,
-                    a.EmpFName,
-                    a.EmpLastName
+                    a.Id,
+                    a.FirstName,
+                    a.LastName
                 }).ToList();
             return _aModel.Respons(empData);
 
@@ -35,9 +35,9 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel ChangePassword(UserLogin aObj)
         {
-            if (_db.UserLogins.Any(m => m.EmpId == aObj.EmpId))
+            if (_db.UserLogins.Any(m => m.Id == aObj.Id))
             {
-                var extreading = _db.UserLogins.FirstOrDefault(m => m.EmpId == aObj.EmpId);
+                var extreading = _db.UserLogins.FirstOrDefault(m => m.Id == aObj.Id);
 
                 if (extreading != null) extreading.Password = aObj.Password;
                 if (extreading != null) _db.UserLogins.Attach(extreading);

@@ -31,12 +31,15 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateCapabilityOfWaeponsSetup(M_CapabilityOfWeapons aObj)
         {
-            if (aObj.CapabilityOfWeaponsID == 0)
+            if (aObj.CapabilityOfWeaponsID == "0")
             {
+                aObj.CapabilityOfWeaponsID = (string)HttpContext.Current.Session["directorateId"] + "-CAP-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                 aObj.CapabilityCode = "CAP-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsBackup = false;
+                aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
@@ -45,6 +48,8 @@ namespace BNAMS.Manager.Manager
             }
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
 
             _aRepository.Update(aObj);
             _aRepository.Save();
@@ -72,8 +77,8 @@ namespace BNAMS.Manager.Manager
         {
             var data = (from e in _db.M_CapabilityOfWeapons
                 where e.CapabilityOfWeaponsID != aObj.CapabilityOfWeaponsID && e.CapabilityName == aObj.CapabilityName
-                select e.CapabilityOfWeaponsID).FirstOrDefault();
-            return data != 0 ? _aModel.Respons(true, "This Capability already Exist") : _aModel.Respons(false, "");
+                select e.CapabilityOfWeaponsID).Any();
+            return data == true ? _aModel.Respons(true, "This Capability already Exist") : _aModel.Respons(false, "");
         }
     }
 }

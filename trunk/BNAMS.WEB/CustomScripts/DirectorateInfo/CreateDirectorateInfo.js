@@ -137,6 +137,38 @@ var DirectorateInfoHelper = {
         });
     },
 
+
+
+    LoadAdmin: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/DirectorateInfo/LoadAdmin",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+
+    LoadAdminDD: function () {
+        debugger;
+        var parentMenu = DirectorateInfoHelper.LoadAdmin();
+        $("#ddlAdmin").select2({
+            placeholder: "Select Admin",
+            data: parentMenu
+        });
+    },
+
     ClearField: function () {
         debugger;
         //for image input
@@ -145,7 +177,8 @@ var DirectorateInfoHelper = {
         input.replaceWith(input.val("").clone(true));
         $("#blah").attr("src", "http://placehold.it/180");
 
-        $("#hdnDirectorateId").val("");
+        $("#hdnDirectorateId").val("0");
+        $("#ddlAdmin").val("").trigger("change");
         $("#txtOrganizationCode").val("");
         $("#txtAuthorityName").val("");
         $("#txtAddress").val("");
@@ -169,11 +202,12 @@ var DirectorateInfoHelper = {
         if (document.getElementById("getFile").files[0] != undefined) {
             aObj.Logo = document.getElementById("getFile").files[0].type.toString().replace(/application/i, "");
         } else {
-            aObj.Logo = document.getElementById("blah").src;    
+            aObj.Logo = $("#blah").attr("src");  
         }
         
         //
         aObj.DirectorateID = $("#hdnDirectorateId").val();
+        aObj.AdminAuthorityId = $("#ddlAdmin").val();
         aObj.DirectorateCode = $("#txtOrganizationCode").val();
         aObj.DirectorateName = $("#txtAuthorityName").val();
         aObj.Address = $("#txtAddress").val();

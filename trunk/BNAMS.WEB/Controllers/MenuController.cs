@@ -1,8 +1,8 @@
 ﻿using System.Web.Mvc;
+using BNAMS.Controllers.login;
 using BNAMS.Entities;
 using BNAMS.Manager.Interface;
 using BNAMS.Manager.Manager;
-using SR.Controllers.login;
 
 namespace BNAMS.Controllers
 {

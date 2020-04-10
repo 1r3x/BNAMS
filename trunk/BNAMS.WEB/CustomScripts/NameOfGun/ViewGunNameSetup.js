@@ -12,6 +12,7 @@
                 "contentType": "application/json; charset=utf-8"
             },
             "columns": [
+                { "data": "WeaponsType", "autoWidth": true },
                 { "data": "NameOfGunCode", "autoWidth": true },
                 { "data": "NameOfGun", "autoWidth": true },
                 { "data": "ShortName", "autoWidth": true },
@@ -34,7 +35,7 @@
             ],
             "columnDefs": [
                 {
-                    targets: [4],
+                    targets: [5],
                     render: function (data, type, row) {
                         return data == "1" ? "Active" : "Inactive";
                     }
@@ -51,6 +52,7 @@ var viewGunNameSetupHelper = {
     populateDataForEditButton: function (aObj) {
         debugger;
         $("#hdnNameOfGunId").val(aObj.NameOfGunId);
+        $("#ddlWeaponsType").val(aObj.WeaponsTypeId).trigger("change");
         $("#txtGunNameCode").val(aObj.NameOfGunCode);
         $("#txtGunName").val(aObj.NameOfGun);
         $("#txtShortName").val(aObj.ShortName);
@@ -60,7 +62,7 @@ var viewGunNameSetupHelper = {
             $("#createDate").val(cCreateDate);
 
         }
-         $("#hdnSetupBy").val(aObj.SetUpBy);
+        $("#hdnSetupBy").val(aObj.SetUpBy);
         if (aObj.SetUpDateTime != null) {
             var setUpDateTime = new Date(parseInt(aObj.SetUpDateTime.substr(6)));
             var cSetUpDateTime = setUpDateTime.getDate() + "." + (setUpDateTime.getMonth() + 1) + "." + setUpDateTime.getFullYear();

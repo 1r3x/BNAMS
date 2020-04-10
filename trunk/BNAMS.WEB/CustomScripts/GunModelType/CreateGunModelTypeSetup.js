@@ -73,11 +73,42 @@ var GunModelTypeSetupHelper = {
         });
     },
 
+    LoadWeaponsType: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/GunModelType/LoadWeaponsType",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+    LoadWeaponsTypeDD: function () {
+        debugger;
+        var parentMenu = GunModelTypeSetupHelper.LoadWeaponsType();
+        $("#ddlWeaponsType").select2({
+            placeholder: "Select Weapons Type",
+            data: parentMenu
+        });
+    },
+
+
 
 
     ClearField: function () {
         debugger;
         $("#hdnGunModelTypeId").val("");
+        $("#ddlWeaponsType").val("").trigger("change");
         $("#txtGunModelTypeCode").val("");
         $("#txtGunModelType").val("");
         $("#txtShortName").val("");
@@ -93,6 +124,7 @@ var GunModelTypeSetupHelper = {
         debugger;
         var aObj = new Object();
         aObj.GunModelId = $("#hdnGunModelTypeId").val();
+        aObj.WeaponsTypeId = $("#ddlWeaponsType").val();
         aObj.GunModelCode = $("#txtGunModelTypeCode").val();
         aObj.GunModelName = $("#txtGunModelType").val();
         aObj.ShortName = $("#txtShortName").val();

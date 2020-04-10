@@ -12,17 +12,10 @@ namespace BNAMS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class M_NameOfGun
+    public partial class M_ProductCategory
     {
-        public int NameOfGunId { get; set; }
-        public string NameOfGunCode { get; set; }
-        public string NameOfGun { get; set; }
-        public string ShortName { get; set; }
-        public Nullable<System.DateTime> CreateDate { get; set; }
+        public int ProductCategoryId { get; set; }
+        public string ProductCtegoryName { get; set; }
         public Nullable<bool> IsActive { get; set; }
-        public Nullable<int> SetUpBy { get; set; }
-        public Nullable<System.DateTime> SetUpDateTime { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDateTime { get; set; }
     }
 }

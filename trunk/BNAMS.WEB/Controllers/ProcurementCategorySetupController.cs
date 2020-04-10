@@ -12,15 +12,32 @@ namespace BNAMS.Controllers
     public class ProcurementCategorySetupController : Controller
     {
         private IProcurementSetup _aManager;
+        private readonly SmartRecordEntities _db;
 
         public ProcurementCategorySetupController()
         {
             _aManager = new ProcurementSetupManager();
+            _db = new SmartRecordEntities();
         }
         // GET: ProcurementCategorySetup
         public ActionResult Index()
         {
-            return View();
+            const string menuName = "ProcurementCategorySetup";
+            var roleId = (int?)System.Web.HttpContext.Current.Session["roleId"];
+
+            var menuId = (from a in _db.M_Menu
+                where a.MenuUrl == menuName
+                select a.Id).Single();
+
+
+            var permission = (from a in _db.UserPermissions
+                where a.RoleId == roleId && a.MenuId == menuId
+                select new
+                {
+                    a.PermId
+                }).Any();
+
+            return permission ? (ActionResult)View() : RedirectToAction("Login", "Userlogins");
         }
 
         // GET: ProcurementCategorySetup/CreateProcurementSetup

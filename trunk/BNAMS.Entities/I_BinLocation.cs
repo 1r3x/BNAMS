@@ -12,20 +12,21 @@ namespace BNAMS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class M_LocalAgent
+    public partial class I_BinLocation
     {
-        public int LocalAgentId { get; set; }
-        public string Code { get; set; }
-        public string SupplierName { get; set; }
-        public string Address { get; set; }
-        public Nullable<bool> EnlistmintType { get; set; }
-        public string Email { get; set; }
-        public string ContractNumber { get; set; }
-        public Nullable<int> Country { get; set; }
+        public string BinLocationId { get; set; }
+        public string ProgramName { get; set; }
+        public Nullable<System.DateTime> ProcessDate { get; set; }
+        public string WareHouseId { get; set; }
+        public string SelfIdNo { get; set; }
+        public string RowIdNo { get; set; }
+        public Nullable<int> ProductCategoryId { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public Nullable<int> SetUpBy { get; set; }
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

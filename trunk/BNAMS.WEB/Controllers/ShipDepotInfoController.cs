@@ -13,17 +13,34 @@ namespace BNAMS.Controllers
     {
 
         private IShipOrDepotSetup _aManager;
+        private readonly SmartRecordEntities _db;
 
         public ShipDepotInfoController()
         {
             _aManager = new ShipOrDepotManager();
+            _db = new SmartRecordEntities();
         }
 
 
         // GET: ShipDepotInfo
         public ActionResult Index()
         {
-            return View();
+            const string menuName = "ShipDepotInfo";
+            var roleId = (int?)System.Web.HttpContext.Current.Session["roleId"];
+
+            var menuId = (from a in _db.M_Menu
+                where a.MenuUrl == menuName
+                select a.Id).Single();
+
+
+            var permission = (from a in _db.UserPermissions
+                where a.RoleId == roleId && a.MenuId == menuId
+                select new
+                {
+                    a.PermId
+                }).Any();
+
+            return permission ? (ActionResult)View() : RedirectToAction("Login", "Userlogins");
         }
 
         // GET: ShipDepotInfo/CreateShipOrDepotSetup

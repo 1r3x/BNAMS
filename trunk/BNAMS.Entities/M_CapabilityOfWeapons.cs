@@ -14,7 +14,7 @@ namespace BNAMS.Entities
     
     public partial class M_CapabilityOfWeapons
     {
-        public int CapabilityOfWeaponsID { get; set; }
+        public string CapabilityOfWeaponsID { get; set; }
         public string CapabilityCode { get; set; }
         public string CapabilityName { get; set; }
         public string Telephone { get; set; }
@@ -24,5 +24,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

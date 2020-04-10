@@ -15,6 +15,12 @@ namespace BNAMS.Entities
     public partial class UserLogin
     {
         public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string EmpIdNumber { get; set; }
+        public string EmployeePhoneNo { get; set; }
+        public string EmpImage { get; set; }
+        public string DirectorateId { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string PhoneNo { get; set; }
@@ -22,8 +28,10 @@ namespace BNAMS.Entities
         public Nullable<bool> IsActive { get; set; }
         public string UserName { get; set; }
         public Nullable<System.DateTime> LastLoginDate { get; set; }
-        public string EmpId { get; set; }
         public string SessionKey { get; set; }
-        public string UserFullName { get; set; }
+        public Nullable<int> SetUpBy { get; set; }
+        public Nullable<System.DateTime> SetUpDateTime { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDateTime { get; set; }
     }
 }

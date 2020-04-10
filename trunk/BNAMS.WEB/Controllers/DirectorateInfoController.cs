@@ -14,16 +14,33 @@ namespace BNAMS.Controllers
     {
 
         private IDirectorateInfo _aManager;
+        private readonly SmartRecordEntities _db;
 
         public DirectorateInfoController()
         {
             _aManager = new DirectorateInfoManager();
+            _db=new SmartRecordEntities();
         }
 
         // GET: DirectorateInfo
         public ActionResult Index()
         {
-            return View();
+            const string menuName = "DirectorateInfo";
+            var roleId = (int?)System.Web.HttpContext.Current.Session["roleId"];
+
+            var menuId = (from a in _db.M_Menu
+                where a.MenuUrl == menuName
+                select a.Id).Single();
+
+
+            var permission = (from a in _db.UserPermissions
+                where a.RoleId == roleId && a.MenuId == menuId
+                select new
+                {
+                    a.PermId
+                }).Any();
+
+            return permission ? (ActionResult)View() : RedirectToAction("Login", "Userlogins");
         }
 
         // SET: DirectorateInfo/CreateDirectorateInfo
@@ -83,6 +100,13 @@ namespace BNAMS.Controllers
             var data = _aManager.LoadArea();
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
-        
+
+        // GET: DirectorateInfo/LoadAdmin
+        public JsonResult LoadAdmin()
+        {
+            var data = _aManager.LoadAdmin();
+            return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

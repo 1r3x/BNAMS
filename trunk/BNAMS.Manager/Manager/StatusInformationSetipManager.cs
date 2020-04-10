@@ -29,12 +29,15 @@ namespace BNAMS.Manager.Manager
         }
         public ResponseModel CreateStatusInformationSetup(M_StatusInformation aObj)
         {
-            if (aObj.StatusId == 0)
+            if (aObj.StatusId == "0")
             {
+                aObj.StatusId = (string)HttpContext.Current.Session["directorateId"] + "-ST-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                 aObj.StatusCode = "ST-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsBackup = false;
+                aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
@@ -43,6 +46,8 @@ namespace BNAMS.Manager.Manager
             }
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
 
             _aRepository.Update(aObj);
             _aRepository.Save();
@@ -70,8 +75,8 @@ namespace BNAMS.Manager.Manager
         {
             var data = (from e in _db.M_StatusInformation
                 where e.StatusId != aObj.StatusId && e.StatusName == aObj.StatusName
-                select e.StatusId).FirstOrDefault();
-            return data != 0 ? _aModel.Respons(true, "This status Information already Exist") : _aModel.Respons(false, "");
+                select e.StatusId).Any();
+            return data == true ? _aModel.Respons(true, "This status Information already Exist") : _aModel.Respons(false, "");
         }
     }
 }

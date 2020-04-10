@@ -105,22 +105,75 @@ var LocalAgentSetupSetupHelper = {
         });
     },
 
+    LoadAgentType: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/LocalAgentSetup/LoadAgentType",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+    LoadAgentTypeDD: function () {
+        debugger;
+        var parentMenu = LocalAgentSetupSetupHelper.LoadAgentType();
+        $("#ddlAgentType").select2({
+            placeholder: "Select Agent Type",
+            data: parentMenu
+        });
+    },
+
+    LoadEnlistment: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/LocalAgentSetup/LoadEstimationTypeType",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
     LoadEnlistmentDD: function () {
+        debugger;
+        var parentMenu = LocalAgentSetupSetupHelper.LoadEnlistment();
         $("#ddlEnlistmentType").select2({
-            placeholder: "Select Enlistment Type",
+            placeholder: "Select Estimation Type",
+            data: parentMenu
         });
     },
 
     ClearField: function () {
         debugger;
-        $("#hdnLocalAgentId").val();
-        $("#txtLocalAgentCode").val();
-        $("#txtSupplierName").val();
-        $("#txtAddress").val();
-        $("#ddlEnlistmentType").val();
-        $("#txtEmail").val();
-        $("#txtContractNumber").val();
-        $("#ddlCountry").val();
+        $("#hdnLocalAgentId").val("");
+        $("#txtLocalAgentCode").val("");
+        $("#txtSupplierName").val("");
+        $("#txtAddress").val("");
+        $("#ddlEnlistmentType").val("").trigger("change");
+        $("#ddlAgentType").val("").trigger("change");
+        $("#txtEmail").val("");
+        $("#txtContractNumber").val("");
+        $("#ddlCountry").val("").trigger("change");
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
@@ -134,6 +187,7 @@ var LocalAgentSetupSetupHelper = {
         aObj.SupplierName = $("#txtSupplierName").val();
         aObj.Address = $("#txtAddress").val();
         aObj.EnlistmintType = $("#ddlEnlistmentType").val();
+        aObj.AgentTypeId = $("#ddlAgentType").val();
         aObj.Email = $("#txtEmail").val();
         aObj.ContractNumber = $("#txtContractNumber").val();
         aObj.Country = $("#ddlCountry").val();

@@ -30,6 +30,7 @@ namespace BNAMS.Manager.Manager
         {
             if (aObj.RoleId == 0)
             {
+                aObj.RoleId = (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;

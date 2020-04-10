@@ -14,7 +14,8 @@ namespace BNAMS.Entities
     
     public partial class O_DirectorateInfo
     {
-        public int DirectorateID { get; set; }
+        public string DirectorateID { get; set; }
+        public string AdminAuthorityId { get; set; }
         public string DirectorateCode { get; set; }
         public string DirectorateName { get; set; }
         public string Address { get; set; }
@@ -28,5 +29,6 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
     }
 }

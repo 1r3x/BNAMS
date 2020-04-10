@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AuthoritySetupController.cs" />
+    <Compile Include="Controllers\BinLocationController.cs" />
     <Compile Include="Controllers\CapabilityOfWeaponsController.cs" />
     <Compile Include="Controllers\CountrySetupController.cs" />
     <Compile Include="Controllers\DirectorateInfoController.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Controllers\TableMultiSearchController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserPrivilegesController.cs" />
+    <Compile Include="Controllers\WarHouseInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,6 +207,9 @@
     <Content Include="CustomScripts\AuthoritySetup\CreateAuthoritySetup.js" />
     <Content Include="CustomScripts\AuthoritySetup\AuthoritySetupSetting.js" />
     <Content Include="CustomScripts\AuthoritySetup\ViewAuthoritySetup.js" />
+    <Content Include="CustomScripts\BinLocation\CreateBinLocationSetup.js" />
+    <Content Include="CustomScripts\BinLocation\ViewBinLocationSetup.js" />
+    <Content Include="CustomScripts\BinLocation\BinLocationSetupSetting.js" />
     <Content Include="CustomScripts\CapabilityOfWeapons\CreateCapabilityOfWeaponsSetup.js" />
     <Content Include="CustomScripts\CapabilityOfWeapons\CapabilityOfWeaponsSetupSetting.js" />
     <Content Include="CustomScripts\CapabilityOfWeapons\ViewCapabilityOfWeaponsSetup.js" />
@@ -255,6 +260,9 @@
     <Content Include="CustomScripts\User\CreateUser.js" />
     <Content Include="CustomScripts\User\UserSetting.js" />
     <Content Include="CustomScripts\User\ViewUser.js" />
+    <Content Include="CustomScripts\WarHouseInfo\CreateWareHouseSetup.js" />
+    <Content Include="CustomScripts\WarHouseInfo\WareHouseSetupSetting.js" />
+    <Content Include="CustomScripts\WarHouseInfo\ViewWareHouseSetup.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -557,6 +565,12 @@
     <Content Include="Views\ShipDepotInfo\Index.cshtml" />
     <Content Include="Views\ShipDepotInfo\_Create.cshtml" />
     <Content Include="Views\ShipDepotInfo\_View.cshtml" />
+    <Content Include="Views\WarHouseInfo\Index.cshtml" />
+    <Content Include="Views\WarHouseInfo\_Create.cshtml" />
+    <Content Include="Views\WarHouseInfo\_View.cshtml" />
+    <Content Include="Views\BinLocation\Index.cshtml" />
+    <Content Include="Views\BinLocation\_Create.cshtml" />
+    <Content Include="Views\BinLocation\_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -41,7 +41,19 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Emp_BasicInfo.cs">
+    <Compile Include="I_BinLocation.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_WeaponsInfo.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_Agent.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_AgentEnlistment.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_AgentType.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_Area.cs">
@@ -53,34 +65,31 @@
     <Compile Include="M_CapabilityOfWeapons.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="M_Category.cs">
+    <Compile Include="M_Country.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="M_Country.cs">
+    <Compile Include="M_DepotShipCategory.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_FiscalYear.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="M_GunModelType.cs">
-      <DependentUpon>SRModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="M_LocalAgent.cs">
-      <DependentUpon>SRModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="M_Menu.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="M_NameOfGun.cs">
+    <Compile Include="M_NameOfWeapon.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_PriceType.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_ProcurementCategory.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="M_QuantityCategory.cs">
+    <Compile Include="M_ProductCategory.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="M_RoleForEmp.cs">
+    <Compile Include="M_QuantityCategory.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_StatusInformation.cs">
@@ -89,10 +98,22 @@
     <Compile Include="M_TypeOfShip.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_WareHouseType.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_WeaponsModelType.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_WeaponsType.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="O_DirectorateInfo.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="O_ShipOrDepotInfo.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="O_WareHouse.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

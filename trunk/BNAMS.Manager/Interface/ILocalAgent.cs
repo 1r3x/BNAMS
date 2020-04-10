@@ -9,9 +9,11 @@ namespace BNAMS.Manager.Interface
 {
     public interface ILocalAgent
     {
-        ResponseModel CreateLocalAgentSetup(M_LocalAgent aObj);
+        ResponseModel CreateLocalAgentSetup(M_Agent aObj);
         ResponseModel GetAllLocalAgentSetup();
-        ResponseModel CheckDuplicate(M_LocalAgent aObj);
+        ResponseModel CheckDuplicate(M_Agent aObj);
         ResponseModel LoadCountry();
+        ResponseModel LoadAgentType();
+        ResponseModel LoadEstimationTypeType();
     }
 }

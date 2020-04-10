@@ -100,6 +100,7 @@ var CreateUserManager = {
 var UserHelper = {
     InitUser: function () {
         UserHelper.LoadAllRoleDD();
+        UserHelper.LoadDirectorateDD();
         $("#btnSubmit").unbind("click").click(function () {
             CreateUserManager.IsDuplicate();
             //UserHelper.ClearField();
@@ -140,6 +141,37 @@ var UserHelper = {
     },
 
 
+    LoadDirectorate: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/User/LoadDirectorateInfo",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+
+    LoadDirectorateDD: function () {
+        debugger;
+        var parentUser = UserHelper.LoadDirectorate();
+        $("#ddlDirectorate").select2({
+            placeholder: "Under Directorate",
+            data: parentUser
+        });
+    },
+
+
     ClearField: function () {
         //for image
         var input = $("#getFile");
@@ -149,6 +181,7 @@ var UserHelper = {
 
 
         $("#hdnEmployeeId").val("");
+        $("#hdnPasswordBearer").val("");
         $("#txtFirstName").val("");
         $("#txtLastName").val("");
         $("#txtEmpIdNumber").val("");
@@ -156,6 +189,11 @@ var UserHelper = {
         $("#txtEmployeePhone").val("");
         $("#txtEmployeeUserName").val("");
         $("#ddlUserRole").val("").trigger("change");
+        $("#ddlDirectorate").val("").trigger("change");
+
+
+        $("#hdnSetupBy").val("");
+        $("#hdnSetupDateTime").val("");
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
@@ -167,19 +205,26 @@ var UserHelper = {
         if (document.getElementById("getFile").files[0] != undefined) {
             aObj.EmpImage = document.getElementById("getFile").files[0].type.toString().replace(/application/i, "");
         } else {
-            aObj.EmpImage = document.getElementById("blah").src;
+            aObj.EmpImage = $("#blah").attr("src");
         }
 
 
 
-        aObj.EmpId = $("#hdnEmployeeId").val();
-        aObj.EmpFName = $("#txtFirstName").val();
-        aObj.EmpLastName = $("#txtLastName").val();
+        aObj.Id = $("#hdnEmployeeId").val();
+        aObj.Password = $("#hdnPasswordBearer").val();
+        aObj.SetUpBy=$("#hdnSetupBy").val();
+        aObj.SetUpDateTime = $("#hdnSetupDateTime").val();
+
+
+
+        aObj.FirstName = $("#txtFirstName").val();
+        aObj.LastName = $("#txtLastName").val();
         aObj.EmpIdNumber = $("#txtEmpIdNumber").val();
-        aObj.EmpEmail = $("#txtEmployeeEmail").val();
-        aObj.EmpCell = $("#txtEmployeePhone").val();
-        aObj.EmpUserName = $("#txtEmployeeUserName").val();
-        aObj.RoleId = $("#ddlUserRole").val();
+        aObj.Email = $("#txtEmployeeEmail").val();
+        aObj.PhoneNo = $("#txtEmployeePhone").val();
+        aObj.UserName = $("#txtEmployeeUserName").val();
+        aObj.UserRole = $("#ddlUserRole").val();
+        aObj.DirectorateId = $("#ddlDirectorate").val();
         aObj.IsActive = ($("#chkIsActive").prop("checked") === true) ? 1 : 0;
         return aObj;
     }

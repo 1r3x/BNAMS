@@ -12,25 +12,23 @@ namespace BNAMS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Emp_BasicInfo
+    public partial class M_Agent
     {
-        public int EmpId { get; set; }
-        public string EmpFName { get; set; }
-        public string EmpLastName { get; set; }
-        public string EmpUserName { get; set; }
-        public Nullable<int> EmpCell { get; set; }
-        public string EmpEmail { get; set; }
-        public string EmpImage { get; set; }
-        public Nullable<int> EmpDesignationId { get; set; }
-        public Nullable<int> EmpDeptId { get; set; }
-        public string EmpIdNumber { get; set; }
-        public string EmpJoiningDate { get; set; }
-        public Nullable<int> EmpTypeId { get; set; }
-        public Nullable<int> RoleId { get; set; }
+        public string LocalAgentId { get; set; }
+        public string Code { get; set; }
+        public string SupplierName { get; set; }
+        public string Address { get; set; }
+        public string EnlistmintType { get; set; }
+        public string Email { get; set; }
+        public string ContractNumber { get; set; }
+        public string Country { get; set; }
+        public string AgentTypeId { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public Nullable<int> SetUpBy { get; set; }
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

@@ -30,12 +30,15 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateAuthority(M_Authorirty aObj)
         {
-            if (aObj.AuthorityId == 0)
+            if (aObj.AuthorityId == "0")
             {
-                aObj.AuthorityCode = "AUTH-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
+                aObj.AuthorityId = (string)HttpContext.Current.Session["directorateId"] + "-AUT-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                aObj.AuthorityCode = "AUT-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsBackup = false;
+                aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
@@ -44,7 +47,8 @@ namespace BNAMS.Manager.Manager
             }
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
-
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
             _aRepository.Update(aObj);
             _aRepository.Save();
             return _aModel.Respons(true, "Authority Updated Successfully");
@@ -72,8 +76,8 @@ namespace BNAMS.Manager.Manager
         {
             var data = (from e in _db.M_Authorirty
                         where e.AuthorityId != aObj.AuthorityId && e.AuthorityName == aObj.AuthorityName
-                        select e.AuthorityId).FirstOrDefault();
-            return data != 0 ? _aModel.Respons(true, "This Authority already Exist") : _aModel.Respons(false, "");
+                        select e.AuthorityId).Any();
+            return data ==true ? _aModel.Respons(true, "This Authority already Exist") : _aModel.Respons(false, "");
         }
 
         public ResponseModel LoadArea()

@@ -13,5 +13,6 @@ namespace BNAMS.Manager.Interface
         ResponseModel GetAllDirectorateInfo();
         ResponseModel CheckDuplicate(O_DirectorateInfo aObj);
         ResponseModel LoadArea();
+        ResponseModel LoadAdmin();
     }
 }

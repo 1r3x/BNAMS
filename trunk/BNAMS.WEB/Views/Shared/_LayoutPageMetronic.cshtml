@@ -13,7 +13,7 @@
 @Scripts.RenderFormat("<script src='{0}' defer></script>")
 
 @using System.Collections
-@using SR.Controllers
+@using BNAMS.Controllers
 @using BNAMS.Entities
 
 <!DOCTYPE html>
@@ -109,7 +109,7 @@
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="background-position: inherit; ">
                             @if (@Session["roleId"] != null)
                             {
-                                <img alt="" class="img-circle" src="../@HttpContext.Current.Session["imageUrl"].ToString()" />
+                                <img alt="" class="img-circle" src="/@HttpContext.Current.Session["imageUrl"].ToString()" />
                                 <span class="username username-hide-on-mobile">
                                     @HttpContext.Current.Session["username"].ToString()
                                 </span>

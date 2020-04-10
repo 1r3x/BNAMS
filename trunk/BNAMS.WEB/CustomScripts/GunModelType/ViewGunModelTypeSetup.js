@@ -12,6 +12,7 @@
                 "contentType": "application/json; charset=utf-8"
             },
             "columns": [
+                { "data": "WeaponsType", "autoWidth": true },
                 { "data": "GunModelCode", "autoWidth": true },
                 { "data": "GunModelName", "autoWidth": true },
                 { "data": "ShortName", "autoWidth": true },
@@ -34,7 +35,7 @@
             ],
             "columnDefs": [
                 {
-                    targets: [4],
+                    targets: [5],
                     render: function (data, type, row) {
                         return data == "1" ? "Active" : "Inactive";
                     }
@@ -50,9 +51,10 @@ var viewGunModelTypeSetupHelper = {
 
     populateDataForEditButton: function (aObj) {
         debugger;
-         $("#hdnGunModelTypeId").val(aObj.GunModelId);
-         $("#txtGunModelTypeCode").val(aObj.GunModelCode);
-         $("#txtGunModelType").val(aObj.GunModelName);
+        $("#hdnGunModelTypeId").val(aObj.GunModelId);
+        $("#ddlWeaponsType").val(aObj.WeaponsTypeId).trigger("change");
+        $("#txtGunModelTypeCode").val(aObj.GunModelCode);
+        $("#txtGunModelType").val(aObj.GunModelName);
         $("#txtShortName").val(aObj.ShortName);
         if (aObj.CreateDate != null) {
             var createDate = new Date(parseInt(aObj.CreateDate.substr(6)));
@@ -60,7 +62,7 @@ var viewGunModelTypeSetupHelper = {
             $("#createDate").val(cCreateDate);
 
         }
-         $("#hdnSetupBy").val(aObj.SetUpBy);
+        $("#hdnSetupBy").val(aObj.SetUpBy);
         if (aObj.SetUpDateTime != null) {
             var setUpDateTime = new Date(parseInt(aObj.SetUpDateTime.substr(6)));
             var cSetUpDateTime = setUpDateTime.getDate() + "." + (setUpDateTime.getMonth() + 1) + "." + setUpDateTime.getFullYear();

@@ -14,14 +14,14 @@ namespace BNAMS.Entities
     
     public partial class O_ShipOrDepotInfo
     {
-        public int ShipOrDepotId { get; set; }
+        public string ShipOrDepotId { get; set; }
         public string ShipOrDepotCode { get; set; }
-        public Nullable<int> AuthorityId { get; set; }
+        public string AuthorityId { get; set; }
         public Nullable<int> ShipDepotCategory { get; set; }
         public string ShipDepotName { get; set; }
         public Nullable<System.DateTime> DateOfCommmisson { get; set; }
         public string WTCallSign { get; set; }
-        public Nullable<int> CapabilityOfWeaponsId { get; set; }
+        public string CapabilityOfWeaponsId { get; set; }
         public Nullable<int> TypeOfShip { get; set; }
         public string Telephone { get; set; }
         public string Email { get; set; }
@@ -32,5 +32,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

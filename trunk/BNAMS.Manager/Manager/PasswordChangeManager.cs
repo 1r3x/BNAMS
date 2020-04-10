@@ -23,9 +23,9 @@ namespace BNAMS.Manager.Manager
         }
         public ResponseModel ChangePassword(UserLogin aObj)
         {
-            if (_db.UserLogins.Any(m => m.EmpId == aObj.EmpId))
+            if (_db.UserLogins.Any(m => m.Id == aObj.Id))
             {
-                var extreading = _db.UserLogins.FirstOrDefault(m => m.EmpId == aObj.EmpId);
+                var extreading = _db.UserLogins.FirstOrDefault(m => m.Id == aObj.Id);
                 
                //HttpContext.Current.Session["usedId"].ToString();
                 if (extreading != null) extreading.Password = aObj.Password;
@@ -39,15 +39,15 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel GetCurrentPassword()
         {
-            var empId = HttpContext.Current.Session["empId"].ToString();
+            var empId = Convert.ToInt32(HttpContext.Current.Session["userid"]);
 
             var data = from a in _db.UserLogins
-                where a.IsActive == true && a.EmpId==empId
+                where a.IsActive == true && a.Id==empId
                 select new
                 {
                     a.Password,
                     a.UserName,
-                    a.EmpId
+                    a.Id
                 };
             return _aModel.Respons(data);
         }

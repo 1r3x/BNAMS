@@ -78,6 +78,7 @@ var GunNameSetupHelper = {
     ClearField: function () {
         debugger;
         $("#hdnNameOfGunId").val("");
+        $("#ddlWeaponsType").val("").trigger("change");
         $("#txtGunNameCode").val("");
         $("#txtGunName").val("");
         $("#txtShortName").val("");
@@ -89,10 +90,44 @@ var GunNameSetupHelper = {
     },
 
 
+    LoadWeaponsType: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/NameOfGun/LoadWeaponsType",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+    LoadWeaponsTypeDD: function () {
+        debugger;
+        var parentMenu = GunNameSetupHelper.LoadWeaponsType();
+        $("#ddlWeaponsType").select2({
+            placeholder: "Select Weapons Type",
+            data: parentMenu
+        });
+    },
+
+
+
+
+
     GetGunNameSetupData: function () {
         debugger;
         var aObj = new Object();
         aObj.NameOfGunId = $("#hdnNameOfGunId").val();
+        aObj.WeaponsTypeId = $("#ddlWeaponsType").val();
         aObj.NameOfGunCode = $("#txtGunNameCode").val();
         aObj.NameOfGun = $("#txtGunName").val();
         aObj.ShortName = $("#txtShortName").val();

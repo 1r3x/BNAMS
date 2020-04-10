@@ -3,6 +3,7 @@
     DirectorateInfoHelper.InitDirectorateInfo();
     viewDirectorateInfo.GetDirectorateInfoDataTable();
     DirectorateInfoHelper.LoadAreaDD();
+    DirectorateInfoHelper.LoadAdminDD();
     //this function is for go to top of the page
     function topFunction() {
         //for safari 

@@ -14,7 +14,7 @@ namespace BNAMS.Entities
     
     public partial class M_ProcurementCategory
     {
-        public int ProcurementId { get; set; }
+        public string ProcurementId { get; set; }
         public string ProcurementCode { get; set; }
         public string ProcurementName { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
@@ -23,5 +23,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

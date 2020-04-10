@@ -31,12 +31,15 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateQuantitySetup(M_QuantityCategory aObj)
         {
-            if (aObj.QuantityId == 0)
+            if (aObj.QuantityId == "0")
             {
+                aObj.QuantityId = (string)HttpContext.Current.Session["directorateId"] + "-QU-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                 aObj.QuantityCode = "QU-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsBackup = false;
+                aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
@@ -45,6 +48,8 @@ namespace BNAMS.Manager.Manager
             }
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
 
             _aRepository.Update(aObj);
             _aRepository.Save();
@@ -71,8 +76,8 @@ namespace BNAMS.Manager.Manager
         {
             var data = (from e in _db.M_QuantityCategory
                 where e.QuantityId != aObj.QuantityId && e.QuantityName == aObj.QuantityName
-                select e.QuantityId).FirstOrDefault();
-            return data != 0 ? _aModel.Respons(true, "This Quantity Category already Exist") : _aModel.Respons(false, "");
+                select e.QuantityId).Any();
+            return data == true ? _aModel.Respons(true, "This Quantity Category already Exist") : _aModel.Respons(false, "");
         }
     }
 }

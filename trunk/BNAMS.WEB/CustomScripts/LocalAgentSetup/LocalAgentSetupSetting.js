@@ -4,6 +4,7 @@
     LocalAgentSetupSetupHelper.InitLocalAgentSetupSetup();
     viewLocalAgentSetupSetup.GetLocalAgentSetupSetupDataTable();
     LocalAgentSetupSetupHelper.LoadCountryDD();
+    LocalAgentSetupSetupHelper.LoadAgentTypeDD();
     LocalAgentSetupSetupHelper.LoadEnlistmentDD();
     //this function is for go to top of the page
     function topFunction() {

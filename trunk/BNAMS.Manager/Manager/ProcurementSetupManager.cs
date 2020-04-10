@@ -29,12 +29,15 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateProcurementSetup(M_ProcurementCategory aObj)
         {
-            if (aObj.ProcurementId == 0)
+            if (aObj.ProcurementId == "0")
             {
-                aObj.ProcurementCode = "MOD-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
+                aObj.ProcurementId = (string)HttpContext.Current.Session["directorateId"] + "-PRO-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                aObj.ProcurementCode = "PRO-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false);
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsBackup = false;
+                aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
@@ -43,6 +46,8 @@ namespace BNAMS.Manager.Manager
             }
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
 
             _aRepository.Update(aObj);
             _aRepository.Save();
@@ -69,8 +74,8 @@ namespace BNAMS.Manager.Manager
         {
             var data = (from e in _db.M_ProcurementCategory
                 where e.ProcurementId != aObj.ProcurementId && e.ProcurementName == aObj.ProcurementName
-                select e.ProcurementId).FirstOrDefault();
-            return data != 0 ? _aModel.Respons(true, "This Procurement Category already Exist") : _aModel.Respons(false, "");
+                select e.ProcurementId).Any();
+            return data == true ? _aModel.Respons(true, "This Procurement Category already Exist") : _aModel.Respons(false, "");
         }
     }
 }

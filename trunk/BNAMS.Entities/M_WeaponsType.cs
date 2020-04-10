@@ -12,10 +12,10 @@ namespace BNAMS.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class M_Category
+    public partial class M_WeaponsType
     {
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public string WeaponsTypeId { get; set; }
+        public string WeaponsType { get; set; }
         public Nullable<bool> IsActive { get; set; }
     }
 }

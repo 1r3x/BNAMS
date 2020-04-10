@@ -9,8 +9,9 @@ namespace BNAMS.Manager.Interface
 {
     public interface IGunModel
     {
-        ResponseModel CreateGunModelTypeSetup(M_GunModelType aObj);
+        ResponseModel CreateGunModelTypeSetup(M_WeaponsModelType aObj);
         ResponseModel GetAllGunModelTypeSetup();
-        ResponseModel CheckDuplicate(M_GunModelType aObj);
+        ResponseModel CheckDuplicate(M_WeaponsModelType aObj);
+        ResponseModel LoadWeaponsType();
     }
 }

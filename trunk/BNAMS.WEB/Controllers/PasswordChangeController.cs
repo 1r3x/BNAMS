@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using BNAMS.Controllers.login;
 using BNAMS.Entities;
 using BNAMS.Manager.Interface;
 using BNAMS.Manager.Manager;
-using SR.Controllers.login;
 using SR.Helpers;
 
 namespace BNAMS.Controllers
@@ -36,7 +36,7 @@ namespace BNAMS.Controllers
         public JsonResult ChangePassword(UserLogin aObj)
         {
             var usersEntities = new SmartRecordEntities();
-            var keyNew = (from s in usersEntities.UserLogins where (s.EmpId == aObj.EmpId) select s).FirstOrDefault();
+            var keyNew = (from s in usersEntities.UserLogins where (s.Id == aObj.Id) select s).FirstOrDefault();
             aObj.Password =  Helper.EncodePassword(aObj.Password, keyNew.SessionKey); ;
             var data = _aManager.ChangePassword(aObj);
             return Json(new { data = data.Message }, JsonRequestBehavior.AllowGet);

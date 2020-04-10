@@ -13,16 +13,33 @@ namespace BNAMS.Controllers
     {
 
         private IQuantitySetup _aManager;
+        private readonly SmartRecordEntities _db;
 
         public QuantitySetupController()
         {
             _aManager = new QuantitySetupManager();
+            _db = new SmartRecordEntities();
         }
 
         // GET: QuantitySetup
         public ActionResult Index()
         {
-            return View();
+            const string menuName = "QuantitySetup";
+            var roleId = (int?)System.Web.HttpContext.Current.Session["roleId"];
+
+            var menuId = (from a in _db.M_Menu
+                where a.MenuUrl == menuName
+                select a.Id).Single();
+
+
+            var permission = (from a in _db.UserPermissions
+                where a.RoleId == roleId && a.MenuId == menuId
+                select new
+                {
+                    a.PermId
+                }).Any();
+
+            return permission ? (ActionResult)View() : RedirectToAction("Login", "Userlogins");
         }
 
 

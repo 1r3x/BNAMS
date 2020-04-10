@@ -14,7 +14,7 @@ namespace BNAMS.Entities
     
     public partial class M_StatusInformation
     {
-        public int StatusId { get; set; }
+        public string StatusId { get; set; }
         public string StatusCode { get; set; }
         public string StatusName { get; set; }
         public string ShortName { get; set; }
@@ -24,5 +24,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

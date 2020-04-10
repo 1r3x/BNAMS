@@ -30,21 +30,26 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateFiscalYear(M_FiscalYear aObj)
         {
-            if (aObj.FiscalYearId == 0)
+            if (aObj.FiscalYearId =="0")
             {
+                aObj.FiscalYearId = (string)HttpContext.Current.Session["directorateId"] +"-FIS-"+ (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                 aObj.FiscalYearCode ="FIS-"+DateTime.UtcNow.Second+ _commonCode.RandomString(3, false);
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsBackup = false;
+                aObj.DerectorateId = (string) HttpContext.Current.Session["directorateId"];
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
 
 
                 return _aModel.Respons(true, "New Fiscal Year Saved Successfully.");
             }
+
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
-
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
             _aRepository.Update(aObj);
             _aRepository.Save();
             return _aModel.Respons(true, "Fiscal Year Updated Successfully");
@@ -69,9 +74,9 @@ namespace BNAMS.Manager.Manager
         public ResponseModel CheckDuplicate(M_FiscalYear aObj)
         {
             var data = (from e in _db.M_FiscalYear
-                where e.FiscalYearId != aObj.FiscalYearId && e.ShortName == aObj.ShortName || e.Name==aObj.Name
-                select e.FiscalYearId).FirstOrDefault();
-            return data != 0 ? _aModel.Respons(true, "This Fiscal Year already Exist") : _aModel.Respons(false, "");
+                where e.FiscalYearId != aObj.FiscalYearId && e.ShortName == aObj.ShortName || e.Name == aObj.Name
+                select e.FiscalYearId).Any();
+            return data == true ? _aModel.Respons(true, "This Fiscal Year already Exist") : _aModel.Respons(false, "");
         }
     }
 }

@@ -25,107 +25,7 @@ namespace BNAMS.Controllers.login
             _aManager = new PasswordChangeManager();
         }
 
-        // GET: UserLogins
-        public ActionResult Index()
-        {
-            return View(db.UserLogins.ToList());
-        }
-
-        // GET: UserLogins/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserLogin userLogin = db.UserLogins.Find(id);
-            if (userLogin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userLogin);
-        }
-
-        // GET: UserLogins/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: UserLogins/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Email,EmailIsConfirmed,Password,PhoneNo,UserRole,IsActive,UserName,CreateDate,CreatedBy,LastLoginDate")] UserLogin userLogin)
-        {
-            if (ModelState.IsValid)
-            {
-                db.UserLogins.Add(userLogin);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(userLogin);
-        }
-
-        
-        // GET: UserLogins/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserLogin userLogin = db.UserLogins.Find(id);
-            if (userLogin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userLogin);
-        }
-
-        // POST: UserLogins/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Email,EmailIsConfirmed,Password,PhoneNo,UserRole,IsActive,UserName,CreateDate,CreatedBy,LastLoginDate")] UserLogin userLogin)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(userLogin).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(userLogin);
-        }
-
-        // GET: UserLogins/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserLogin userLogin = db.UserLogins.Find(id);
-            if (userLogin == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userLogin);
-        }
-
-        // POST: UserLogins/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            UserLogin userLogin = db.UserLogins.Find(id);
-            db.UserLogins.Remove(userLogin);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+       
 
         public ActionResult Login()
         {
@@ -153,15 +53,15 @@ namespace BNAMS.Controllers.login
             //ar query = (from s in context.ObjRegisterUser where(s.UserName == userName || s.EmailId == userName) && s.Password.Equals(encodingPasswordString) select s).FirstOrDefault();
             if (validateDate != null && validateDate.Id > 0)
             {
-                var empId = validateDate.EmpId;
-                var sessionData = (from s in usersEntities.Emp_BasicInfo where (s.EmpIdNumber==validateDate.EmpId) select s).FirstOrDefault();
-                int? userId = validateDate.Id;
+                var sessionData = (from s in usersEntities.UserLogins where (s.Id == validateDate.Id) select s)
+                    .FirstOrDefault();
                 FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
                 Session["userid"] = validateDate.Id;
                 Session["username"] = user.Username;
-               // Session["lastlogindate"] = validateDate.LoginDate;
+                Session["directorateId"] = validateDate.DirectorateId;
                 Session["roleId"] = validateDate.UserRole;
-                Session["empId"] = validateDate.EmpId;
+                Session["empIdNo"] = validateDate.EmpIdNumber;
+
 
                 if (sessionData != null) Session["imageUrl"] = sessionData.EmpImage;
                 else

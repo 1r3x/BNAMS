@@ -27,7 +27,7 @@ namespace BNAMS.Controllers
         public JsonResult ChangePassword(UserLogin aObj)
         {
             var usersEntities = new SmartRecordEntities();
-            var keyNew = (from s in usersEntities.UserLogins where (s.EmpId == aObj.EmpId) select s).FirstOrDefault();
+            var keyNew = (from s in usersEntities.UserLogins where (s.Id == aObj.Id) select s).FirstOrDefault();
             if (keyNew != null) aObj.Password = _helper.EncodePassword(aObj.Password, keyNew.SessionKey);
             ;
             var data = _aManager.ChangePassword(aObj);

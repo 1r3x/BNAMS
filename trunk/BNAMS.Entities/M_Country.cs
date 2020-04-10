@@ -14,7 +14,7 @@ namespace BNAMS.Entities
     
     public partial class M_Country
     {
-        public int CountryNameId { get; set; }
+        public string CountryNameId { get; set; }
         public string CountryCode { get; set; }
         public string CountryName { get; set; }
         public string ShortName { get; set; }
@@ -25,5 +25,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace BNAMS.Entities
     
     public partial class M_FiscalYear
     {
-        public int FiscalYearId { get; set; }
+        public string FiscalYearId { get; set; }
         public string FiscalYearCode { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
@@ -25,5 +25,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

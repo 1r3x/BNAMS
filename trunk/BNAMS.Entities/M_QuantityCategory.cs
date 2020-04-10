@@ -14,7 +14,7 @@ namespace BNAMS.Entities
     
     public partial class M_QuantityCategory
     {
-        public int QuantityId { get; set; }
+        public string QuantityId { get; set; }
         public string QuantityCode { get; set; }
         public string QuantityName { get; set; }
         public Nullable<System.DateTime> CreateDate { get; set; }
@@ -23,5 +23,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }
