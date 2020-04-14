@@ -181,6 +181,7 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserPrivilegesController.cs" />
     <Compile Include="Controllers\WarHouseInfoController.cs" />
+    <Compile Include="Controllers\WeaponsEntryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -263,6 +264,9 @@
     <Content Include="CustomScripts\WarHouseInfo\CreateWareHouseSetup.js" />
     <Content Include="CustomScripts\WarHouseInfo\WareHouseSetupSetting.js" />
     <Content Include="CustomScripts\WarHouseInfo\ViewWareHouseSetup.js" />
+    <Content Include="CustomScripts\WeaponsEntry\CreateWeaponsEntry.js" />
+    <Content Include="CustomScripts\WeaponsEntry\WeaponsEntrySetting.js" />
+    <Content Include="CustomScripts\WeaponsEntry\ViewWeaponsEntry.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -571,6 +575,9 @@
     <Content Include="Views\BinLocation\Index.cshtml" />
     <Content Include="Views\BinLocation\_Create.cshtml" />
     <Content Include="Views\BinLocation\_View.cshtml" />
+    <Content Include="Views\WeaponsEntry\Index.cshtml" />
+    <Content Include="Views\WeaponsEntry\_View.cshtml" />
+    <Content Include="Views\WeaponsEntry\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

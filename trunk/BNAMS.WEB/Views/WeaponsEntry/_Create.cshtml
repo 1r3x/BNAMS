@@ -1,0 +1,431 @@
+﻿
+
+<div class="panel panel-primary dialog-panel">
+    <div class="panel-heading">
+        <h5>Weapons Entry</h5>
+    </div>
+
+
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" style="margin-left: 10px">
+            <div class="row">
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Weapons Type
+                    </label>
+                    <div class="col-lg-6">
+                        <select class="form-control" id="ddlWeaponsType">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label class="col-lg-8 control-label">
+                        Image Input
+                    </label>
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="form-group">
+                            <input type="file" id="getFile" onchange="readURL(this);" style="display: none" />
+                            <img style="max-width: 180px;" id="blah" src="http://placehold.it/180" alt="No Image Found Please Add An Image" />
+                            <button type="button" style="display: block; width: 120px; height: 30px; margin-top: 10px" onclick="document.getElementById('getFile').click()">Add Photo</button>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label class="col-lg-2 control-label">
+                        Name OF Weapons
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlWeaponsName">
+                            <option></option>
+                        </select>
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Gun Model Type
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlGunModelType">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Gun Registration No
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtGunRegNo" class="form-control" placeholder="Weapons Registration No.">
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Year Of Manufacture
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlYearOfManufacture">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Country Of Origin
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlCountryOfOrigin">
+                            <option></option>
+                        </select>
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Purpose
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtPurpose" class="form-control" placeholder="Enter Purpose">
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Year Of Procurement
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlYearOfProcurement">
+                            <option></option>
+                        </select>
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Warrenty Period
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtWarrentyPeriod" class="form-control" placeholder="Enter Warrenty Period">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Price Type
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlPriceType">
+                            <option></option>
+                        </select>
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Unit Price
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtUnitPrice" class="form-control" placeholder="Enter Unit Price">
+                    </div>
+
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-lg-2 control-label">
+                        Quantity
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtQuantity" class="form-control" placeholder="Enter Quantity">
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Total Price
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" readonly="" id="txtTotalPrice" class="form-control" placeholder="Enter Total Price">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Local Agent
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlLocalAgent">
+                            <option></option>
+                        </select>
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Principal Agent
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlPrincipalAgent">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Manufacturer Agent
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlManufacturerAgent">
+                            <option></option>
+                        </select>
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Quantity Category
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlQuantityCategory">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Depot Name
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlDepotName">
+                            <option></option>
+                        </select>
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Procurement Catagory
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlProcurementCatagory">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Warehouse Name
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlWarehouseName">
+                            <option></option>
+                        </select>
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Shelf No.
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlShelfNo">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Row No.
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlRowNo">
+                            <option></option>
+                        </select>
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Technical Specification
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtTechnicalSpecification" class="form-control" placeholder="Enter Technical Specification">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group required">
+                    <label class="col-lg-2 control-label">
+                        Weight
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtWeight" class="form-control" placeholder="Enter Weight">
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Dimentions
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtDimentions" class="form-control" placeholder="Enter Dimention">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group required">
+                    <label class="col-lg-2 control-label">
+                        Maximum Range
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtMaximumRange" class="form-control" placeholder="Enter Maximum Range">
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Efective Range
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtEffectiveRange" class="form-control" placeholder="Enter Effective Range">
+                    </div>
+                </div>
+
+                <div class="form-group required">
+
+                    <label class="col-lg-2 control-label">
+                        Muzzle Velocity
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtMuzzleVelocity" class="form-control" placeholder="Enter Muzzle Velocity">
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Barrel Life
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtBarrelLife" class="form-control" placeholder="Enter Barrel Life">
+                    </div>
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-lg-2 control-label">
+                        Operating Temp
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtOperatingTemp" class="form-control" placeholder="Enter Operating Temp">
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Storing Temp
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtStoringTemp" class="form-control" placeholder="Enter Storing Temp">
+                    </div>
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-lg-2 control-label">
+                        Preservation Temp
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtPreservationTemp" class="form-control" placeholder="Enter Preservation Temp">
+                    </div>
+
+
+                    <label class="col-lg-2 control-label">
+                        Status
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlStatus">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-lg-2 control-label">
+                        Date Of Received After Acceptance
+                    </label>
+                    <div class="col-lg-4">
+                        <input id="dateOfReceived" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Contract/Workorder
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtWorkOrder" class="form-control" placeholder="Enter Contract/Workorder">
+                    </div>
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-lg-2 control-label">
+                        Others/Remarks
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtRemarks" class="form-control" placeholder="Enter Others/Remarks">
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <div class="form-actions right1">
+                <button type="button" id="btnSubmit" class="btn btn-primary">
+                    Save
+                </button>
+                <button type="button" id="btnCancel" class="btn btn-danger">
+                    Reset
+                </button>
+
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<script>
+    function readURL(input) {
+        debugger;
+        var fileType = document.getElementById("getFile").files[0].type.toString().replace(/application/i, "");
+        if (fileType == "image/jpeg" || fileType == "image/png") {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        } else {
+            toastr.warning("Only .jpg  or .png");
+        }
+
+
+    }
+</script>

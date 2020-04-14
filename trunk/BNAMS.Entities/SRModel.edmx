@@ -26,11 +26,13 @@
         </EntityType>
         <EntityType Name="I_WeaponsInfo">
           <Key>
-            <PropertyRef Name="WeaponsInfoId" />
+            <PropertyRef Name="IdFake" />
           </Key>
+          <Property Name="IdFake" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WeaponsInfoId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="WeaponsTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NameOfWeaponsId" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrackingNo" Type="nvarchar" MaxLength="50" />
           <Property Name="WeaponsModel" Type="nvarchar" MaxLength="50" />
           <Property Name="RegistrationNo" Type="nvarchar" MaxLength="50" />
           <Property Name="ManufactureYear" Type="nvarchar" MaxLength="50" />
@@ -48,7 +50,7 @@
           <Property Name="LocalAgentId" Type="nvarchar" MaxLength="50" />
           <Property Name="PrincipalAgentId" Type="nvarchar" MaxLength="50" />
           <Property Name="ManufactureAgentId" Type="nvarchar" MaxLength="50" />
-          <Property Name="Image" Type="nvarchar" MaxLength="50" />
+          <Property Name="Image" Type="nvarchar" MaxLength="250" />
           <Property Name="DepotId" Type="nvarchar" MaxLength="50" />
           <Property Name="ProcurementCatId" Type="nvarchar" MaxLength="50" />
           <Property Name="WareHouseId" Type="nvarchar" MaxLength="50" />
@@ -83,8 +85,6 @@
           <Property Name="IsActive" Type="bit" />
           <Property Name="SetUpBy" Type="int" />
           <Property Name="SetUpDateTime" Type="datetime" />
-          <Property Name="UpdatedBy" Type="int" />
-          <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -714,11 +714,13 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
         </EntityType>
         <EntityType Name="I_WeaponsInfo">
           <Key>
-            <PropertyRef Name="WeaponsInfoId" />
+            <PropertyRef Name="IdFake" />
           </Key>
+          <Property Name="IdFake" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WeaponsInfoId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="WeaponsTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NameOfWeaponsId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrackingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="WeaponsModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RegistrationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ManufactureYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -736,7 +738,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="LocalAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PrincipalAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ManufactureAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="DepotId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProcurementCatId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="WareHouseId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -771,8 +773,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="Int32" />
-          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -1293,8 +1293,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               <MappingFragment StoreEntitySet="I_WeaponsInfo">
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
-                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
                 <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -1347,9 +1345,11 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="ManufactureYear" ColumnName="ManufactureYear" />
                 <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
                 <ScalarProperty Name="WeaponsModel" ColumnName="WeaponsModel" />
+                <ScalarProperty Name="TrackingNo" ColumnName="TrackingNo" />
                 <ScalarProperty Name="NameOfWeaponsId" ColumnName="NameOfWeaponsId" />
                 <ScalarProperty Name="WeaponsTypeId" ColumnName="WeaponsTypeId" />
                 <ScalarProperty Name="WeaponsInfoId" ColumnName="WeaponsInfoId" />
+                <ScalarProperty Name="IdFake" ColumnName="IdFake" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

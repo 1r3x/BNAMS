@@ -8,6 +8,12 @@ namespace BNAMS.Manager.Common
 {
     public class CommonManager
     {
+        private readonly ResponseModel _aModel;
+
+        public CommonManager()
+        {
+            _aModel=new ResponseModel();
+        }
         public int RandomNumber(int min, int max)
         {
             var random = new Random();
@@ -39,6 +45,28 @@ namespace BNAMS.Manager.Common
             builder.Append(RandomString(2, false));
             return builder.ToString();
         }
+
+        public ResponseModel GetYearForDropDown()
+        {
+            var data = new List<int>();
+            var currentYear = DateTime.Now.Year;
+            for (var i = currentYear - 3; i < currentYear + 3; i++)
+            {
+                data.Add(i);
+            }
+            return _aModel.Respons(data);
+        }
+
+        public ResponseModel GetMonthDropDown()
+        {
+            var data = new List<string>
+            {
+                "","January","February","March","April","May","June","July","August","September","October","November","December"
+            };
+
+            return _aModel.Respons(data);
+        }
+
 
 
     }

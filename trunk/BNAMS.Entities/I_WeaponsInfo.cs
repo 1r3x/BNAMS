@@ -14,9 +14,11 @@ namespace BNAMS.Entities
     
     public partial class I_WeaponsInfo
     {
+        public int IdFake { get; set; }
         public string WeaponsInfoId { get; set; }
         public string WeaponsTypeId { get; set; }
         public string NameOfWeaponsId { get; set; }
+        public string TrackingNo { get; set; }
         public string WeaponsModel { get; set; }
         public string RegistrationNo { get; set; }
         public string ManufactureYear { get; set; }
@@ -69,8 +71,6 @@ namespace BNAMS.Entities
         public Nullable<bool> IsActive { get; set; }
         public Nullable<int> SetUpBy { get; set; }
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDateTime { get; set; }
         public Nullable<bool> IsBackup { get; set; }
         public string DerectorateId { get; set; }
     }
