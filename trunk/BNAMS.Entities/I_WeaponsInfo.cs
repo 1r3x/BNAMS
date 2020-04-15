@@ -40,8 +40,7 @@ namespace BNAMS.Entities
         public string DepotId { get; set; }
         public string ProcurementCatId { get; set; }
         public string WareHouseId { get; set; }
-        public string SelfId { get; set; }
-        public string RowId { get; set; }
+        public string BinLocationId { get; set; }
         public string TechnicalSpec { get; set; }
         public string Weight { get; set; }
         public string Dimention { get; set; }

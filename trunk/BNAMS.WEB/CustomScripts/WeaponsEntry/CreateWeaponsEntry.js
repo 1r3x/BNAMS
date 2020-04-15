@@ -19,7 +19,7 @@ var CreateWeaponsEntryManager = {
 
                         toastr.success(response.data.Message);
                         viewWeaponsEntry.GetWeaponsEntryDataTable();
-                        //WeaponsEntryHelper.ClearField();
+                        WeaponsEntryHelper.ClearField();
                         $("#btnSubmit").html("Save");
                     }
                 },
@@ -70,20 +70,8 @@ var CreateWeaponsEntryManager = {
 
 var WeaponsEntryHelper = {
     InitWeaponsEntry: function () {
+       
         WeaponsEntryHelper.LoadWeaponsTypeDD();
-        WeaponsEntryHelper.LoadFiscalYearDD();
-        WeaponsEntryHelper.LoadCountryDD();
-        WeaponsEntryHelper.LoadYearDD();
-        WeaponsEntryHelper.LoadPriceTypeDD();
-        WeaponsEntryHelper.LoadLocalAgentDD();
-        WeaponsEntryHelper.LoadPrincipalAgentDD();
-        WeaponsEntryHelper.LoadManuAgentDD();
-        WeaponsEntryHelper.LoadQuantityCategoryDD();
-        WeaponsEntryHelper.LoadDepotDD();
-        WeaponsEntryHelper.LoadProcurementCategoryDD();
-        WeaponsEntryHelper.LoadWareHouseDD();
-        WeaponsEntryHelper.LoadStatusDD();
-
 
         $("#btnSubmit").unbind("click").click(function () {
             CreateWeaponsEntryManager.SaveWeaponsEntry();
@@ -634,19 +622,59 @@ var WeaponsEntryHelper = {
         input.replaceWith(input.val("").clone(true));
         $("#blah").attr("src", "http://placehold.it/180");
 
-        $("#").val("0");
-        $("#ddlAdmin").val("").trigger("change");
-        $("#txtOrganizationCode").val("");
-        $("#txtAuthorityName").val("");
-        $("#txtAddress").val("");
-        $("#txtTelephone").val("");
-        $("#txtFaxNo").val("");
-        $("#txtWebAddress").val("");
-        $("#ddlArea").val("").trigger("change");
-
-        $("#chkIsActive").removeAttr("checked", "checked");
-        $("#hdnSetupBy").val("");
-        $("#hdnSetupDateTime").val("");
+        //$("#ddlWeaponsType").val("");
+        $("#ddlWeaponsName").val("").trigger("change");
+        $("#").val("");
+        $("#ddlGunModelType").val("").trigger("change");
+        $("#txtGunRegNo").val("");
+        $("#ddlYearOfManufacture").val("").trigger("change");
+        $("#").val("");
+        $("#ddlCountryOfOrigin").val("").trigger("change");
+        $("#").val("");
+        $("#txtPurpose").val("");
+        $("#ddlYearOfProcurement").val("").trigger("change");
+        $("#txtWarrentyPeriod").val("");
+        $("#ddlPriceType").val("").trigger("change");
+        $("#txtUnitPrice").val("");
+        $("#txtQuantity").val("");
+        $("#ddlQuantityCategory").val("").trigger("change");
+        //todo
+        $("#txtTotalPrice").val("");
+        $("#ddlLocalAgent").val("").trigger("change");
+        $("#ddlPrincipalAgent").val("").trigger("change");
+        $("#ddlManufacturerAgent").val("").trigger("change");
+        $("#ddlDepotName").val("").trigger("change");
+        $("#ddlProcurementCatagory").val("").trigger("change");
+        $("#ddlWarehouseName").val("").trigger("change");
+        //todo
+        $("#ddlShelfNo").val("").trigger("change");
+        $("#ddlRowNo").val("").trigger("change");
+        $("#txtTechnicalSpecification").val("");
+        $("#txtWeight").val("");
+        $("#txtDimentions").val("");
+        $("#txtMaximumRange").val("");
+        $("#txtEffectiveRange").val("");
+        $("#txtMuzzleVelocity").val("");
+        $("#txtBarrelLife").val("");
+        $("#txtOperatingTemp").val("");
+        $("#txtStoringTemp").val("");
+        $("#txtPreservationTemp").val("");
+        $("#ddlStatus").val("").trigger("change");
+        $("#dateOfReceived").val("");
+        $("#txtWorkOrder").val("");
+        $("#txtRemarks").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
+        $("#").val("");
         $("#btnSubmit").html("Save");
     },
 
@@ -686,9 +714,7 @@ var WeaponsEntryHelper = {
         aObj.DepotId = $("#ddlDepotName").val();
         aObj.ProcurementCatId = $("#ddlProcurementCatagory").val();
         aObj.WareHouseId = $("#ddlWarehouseName").val();
-        //todo
-        aObj.SelfId = $("#ddlShelfNo").val();
-        aObj.RowId = $("#ddlRowNo").val();
+        aObj.BinLocationId = $("#ddlShelfNo").val();
         aObj.TechnicalSpec = $("#txtTechnicalSpecification").val();
         aObj.Weight = $("#txtWeight").val();
         aObj.Dimention = $("#txtDimentions").val();

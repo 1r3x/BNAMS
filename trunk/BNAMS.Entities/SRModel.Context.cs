@@ -28,7 +28,6 @@ namespace BNAMS.Entities
         }
     
         public virtual DbSet<I_BinLocation> I_BinLocation { get; set; }
-        public virtual DbSet<I_WeaponsInfo> I_WeaponsInfo { get; set; }
         public virtual DbSet<M_Agent> M_Agent { get; set; }
         public virtual DbSet<M_AgentEnlistment> M_AgentEnlistment { get; set; }
         public virtual DbSet<M_AgentType> M_AgentType { get; set; }
@@ -55,6 +54,7 @@ namespace BNAMS.Entities
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
         public virtual DbSet<M_PriceType> M_PriceType { get; set; }
+        public virtual DbSet<I_WeaponsInfo> I_WeaponsInfo { get; set; }
     
         public virtual ObjectResult<SessionHelper_Result> SessionHelper(Nullable<int> empId)
         {
