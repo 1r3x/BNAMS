@@ -162,6 +162,7 @@
     <Compile Include="Controllers\CountrySetupController.cs" />
     <Compile Include="Controllers\DirectorateInfoController.cs" />
     <Compile Include="Controllers\FiscalYearSetupController.cs" />
+    <Compile Include="Controllers\GunAmmoMaintainceController.cs" />
     <Compile Include="Controllers\GunModelTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocalAgentSetupController.cs" />
@@ -223,6 +224,9 @@
     <Content Include="CustomScripts\FiscalYearSetup\CreateFiscalYearSetup.js" />
     <Content Include="CustomScripts\FiscalYearSetup\FiscalYearSetting.js" />
     <Content Include="CustomScripts\FiscalYearSetup\ViewFiscalYearSetup.js" />
+    <Content Include="CustomScripts\GunAmmoMaintaince\CreateGunAmmoMaintaince.js" />
+    <Content Include="CustomScripts\GunAmmoMaintaince\GunAmmoMaintainceSetting.js" />
+    <Content Include="CustomScripts\GunAmmoMaintaince\ViewGunAmmoMaintaince.js" />
     <Content Include="CustomScripts\GunModelType\GunModelTypeSetupSetting.js" />
     <Content Include="CustomScripts\GunModelType\CreateGunModelTypeSetup.js" />
     <Content Include="CustomScripts\GunModelType\ViewGunModelTypeSetup.js" />
@@ -578,6 +582,9 @@
     <Content Include="Views\WeaponsEntry\Index.cshtml" />
     <Content Include="Views\WeaponsEntry\_View.cshtml" />
     <Content Include="Views\WeaponsEntry\_Create.cshtml" />
+    <Content Include="Views\GunAmmoMaintaince\Index.cshtml" />
+    <Content Include="Views\GunAmmoMaintaince\_Create.cshtml" />
+    <Content Include="Views\GunAmmoMaintaince\_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

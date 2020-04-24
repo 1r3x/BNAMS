@@ -279,5 +279,17 @@ namespace BNAMS.Manager.Manager
                        };
             return _aModel.Respons(data);
         }
+
+        public ResponseModel LoadPreparationTime()
+        {
+            var data = from parentMenu in _db.M_MissilePrepType
+                where parentMenu.IsActive == true
+                select new
+                {
+                    id = parentMenu.MissilePrepTimeId,
+                    text = parentMenu.MissilePrepTime
+                };
+            return _aModel.Respons(data);
+        }
     }
 }

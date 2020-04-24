@@ -63,28 +63,55 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+
+                    <label id="txtBrandL" class="col-lg-2 control-label">
+                        Brand
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtBrand" class="form-control" placeholder="Item Brand">
+                    </div>
 
 
-            <div class="form-group">
-                
-                
-                <label id="ddlYearOfManufactureL" class="col-lg-2 control-label">
-                    Year Of Manufacture
-                </label>
-                <div class="col-lg-4">
-                    <select class="form-control" id="ddlYearOfManufacture">
-                        <option></option>
-                    </select>
-                </div>
-                <label id="txtGunRegNoL" class="col-lg-2 control-label">
-                    Gun Registration No
-                </label>
-                <div class="col-lg-4">
-                    <input type="text" id="txtGunRegNo" class="form-control" placeholder="Weapons Registration No.">
                 </div>
 
 
-            </div>
+                <div class="form-group">
+
+
+                    <label id="ddlYearOfManufactureL" class="col-lg-2 control-label">
+                        Year Of Manufacture
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlYearOfManufacture">
+                            <option></option>
+                        </select>
+                    </div>
+                    <label id="txtGunRegNoL" class="col-lg-2 control-label">
+                        Gun Registration No
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtGunRegNo" class="form-control" placeholder="Weapons Registration No.">
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="form-group">
+
+
+                    <label id="ddlCountryOfManufactureL" class="col-lg-2 control-label">
+                        Country of Manufacture
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlCountryOfManufacture">
+                            <option></option>
+                        </select>
+                    </div>
+
+                </div>
 
 
                 <div class="form-group">
@@ -348,8 +375,8 @@
 
 
             <div class="form-group required">
-                
-                
+
+
                 <label id="ddlStatusL" class="col-lg-2 control-label">
                     Status
                 </label>
@@ -369,26 +396,94 @@
 
 
             </div>
-
-
-                <div class="form-group required">
-                    <label id="dateOfReceivedL" class="col-lg-2 control-label">
-                        Date Of Received After Acceptance
-                    </label>
-                    <div class="col-lg-4">
-                        <input id="dateOfReceived" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
-                    </div>
-
-                    <label id="txtWorkOrderL" class="col-lg-2 control-label">
-                        Contract/Workorder
-                    </label>
-                    <div class="col-lg-4">
-                        <input type="text" id="txtWorkOrder" class="form-control" placeholder="Enter Contract/Workorder">
-                    </div>
+            
+            <div class="form-group required">
+                <label id="txtHumadityL" class="col-lg-2 control-label">
+                    Humadity
+                </label>
+                <div class="col-lg-4">
+                    <input type="text" id="txtHumadity" class="form-control" placeholder="Enter Humadity">
                 </div>
 
+            </div>
 
-                <div class="form-group required">
+
+            <div class="form-group required">
+                <label id="dateOfReceivedL" class="col-lg-2 control-label">
+                    Date Of Received After Acceptance
+                </label>
+                <div class="col-lg-4">
+                    <input id="dateOfReceived" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
+                </div>
+
+                <label id="txtWorkOrderL" class="col-lg-2 control-label">
+                    Contract/Workorder
+                </label>
+                <div class="col-lg-4">
+                    <input type="text" id="txtWorkOrder" class="form-control" placeholder="Enter Contract/Workorder">
+                </div>
+            </div>
+            
+            
+            
+            <div class="form-group required">
+                <label id="txtShelfLifeItemL" class="col-lg-2 control-label">
+                    Shelf Life
+                </label>
+                <div class="col-lg-4">
+                    <input type="text" id="txtShelfLifeItem" class="form-control" placeholder="Enter Shelf Life">
+                </div>
+
+                <label id="txtShelfLifeLauncherL" class="col-lg-2 control-label">
+                    Shelf Life Of Launcher
+                </label>
+                <div class="col-lg-4">
+                    <input type="text" id="txtShelfLifeLauncher" class="form-control" placeholder="Enter Launcher Shelf Life">
+                </div>
+            </div>
+            
+            
+            <div class="form-group required">
+                <label id="ddlPreparationTimeL" class="col-lg-2 control-label">
+                    Preparation Time
+                </label>
+                <div class="col-lg-4">
+                    <select class="form-control" id="ddlPreparationTime">
+                        <option></option>
+                    </select>
+                </div>
+
+                <label id="txtCombatDurationL" class="col-lg-2 control-label">
+                    Combat Duration
+                </label>
+                <div class="col-lg-4">
+                    <input type="text" id="txtCombatDuration" class="form-control" placeholder="Enter Combat Duration">
+                </div>
+            </div>
+            
+            
+            
+            <div class="form-group required">
+
+                <label id="txtTestFiringL" class="col-lg-2 control-label">
+                    Test Firing
+                </label>
+                <div class="col-lg-4">
+                    <input type="text" id="txtTestFiring" class="form-control" placeholder="Enter Test Firing Status">
+                </div>
+
+                <label id="dateOfTestFiringL" class="col-lg-2 control-label">
+                    Test Firing Date
+                </label>
+                <div class="col-lg-4">
+                    <input id="dateOfTestFiring" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group required">
                     <label id="txtRemarksL" class="col-lg-2 control-label">
                         Others/Remarks
                     </label>

@@ -44,6 +44,9 @@
     <Compile Include="I_BinLocation.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="I_MaintenanceInfo.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="I_WeaponsInfo.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
@@ -74,7 +77,13 @@
     <Compile Include="M_FiscalYear.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_MaintainceType.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_Menu.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_MissilePrepType.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_NameOfWeapon.cs">
@@ -121,6 +130,9 @@
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="spGetAllSelectedMenuAndSubMenu_Result.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spLoadWeaponDetails_Result.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="spNotVerifiedAddress_Result.cs">

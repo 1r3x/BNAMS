@@ -36,53 +36,66 @@ namespace BNAMS.Controllers.login
         [HttpPost]
         public ActionResult Login(SR.Models.login.User user)
         {
-            SmartRecordEntities usersEntities = new SmartRecordEntities();
-            var keyNew = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) select s).FirstOrDefault();
-            var password = "";
-            if (keyNew != null)
+            if (DateTime.Now <=Convert.ToDateTime("21-5-2020"))
             {
-                password = Helper.EncodePassword(user.Password, keyNew.SessionKey);
-            }
-            else
-            {
-                
-            }
-            
-            //var validateDate = usersEntities.Validate_User(user.Username, user.Password).FirstOrDefault();
-            var validateDate=(from s in usersEntities.UserLogins where (s.UserName==user.Username || s.Email==user.Username) && s.Password.Equals(password) select  s).FirstOrDefault();
-            //ar query = (from s in context.ObjRegisterUser where(s.UserName == userName || s.EmailId == userName) && s.Password.Equals(encodingPasswordString) select s).FirstOrDefault();
-            if (validateDate != null && validateDate.Id > 0)
-            {
-                var sessionData = (from s in usersEntities.UserLogins where (s.Id == validateDate.Id) select s)
-                    .FirstOrDefault();
-                FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
-                Session["userid"] = validateDate.Id;
-                Session["username"] = user.Username;
-                Session["directorateId"] = validateDate.DirectorateId;
-                Session["roleId"] = validateDate.UserRole;
-                Session["empIdNo"] = validateDate.EmpIdNumber;
-
-
-                if (sessionData != null) Session["imageUrl"] = sessionData.EmpImage;
+                SmartRecordEntities usersEntities = new SmartRecordEntities();
+                var keyNew = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) select s).FirstOrDefault();
+                var password = "";
+                if (keyNew != null)
+                {
+                    password = Helper.EncodePassword(user.Password, keyNew.SessionKey);
+                }
                 else
                 {
-                    Session["imageUrl"] = "";
+
                 }
-                //test purpose
-                //Session.Clear();
-                return RedirectToAction("Index", "Home");
+
+                //var validateDate = usersEntities.Validate_User(user.Username, user.Password).FirstOrDefault();
+                var validateDate = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) && s.Password.Equals(password) select s).FirstOrDefault();
+                //ar query = (from s in context.ObjRegisterUser where(s.UserName == userName || s.EmailId == userName) && s.Password.Equals(encodingPasswordString) select s).FirstOrDefault();
+                if (validateDate != null && validateDate.Id > 0)
+                {
+                    var sessionData = (from s in usersEntities.UserLogins where (s.Id == validateDate.Id) select s)
+                        .FirstOrDefault();
+                    FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
+                    Session["userid"] = validateDate.Id;
+                    Session["username"] = user.Username;
+                    Session["directorateId"] = validateDate.DirectorateId;
+                    Session["roleId"] = validateDate.UserRole;
+                    Session["empIdNo"] = validateDate.EmpIdNumber;
+
+
+                    if (sessionData != null) Session["imageUrl"] = sessionData.EmpImage;
+                    else
+                    {
+                        Session["imageUrl"] = "";
+                    }
+                    //test purpose
+                    //Session.Clear();
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    // Setting.    
+                    ModelState.AddModelError(string.Empty, "Invalid username or password.");
+                    string message = string.Empty;
+                    message = "Username and/or password is incorrect.";
+                    ViewBag.Message = message;
+                    return View(user);
+                }
+                //this part of code is used for only sesion access
+                //end sesion access code
             }
             else
             {
                 // Setting.    
-                ModelState.AddModelError(string.Empty, "Invalid username or password.");
+                ModelState.AddModelError(string.Empty, "Oops...License Expired");
                 string message = string.Empty;
-                message = "Username and/or password is incorrect.";
-                 ViewBag.Message = message;
+                message = "OOPS...License Expired";
+                ViewBag.Message = message;
                 return View(user);
             }
-            //this part of code is used for only sesion access
-            //end sesion access code
+
         }
 
         [HttpPost]

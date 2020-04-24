@@ -54,6 +54,7 @@
     <Compile Include="Interface\ICountrySetup.cs" />
     <Compile Include="Interface\IDirectorateInfo.cs" />
     <Compile Include="Interface\IFiscalYearSetup.cs" />
+    <Compile Include="Interface\IGunAmmoMaintaince.cs" />
     <Compile Include="Interface\IGunModel.cs" />
     <Compile Include="Interface\IHome.cs" />
     <Compile Include="Interface\ILocalAgent.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Manager\CountrySetupManager.cs" />
     <Compile Include="Manager\DirectorateInfoManager.cs" />
     <Compile Include="Manager\FiscalYearSetupManager.cs" />
+    <Compile Include="Manager\GunAmmoMaintainceManager.cs" />
     <Compile Include="Manager\GunModelTypeSetupManager.cs" />
     <Compile Include="Manager\HomeManager.cs" />
     <Compile Include="Manager\LocalAgentSetupManager.cs" />

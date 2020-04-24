@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="700a74c06c60408bb29af757d892b2b4" Name="Diagram1" ZoomLevel="65">
         <EntityTypeShape EntityType="SmartRecordModel.I_BinLocation" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.I_WeaponsInfo" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_Agent" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_AgentEnlistment" Width="1.5" PointX="4.75" PointY="5.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_AgentType" Width="1.5" PointX="6.75" PointY="0.75" />
@@ -16,23 +17,25 @@
         <EntityTypeShape EntityType="SmartRecordModel.M_DepotShipCategory" Width="1.5" PointX="10.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_FiscalYear" Width="1.5" PointX="10.75" PointY="3.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_Menu" Width="1.5" PointX="10.75" PointY="8.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_NameOfWeapon" Width="1.5" PointX="4.75" PointY="11.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_ProcurementCategory" Width="1.5" PointX="6.75" PointY="11.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_ProductCategory" Width="1.5" PointX="12.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_QuantityCategory" Width="1.5" PointX="12.75" PointY="3.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_StatusInformation" Width="1.5" PointX="12.75" PointY="7.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_TypeOfShip" Width="1.5" PointX="12.75" PointY="12.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_WareHouseType" Width="1.5" PointX="8.75" PointY="13.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_WeaponsModelType" Width="1.5" PointX="14.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_WeaponsType" Width="1.5" PointX="0.75" PointY="14.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.O_DirectorateInfo" Width="1.5" PointX="14.75" PointY="5.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.O_ShipOrDepotInfo" Width="1.5" PointX="14.75" PointY="10.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.O_WareHouse" Width="1.5" PointX="10.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_MissilePrepType" Width="1.5" PointX="4.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_NameOfWeapon" Width="1.5" PointX="6.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_ProcurementCategory" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_ProductCategory" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_QuantityCategory" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_StatusInformation" Width="1.5" PointX="12.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_TypeOfShip" Width="1.5" PointX="8.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_WareHouseType" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_WeaponsModelType" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_WeaponsType" Width="1.5" PointX="2.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.O_DirectorateInfo" Width="1.5" PointX="14.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.O_ShipOrDepotInfo" Width="1.5" PointX="14.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.O_WareHouse" Width="1.5" PointX="14.75" PointY="15.75" />
         <EntityTypeShape EntityType="SmartRecordModel.UserLogin" Width="1.5" PointX="16.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserPermission" Width="1.5" PointX="2.75" PointY="16.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="4.75" PointY="16.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.M_PriceType" Width="1.5" PointX="16.75" PointY="6.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.I_WeaponsInfo" Width="1.5" PointX="13.375" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserPermission" Width="1.5" PointX="4.75" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="16.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.I_MaintenanceInfo" Width="1.5" PointX="6.75" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_PriceType" Width="1.5" PointX="8.75" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.M_MaintainceType" Width="1.5" PointX="11.375" PointY="16.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

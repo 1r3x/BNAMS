@@ -244,6 +244,17 @@ var WeaponsEntryHelper = {
             data: parentMenu
         });
     },
+    //for manu counry
+    LoadCountryOFManuDD: function () {
+        debugger;
+        var parentMenu = WeaponsEntryHelper.LoadCountry();
+        $("#ddlCountryOfManufacture").select2({
+            placeholder: "Select Country",
+            data: parentMenu
+        });
+    },
+
+
 
     //year 
     LoadYear: function () {
@@ -613,6 +624,35 @@ var WeaponsEntryHelper = {
     },
 
 
+    //LoadMissilePrep
+    LoadMissilePrep: function () {
+        var b = [];
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/WeaponsEntry/LoadMissilePreparationTime",
+            success: function (response) {
+
+                b = response.data;
+
+            },
+            error: function (response) {
+                b = { id: 0, text: "No Data" }
+            }
+        });
+        return b;
+    },
+    LoadMissilePrepDD: function () {
+        debugger;
+        var parentMenu = WeaponsEntryHelper.LoadMissilePrep();
+        $("#ddlPreparationTime").select2({
+            placeholder: "Select Preparation Time",
+            data: parentMenu
+        });
+    },
+
 
     ClearField: function () {
         debugger;
@@ -630,7 +670,7 @@ var WeaponsEntryHelper = {
         $("#ddlYearOfManufacture").val("").trigger("change");
         $("#").val("");
         $("#ddlCountryOfOrigin").val("").trigger("change");
-        $("#").val("");
+        $("#ddlCountryOfManufacture").val("").trigger("change");
         $("#txtPurpose").val("");
         $("#ddlYearOfProcurement").val("").trigger("change");
         $("#txtWarrentyPeriod").val("");
@@ -663,8 +703,8 @@ var WeaponsEntryHelper = {
         $("#dateOfReceived").val("");
         $("#txtWorkOrder").val("");
         $("#txtRemarks").val("");
-        $("#").val("");
-        $("#").val("");
+        $("#txtHumadity").val("");
+        $("#txtCombatDuration").val("");
         $("#").val("");
         $("#").val("");
         $("#").val("");
@@ -692,13 +732,12 @@ var WeaponsEntryHelper = {
         
         aObj.WeaponsTypeId = $("#ddlWeaponsType").val();
         aObj.NameOfWeaponsId = $("#ddlWeaponsName").val();
-        aObj.TrackingNo = $("#").val();
         aObj.WeaponsModel = $("#ddlGunModelType").val();
         aObj.RegistrationNo = $("#txtGunRegNo").val();
         aObj.ManufactureYear = $("#ddlYearOfManufacture").val();
         aObj.FiscalYearId = $("#").val();
         aObj.OriginCountryId = $("#ddlCountryOfOrigin").val();
-        aObj.ManufactureCountryId = $("#").val();
+        aObj.ManufactureCountryId = $("#ddlCountryOfManufacture").val();
         aObj.Purpose = $("#txtPurpose").val();
         aObj.ProcurementYear = $("#ddlYearOfProcurement").val();
         aObj.WarrantyPeriod = $("#txtWarrentyPeriod").val();
@@ -731,16 +770,17 @@ var WeaponsEntryHelper = {
         aObj.Remarks = $("#txtRemarks").val();
         aObj.MissilTypeId = $("#").val();
         aObj.SerialNumber = $("#").val();
-        aObj.ShelfLifeOfWeapon = $("#").val();
-        aObj.ShelfLifeOfLauncher = $("#").val();
-        aObj.PreparationTimeId = $("#").val();
-        aObj.CombatDuration = $("#").val();
+        aObj.ShelfLifeOfWeapon = $("#txtShelfLifeItem").val();
+        aObj.ShelfLifeOfLauncher = $("#txtShelfLifeLauncher").val();
+        aObj.PreparationTimeId = $("#ddlPreparationTime").val();
+        aObj.CombatDuration = $("#txtCombatDuration").val();
         aObj.Caliber = $("#").val();
         aObj.AmmunitationTypeId = $("#").val();
         aObj.LotNumberId = $("#").val();
-        aObj.ProofFiringStatus = $("#").val();
-        aObj.ProofFiringDate = $("#").val();
-        aObj.Humidity = $("#").val();
+        aObj.ProofFiringStatus = $("#txtTestFiring").val();
+        aObj.ProofFiringDate = $("#dateOfTestFiring").val();
+        aObj.Humidity = $("#txtHumadity").val();
+        aObj.Brand = $("#txtBrand").val();
 
         aObj.IsActive = ($("#chkIsActive").prop("checked") == true) ? 1 : 0;
         aObj.SetUpBy = $("#hdnSetupBy").val();

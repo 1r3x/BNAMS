@@ -1,0 +1,224 @@
+﻿
+
+<div class="panel panel-primary dialog-panel">
+    <div class="panel-heading">
+        <h5>Ship/Depot Info Create</h5>
+    </div>
+
+
+    <input type="text" id="hdnMaintainceId" hidden="" value="0" />
+    <input type="text" id="hdnSetupBy" hidden="" value="0" />
+    <input type="text" id="hdnSetupDateTime" hidden="" value="0" />
+
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" style="margin-left: 10px">
+            <div class="row">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Weapon Type
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlWeaponType">
+                            <option></option>
+                            <option value="1042020WEAP137">Gun</option>
+                            <option value="1042020WEAP139">Ammo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Maintaince Code
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" readonly="" id="txtMaintainceCode" class="form-control" placeholder="Maintaince Code(Auto)">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Registration No.
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlRegNo">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Name
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" readonly="" id="txtName" class="form-control" placeholder="Name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Present Location
+                    </label>
+                    <div class="col-md-8">
+                        <input type="text" readonly="" id="txtPresentLocation" class="form-control" placeholder="Present Location">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Last Maintaince Date
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" readonly="" id="txtLastMaintainceDate" class="form-control" placeholder="Last Maintaince Date">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Maintaince Year
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" readonly="" id="txtMaintainceYear" class="form-control" placeholder="Maintaince Year">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Maintenance Detail
+                    </label>
+                    <div class="col-md-8">
+                        <textarea readonly="" id="txtMaintainceDetails" class="form-control" placeholder="Maintaince Details" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Last Maintaince Date
+                    </label>
+                    <div class="col-md-8">
+                        <input id="dateOfLastMaintaince" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Present Depot
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlDepot">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Present Warehouse
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlWarehouse">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Present Shelf
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlShelf">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Present Row
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlRow">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Maintaince Year
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlYear">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Maintaince Location
+                    </label>
+                    <div class="col-md-8">
+                        <input type="text" id="txtLocation" class="form-control" placeholder="Enter Location">
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Defect Information
+                    </label>
+                    <div class="col-md-8">
+                        <textarea id="txtDefectInformation" class="form-control" placeholder="Enter Defect Information " rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Maintenance Detail
+                    </label>
+                    <div class="col-md-8">
+                        <textarea id="txtMaintenanceDetail" class="form-control" placeholder="Enter Maintenance Detail " rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Maintaince Type
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlType">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="chkIsActive">
+                    <label class="form-check-label">
+                        Is Active
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="form-actions right1">
+                <button type="button" id="btnSubmit" class="btn btn-primary">
+                    Save
+                </button>
+                <button type="button" id="btnCancel" class="btn btn-danger">
+                    Reset
+                </button>
+
+            </div>
+
+
+        </form>
+    </div>
+</div>

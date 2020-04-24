@@ -43,10 +43,14 @@
          $("#ddlWeaponsNameL").hide();
          $("#ddlGunModelType").hide();
          $("#ddlGunModelTypeL").hide();
+         $("#txtBrand").hide();
+         $("#txtBrandL").hide();
          $("#txtGunRegNo").hide();
          $("#txtGunRegNoL").hide();
          $("#ddlYearOfManufacture").hide();
          $("#ddlYearOfManufactureL").hide();
+         $("#ddlCountryOfManufacture").hide();
+         $("#ddlCountryOfManufactureL").hide();
          $("#ddlCountryOfOrigin").hide();
          $("#ddlCountryOfOriginL").hide();
          $("#txtPurpose").hide();
@@ -78,6 +82,8 @@
          $("#ddlProcurementCatagoryL").hide();
          $("#ddlWarehouseName").hide();
          $("#ddlWarehouseNameL").hide();
+         $("#ddlPreparationTime").hide();
+         $("#ddlPreparationTimeL").hide();
          //todo
          $("#ddlShelfNo").hide();
          $("#ddlShelfNoL").hide();
@@ -103,14 +109,26 @@
          $("#txtStoringTempL").hide();
          $("#txtPreservationTemp").hide();
          $("#txtPreservationTempL").hide();
+         $("#txtHumadity").hide();
+         $("#txtHumadityL").hide();
          $("#ddlStatus").hide();
          $("#ddlStatusL").hide();
          $("#dateOfReceived").hide();
          $("#dateOfReceivedL").hide();
          $("#txtWorkOrder").hide();
          $("#txtWorkOrderL").hide();
+         $("#txtShelfLifeItem").hide();
+         $("#txtShelfLifeItemL").hide();
+         $("#txtShelfLifeLauncherL").hide();
+         $("#txtShelfLifeLauncher").hide();
          $("#txtRemarks").hide();
          $("#txtRemarksL").hide();
+         $("#txtTestFiring").hide();
+         $("#txtTestFiringL").hide();
+         $("#dateOfTestFiring").hide();
+         $("#dateOfTestFiringL").hide();
+         $("#txtCombatDuration").hide();
+         $("#txtCombatDurationL").hide();
     },
 
     ShowForGunEntry: function () {
@@ -222,11 +240,10 @@
         $("#txtGunRegNoL").show();
         $("#ddlYearOfManufacture").show();
         $("#ddlYearOfManufactureL").show();
-
-        //country of manu 
-
         $("#ddlCountryOfOrigin").show();
         $("#ddlCountryOfOriginL").show();
+        $("#ddlCountryOfManufacture").show();
+        $("#ddlCountryOfManufactureL").show();
         $("#txtPurpose").show();
         $("#txtPurposeL").show();
         $("#ddlYearOfProcurement").show();
@@ -255,7 +272,6 @@
         $("#ddlProcurementCatagoryL").show();
         $("#ddlWarehouseName").show();
         $("#ddlWarehouseNameL").show();
-        ////todo
         $("#ddlShelfNo").show();
         $("#ddlShelfNoL").show();
         $("#ddlRowNo").show();
@@ -283,6 +299,7 @@
         WeaponsEntryHelper.LoadProcurementCategoryDD();
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
+        WeaponsEntryHelper.LoadCountryOFManuDD();
     },
 
     ShowForSpairPartsEntry: function () {
@@ -295,17 +312,14 @@
         $("#ddlWeaponsNameL").show();
         $("#ddlGunModelType").show();
         $("#ddlGunModelTypeL").show();
-
-        //brand
-        //model
+        $("#txtBrand").show();
+        $("#txtBrandL").show();
         $("#ddlYearOfManufacture").show();
         $("#ddlYearOfManufactureL").show();
         $("#ddlCountryOfOrigin").show();
         $("#ddlCountryOfOriginL").show();
-
-        //country of manu
-
-
+        $("#ddlCountryOfManufacture").show();
+        $("#ddlCountryOfManufactureL").show();
         $("#txtPurpose").show();
         $("#txtPurposeL").show();
         $("#ddlYearOfProcurement").show();
@@ -370,6 +384,7 @@
         WeaponsEntryHelper.LoadProcurementCategoryDD();
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
+        WeaponsEntryHelper.LoadCountryOFManuDD();
     },
 
     ShowForAmmoEntry: function () {
@@ -386,8 +401,8 @@
         $("#ddlYearOfManufactureL").show();
         $("#ddlCountryOfOrigin").show();
         $("#ddlCountryOfOriginL").show();
-
-        //country of manu
+        $("#ddlCountryOfManufacture").show();
+        $("#ddlCountryOfManufactureL").show();
         $("#ddlYearOfProcurement").show();
         $("#ddlYearOfProcurementL").show();
         $("#txtWarrentyPeriod").show();
@@ -417,8 +432,10 @@
         $("#ddlRowNoL").show();
         $("#txtTechnicalSpecification").show();
         $("#txtTechnicalSpecificationL").show();
-        //prof firing 
-        //proof firing date
+        $("#txtTestFiring").show();
+        $("#txtTestFiringL").show();
+        $("#dateOfTestFiring").show();
+        $("#dateOfTestFiringL").show();
         
         $("#txtOperatingTemp").show();
         $("#txtOperatingTempL").show();
@@ -426,8 +443,8 @@
         $("#txtStoringTempL").show();
         $("#txtPreservationTemp").show();
         $("#txtPreservationTempL").show();
-        //humadity
-
+        $("#txtHumadity").show();
+        $("#txtHumadityL").show();
         $("#ddlStatus").show();
         $("#ddlStatusL").show();
         
@@ -446,6 +463,7 @@
         WeaponsEntryHelper.LoadDepotDD();
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
+        WeaponsEntryHelper.LoadCountryOFManuDD();
     },
 
     ShowForMissileEntry: function () {
@@ -463,17 +481,24 @@
         $("#ddlYearOfManufactureL").show();
         $("#ddlCountryOfOrigin").show();
         $("#ddlCountryOfOriginL").show();
-        //counry of manu
+        $("#ddlCountryOfManufacture").show();
+        $("#ddlCountryOfManufactureL").show();
         $("#txtPurpose").show();
         $("#txtPurposeL").show();
         $("#ddlYearOfProcurement").show();
         $("#ddlYearOfProcurementL").show();
-        //shelf life of missile
-        //shelf life of launcher
-        //missile preparation time
-        //combat duration
-        //test firing 
-        //test firing date
+        $("#txtShelfLifeItem").show();
+        $("#txtShelfLifeItemL").show();
+        $("#txtShelfLifeLauncherL").show();
+        $("#txtShelfLifeLauncher").show();
+        $("#ddlPreparationTime").show();
+        $("#ddlPreparationTimeL").show();
+        $("#txtCombatDuration").show();
+        $("#txtCombatDurationL").show();
+        $("#txtTestFiring").show();
+        $("#txtTestFiringL").show();
+        $("#dateOfTestFiringL").show();
+        $("#dateOfTestFiring").show();
 
         $("#txtWarrentyPeriod").show();
         $("#txtWarrentyPeriodL").show();
@@ -509,9 +534,8 @@
         $("#txtOperatingTempL").show();
         $("#txtStoringTemp").show();
         $("#txtStoringTempL").show();
-        //humadity
-
-       
+        $("#txtHumadity").show();
+        $("#txtHumadityL").show();
         $("#ddlStatus").show();
         $("#ddlStatusL").show();
         $("#dateOfReceived").show();
@@ -531,6 +555,8 @@
         WeaponsEntryHelper.LoadDepotDD();
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
+        WeaponsEntryHelper.LoadCountryOFManuDD();
+        WeaponsEntryHelper.LoadMissilePrepDD();
     },
 
 

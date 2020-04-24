@@ -28,6 +28,7 @@ namespace BNAMS.Manager.Interface
         ResponseModel LoadShelfNameByWraehouseId(string warehouseId);
         ResponseModel LoadRowNameByWraehouseId(string binLocationId);
         ResponseModel LoadStatus();
+        ResponseModel LoadPreparationTime();
         
     }
 }

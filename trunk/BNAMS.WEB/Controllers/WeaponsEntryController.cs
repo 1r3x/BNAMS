@@ -189,5 +189,11 @@ namespace BNAMS.Controllers
             var data = _commonCode.GetYearForDropDown();
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
+        // GET: WeaponsEntry/LoadMissilePreparationTime
+        public JsonResult LoadMissilePreparationTime()
+        {
+            var data = _aManager.LoadPreparationTime();
+            return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
+        }
     }
 }

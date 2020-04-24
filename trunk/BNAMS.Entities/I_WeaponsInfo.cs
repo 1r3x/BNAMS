@@ -72,5 +72,6 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<bool> IsBackup { get; set; }
         public string DerectorateId { get; set; }
+        public string Brand { get; set; }
     }
 }
