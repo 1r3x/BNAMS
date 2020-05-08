@@ -27,7 +27,12 @@ namespace BNAMS.Entities
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<HR_TraineePersonBio> HR_TraineePersonBio { get; set; }
+        public virtual DbSet<HR_TraningInformation> HR_TraningInformation { get; set; }
         public virtual DbSet<I_BinLocation> I_BinLocation { get; set; }
+        public virtual DbSet<I_Indent> I_Indent { get; set; }
+        public virtual DbSet<I_MaintenanceInfo> I_MaintenanceInfo { get; set; }
+        public virtual DbSet<I_StatusAfterMaintaince> I_StatusAfterMaintaince { get; set; }
         public virtual DbSet<I_WeaponsInfo> I_WeaponsInfo { get; set; }
         public virtual DbSet<M_Agent> M_Agent { get; set; }
         public virtual DbSet<M_AgentEnlistment> M_AgentEnlistment { get; set; }
@@ -35,16 +40,23 @@ namespace BNAMS.Entities
         public virtual DbSet<M_Area> M_Area { get; set; }
         public virtual DbSet<M_Authorirty> M_Authorirty { get; set; }
         public virtual DbSet<M_CapabilityOfWeapons> M_CapabilityOfWeapons { get; set; }
+        public virtual DbSet<M_Composite> M_Composite { get; set; }
         public virtual DbSet<M_Country> M_Country { get; set; }
         public virtual DbSet<M_DepotShipCategory> M_DepotShipCategory { get; set; }
         public virtual DbSet<M_FiscalYear> M_FiscalYear { get; set; }
+        public virtual DbSet<M_IndentStatus> M_IndentStatus { get; set; }
+        public virtual DbSet<M_IndentType> M_IndentType { get; set; }
+        public virtual DbSet<M_MaintainceStatus_c_> M_MaintainceStatus_c_ { get; set; }
+        public virtual DbSet<M_MaintainceType> M_MaintainceType { get; set; }
         public virtual DbSet<M_Menu> M_Menu { get; set; }
         public virtual DbSet<M_MissilePrepType> M_MissilePrepType { get; set; }
         public virtual DbSet<M_NameOfWeapon> M_NameOfWeapon { get; set; }
         public virtual DbSet<M_ProcurementCategory> M_ProcurementCategory { get; set; }
         public virtual DbSet<M_ProductCategory> M_ProductCategory { get; set; }
         public virtual DbSet<M_QuantityCategory> M_QuantityCategory { get; set; }
+        public virtual DbSet<M_RankSetup> M_RankSetup { get; set; }
         public virtual DbSet<M_StatusInformation> M_StatusInformation { get; set; }
+        public virtual DbSet<M_TraningOrg> M_TraningOrg { get; set; }
         public virtual DbSet<M_TypeOfShip> M_TypeOfShip { get; set; }
         public virtual DbSet<M_WareHouseType> M_WareHouseType { get; set; }
         public virtual DbSet<M_WeaponsModelType> M_WeaponsModelType { get; set; }
@@ -55,9 +67,8 @@ namespace BNAMS.Entities
         public virtual DbSet<UserLogin> UserLogins { get; set; }
         public virtual DbSet<UserPermission> UserPermissions { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<I_MaintenanceInfo> I_MaintenanceInfo { get; set; }
+        public virtual DbSet<W_Inspection> W_Inspection { get; set; }
         public virtual DbSet<M_PriceType> M_PriceType { get; set; }
-        public virtual DbSet<M_MaintainceType> M_MaintainceType { get; set; }
     
         public virtual ObjectResult<SessionHelper_Result> SessionHelper(Nullable<int> empId)
         {

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using BNAMS.Entities;
+using BNAMS.Entities.ViewModels;
 using BNAMS.Manager.Common;
 using BNAMS.Manager.Interface;
 using BNAMS.Repositories;
@@ -15,53 +16,96 @@ namespace BNAMS.Manager.Manager
     public class GunAmmoMaintainceManager : IGunAmmoMaintaince
     {
         private readonly ResponseModel _aModel;
-        private readonly IGenericRepository<I_MaintenanceInfo> _aRepository;
+        private readonly IGenericRepository<I_StatusAfterMaintaince> _aRepository;
         private readonly SmartRecordEntities _db;
         private readonly CommonManager _commonCode;
 
         public GunAmmoMaintainceManager()
         {
-            _aRepository = new GenericRepository<I_MaintenanceInfo>();
+            _aRepository = new GenericRepository<I_StatusAfterMaintaince>();
             _db = new SmartRecordEntities();
             _aModel = new ResponseModel();
             _commonCode = new CommonManager();
         }
 
-        public ResponseModel CreateGunAmmoMaintaince(I_MaintenanceInfo aObj)
+        public ResponseModel CreateGunAmmoMaintaince(WeaponsMaintainceViewModel aObj)
         {
-            if (aObj.MaintainceId == "0")
+            using (var transaction = _db.Database.BeginTransaction())
             {
-                aObj.MaintainceId = (string)HttpContext.Current.Session["directorateId"] + "-BIN-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-                aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
-                aObj.SetUpDateTime = DateTime.Now;
-                aObj.IsActive = true;
-                aObj.IsBackup = false;
-                aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+                if (aObj.MaintainceId == "0")
+                {
 
+                    var inMaintainceTable = (from a in _db.I_MaintenanceInfo
+                                             where a.ItemId == aObj.ItemId && a.IsActive==true
+                                             select a).SingleOrDefault();
 
-                _aRepository.Insert(aObj);
-                _aRepository.Save();
+                    if (inMaintainceTable != null)
+                    {
 
+                        inMaintainceTable.IsActive = false;
+                    }
+                    _db.SaveChanges();
 
-                return _aModel.Respons(true, "New Maintaince Saved Successfully.");
+                    var maintaince = new I_MaintenanceInfo()
+                    {
+
+                        MaintainceId = (string)HttpContext.Current.Session["directorateId"] + "-BIN-" +
+                                       (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds,
+                        MaintainceCode = "MNT-" + DateTime.UtcNow.Second + _commonCode.RandomString(3, false),
+                        ItemId = aObj.ItemId,
+                        LastMaintainceDate =aObj.LastMaintainceDate,
+                        MaintainceYear = aObj.MaintainceYear,
+                        MaintainceDetails = aObj.MaintainceDetails,
+                        MaintainceLocation = aObj.MaintainceLocation,
+                        DefectInfo = aObj.DefectInfo,
+                        NextMaintainceSchadule = aObj.NextMaintainceSchadule,
+                        SetUpBy = (int?)HttpContext.Current.Session["userid"],
+                        SetUpDateTime = DateTime.Now,
+                        IsActive = true,
+                        IsBackup = false,
+                        DerectorateId = (string)HttpContext.Current.Session["directorateId"]
+
+                    };
+                    _db.I_MaintenanceInfo.Add(maintaince);
+
+                    _db.SaveChanges();
+
+                    //for wepons info changes
+
+                    var inWeaponsINfoTable = (from a in _db.I_WeaponsInfo
+                                              where a.WeaponsInfoId == aObj.ItemId
+                                              select a).SingleOrDefault();
+
+                    if (inWeaponsINfoTable != null)
+                    {
+
+                        inWeaponsINfoTable.DepotId = aObj.DepotId;
+                        inWeaponsINfoTable.WareHouseId = aObj.WareHouseId;
+                        inWeaponsINfoTable.BinLocationId = aObj.BinLOcationId;
+                        inWeaponsINfoTable.IsBackup = false;
+                    }
+                    _db.SaveChanges();
+
+                    transaction.Commit();
+                    return _aModel.Respons(true, "New Maintaince Saved Successfully.");
+
+                }
+                return _aModel.Respons(true, "Oops something went wrong.");
             }
-            aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
-            aObj.UpdatedDateTime = DateTime.Now;
-            aObj.IsBackup = false;
-            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
-
-            _aRepository.Update(aObj);
-            _aRepository.Save();
-            return _aModel.Respons(true, "Maintaince Updated Successfully");
         }
-
         public ResponseModel GetAllGunAmmoMaintaince()
         {
             var data = from a in _db.I_MaintenanceInfo
-                       join weapons in _db.I_WeaponsInfo on a.ItemId equals weapons.NameOfWeaponsId
+                       join weapons in _db.I_WeaponsInfo on a.ItemId equals weapons.WeaponsInfoId
+                       join nameOfgun in _db.M_NameOfWeapon on weapons.NameOfWeaponsId equals nameOfgun.NameOfGunId
+                       where a.IsActive==true
                        select new
                        {
-                           a.MaintainceId,
+                           a.MaintainceCode,
+                           nameOfgun.NameOfGun,
+                           a.LastMaintainceDate,
+                           a.MaintainceYear,
+                           a.NextMaintainceSchadule,
                            a.IsActive,
                            a.SetUpBy,
                            a.SetUpDateTime
@@ -128,11 +172,11 @@ namespace BNAMS.Manager.Manager
 
             var data = from parentMenu in _db.I_BinLocation
                        where parentMenu.IsActive == true && parentMenu.WareHouseId == warehouseId
-                select new
-                {
-                    id = parentMenu.WareHouseId,
-                    text = parentMenu.RowIdNo
-                };
+                       select new
+                       {
+                           id = parentMenu.WareHouseId,
+                           text = parentMenu.RowIdNo
+                       };
             return _aModel.Respons(data);
         }
 
@@ -140,12 +184,12 @@ namespace BNAMS.Manager.Manager
         {
 
             var data = from parentMenu in _db.M_MaintainceType
-                where parentMenu.IsActive == true
-                select new
-                {
-                    id = parentMenu.MaintainceId,
-                    text = parentMenu.MaintainceType
-                };
+                       where parentMenu.IsActive == true
+                       select new
+                       {
+                           id = parentMenu.MaintainceId,
+                           text = parentMenu.MaintainceType
+                       };
             return _aModel.Respons(data);
         }
     }

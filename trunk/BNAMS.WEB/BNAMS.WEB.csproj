@@ -165,6 +165,7 @@
     <Compile Include="Controllers\GunAmmoMaintainceController.cs" />
     <Compile Include="Controllers\GunModelTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InspactionController.cs" />
     <Compile Include="Controllers\LocalAgentSetupController.cs" />
     <Compile Include="Controllers\login\AuthorizationAttribute.cs" />
     <Compile Include="Controllers\login\UserLoginsController.cs" />
@@ -177,8 +178,11 @@
     <Compile Include="Controllers\RoleSetupController.cs" />
     <Compile Include="Controllers\RoleWiseMenuController.cs" />
     <Compile Include="Controllers\ShipDepotInfoController.cs" />
+    <Compile Include="Controllers\StatusAfterMaintainceController.cs" />
     <Compile Include="Controllers\StatusInformationController.cs" />
     <Compile Include="Controllers\TableMultiSearchController.cs" />
+    <Compile Include="Controllers\TraineePersonBioSetupController.cs" />
+    <Compile Include="Controllers\TrainingInfoController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserPrivilegesController.cs" />
     <Compile Include="Controllers\WarHouseInfoController.cs" />
@@ -230,6 +234,9 @@
     <Content Include="CustomScripts\GunModelType\GunModelTypeSetupSetting.js" />
     <Content Include="CustomScripts\GunModelType\CreateGunModelTypeSetup.js" />
     <Content Include="CustomScripts\GunModelType\ViewGunModelTypeSetup.js" />
+    <Content Include="CustomScripts\Inspaction\CreateInspaction.js" />
+    <Content Include="CustomScripts\Inspaction\InspactionSetting.js" />
+    <Content Include="CustomScripts\Inspaction\ViewInspaction.js" />
     <Content Include="CustomScripts\LocalAgentSetup\LocalAgentSetupSetting.js" />
     <Content Include="CustomScripts\LocalAgentSetup\CreateLocalAgentSetup.js" />
     <Content Include="CustomScripts\LocalAgentSetup\ViewLocalAgentSetup.js" />
@@ -257,9 +264,18 @@
     <Content Include="CustomScripts\ShipDepotInfo\CreateShipDepotSetup.js" />
     <Content Include="CustomScripts\ShipDepotInfo\ShipDepotSetupSetting.js" />
     <Content Include="CustomScripts\ShipDepotInfo\ViewShipDepotSetup.js" />
+    <Content Include="CustomScripts\StatusAfterMaintaince\StatusAfterMaintainceSetting.js" />
+    <Content Include="CustomScripts\StatusAfterMaintaince\CreateStatusAfterMaintaince.js" />
+    <Content Include="CustomScripts\StatusAfterMaintaince\ViewStatusAfterMaintaince.js" />
     <Content Include="CustomScripts\StatusInformation\CreateStatusInformationSetup.js" />
     <Content Include="CustomScripts\StatusInformation\StatusInformationSetupSetting.js" />
     <Content Include="CustomScripts\StatusInformation\ViewStatusInformationSetup.js" />
+    <Content Include="CustomScripts\TraineePersonBioSetup\TraineePersonSetupSetting.js" />
+    <Content Include="CustomScripts\TraineePersonBioSetup\CreateTraineePersonSetup.js" />
+    <Content Include="CustomScripts\TraineePersonBioSetup\ViewTraineePersonSetup.js" />
+    <Content Include="CustomScripts\TrainingInfo\CreateTrainingInfo.js" />
+    <Content Include="CustomScripts\TrainingInfo\TrainingInfoSetting.js" />
+    <Content Include="CustomScripts\TrainingInfo\ViewTrainingInfo.js" />
     <Content Include="CustomScripts\UserPrivileges\CreateUserPrivileges.js" />
     <Content Include="CustomScripts\UserPrivileges\UserPrivilegesSetting.js" />
     <Content Include="CustomScripts\User\CreateUser.js" />
@@ -585,6 +601,18 @@
     <Content Include="Views\GunAmmoMaintaince\Index.cshtml" />
     <Content Include="Views\GunAmmoMaintaince\_Create.cshtml" />
     <Content Include="Views\GunAmmoMaintaince\_View.cshtml" />
+    <Content Include="Views\StatusAfterMaintaince\Index.cshtml" />
+    <Content Include="Views\StatusAfterMaintaince\_Create.cshtml" />
+    <Content Include="Views\StatusAfterMaintaince\_View.cshtml" />
+    <Content Include="Views\TraineePersonBioSetup\_Create.cshtml" />
+    <Content Include="Views\TraineePersonBioSetup\_View.cshtml" />
+    <Content Include="Views\TraineePersonBioSetup\Index.cshtml" />
+    <Content Include="Views\TrainingInfo\_Create.cshtml" />
+    <Content Include="Views\TrainingInfo\_View.cshtml" />
+    <Content Include="Views\TrainingInfo\Index.cshtml" />
+    <Content Include="Views\Inspaction\Index.cshtml" />
+    <Content Include="Views\Inspaction\_Create.cshtml" />
+    <Content Include="Views\Inspaction\_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

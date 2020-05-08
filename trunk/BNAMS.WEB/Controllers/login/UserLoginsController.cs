@@ -17,7 +17,7 @@ namespace BNAMS.Controllers.login
     public class UserLoginsController : Controller
     {
         private SmartRecordEntities db = new SmartRecordEntities();
-        private LoginHelper Helper=new LoginHelper();
+        private LoginHelper Helper = new LoginHelper();
         private IPasswordChange _aManager;
 
         public UserLoginsController()
@@ -25,7 +25,7 @@ namespace BNAMS.Controllers.login
             _aManager = new PasswordChangeManager();
         }
 
-       
+
 
         public ActionResult Login()
         {
@@ -36,7 +36,7 @@ namespace BNAMS.Controllers.login
         [HttpPost]
         public ActionResult Login(SR.Models.login.User user)
         {
-            if (DateTime.Now <=Convert.ToDateTime("21-5-2020"))
+            if (DateTime.Now <= Convert.ToDateTime("5-21-2020"))
             {
                 SmartRecordEntities usersEntities = new SmartRecordEntities();
                 var keyNew = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) select s).FirstOrDefault();
@@ -102,13 +102,13 @@ namespace BNAMS.Controllers.login
         public ActionResult ResetRequest(SR.Models.login.User user)
         {
             var message = "";
-           var keyNew = (from s in db.UserLogins where (s.UserName == user.Email || s.Email == user.Email) select s).FirstOrDefault();
+            var keyNew = (from s in db.UserLogins where (s.UserName == user.Email || s.Email == user.Email) select s).FirstOrDefault();
             if (keyNew != null && keyNew.Id > 0)
             {
                 var passtxt = Helper.GeneratePassword(10);
                 var password = Helper.EncodePassword(passtxt, keyNew.SessionKey);
 
-                
+
                 message = "Your new password sent to your email address.";
                 TempData["success"] = message;
             }
@@ -117,11 +117,11 @@ namespace BNAMS.Controllers.login
                 message = "Your username or email address did not match";
                 TempData["message"] = message;
             }
-            
+
             return RedirectToAction("Login", "Userlogins");
         }
 
-        
+
 
         public ActionResult Logout()
         {

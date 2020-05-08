@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     $("#chkIsActive").prop("checked", true);
     debugger;
+    viewGunAmmoMaintaince.GetGunAmmoMaintainceDataTable();
     GunAmmoMaintainceHelper.InitGunAmmoMaintaince();
    
     //this function is for go to top of the page

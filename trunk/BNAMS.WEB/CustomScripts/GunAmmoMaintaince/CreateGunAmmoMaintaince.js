@@ -10,7 +10,7 @@ var CreateGunAmmoMaintainceManager = {
         else {
             $.ajax({
                 type: "POST",
-                url: "/ShipDepotInfo/CreateShipOrDepotSetup",
+                url: "/GunAmmoMaintaince/CreateGunAmmoMaintaince",
                 data: JSON.stringify(GunAmmoMaintainceHelper.GetGunAmmoMaintainceData()),
                 success: function (response) {
                     debugger;
@@ -44,7 +44,6 @@ var GunAmmoMaintainceHelper = {
         GunAmmoMaintainceHelper.LoadYearDD();
         $("#btnSubmit").unbind("click").click(function () {
             CreateGunAmmoMaintainceManager.SaveGunAmmoMaintaince();
-
         });
         $("#btnCancel").unbind("click").click(function () {
             GunAmmoMaintainceHelper.ClearField();
@@ -321,19 +320,21 @@ var GunAmmoMaintainceHelper = {
 
 
     ClearField: function () {
-        $("#hdnShipDepotId").val("");
-        $("#txtShipDepotCode").val("");
-        $("#ddlAdmin").val("").trigger("change");
-        $("#ddlCategory").val("").trigger("change");
-        $("#txtShipDepotName").val("");
-        $("#dateOfCommission").val("");
-        $("#txtWTCallSign").val("");
-        $("#ddlCapabilityOfWeapons").val("").trigger("change");
-        $("#ddlTypeOfShip").val("").trigger("change");
-        $("#txtTelephone ").val("");
-        $("#txtEmail").val("");
-        $("#txtFaxNo").val("");
-        $("#txtWebAddress").val("");
+        $("#hdnMaintainceId").val("");
+        $("#txtMaintainceCode").val("");
+       // $("#ddlRegNo").val("").trigger("change");
+        $("#dateOfLastMaintaince").val("");
+        $("#ddlYear").val("").trigger("change");
+        $("#txtMaintenanceDetail").val("");
+        $("#txtLocation").val("");
+        $("#txtDefectInformation").val("");
+        $("#ddlType").val("").trigger("change");
+        $("#dateOfNextMaintainceDue ").val("");
+        //
+        //$("#ddlDepot").val("").trigger("change");;
+        //$("#ddlWarehouse").val("").trigger("change");
+        $("#ddlShelf").val("").trigger("change");
+        //
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
@@ -342,19 +343,20 @@ var GunAmmoMaintainceHelper = {
     GetGunAmmoMaintainceData: function () {
         debugger;
         var aObj = new Object();
-        aObj.ShipOrDepotId = $("#hdnShipDepotId").val();
-        aObj.ShipOrDepotCode = $("#txtShipDepotCode").val();
-        aObj.AuthorityId = $("#ddlAdmin").val();
-        aObj.ShipDepotCategory = $("#ddlCategory").val();
-        aObj.ShipDepotName = $("#txtShipDepotName").val();
-        aObj.DateOfCommmisson = $("#dateOfCommission").val();
-        aObj.WTCallSign = $("#txtWTCallSign").val();
-        aObj.CapabilityOfWeaponsId = $("#ddlCapabilityOfWeapons").val();
-        aObj.TypeOfShip = $("#ddlTypeOfShip").val();
-        aObj.Telephone = $("#txtTelephone ").val();
-        aObj.Email = $("#txtEmail").val();
-        aObj.FaxNo = $("#txtFaxNo").val();
-        aObj.WebAddress = $("#txtWebAddress").val();
+        aObj.MaintainceId = $("#hdnMaintainceId").val();
+        aObj.MaintainceCode = $("#txtMaintainceCode").val();
+        aObj.ItemId = $("#ddlRegNo").val();
+        aObj.LastMaintainceDate = $("#dateOfLastMaintaince").val();
+        aObj.MaintainceYear = $("#ddlYear").val();
+        aObj.MaintainceDetails = $("#txtMaintenanceDetail").val();
+        aObj.MaintainceLocation = $("#txtLocation").val();
+        aObj.DefectInfo = $("#txtDefectInformation").val();
+        aObj.MaintainceTypeId = $("#ddlType").val();
+        aObj.NextMaintainceSchadule = $("#dateOfNextMaintainceDue ").val();
+        //
+        aObj.DepotId = $("#ddlDepot").val();
+        aObj.WareHouseId = $("#ddlWarehouse").val();
+        aObj.BinLOcationId = $("#ddlShelf").val();
 
 
         aObj.SetUpBy = $("#hdnSetupBy").val();

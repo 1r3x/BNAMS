@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BNAMS.Entities;
+using BNAMS.Entities.ViewModels;
 using BNAMS.Manager.Common;
 using BNAMS.Manager.Interface;
 using BNAMS.Manager.Manager;
@@ -27,12 +28,27 @@ namespace BNAMS.Controllers
         // GET: GunAmmoMaintaince
         public ActionResult Index()
         {
-            return View();
+            const string menuName = "GunAmmoMaintaince";
+            var roleId = (int?)System.Web.HttpContext.Current.Session["roleId"];
+
+            var menuId = (from a in _db.M_Menu
+                where a.MenuUrl == menuName
+                select a.Id).Single();
+
+
+            var permission = (from a in _db.UserPermissions
+                where a.RoleId == roleId && a.MenuId == menuId
+                select new
+                {
+                    a.PermId
+                }).Any();
+
+            return permission ? (ActionResult)View() : RedirectToAction("Login", "Userlogins");
         }
 
 
         // SET: GunAmmoMaintaince/CreateGunAmmoMaintaince
-        public JsonResult CreateGunAmmoMaintaince(I_MaintenanceInfo aObj)
+        public JsonResult CreateGunAmmoMaintaince(WeaponsMaintainceViewModel aObj)
         {
 
             var data = _aManager.CreateGunAmmoMaintaince(aObj);

@@ -1,0 +1,191 @@
+﻿
+
+<div class="panel panel-primary dialog-panel">
+    <div class="panel-heading">
+        <h5>Status After Maintaince</h5>
+    </div>
+
+
+    <input type="text" id="hdnInspactionId" hidden="" value="0" />
+    <input type="text" id="hdnSetupBy" hidden="" value="0" />
+    <input type="text" id="hdnSetupDateTime" hidden="" value="0" />
+
+
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" style="margin-left: 10px">
+            <div class="row">
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Program Code
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" readonly="" id="txtProgramCode" class="form-control" placeholder="Program Code (Auto)">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Depot Name
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlDepot">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Item Category
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlItemCategory">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Lot/Registration No
+                    </label>
+                    <div class="col-md-8">
+                        <select class="form-control" id="ddlRegistration">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Item Name
+                    </label>
+                    <div class="col-md-8">
+                        <input readonly="" type="text" id="txtItemName" class="form-control" placeholder="Item Name">
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Warranty Date
+                    </label>
+                    <div class="col-md-8">
+                        <input readonly="" type="text" id="txtWarrantyDate" class="form-control" placeholder="Warrenty Date">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Last Maintaince Date
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" readonly="" id="txtLastMaintainceDate" class="form-control" placeholder="Last Maintaince Date">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Supplier Info
+                    </label>
+                    <div class="col-md-4">
+                        <textarea readonly="" id="txtSupplierInfo" class="form-control" placeholder="Maintaince Details" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Next Inspection Date
+                    </label>
+                    <div class="col-md-8">
+                        <input id="dateOfNextInspection" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Install Date
+                    </label>
+                    <div class="col-md-8">
+                        <input id="dateOfInstall" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Install By
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" id="txtInstallBy" class="form-control" placeholder="Install By">
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Install At
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" id="txtInstallAt" class="form-control" placeholder="Install At">
+                    </div>
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-md-4 control-label">
+                        Inspection Date
+                    </label>
+                    <div class="col-md-8">
+                        <input id="dateOfInspaction" readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" placeholder="Select Date" size="16" type="text" value="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Inspection Method
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" id="txtInspectionMethod" class="form-control" placeholder="Inspection Method">
+                    </div>
+                </div>
+               
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Inspection By
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" id="txtInspectionBy" class="form-control" placeholder=" Inspection By">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-md-4 control-label">
+                        Commence
+                    </label>
+                    <div class="col-md-4">
+                        <input type="text" id="txtCommence" class="form-control" placeholder="Commence">
+                    </div>
+                </div>
+                
+
+
+            </div>
+
+            <div class="form-actions right1">
+                <button type="button" id="btnSubmit" class="btn btn-primary">
+                    Save
+                </button>
+                <button type="button" id="btnCancel" class="btn btn-danger">
+                    Reset
+                </button>
+
+            </div>
+
+
+        </form>
+    </div>
+</div>

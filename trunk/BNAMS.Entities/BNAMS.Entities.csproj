@@ -41,10 +41,22 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HR_TraineePersonBio.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HR_TraningInformation.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="I_BinLocation.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="I_Indent.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="I_MaintenanceInfo.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="I_StatusAfterMaintaince.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="I_WeaponsInfo.cs">
@@ -68,6 +80,9 @@
     <Compile Include="M_CapabilityOfWeapons.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_Composite.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_Country.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
@@ -75,6 +90,15 @@
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_FiscalYear.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_IndentStatus.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_IndentType.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_MaintainceStatus_c_.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_MaintainceType.cs">
@@ -101,7 +125,13 @@
     <Compile Include="M_QuantityCategory.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="M_RankSetup.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="M_StatusInformation.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="M_TraningOrg.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
     <Compile Include="M_TypeOfShip.cs">
@@ -177,6 +207,10 @@
     <Compile Include="Validate_User_Result.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\WeaponsMaintainceViewModel.cs" />
+    <Compile Include="W_Inspection.cs">
+      <DependentUpon>SRModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">
@@ -194,9 +228,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="SRModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

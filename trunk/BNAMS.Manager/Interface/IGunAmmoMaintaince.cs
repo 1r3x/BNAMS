@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BNAMS.Entities;
+using BNAMS.Entities.ViewModels;
 
 namespace BNAMS.Manager.Interface
 {
     public interface IGunAmmoMaintaince
     {
-        ResponseModel CreateGunAmmoMaintaince(I_MaintenanceInfo aObj);
+        ResponseModel CreateGunAmmoMaintaince(WeaponsMaintainceViewModel aObj);
         ResponseModel GetAllGunAmmoMaintaince();
         ResponseModel LoadRegistrationNo(string weaponTypeId);
         ResponseModel LoadDepot();

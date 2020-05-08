@@ -5,6 +5,46 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SmartRecordModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HR_TraineePersonBio">
+          <Key>
+            <PropertyRef Name="TraningPersonId" />
+          </Key>
+          <Property Name="TraningPersonId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BioDataCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pno" Type="nvarchar" MaxLength="50" />
+          <Property Name="RankId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HR_TraningInformation">
+          <Key>
+            <PropertyRef Name="TrainingId" />
+          </Key>
+          <Property Name="TrainingId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TraningCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeaponTypeId" Type="nvarchar" MaxLength="50" />
+          <Property Name="CourseName" Type="varchar" MaxLength="50" />
+          <Property Name="RefNo" Type="varchar" MaxLength="50" />
+          <Property Name="TraningPersonBioId" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="CounryId" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrganizationId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LocalAbroadStatus" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="I_BinLocation">
           <Key>
             <PropertyRef Name="BinLocationId" />
@@ -24,8 +64,30 @@
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BNAMS.dbo.I_MaintenanceInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="I_Indent">
+          <Key>
+            <PropertyRef Name="IndentId" />
+          </Key>
+          <Property Name="IndentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IndentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndentNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndentFrom" Type="nvarchar" MaxLength="50" />
+          <Property Name="IssueTo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LocalSupplierId" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndentQuantity" Type="int" />
+          <Property Name="IndentValidity" Type="datetime" />
+          <Property Name="OtherOptions" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="50" />
+          <Property Name="IndentStatusId" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="I_MaintenanceInfo">
           <Key>
             <PropertyRef Name="MaintainceId" />
@@ -40,6 +102,23 @@ warning 6002: The table/view 'BNAMS.dbo.I_MaintenanceInfo' does not have a prima
           <Property Name="DefectInfo" Type="varchar" MaxLength="500" />
           <Property Name="MaintainceTypeId" Type="nvarchar" MaxLength="50" />
           <Property Name="NextMaintainceSchadule" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="I_StatusAfterMaintaince">
+          <Key>
+            <PropertyRef Name="AfterMaintainceStatusId" />
+          </Key>
+          <Property Name="AfterMaintainceStatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AfterMaintainceStatusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="WeaponsInfoId" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaintainceStatusId" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="250" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="SetUpBy" Type="int" />
           <Property Name="SetUpDateTime" Type="datetime" />
@@ -192,6 +271,15 @@ warning 6002: The table/view 'BNAMS.dbo.I_MaintenanceInfo' does not have a prima
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="M_Composite">
+          <Key>
+            <PropertyRef Name="CompositeId" />
+          </Key>
+          <Property Name="CompositeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CompositeCode" Type="varchar" MaxLength="50" />
+          <Property Name="CompositeName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
         <EntityType Name="M_Country">
           <Key>
             <PropertyRef Name="CountryNameId" />
@@ -235,6 +323,30 @@ warning 6002: The table/view 'BNAMS.dbo.I_MaintenanceInfo' does not have a prima
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="M_IndentStatus">
+          <Key>
+            <PropertyRef Name="IndentStatusId" />
+          </Key>
+          <Property Name="IndentStatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IndentStatus" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="M_IndentType">
+          <Key>
+            <PropertyRef Name="IndentTypeId" />
+          </Key>
+          <Property Name="IndentTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IndentTypeName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="M_MaintainceStatus(c)">
+          <Key>
+            <PropertyRef Name="MaintainceStatusId" />
+          </Key>
+          <Property Name="MaintainceStatusId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
         </EntityType>
         <EntityType Name="M_MaintainceType">
           <Key>
@@ -338,6 +450,20 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="M_RankSetup">
+          <Key>
+            <PropertyRef Name="RankSetupId" />
+          </Key>
+          <Property Name="RankSetupId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RankName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="M_StatusInformation">
           <Key>
             <PropertyRef Name="StatusId" />
@@ -354,6 +480,14 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="M_TraningOrg">
+          <Key>
+            <PropertyRef Name="TraningOrgId" />
+          </Key>
+          <Property Name="TraningOrgId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrgName" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
         </EntityType>
         <EntityType Name="M_TypeOfShip">
           <Key>
@@ -515,6 +649,32 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDateTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="W_Inspection">
+          <Key>
+            <PropertyRef Name="InspectionId" />
+          </Key>
+          <Property Name="InspectionId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProgramId" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepotId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemCategoryId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastInspectionDate" Type="datetime" />
+          <Property Name="NextInspectionDate" Type="datetime" />
+          <Property Name="INstallDate" Type="datetime" />
+          <Property Name="InstallBy" Type="varchar" MaxLength="50" />
+          <Property Name="InstallAt" Type="varchar" MaxLength="50" />
+          <Property Name="InspectionDate" Type="datetime" />
+          <Property Name="InspectionMethod" Type="varchar" MaxLength="50" />
+          <Property Name="InspectionBy" Type="varchar" MaxLength="50" />
+          <Property Name="Commence" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <Function Name="SessionHelper" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="empId" Type="int" Mode="In" />
         </Function>
@@ -534,7 +694,12 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="SmartRecordModelStoreContainer">
+          <EntitySet Name="HR_TraineePersonBio" EntityType="Self.HR_TraineePersonBio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HR_TraningInformation" EntityType="Self.HR_TraningInformation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="I_BinLocation" EntityType="Self.I_BinLocation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="I_Indent" EntityType="Self.I_Indent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="I_MaintenanceInfo" EntityType="Self.I_MaintenanceInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="I_StatusAfterMaintaince" EntityType="Self.I_StatusAfterMaintaince" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="I_WeaponsInfo" EntityType="Self.I_WeaponsInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Agent" EntityType="Self.M_Agent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_AgentEnlistment" EntityType="Self.M_AgentEnlistment" Schema="dbo" store:Type="Tables" />
@@ -542,9 +707,13 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="M_Area" EntityType="Self.M_Area" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Authorirty" EntityType="Self.M_Authorirty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_CapabilityOfWeapons" EntityType="Self.M_CapabilityOfWeapons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_Composite" EntityType="Self.M_Composite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Country" EntityType="Self.M_Country" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_DepotShipCategory" EntityType="Self.M_DepotShipCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_FiscalYear" EntityType="Self.M_FiscalYear" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_IndentStatus" EntityType="Self.M_IndentStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_IndentType" EntityType="Self.M_IndentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_MaintainceStatus(c)" EntityType="Self.M_MaintainceStatus(c)" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_MaintainceType" EntityType="Self.M_MaintainceType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Menu" EntityType="Self.M_Menu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_MissilePrepType" EntityType="Self.M_MissilePrepType" Schema="dbo" store:Type="Tables" />
@@ -552,7 +721,9 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="M_ProcurementCategory" EntityType="Self.M_ProcurementCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_ProductCategory" EntityType="Self.M_ProductCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_QuantityCategory" EntityType="Self.M_QuantityCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_RankSetup" EntityType="Self.M_RankSetup" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_StatusInformation" EntityType="Self.M_StatusInformation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_TraningOrg" EntityType="Self.M_TraningOrg" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_TypeOfShip" EntityType="Self.M_TypeOfShip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_WareHouseType" EntityType="Self.M_WareHouseType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_WeaponsModelType" EntityType="Self.M_WeaponsModelType" Schema="dbo" store:Type="Tables" />
@@ -563,27 +734,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserPermission" EntityType="Self.UserPermission" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="I_MaintenanceInfo" EntityType="Self.I_MaintenanceInfo" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [I_MaintenanceInfo].[MaintainceId] AS [MaintainceId], 
-    [I_MaintenanceInfo].[MaintainceCode] AS [MaintainceCode], 
-    [I_MaintenanceInfo].[ItemId] AS [ItemId], 
-    [I_MaintenanceInfo].[LastMaintainceDate] AS [LastMaintainceDate], 
-    [I_MaintenanceInfo].[MaintainceYear] AS [MaintainceYear], 
-    [I_MaintenanceInfo].[MaintainceDetails] AS [MaintainceDetails], 
-    [I_MaintenanceInfo].[MaintainceLocation] AS [MaintainceLocation], 
-    [I_MaintenanceInfo].[DefectInfo] AS [DefectInfo], 
-    [I_MaintenanceInfo].[MaintainceTypeId] AS [MaintainceTypeId], 
-    [I_MaintenanceInfo].[NextMaintainceSchadule] AS [NextMaintainceSchadule], 
-    [I_MaintenanceInfo].[IsActive] AS [IsActive], 
-    [I_MaintenanceInfo].[SetUpBy] AS [SetUpBy], 
-    [I_MaintenanceInfo].[SetUpDateTime] AS [SetUpDateTime], 
-    [I_MaintenanceInfo].[UpdatedBy] AS [UpdatedBy], 
-    [I_MaintenanceInfo].[UpdatedDateTime] AS [UpdatedDateTime], 
-    [I_MaintenanceInfo].[IsBackup] AS [IsBackup], 
-    [I_MaintenanceInfo].[DerectorateId] AS [DerectorateId]
-    FROM [dbo].[I_MaintenanceInfo] AS [I_MaintenanceInfo]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="W_Inspection" EntityType="Self.W_Inspection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_PriceType" EntityType="Self.M_PriceType" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [M_PriceType].[PriceTypeId] AS [PriceTypeId], 
@@ -642,7 +793,15 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="spNotVerifiedAddress" ReturnType="Collection(SmartRecordModel.spNotVerifiedAddress_Result)" />
           <FunctionImport Name="spVerifiedAddress" ReturnType="Collection(SmartRecordModel.spVerifiedAddress_Result)" />
+          <FunctionImport Name="spLoadWeaponDetails" ReturnType="Collection(SmartRecordModel.spLoadWeaponDetails_Result)">
+          <Parameter Name="weaponsInfoId" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="HR_TraineePersonBio" EntityType="SmartRecordModel.HR_TraineePersonBio" />
+          <EntitySet Name="HR_TraningInformation" EntityType="SmartRecordModel.HR_TraningInformation" />
           <EntitySet Name="I_BinLocation" EntityType="SmartRecordModel.I_BinLocation" />
+          <EntitySet Name="I_Indent" EntityType="SmartRecordModel.I_Indent" />
+          <EntitySet Name="I_MaintenanceInfo" EntityType="SmartRecordModel.I_MaintenanceInfo" />
+          <EntitySet Name="I_StatusAfterMaintaince" EntityType="SmartRecordModel.I_StatusAfterMaintaince" />
           <EntitySet Name="I_WeaponsInfo" EntityType="SmartRecordModel.I_WeaponsInfo" />
           <EntitySet Name="M_Agent" EntityType="SmartRecordModel.M_Agent" />
           <EntitySet Name="M_AgentEnlistment" EntityType="SmartRecordModel.M_AgentEnlistment" />
@@ -650,16 +809,23 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="M_Area" EntityType="SmartRecordModel.M_Area" />
           <EntitySet Name="M_Authorirty" EntityType="SmartRecordModel.M_Authorirty" />
           <EntitySet Name="M_CapabilityOfWeapons" EntityType="SmartRecordModel.M_CapabilityOfWeapons" />
+          <EntitySet Name="M_Composite" EntityType="SmartRecordModel.M_Composite" />
           <EntitySet Name="M_Country" EntityType="SmartRecordModel.M_Country" />
           <EntitySet Name="M_DepotShipCategory" EntityType="SmartRecordModel.M_DepotShipCategory" />
           <EntitySet Name="M_FiscalYear" EntityType="SmartRecordModel.M_FiscalYear" />
+          <EntitySet Name="M_IndentStatus" EntityType="SmartRecordModel.M_IndentStatus" />
+          <EntitySet Name="M_IndentType" EntityType="SmartRecordModel.M_IndentType" />
+          <EntitySet Name="M_MaintainceStatus_c_" EntityType="SmartRecordModel.M_MaintainceStatus_c_" />
+          <EntitySet Name="M_MaintainceType" EntityType="SmartRecordModel.M_MaintainceType" />
           <EntitySet Name="M_Menu" EntityType="SmartRecordModel.M_Menu" />
           <EntitySet Name="M_MissilePrepType" EntityType="SmartRecordModel.M_MissilePrepType" />
           <EntitySet Name="M_NameOfWeapon" EntityType="SmartRecordModel.M_NameOfWeapon" />
           <EntitySet Name="M_ProcurementCategory" EntityType="SmartRecordModel.M_ProcurementCategory" />
           <EntitySet Name="M_ProductCategory" EntityType="SmartRecordModel.M_ProductCategory" />
           <EntitySet Name="M_QuantityCategory" EntityType="SmartRecordModel.M_QuantityCategory" />
+          <EntitySet Name="M_RankSetup" EntityType="SmartRecordModel.M_RankSetup" />
           <EntitySet Name="M_StatusInformation" EntityType="SmartRecordModel.M_StatusInformation" />
+          <EntitySet Name="M_TraningOrg" EntityType="SmartRecordModel.M_TraningOrg" />
           <EntitySet Name="M_TypeOfShip" EntityType="SmartRecordModel.M_TypeOfShip" />
           <EntitySet Name="M_WareHouseType" EntityType="SmartRecordModel.M_WareHouseType" />
           <EntitySet Name="M_WeaponsModelType" EntityType="SmartRecordModel.M_WeaponsModelType" />
@@ -670,12 +836,8 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="UserLogins" EntityType="SmartRecordModel.UserLogin" />
           <EntitySet Name="UserPermissions" EntityType="SmartRecordModel.UserPermission" />
           <EntitySet Name="UserRoles" EntityType="SmartRecordModel.UserRole" />
-          <EntitySet Name="I_MaintenanceInfo" EntityType="SmartRecordModel.I_MaintenanceInfo" />
+          <EntitySet Name="W_Inspection" EntityType="SmartRecordModel.W_Inspection" />
           <EntitySet Name="M_PriceType" EntityType="SmartRecordModel.M_PriceType" />
-          <FunctionImport Name="spLoadWeaponDetails" ReturnType="Collection(SmartRecordModel.spLoadWeaponDetails_Result)">
-          <Parameter Name="weaponsInfoId" Mode="In" Type="String" />
-          </FunctionImport>
-          <EntitySet Name="M_MaintainceType" EntityType="SmartRecordModel.M_MaintainceType" />
           </EntityContainer>
         <ComplexType Name="SessionHelper_Result">
           <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -765,6 +927,55 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Type="Int32" Name="VilRecSt" Nullable="true" />
           <Property Type="Boolean" Name="VilIsVf" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="spLoadWeaponDetails_Result">
+          <Property Type="String" Name="NameOfGun" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="LastMaintainceDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="MaintainceYear" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MaintainceDetails" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="WareHouseName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="RowIdNo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SelfIdNo" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="HR_TraineePersonBio">
+          <Key>
+            <PropertyRef Name="TraningPersonId" />
+          </Key>
+          <Property Name="TraningPersonId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BioDataCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RankId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HR_TraningInformation">
+          <Key>
+            <PropertyRef Name="TrainingId" />
+          </Key>
+          <Property Name="TrainingId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TraningCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WeaponTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TraningPersonBioId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="CounryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LocalAbroadStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="I_BinLocation">
           <Key>
             <PropertyRef Name="BinLocationId" />
@@ -776,6 +987,69 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="SelfIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RowIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ProductCategoryId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="I_Indent">
+          <Key>
+            <PropertyRef Name="IndentId" />
+          </Key>
+          <Property Name="IndentId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndentFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IssueTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LocalSupplierId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndentQuantity" Type="Int32" />
+          <Property Name="IndentValidity" Type="DateTime" Precision="3" />
+          <Property Name="OtherOptions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IndentStatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="I_MaintenanceInfo">
+          <Key>
+            <PropertyRef Name="MaintainceId" />
+          </Key>
+          <Property Name="MaintainceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaintainceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastMaintainceDate" Type="DateTime" Precision="3" />
+          <Property Name="MaintainceYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaintainceDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MaintainceLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DefectInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MaintainceTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NextMaintainceSchadule" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="I_StatusAfterMaintaince">
+          <Key>
+            <PropertyRef Name="AfterMaintainceStatusId" />
+          </Key>
+          <Property Name="AfterMaintainceStatusId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AfterMaintainceStatusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WeaponsInfoId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaintainceStatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
@@ -928,6 +1202,15 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="M_Composite">
+          <Key>
+            <PropertyRef Name="CompositeId" />
+          </Key>
+          <Property Name="CompositeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompositeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompositeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
         <EntityType Name="M_Country">
           <Key>
             <PropertyRef Name="CountryNameId" />
@@ -971,6 +1254,38 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="M_IndentStatus">
+          <Key>
+            <PropertyRef Name="IndentStatusId" />
+          </Key>
+          <Property Name="IndentStatusId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="M_IndentType">
+          <Key>
+            <PropertyRef Name="IndentTypeId" />
+          </Key>
+          <Property Name="IndentTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndentTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="M_MaintainceStatus_c_">
+          <Key>
+            <PropertyRef Name="MaintainceStatusId" />
+          </Key>
+          <Property Name="MaintainceStatusId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="M_MaintainceType">
+          <Key>
+            <PropertyRef Name="MaintainceId" />
+          </Key>
+          <Property Name="MaintainceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaintainceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
         </EntityType>
         <EntityType Name="M_Menu">
           <Key>
@@ -1056,6 +1371,20 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="M_RankSetup">
+          <Key>
+            <PropertyRef Name="RankSetupId" />
+          </Key>
+          <Property Name="RankSetupId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RankName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="M_StatusInformation">
           <Key>
             <PropertyRef Name="StatusId" />
@@ -1072,6 +1401,14 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="M_TraningOrg">
+          <Key>
+            <PropertyRef Name="TraningOrgId" />
+          </Key>
+          <Property Name="TraningOrgId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrgName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
         </EntityType>
         <EntityType Name="M_TypeOfShip">
           <Key>
@@ -1233,20 +1570,24 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="I_MaintenanceInfo">
+        <EntityType Name="W_Inspection">
           <Key>
-            <PropertyRef Name="MaintainceId" />
+            <PropertyRef Name="InspectionId" />
           </Key>
-          <Property Name="MaintainceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaintainceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InspectionId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepotId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ItemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastMaintainceDate" Type="DateTime" Precision="3" />
-          <Property Name="MaintainceYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="MaintainceDetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="MaintainceLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="DefectInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="MaintainceTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NextMaintainceSchadule" Type="DateTime" Precision="3" />
+          <Property Name="LastInspectionDate" Type="DateTime" Precision="3" />
+          <Property Name="NextInspectionDate" Type="DateTime" Precision="3" />
+          <Property Name="INstallDate" Type="DateTime" Precision="3" />
+          <Property Name="InstallBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InstallAt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InspectionDate" Type="DateTime" Precision="3" />
+          <Property Name="InspectionMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="InspectionBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Commence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
@@ -1261,23 +1602,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           </Key>
           <Property Name="PriceTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PriceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
-        <ComplexType Name="spLoadWeaponDetails_Result">
-          <Property Type="String" Name="NameOfGun" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="LastMaintainceDate" Nullable="true" Precision="23" />
-          <Property Type="String" Name="MaintainceYear" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="MaintainceDetails" Nullable="false" MaxLength="500" />
-          <Property Type="String" Name="WareHouseName" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="RowIdNo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="SelfIdNo" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <EntityType Name="M_MaintainceType">
-          <Key>
-            <PropertyRef Name="MaintainceId" />
-          </Key>
-          <Property Name="MaintainceId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaintainceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
         </Schema>
@@ -1387,6 +1711,61 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spLoadWeaponDetails" FunctionName="SmartRecordModel.Store.spLoadWeaponDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SmartRecordModel.spLoadWeaponDetails_Result">
+                <ScalarProperty Name="NameOfGun" ColumnName="NameOfGun" />
+                <ScalarProperty Name="LastMaintainceDate" ColumnName="LastMaintainceDate" />
+                <ScalarProperty Name="MaintainceYear" ColumnName="MaintainceYear" />
+                <ScalarProperty Name="MaintainceDetails" ColumnName="MaintainceDetails" />
+                <ScalarProperty Name="WareHouseName" ColumnName="WareHouseName" />
+                <ScalarProperty Name="RowIdNo" ColumnName="RowIdNo" />
+                <ScalarProperty Name="SelfIdNo" ColumnName="SelfIdNo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="HR_TraineePersonBio">
+            <EntityTypeMapping TypeName="SmartRecordModel.HR_TraineePersonBio">
+              <MappingFragment StoreEntitySet="HR_TraineePersonBio">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RankId" ColumnName="RankId" />
+                <ScalarProperty Name="Pno" ColumnName="Pno" />
+                <ScalarProperty Name="BioDataCode" ColumnName="BioDataCode" />
+                <ScalarProperty Name="TraningPersonId" ColumnName="TraningPersonId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HR_TraningInformation">
+            <EntityTypeMapping TypeName="SmartRecordModel.HR_TraningInformation">
+              <MappingFragment StoreEntitySet="HR_TraningInformation">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="LocalAbroadStatus" ColumnName="LocalAbroadStatus" />
+                <ScalarProperty Name="OrganizationId" ColumnName="OrganizationId" />
+                <ScalarProperty Name="CounryId" ColumnName="CounryId" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="TraningPersonBioId" ColumnName="TraningPersonBioId" />
+                <ScalarProperty Name="RefNo" ColumnName="RefNo" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="WeaponTypeId" ColumnName="WeaponTypeId" />
+                <ScalarProperty Name="TraningCode" ColumnName="TraningCode" />
+                <ScalarProperty Name="TrainingId" ColumnName="TrainingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="I_BinLocation">
             <EntityTypeMapping TypeName="SmartRecordModel.I_BinLocation">
               <MappingFragment StoreEntitySet="I_BinLocation">
@@ -1404,6 +1783,72 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
                 <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
                 <ScalarProperty Name="BinLocationId" ColumnName="BinLocationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="I_Indent">
+            <EntityTypeMapping TypeName="SmartRecordModel.I_Indent">
+              <MappingFragment StoreEntitySet="I_Indent">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IndentStatusId" ColumnName="IndentStatusId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="OtherOptions" ColumnName="OtherOptions" />
+                <ScalarProperty Name="IndentValidity" ColumnName="IndentValidity" />
+                <ScalarProperty Name="IndentQuantity" ColumnName="IndentQuantity" />
+                <ScalarProperty Name="LocalSupplierId" ColumnName="LocalSupplierId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="IssueTo" ColumnName="IssueTo" />
+                <ScalarProperty Name="IndentFrom" ColumnName="IndentFrom" />
+                <ScalarProperty Name="IndentNo" ColumnName="IndentNo" />
+                <ScalarProperty Name="IndentType" ColumnName="IndentType" />
+                <ScalarProperty Name="IndentId" ColumnName="IndentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="I_MaintenanceInfo">
+            <EntityTypeMapping TypeName="SmartRecordModel.I_MaintenanceInfo">
+              <MappingFragment StoreEntitySet="I_MaintenanceInfo">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="NextMaintainceSchadule" ColumnName="NextMaintainceSchadule" />
+                <ScalarProperty Name="MaintainceTypeId" ColumnName="MaintainceTypeId" />
+                <ScalarProperty Name="DefectInfo" ColumnName="DefectInfo" />
+                <ScalarProperty Name="MaintainceLocation" ColumnName="MaintainceLocation" />
+                <ScalarProperty Name="MaintainceDetails" ColumnName="MaintainceDetails" />
+                <ScalarProperty Name="MaintainceYear" ColumnName="MaintainceYear" />
+                <ScalarProperty Name="LastMaintainceDate" ColumnName="LastMaintainceDate" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="MaintainceCode" ColumnName="MaintainceCode" />
+                <ScalarProperty Name="MaintainceId" ColumnName="MaintainceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="I_StatusAfterMaintaince">
+            <EntityTypeMapping TypeName="SmartRecordModel.I_StatusAfterMaintaince">
+              <MappingFragment StoreEntitySet="I_StatusAfterMaintaince">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MaintainceStatusId" ColumnName="MaintainceStatusId" />
+                <ScalarProperty Name="WeaponsInfoId" ColumnName="WeaponsInfoId" />
+                <ScalarProperty Name="AfterMaintainceStatusCode" ColumnName="AfterMaintainceStatusCode" />
+                <ScalarProperty Name="AfterMaintainceStatusId" ColumnName="AfterMaintainceStatusId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1558,6 +2003,16 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="M_Composite">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_Composite">
+              <MappingFragment StoreEntitySet="M_Composite">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CompositeName" ColumnName="CompositeName" />
+                <ScalarProperty Name="CompositeCode" ColumnName="CompositeCode" />
+                <ScalarProperty Name="CompositeId" ColumnName="CompositeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="M_Country">
             <EntityTypeMapping TypeName="SmartRecordModel.M_Country">
               <MappingFragment StoreEntitySet="M_Country">
@@ -1602,6 +2057,42 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="FiscalYearCode" ColumnName="FiscalYearCode" />
                 <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_IndentStatus">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_IndentStatus">
+              <MappingFragment StoreEntitySet="M_IndentStatus">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IndentStatus" ColumnName="IndentStatus" />
+                <ScalarProperty Name="IndentStatusId" ColumnName="IndentStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_IndentType">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_IndentType">
+              <MappingFragment StoreEntitySet="M_IndentType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IndentTypeName" ColumnName="IndentTypeName" />
+                <ScalarProperty Name="IndentTypeId" ColumnName="IndentTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_MaintainceStatus_c_">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_MaintainceStatus_c_">
+              <MappingFragment StoreEntitySet="M_MaintainceStatus(c)">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="MaintainceStatusId" ColumnName="MaintainceStatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_MaintainceType">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_MaintainceType">
+              <MappingFragment StoreEntitySet="M_MaintainceType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MaintainceType" ColumnName="MaintainceType" />
+                <ScalarProperty Name="MaintainceId" ColumnName="MaintainceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1695,6 +2186,21 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="M_RankSetup">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_RankSetup">
+              <MappingFragment StoreEntitySet="M_RankSetup">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RankName" ColumnName="RankName" />
+                <ScalarProperty Name="RankSetupId" ColumnName="RankSetupId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="M_StatusInformation">
             <EntityTypeMapping TypeName="SmartRecordModel.M_StatusInformation">
               <MappingFragment StoreEntitySet="M_StatusInformation">
@@ -1710,6 +2216,15 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="StatusName" ColumnName="StatusName" />
                 <ScalarProperty Name="StatusCode" ColumnName="StatusCode" />
                 <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_TraningOrg">
+            <EntityTypeMapping TypeName="SmartRecordModel.M_TraningOrg">
+              <MappingFragment StoreEntitySet="M_TraningOrg">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+                <ScalarProperty Name="TraningOrgId" ColumnName="TraningOrgId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1883,9 +2398,9 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="I_MaintenanceInfo">
-            <EntityTypeMapping TypeName="SmartRecordModel.I_MaintenanceInfo">
-              <MappingFragment StoreEntitySet="I_MaintenanceInfo">
+          <EntitySetMapping Name="W_Inspection">
+            <EntityTypeMapping TypeName="SmartRecordModel.W_Inspection">
+              <MappingFragment StoreEntitySet="W_Inspection">
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -1893,16 +2408,20 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
                 <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="NextMaintainceSchadule" ColumnName="NextMaintainceSchadule" />
-                <ScalarProperty Name="MaintainceTypeId" ColumnName="MaintainceTypeId" />
-                <ScalarProperty Name="DefectInfo" ColumnName="DefectInfo" />
-                <ScalarProperty Name="MaintainceLocation" ColumnName="MaintainceLocation" />
-                <ScalarProperty Name="MaintainceDetails" ColumnName="MaintainceDetails" />
-                <ScalarProperty Name="MaintainceYear" ColumnName="MaintainceYear" />
-                <ScalarProperty Name="LastMaintainceDate" ColumnName="LastMaintainceDate" />
+                <ScalarProperty Name="Commence" ColumnName="Commence" />
+                <ScalarProperty Name="InspectionBy" ColumnName="InspectionBy" />
+                <ScalarProperty Name="InspectionMethod" ColumnName="InspectionMethod" />
+                <ScalarProperty Name="InspectionDate" ColumnName="InspectionDate" />
+                <ScalarProperty Name="InstallAt" ColumnName="InstallAt" />
+                <ScalarProperty Name="InstallBy" ColumnName="InstallBy" />
+                <ScalarProperty Name="INstallDate" ColumnName="INstallDate" />
+                <ScalarProperty Name="NextInspectionDate" ColumnName="NextInspectionDate" />
+                <ScalarProperty Name="LastInspectionDate" ColumnName="LastInspectionDate" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
-                <ScalarProperty Name="MaintainceCode" ColumnName="MaintainceCode" />
-                <ScalarProperty Name="MaintainceId" ColumnName="MaintainceId" />
+                <ScalarProperty Name="ItemCategoryId" ColumnName="ItemCategoryId" />
+                <ScalarProperty Name="DepotId" ColumnName="DepotId" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
+                <ScalarProperty Name="InspectionId" ColumnName="InspectionId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1912,28 +2431,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="PriceType" ColumnName="PriceType" />
                 <ScalarProperty Name="PriceTypeId" ColumnName="PriceTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="spLoadWeaponDetails" FunctionName="SmartRecordModel.Store.spLoadWeaponDetails">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRecordModel.spLoadWeaponDetails_Result">
-                <ScalarProperty Name="NameOfGun" ColumnName="NameOfGun" />
-                <ScalarProperty Name="LastMaintainceDate" ColumnName="LastMaintainceDate" />
-                <ScalarProperty Name="MaintainceYear" ColumnName="MaintainceYear" />
-                <ScalarProperty Name="MaintainceDetails" ColumnName="MaintainceDetails" />
-                <ScalarProperty Name="WareHouseName" ColumnName="WareHouseName" />
-                <ScalarProperty Name="RowIdNo" ColumnName="RowIdNo" />
-                <ScalarProperty Name="SelfIdNo" ColumnName="SelfIdNo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <EntitySetMapping Name="M_MaintainceType">
-            <EntityTypeMapping TypeName="SmartRecordModel.M_MaintainceType">
-              <MappingFragment StoreEntitySet="M_MaintainceType">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="MaintainceType" ColumnName="MaintainceType" />
-                <ScalarProperty Name="MaintainceId" ColumnName="MaintainceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

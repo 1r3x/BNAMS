@@ -57,6 +57,7 @@
     <Compile Include="Interface\IGunAmmoMaintaince.cs" />
     <Compile Include="Interface\IGunModel.cs" />
     <Compile Include="Interface\IHome.cs" />
+    <Compile Include="Interface\IInspection.cs" />
     <Compile Include="Interface\ILocalAgent.cs" />
     <Compile Include="Interface\IMenu.cs" />
     <Compile Include="Interface\INameOfGunSetup.cs" />
@@ -67,7 +68,10 @@
     <Compile Include="Interface\IRoleSetup.cs" />
     <Compile Include="Interface\IRoleWiseMenu.cs" />
     <Compile Include="Interface\IShipOrDepotSetup.cs" />
+    <Compile Include="Interface\IStatusAfterMaintaince.cs" />
     <Compile Include="Interface\IStatusInformationSetup.cs" />
+    <Compile Include="Interface\ITraineePersonBioSetup.cs" />
+    <Compile Include="Interface\ITrainingInfo.cs" />
     <Compile Include="Interface\IUser.cs" />
     <Compile Include="Interface\IUserPrivileges.cs" />
     <Compile Include="Interface\IWareHouseInfo.cs" />
@@ -81,6 +85,7 @@
     <Compile Include="Manager\GunAmmoMaintainceManager.cs" />
     <Compile Include="Manager\GunModelTypeSetupManager.cs" />
     <Compile Include="Manager\HomeManager.cs" />
+    <Compile Include="Manager\InspactionManager.cs" />
     <Compile Include="Manager\LocalAgentSetupManager.cs" />
     <Compile Include="Manager\MenuManager.cs" />
     <Compile Include="Manager\NameOfGunSetupManager.cs" />
@@ -91,7 +96,10 @@
     <Compile Include="Manager\RoleSetupManager.cs" />
     <Compile Include="Manager\RoleWiseMenuManger.cs" />
     <Compile Include="Manager\ShipOrDepotManager.cs" />
+    <Compile Include="Manager\StatusAfterMaintainceManager.cs" />
     <Compile Include="Manager\StatusInformationSetipManager.cs" />
+    <Compile Include="Manager\TraineePersonBioSetupManager.cs" />
+    <Compile Include="Manager\TrainingInfoManager.cs" />
     <Compile Include="Manager\UserManager.cs" />
     <Compile Include="Manager\UserPrivilegesManager.cs" />
     <Compile Include="Manager\WareHouseManager.cs" />
