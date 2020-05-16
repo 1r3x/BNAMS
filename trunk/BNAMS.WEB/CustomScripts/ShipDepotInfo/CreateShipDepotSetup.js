@@ -4,7 +4,16 @@ var CreateShipDepotSetupManager = {
     SaveShipDepotSetup: function () {
         debugger;
         if ($("#txtShipDepotName").val()=="") {
-            toastr.warning("LocalAgent Name is Required.");
+            toastr.warning("Ship/Depot Name is Required.");
+        }
+        else if ($("#ddlAdmin").val() == "") {
+            toastr.warning("Derectorate Name is Required.");
+        }
+        else if ($("#ddlCategory").val() == "") {
+            toastr.warning("Category is Required.");
+        }
+        else if ($("#dateOfCommission").val() == "") {
+            toastr.warning("Date of commison is Required.");
         }
        
         else {
@@ -97,7 +106,7 @@ var ShipDepotSetupHelper = {
         debugger;
         var parentMenu = ShipDepotSetupHelper.LoadAdmin();
         $("#ddlAdmin").select2({
-            placeholder: "Select Admin/Auth",
+            placeholder: "Select Derectorate",
             data: parentMenu
         });
     },
@@ -217,7 +226,7 @@ var ShipDepotSetupHelper = {
         var aObj = new Object();
         aObj.ShipOrDepotId = $("#hdnShipDepotId").val();
         aObj.ShipOrDepotCode = $("#txtShipDepotCode").val();
-        aObj.AuthorityId = $("#ddlAdmin").val();
+        aObj.DirectorateId = $("#ddlAdmin").val();
         aObj.ShipDepotCategory = $("#ddlCategory").val();
         aObj.ShipDepotName = $("#txtShipDepotName").val();
         aObj.DateOfCommmisson = $("#dateOfCommission").val();

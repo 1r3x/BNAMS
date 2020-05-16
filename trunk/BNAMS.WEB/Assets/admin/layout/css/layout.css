@@ -1131,7 +1131,7 @@ Page sidebar
                 border: 0px;
                 padding: 10px 15px;
                 text-decoration: none;
-                font-size: 16px;
+                font-size: 12px;/*for menu*/
                 font-weight: bold;
             }
 
@@ -1184,7 +1184,7 @@ Page sidebar
 
 .page-sidebar .page-sidebar-menu > li.open > a,
 .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu > li.open > a {
-    font-size: 14px;
+    font-size: 12px; /*for hover menu*/
 }
 
 .page-sidebar .page-sidebar-menu > li.active > a,

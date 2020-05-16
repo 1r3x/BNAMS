@@ -70,16 +70,18 @@
           </Key>
           <Property Name="IndentId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IndentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProgramId" Type="nvarchar" MaxLength="50" />
           <Property Name="IndentNo" Type="nvarchar" MaxLength="50" />
           <Property Name="IndentFrom" Type="nvarchar" MaxLength="50" />
           <Property Name="IssueTo" Type="nvarchar" MaxLength="50" />
           <Property Name="ItemId" Type="nvarchar" MaxLength="50" />
-          <Property Name="LocalSupplierId" Type="nvarchar" MaxLength="50" />
           <Property Name="IndentQuantity" Type="int" />
           <Property Name="IndentValidity" Type="datetime" />
           <Property Name="OtherOptions" Type="varchar" MaxLength="50" />
           <Property Name="Remarks" Type="varchar" MaxLength="50" />
           <Property Name="IndentStatusId" Type="nvarchar" MaxLength="50" />
+          <Property Name="IndentStatusDate" Type="datetime" />
+          <Property Name="CompositeId" Type="nvarchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="SetUpBy" Type="int" />
           <Property Name="SetUpDateTime" Type="datetime" />
@@ -184,6 +186,7 @@
           <Property Name="ProofFiringStatus" Type="varchar" MaxLength="50" />
           <Property Name="ProofFiringDate" Type="datetime" />
           <Property Name="Humidity" Type="varchar" MaxLength="50" />
+          <Property Name="IsUse" Type="bit" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="SetUpBy" Type="int" />
           <Property Name="SetUpDateTime" Type="datetime" />
@@ -562,7 +565,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           </Key>
           <Property Name="ShipOrDepotId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ShipOrDepotCode" Type="varchar" MaxLength="50" />
-          <Property Name="AuthorityId" Type="nvarchar" MaxLength="50" />
+          <Property Name="DirectorateId" Type="nvarchar" MaxLength="50" />
           <Property Name="ShipDepotCategory" Type="int" />
           <Property Name="ShipDepotName" Type="varchar" MaxLength="50" />
           <Property Name="DateOfCommmisson" Type="datetime" />
@@ -1001,16 +1004,18 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           </Key>
           <Property Name="IndentId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IndentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IndentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IndentFrom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IssueTo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ItemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LocalSupplierId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IndentQuantity" Type="Int32" />
           <Property Name="IndentValidity" Type="DateTime" Precision="3" />
           <Property Name="OtherOptions" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IndentStatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IndentStatusDate" Type="DateTime" Precision="3" />
+          <Property Name="CompositeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
@@ -1115,6 +1120,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="ProofFiringStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ProofFiringDate" Type="DateTime" Precision="3" />
           <Property Name="Humidity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsUse" Type="Boolean" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
@@ -1483,7 +1489,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           </Key>
           <Property Name="ShipOrDepotId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ShipOrDepotCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AuthorityId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DirectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ShipDepotCategory" Type="Int32" />
           <Property Name="ShipDepotName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DateOfCommmisson" Type="DateTime" Precision="3" />
@@ -1796,16 +1802,18 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
                 <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CompositeId" ColumnName="CompositeId" />
+                <ScalarProperty Name="IndentStatusDate" ColumnName="IndentStatusDate" />
                 <ScalarProperty Name="IndentStatusId" ColumnName="IndentStatusId" />
                 <ScalarProperty Name="Remarks" ColumnName="Remarks" />
                 <ScalarProperty Name="OtherOptions" ColumnName="OtherOptions" />
                 <ScalarProperty Name="IndentValidity" ColumnName="IndentValidity" />
                 <ScalarProperty Name="IndentQuantity" ColumnName="IndentQuantity" />
-                <ScalarProperty Name="LocalSupplierId" ColumnName="LocalSupplierId" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
                 <ScalarProperty Name="IssueTo" ColumnName="IssueTo" />
                 <ScalarProperty Name="IndentFrom" ColumnName="IndentFrom" />
                 <ScalarProperty Name="IndentNo" ColumnName="IndentNo" />
+                <ScalarProperty Name="ProgramId" ColumnName="ProgramId" />
                 <ScalarProperty Name="IndentType" ColumnName="IndentType" />
                 <ScalarProperty Name="IndentId" ColumnName="IndentId" />
               </MappingFragment>
@@ -1861,6 +1869,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
                 <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
                 <ScalarProperty Name="Humidity" ColumnName="Humidity" />
                 <ScalarProperty Name="ProofFiringDate" ColumnName="ProofFiringDate" />
                 <ScalarProperty Name="ProofFiringStatus" ColumnName="ProofFiringStatus" />
@@ -2320,7 +2329,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="DateOfCommmisson" ColumnName="DateOfCommmisson" />
                 <ScalarProperty Name="ShipDepotName" ColumnName="ShipDepotName" />
                 <ScalarProperty Name="ShipDepotCategory" ColumnName="ShipDepotCategory" />
-                <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
+                <ScalarProperty Name="DirectorateId" ColumnName="DirectorateId" />
                 <ScalarProperty Name="ShipOrDepotCode" ColumnName="ShipOrDepotCode" />
                 <ScalarProperty Name="ShipOrDepotId" ColumnName="ShipOrDepotId" />
               </MappingFragment>

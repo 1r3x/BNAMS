@@ -16,7 +16,7 @@ namespace BNAMS.Entities
     {
         public string ShipOrDepotId { get; set; }
         public string ShipOrDepotCode { get; set; }
-        public string AuthorityId { get; set; }
+        public string DirectorateId { get; set; }
         public Nullable<int> ShipDepotCategory { get; set; }
         public string ShipDepotName { get; set; }
         public Nullable<System.DateTime> DateOfCommmisson { get; set; }

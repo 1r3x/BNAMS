@@ -16,16 +16,18 @@ namespace BNAMS.Entities
     {
         public string IndentId { get; set; }
         public string IndentType { get; set; }
+        public string ProgramId { get; set; }
         public string IndentNo { get; set; }
         public string IndentFrom { get; set; }
         public string IssueTo { get; set; }
         public string ItemId { get; set; }
-        public string LocalSupplierId { get; set; }
         public Nullable<int> IndentQuantity { get; set; }
         public Nullable<System.DateTime> IndentValidity { get; set; }
         public string OtherOptions { get; set; }
         public string Remarks { get; set; }
         public string IndentStatusId { get; set; }
+        public Nullable<System.DateTime> IndentStatusDate { get; set; }
+        public string CompositeId { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public Nullable<int> SetUpBy { get; set; }
         public Nullable<System.DateTime> SetUpDateTime { get; set; }

@@ -61,6 +61,7 @@ namespace BNAMS.Manager.Manager
                 aObj.IsActive = true;
                 aObj.IsBackup = false;
                 aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+                aObj.IsUse = false;
 
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
@@ -128,7 +129,7 @@ namespace BNAMS.Manager.Manager
                        select new
                        {
                            id = parentMenu.FiscalYearId,
-                           text = parentMenu.FiscalYearCode
+                           text = parentMenu.Name
                        };
             return _aModel.Respons(data);
         }

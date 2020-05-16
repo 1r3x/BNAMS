@@ -165,6 +165,7 @@
     <Compile Include="Controllers\GunAmmoMaintainceController.cs" />
     <Compile Include="Controllers\GunModelTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndentController.cs" />
     <Compile Include="Controllers\InspactionController.cs" />
     <Compile Include="Controllers\LocalAgentSetupController.cs" />
     <Compile Include="Controllers\login\AuthorizationAttribute.cs" />
@@ -234,6 +235,9 @@
     <Content Include="CustomScripts\GunModelType\GunModelTypeSetupSetting.js" />
     <Content Include="CustomScripts\GunModelType\CreateGunModelTypeSetup.js" />
     <Content Include="CustomScripts\GunModelType\ViewGunModelTypeSetup.js" />
+    <Content Include="CustomScripts\Indent\CreateIndent.js" />
+    <Content Include="CustomScripts\Indent\IndentSetting.js" />
+    <Content Include="CustomScripts\Indent\ViewIndent.js" />
     <Content Include="CustomScripts\Inspaction\CreateInspaction.js" />
     <Content Include="CustomScripts\Inspaction\InspactionSetting.js" />
     <Content Include="CustomScripts\Inspaction\ViewInspaction.js" />
@@ -613,6 +617,9 @@
     <Content Include="Views\Inspaction\Index.cshtml" />
     <Content Include="Views\Inspaction\_Create.cshtml" />
     <Content Include="Views\Inspaction\_View.cshtml" />
+    <Content Include="Views\Indent\Index.cshtml" />
+    <Content Include="Views\Indent\_Create.cshtml" />
+    <Content Include="Views\Indent\_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

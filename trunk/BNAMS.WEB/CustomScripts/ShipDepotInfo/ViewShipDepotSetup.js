@@ -15,6 +15,7 @@
                 { "data": "ShipOrDepotCode", "autoWidth": true },
                 { "data": "ShipDepotName", "autoWidth": true },
                 { "data": "AuthorityName", "autoWidth": true },
+                { "data": "DirectorateName", "autoWidth": true },
                 {
                     "data": "DateOfCommmisson",
                     "type": "date",
@@ -38,7 +39,7 @@
           
             "columnDefs": [
                 {
-                    targets: [7],
+                    targets: [8],
                     render: function (data, type, row) {
                         return data == "1" ? "Active" : "Inactive";
                     }
@@ -57,7 +58,7 @@ var viewShipDepotSetupHelper = {
         debugger;
         $("#hdnShipDepotId").val(aObj.ShipOrDepotId);
         $("#txtShipDepotCode").val(aObj.ShipOrDepotCode);
-        $("#ddlAdmin").val(aObj.AuthorityId).trigger("change");
+        $("#ddlAdmin").val(aObj.DerectorateId).trigger("change");
         $("#ddlCategory").val(aObj.ShipDepotCategory).trigger("change");
         $("#txtShipDepotName").val(aObj.ShipDepotName);
         if (aObj.DateOfCommmisson != null) {

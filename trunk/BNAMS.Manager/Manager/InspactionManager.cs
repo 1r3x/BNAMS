@@ -31,7 +31,7 @@ namespace BNAMS.Manager.Manager
             if (aObj.InspectionId == "0")
             {
                 var previousInspection = (from a in _db.W_Inspection
-                                          where a.InspectionId == aObj.InspectionId && a.IsActive == true
+                                          where a.ItemId == aObj.ItemId && a.IsActive == true
                                           select a).SingleOrDefault();
 
                 if (previousInspection != null)

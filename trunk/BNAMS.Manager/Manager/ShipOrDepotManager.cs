@@ -9,7 +9,7 @@ using SR.Repositories;
 
 namespace BNAMS.Manager.Manager
 {
-    public class ShipOrDepotManager:IShipOrDepotSetup
+    public class ShipOrDepotManager : IShipOrDepotSetup
     {
         private readonly ResponseModel _aModel;
         private readonly IGenericRepository<O_ShipOrDepotInfo> _aRepository;
@@ -56,89 +56,91 @@ namespace BNAMS.Manager.Manager
         public ResponseModel GetAllShipOrDepotSetup()
         {
             var data = from a in _db.O_ShipOrDepotInfo
-                join auth in _db.M_Authorirty on a.AuthorityId equals auth.AuthorityId
-                join cap in _db.M_CapabilityOfWeapons on a.CapabilityOfWeaponsId equals cap.CapabilityOfWeaponsID
-                join type in _db.M_TypeOfShip on a.TypeOfShip equals type.ShipTypeId
-                join cat in _db.M_DepotShipCategory on a.ShipDepotCategory equals cat.CategoryId
-                select new
-                {
-                    a.ShipOrDepotId,
-                    a.ShipOrDepotCode,
-                    a.AuthorityId,
-                    a.CapabilityOfWeaponsId,
-                    a.DateOfCommmisson,
-                    a.FaxNo,
-                    a.Email,
-                    a.Telephone,
-                    a.IsActive,
-                    a.SetUpBy,
-                    a.SetUpDateTime,
-                    a.ShipDepotName,
-                    a.ShipDepotCategory,
-                    a.WTCallSign,
-                    a.WebAddress,
-                    a.TypeOfShip,
-                    auth.AuthorityName,
-                    cap.CapabilityName,
-                    type.TypeName,
-                    cat.CategoryName
-                };
+                       join auth in _db.O_DirectorateInfo on a.DerectorateId equals auth.DirectorateID
+                       join admin in _db.M_Authorirty on auth.AdminAuthorityId equals admin.AuthorityId
+                       join cap in _db.M_CapabilityOfWeapons on a.CapabilityOfWeaponsId equals cap.CapabilityOfWeaponsID
+                       join type in _db.M_TypeOfShip on a.TypeOfShip equals type.ShipTypeId
+                       join cat in _db.M_DepotShipCategory on a.ShipDepotCategory equals cat.CategoryId
+                       select new
+                       {
+                           a.ShipOrDepotId,
+                           a.ShipOrDepotCode,
+                           a.DerectorateId,
+                           a.CapabilityOfWeaponsId,
+                           a.DateOfCommmisson,
+                           a.FaxNo,
+                           a.Email,
+                           a.Telephone,
+                           a.IsActive,
+                           a.SetUpBy,
+                           a.SetUpDateTime,
+                           a.ShipDepotName,
+                           a.ShipDepotCategory,
+                           a.WTCallSign,
+                           a.WebAddress,
+                           a.TypeOfShip,
+                           auth.DirectorateName,
+                           admin.AuthorityName,
+                           cap.CapabilityName,
+                           type.TypeName,
+                           cat.CategoryName
+                       };
             return _aModel.Respons(data);
         }
 
         public ResponseModel CheckDuplicate(O_ShipOrDepotInfo aObj)
         {
             var data = (from e in _db.O_ShipOrDepotInfo
-                where e.ShipOrDepotId != aObj.ShipOrDepotId && e.ShipDepotName == aObj.ShipDepotName
-                select e.ShipOrDepotId).Any();
+                        where e.ShipOrDepotId != aObj.ShipOrDepotId && e.ShipDepotName == aObj.ShipDepotName
+                        select e.ShipOrDepotId).Any();
             return data == true ? _aModel.Respons(true, "This Ship Or Depot already Exist") : _aModel.Respons(false, "");
         }
 
         public ResponseModel LoadShipOrdepotCategory()
         {
             var data = from parentMenu in _db.M_DepotShipCategory
-                where parentMenu.IsActive == true
-                select new
-                {
-                    id = parentMenu.CategoryId,
-                    text = parentMenu.CategoryName
-                };
+                       where parentMenu.IsActive == true
+                       select new
+                       {
+                           id = parentMenu.CategoryId,
+                           text = parentMenu.CategoryName
+                       };
             return _aModel.Respons(data);
         }
 
         public ResponseModel LoadShipOrdepoType()
         {
             var data = from parentMenu in _db.M_TypeOfShip
-                where parentMenu.IsActive == true
-                select new
-                {
-                    id = parentMenu.ShipTypeId,
-                    text = parentMenu.TypeName
-                };
+                       where parentMenu.IsActive == true
+                       select new
+                       {
+                           id = parentMenu.ShipTypeId,
+                           text = parentMenu.TypeName
+                       };
             return _aModel.Respons(data);
         }
 
         public ResponseModel LoadCapbilityOfWeapons()
         {
             var data = from parentMenu in _db.M_CapabilityOfWeapons
-                where parentMenu.IsActive == true
-                select new
-                {
-                    id = parentMenu.CapabilityOfWeaponsID,
-                    text = parentMenu.CapabilityName
-                };
+                       where parentMenu.IsActive == true
+                       select new
+                       {
+                           id = parentMenu.CapabilityOfWeaponsID,
+                           text = parentMenu.CapabilityName
+                       };
             return _aModel.Respons(data);
         }
 
         public ResponseModel LoadAdminAuth()
         {
-            var data = from parentMenu in _db.M_Authorirty
-                where parentMenu.IsActive == true
-                select new
-                {
-                    id = parentMenu.AuthorityId,
-                    text = parentMenu.AuthorityName
-                };
+            var data = from parentMenu in _db.O_DirectorateInfo
+                       where parentMenu.IsActive == true
+                       select new
+                       {
+                           id = parentMenu.DirectorateID,
+                           text = parentMenu.DirectorateName
+                       };
             return _aModel.Respons(data);
         }
     }

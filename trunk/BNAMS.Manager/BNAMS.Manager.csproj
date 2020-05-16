@@ -57,6 +57,7 @@
     <Compile Include="Interface\IGunAmmoMaintaince.cs" />
     <Compile Include="Interface\IGunModel.cs" />
     <Compile Include="Interface\IHome.cs" />
+    <Compile Include="Interface\IIndent.cs" />
     <Compile Include="Interface\IInspection.cs" />
     <Compile Include="Interface\ILocalAgent.cs" />
     <Compile Include="Interface\IMenu.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Manager\GunAmmoMaintainceManager.cs" />
     <Compile Include="Manager\GunModelTypeSetupManager.cs" />
     <Compile Include="Manager\HomeManager.cs" />
+    <Compile Include="Manager\IndentManager.cs" />
     <Compile Include="Manager\InspactionManager.cs" />
     <Compile Include="Manager\LocalAgentSetupManager.cs" />
     <Compile Include="Manager\MenuManager.cs" />

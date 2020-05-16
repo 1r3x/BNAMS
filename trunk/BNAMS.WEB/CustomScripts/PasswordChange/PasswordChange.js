@@ -47,7 +47,7 @@ var CreatePasswordChangeManager = {
             success: function (response) {
                 debugger;
                 if (response != null) {
-                    $("#hdnEmpId").val(response.data[0].EmpId);
+                    $("#hdnEmpId").val(response.data[0].Id);
                     $("#hdnPassword").val(response.data[0].Password);
                     $("#txtUserName").val(response.data[0].UserName);
                 }
@@ -78,7 +78,7 @@ var PasswordChangeHelper = {
     },
     GetPasswordChangeData: function () {
         var aObj = new Object();
-        aObj.EmpId = $("#hdnEmpId").val();
+        aObj.Id = $("#hdnEmpId").val();
         aObj.Password = $("#txtVerifyNewPassword").val();
         return aObj;
     }
