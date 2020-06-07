@@ -20,7 +20,7 @@ namespace BNAMS.Entities
         public string WareHouseId { get; set; }
         public string SelfIdNo { get; set; }
         public string RowIdNo { get; set; }
-        public Nullable<int> ProductCategoryId { get; set; }
+        public string ProductCategoryId { get; set; }
         public Nullable<bool> IsActive { get; set; }
         public Nullable<int> SetUpBy { get; set; }
         public Nullable<System.DateTime> SetUpDateTime { get; set; }

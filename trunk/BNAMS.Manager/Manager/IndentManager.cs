@@ -38,7 +38,7 @@ namespace BNAMS.Manager.Manager
 
                 if (inWeaponsINfoTable != null)
                 {
-                    inWeaponsINfoTable.IsUse = true;
+                    //inWeaponsINfoTable.IsUse = true;
                     inWeaponsINfoTable.IsBackup = false;
                 }
                 _db.SaveChanges();
@@ -49,6 +49,13 @@ namespace BNAMS.Manager.Manager
                                       where a.ItemId == aObj.ItemId && a.IsActive == true
                                       select a).SingleOrDefault();
 
+                //check if it is ammo
+                var isAmmoData = from a in _db.I_WeaponsInfo
+                    join weaponTable in _db.M_WeaponsType on a.WeaponsTypeId equals weaponTable.WeaponsTypeId
+                    where weaponTable.WeaponsTypeId == "1042020WEAP139"
+                    select a;
+                var isAmmo = isAmmoData.Count();
+
                 if (previousIndent != null)
                 {
                     previousIndent.IsActive = false;
@@ -58,6 +65,12 @@ namespace BNAMS.Manager.Manager
                           where a.IsActive == true
                           select a;
                 var count = row.Count();
+
+
+                if (isAmmo==0)
+                {
+                    aObj.IndentQuantity = 1;
+                }
 
                 aObj.IndentId = (string)HttpContext.Current.Session["directorateId"] + "-INS-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
                 aObj.IndentNo = Convert.ToString(count + 1);
@@ -74,6 +87,7 @@ namespace BNAMS.Manager.Manager
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
             aObj.IsBackup = false;
+            aObj.IsActive = true;
             aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
 
             _aRepository.Update(aObj);
@@ -121,11 +135,12 @@ namespace BNAMS.Manager.Manager
         public ResponseModel LoadAllDepotAndShipForIndentFrom()
         {
             var data = from parentMenu in _db.O_ShipOrDepotInfo
+                       join directorate in _db.O_DirectorateInfo on parentMenu.DerectorateId equals directorate.DirectorateID
                        where parentMenu.IsActive == true
                        select new
                        {
                            id = parentMenu.ShipOrDepotId,
-                           text = parentMenu.ShipDepotName
+                           text = parentMenu.ShipDepotName + " (" + directorate.DirectorateName + ")"
                        };
             return _aModel.Respons(data);
         }
@@ -133,11 +148,12 @@ namespace BNAMS.Manager.Manager
         public ResponseModel LoadAllDepotAndShipForIssue()
         {
             var data = from parentMenu in _db.O_ShipOrDepotInfo
+                       join directorate in _db.O_DirectorateInfo on parentMenu.DerectorateId equals directorate.DirectorateID
                        where parentMenu.IsActive == true
                        select new
                        {
                            id = parentMenu.ShipOrDepotId,
-                           text = parentMenu.ShipDepotName
+                           text = parentMenu.ShipDepotName + " (" + directorate.DirectorateName + ")"
                        };
             return _aModel.Respons(data);
         }
@@ -146,7 +162,7 @@ namespace BNAMS.Manager.Manager
         {
             var data = from parentMenu in _db.I_WeaponsInfo
                        where parentMenu.IsActive == true && parentMenu.DepotId == depotShipId &&
-                             parentMenu.IsUse==false
+                             parentMenu.IsUse == false
                        select new
                        {
                            id = parentMenu.WeaponsInfoId,
@@ -203,6 +219,16 @@ namespace BNAMS.Manager.Manager
                            id = parentMenu.IndentTypeId,
                            text = parentMenu.IndentTypeName
                        };
+            return _aModel.Respons(data);
+        }
+
+        public ResponseModel CheckIsItAmmo(string itemId)
+        {
+            var isAmmoData = from a in _db.I_WeaponsInfo
+                join weaponTable in _db.M_WeaponsType on a.WeaponsTypeId equals weaponTable.WeaponsTypeId
+                where weaponTable.WeaponsTypeId == "1042020WEAP139"
+                select a;
+            var data = isAmmoData.Any();
             return _aModel.Respons(data);
         }
     }

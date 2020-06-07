@@ -110,6 +110,8 @@ var IndentHelper = {
         });
     },
 
+
+
     LoadAllDepotAndShipForIssue: function () {
         var b = [];
         $.ajax({
@@ -138,7 +140,7 @@ var IndentHelper = {
             placeholder: "Select Issue Person",
             data: parentMenu
         });
-    },  
+    },
 
     LoadItemCode: function () {
         debugger;
@@ -274,7 +276,25 @@ var IndentHelper = {
         });
         return b;
     },
-    //ident type load
+
+    CheckIsItSameId: function () {
+        var issueFromDepotId = $("#ddlIndentFrom").val();
+        var issueToDepotId = $("#ddlIssuePerson").val();
+
+        if (issueFromDepotId == issueToDepotId) {
+
+            toastr.warning("Please Select Different Depot");
+
+            //$("#ddlIndentFrom").val("").change();
+            $("#ddlIssuePerson").val("").change();
+
+        }
+
+
+    },
+
+
+    //ident type load (now disabled)
     LoadIndentType: function () {
         var b = [];
         $.ajax({
@@ -302,6 +322,9 @@ var IndentHelper = {
             data: parentMenu
         });
     },
+    //disabled
+
+
 
     //load local agents
     LoadLocalAgents: function () {
@@ -332,24 +355,48 @@ var IndentHelper = {
         });
     },
 
-   
+    CheckIsitAnAmmo: function () {
+
+        var itemId = $("#ddlItemCode").val();
+        $.ajax({
+            type: "Get",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/Indent/CheckIsItAmmo",
+            data: { itemId: itemId },
+            success: function (response) {
+                debugger;
+                if (response.data == true) {
+                    debugger;
+                    $("#txtIdentQuantiryDiv").show();
+                }
+
+            },
+            error: function (response) {
+
+            }
+        });
+    },
+
+
 
     ClearField: function () {
 
         $("#hdnIndentId").val("");
-        $("#ddlIndentType").val("");
+        $("#ddlIndentType").val("").change();
         $("#txtProgramId").val("");
         $("#txtIndentNo").val("");
-        $("#ddlIndentFrom").val("");
-        $("#ddlIssuePerson").val("");
-        $("#ddlItemCode").val("");
-        $("#ddlCompositeCode").val("");
+        $("#ddlIndentFrom").val("").change();
+        $("#ddlIssuePerson").val("").change();
+        $("#ddlItemCode").val("").change();
+        $("#ddlCompositeCode").val("").change();
         $("#txtIdentQuantiry").val("");
         $("#dateOfIndentValidity").val("");
         $("#txtOtherOptions").val("");
-        //aObj.Remarks = $("#txtInspectionMethod").val();
-        //aObj.IndentStatusId = $("#txtInspectionBy").val();
-        //aObj.IndentStatusDate = $("#txtCommence").val();
+        $("#txtCompositeName").val("");
+        $("#txtProductSupplierName").val("");
+        $("#txtItemName").val("");
 
         $("#hdnSetupBy").val("");
         $("#hdnSetupDateTime").val("");

@@ -55,7 +55,7 @@
           <Property Name="WareHouseId" Type="nvarchar" MaxLength="50" />
           <Property Name="SelfIdNo" Type="varchar" MaxLength="50" />
           <Property Name="RowIdNo" Type="varchar" MaxLength="50" />
-          <Property Name="ProductCategoryId" Type="int" />
+          <Property Name="ProductCategoryId" Type="nvarchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" />
           <Property Name="SetUpBy" Type="int" />
           <Property Name="SetUpDateTime" Type="datetime" />
@@ -282,6 +282,12 @@
           <Property Name="CompositeCode" Type="varchar" MaxLength="50" />
           <Property Name="CompositeName" Type="varchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="M_Country">
           <Key>
@@ -433,9 +439,15 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Key>
             <PropertyRef Name="ProductCategoryId" />
           </Key>
-          <Property Name="ProductCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductCategoryId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ProductCtegoryName" Type="varchar" MaxLength="50" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="SetUpBy" Type="int" />
+          <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsBackup" Type="bit" />
+          <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="M_QuantityCategory">
           <Key>
@@ -989,7 +1001,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="WareHouseId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SelfIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="RowIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProductCategoryId" Type="Int32" />
+          <Property Name="ProductCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="SetUpBy" Type="Int32" />
           <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
@@ -1216,6 +1228,12 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="CompositeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CompositeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="M_Country">
           <Key>
@@ -1357,9 +1375,15 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Key>
             <PropertyRef Name="ProductCategoryId" />
           </Key>
-          <Property Name="ProductCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCategoryId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductCtegoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="M_QuantityCategory">
           <Key>
@@ -2015,6 +2039,12 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_Composite">
             <EntityTypeMapping TypeName="SmartRecordModel.M_Composite">
               <MappingFragment StoreEntitySet="M_Composite">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CompositeName" ColumnName="CompositeName" />
                 <ScalarProperty Name="CompositeCode" ColumnName="CompositeCode" />
@@ -2172,6 +2202,12 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_ProductCategory">
             <EntityTypeMapping TypeName="SmartRecordModel.M_ProductCategory">
               <MappingFragment StoreEntitySet="M_ProductCategory">
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="ProductCtegoryName" ColumnName="ProductCtegoryName" />
                 <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />

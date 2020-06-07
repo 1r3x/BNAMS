@@ -18,5 +18,11 @@ namespace BNAMS.Entities
         public string CompositeCode { get; set; }
         public string CompositeName { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<int> SetUpBy { get; set; }
+        public Nullable<System.DateTime> SetUpDateTime { get; set; }
+        public Nullable<int> UpdatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDateTime { get; set; }
+        public Nullable<bool> IsBackup { get; set; }
+        public string DerectorateId { get; set; }
     }
 }

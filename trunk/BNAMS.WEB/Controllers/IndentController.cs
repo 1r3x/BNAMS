@@ -113,6 +113,13 @@ namespace BNAMS.Controllers
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
 
+        // GET: Indent/CheckIsItAmmo
+        public JsonResult CheckIsItAmmo(string itemId)
+        {
+            var data = _aManager.CheckIsItAmmo(itemId);
+            return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
+        }
+
 
 
 

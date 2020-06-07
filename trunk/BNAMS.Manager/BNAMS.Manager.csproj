@@ -51,6 +51,7 @@
     <Compile Include="Interface\IBinLocation.cs" />
     <Compile Include="Interface\ICapabilityOfWeaponsSetup.cs" />
     <Compile Include="Interface\IAuthoritySetup.cs" />
+    <Compile Include="Interface\ICompositeCodeMaster.cs" />
     <Compile Include="Interface\ICountrySetup.cs" />
     <Compile Include="Interface\IDirectorateInfo.cs" />
     <Compile Include="Interface\IFiscalYearSetup.cs" />
@@ -62,9 +63,11 @@
     <Compile Include="Interface\ILocalAgent.cs" />
     <Compile Include="Interface\IMenu.cs" />
     <Compile Include="Interface\INameOfGunSetup.cs" />
+    <Compile Include="Interface\IIndentReceiveOrCancel.cs" />
     <Compile Include="Interface\IPasswordChange.cs" />
     <Compile Include="Interface\IPasswordChangeAdmin.cs" />
     <Compile Include="Interface\IProcurementSetup.cs" />
+    <Compile Include="Interface\IProductCaegoryMaster.cs" />
     <Compile Include="Interface\IQuantitySetup.cs" />
     <Compile Include="Interface\IRoleSetup.cs" />
     <Compile Include="Interface\IRoleWiseMenu.cs" />
@@ -80,6 +83,7 @@
     <Compile Include="Manager\AuthoritySetupManager.cs" />
     <Compile Include="Manager\BinLocationManager.cs" />
     <Compile Include="Manager\CapabilityOfWaeponsSetupManager.cs" />
+    <Compile Include="Manager\CompositeCodeManager.cs" />
     <Compile Include="Manager\CountrySetupManager.cs" />
     <Compile Include="Manager\DirectorateInfoManager.cs" />
     <Compile Include="Manager\FiscalYearSetupManager.cs" />
@@ -87,6 +91,7 @@
     <Compile Include="Manager\GunModelTypeSetupManager.cs" />
     <Compile Include="Manager\HomeManager.cs" />
     <Compile Include="Manager\IndentManager.cs" />
+    <Compile Include="Manager\IndentReceiveOrCancelManager.cs" />
     <Compile Include="Manager\InspactionManager.cs" />
     <Compile Include="Manager\LocalAgentSetupManager.cs" />
     <Compile Include="Manager\MenuManager.cs" />
@@ -94,6 +99,7 @@
     <Compile Include="Manager\PasswordChangeAdminManage.cs" />
     <Compile Include="Manager\PasswordChangeManager.cs" />
     <Compile Include="Manager\ProcurementSetupManager.cs" />
+    <Compile Include="Manager\ProductCategoryMasterManger.cs" />
     <Compile Include="Manager\QuantitySetupManager.cs" />
     <Compile Include="Manager\RoleSetupManager.cs" />
     <Compile Include="Manager\RoleWiseMenuManger.cs" />

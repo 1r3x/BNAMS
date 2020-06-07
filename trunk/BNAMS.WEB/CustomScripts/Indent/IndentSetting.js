@@ -1,5 +1,7 @@
 ﻿$(document).ready(function () {
     debugger;
+
+    $("#txtIdentQuantiryDiv").hide();
     IndentHelper.InitIndent();
     viewIndent.GetIndentDataTable();
    
@@ -20,17 +22,36 @@
     });
 
     $("#ddlIndentFrom").change(function () {
-        IndentHelper.LoadItemCodeDD();
+        if ($("#ddlIndentFrom").val()!="") {
+
+            IndentHelper.LoadItemCodeDD();
+        }
     });
 
     $("#ddlItemCode").change(function () {
-        IndentHelper.LoadItemNameByItemCode();
+        if ($("#ddlIndentFrom").val()!= "") {
+
+            IndentHelper.LoadItemNameByItemCode();
+            IndentHelper.CheckIsitAnAmmo();
+        }
+       
     });
 
     $("#ddlCompositeCode").change(function () {
-        IndentHelper.LoadCompositNameByCompositId();
+        if ($("#ddlIndentFrom").val() != "") {
+            IndentHelper.LoadCompositNameByCompositId();
+        }
+        
     });
-   
+
+
+    $("#ddlIssuePerson").change(function () {
+        if ($("#ddlIndentFrom").val() != "") {
+            IndentHelper.CheckIsItSameId();
+        }
+
+        
+    });
 
 
 });

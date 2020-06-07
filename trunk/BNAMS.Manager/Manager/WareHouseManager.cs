@@ -108,11 +108,12 @@ namespace BNAMS.Manager.Manager
         public ResponseModel LoadUnitDepotShip()
         {
             var data = from parentMenu in _db.O_ShipOrDepotInfo
+                join directorate in _db.O_DirectorateInfo on parentMenu.DirectorateId equals directorate.DirectorateID
                 where parentMenu.IsActive == true
                 select new
                 {
                     id = parentMenu.ShipOrDepotId,
-                    text = parentMenu.ShipDepotName
+                    text = parentMenu.ShipDepotName+" ("+directorate.DirectorateName+")"
                 };
             return _aModel.Respons(data);
         }

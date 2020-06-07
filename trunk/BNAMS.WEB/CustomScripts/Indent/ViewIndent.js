@@ -12,14 +12,24 @@
                 "contentType": "application/json; charset=utf-8"
             },
             "columns": [
-                { "data": "ProgramId", "autoWidth": true },
                 { "data": "IndentNo", "autoWidth": true },
                 { "data": "indentFrom", "autoWidth": true },
                 { "data": "issueTo", "autoWidth": true },
                 { "data": "NameOfGun", "autoWidth": true },
                 { "data": "CompositeName", "autoWidth": true },
-                { "data": "IndentValidity", "autoWidth": true },
+                {
+                    "data": "IndentValidity",
+                    "type": "date",
+                    "render": function (value) {
+                        if (value === null) return "";
 
+                        var pattern = /Date\(([^)]+)\)/;
+                        var results = pattern.exec(value);
+                        var dt = new Date(parseFloat(results[1]));
+
+                        return dt.getDate() + "." + (dt.getMonth() + 1) + "." + dt.getFullYear();
+                    }
+                },
 
                 { "data": "IsActive", "autoWidth": true },
                 { "defaultContent": '<button class="btn btn-primary glyphicon glyphicon-edit" id="btnEdit" type="button"></button>' }
@@ -28,7 +38,7 @@
 
             "columnDefs": [
                 {
-                    targets: [7],
+                    targets: [6],
                     render: function (data, type, row) {
                         return data == "1" ? "Active" : "Inactive";
                     }
@@ -47,15 +57,24 @@ var viewIndentHelper = {
         debugger;
 
         $("#hdnIndentId").val(aObj.IndentId);
-        $("#ddlIndentType").val(aObj.IndentType);
+        $("#ddlIndentType").val(aObj.IndentType).trigger("change");
         $("#txtProgramId").val(aObj.ProgramId);
         $("#txtIndentNo").val(aObj.IndentNo);
-        $("#ddlIndentFrom").val(aObj.IndentFrom);
-        $("#ddlIssuePerson").val(aObj.IssueTo);
-        $("#ddlItemCode").val(aObj.ItemId);
-        $("#ddlCompositeCode").val(aObj.CompositeCodeId);
+        $("#ddlIndentFrom").val(aObj.IndentFrom).trigger("change");
+        $("#ddlIssuePerson").val(aObj.IssueTo).trigger("change");
+        $("#ddlItemCode").val(aObj.ItemId).trigger("change");
+        $("#ddlCompositeCode").val(aObj.CompositeId).trigger("change");
         $("#txtIdentQuantiry").val(aObj.IndentQuantity);
         $("#dateOfIndentValidity").val(aObj.IndentValidity);
+
+        if (aObj.IndentValidity != null) {
+            var indentValidity = new Date(parseInt(aObj.IndentValidity.substr(6)));
+            var cIndentValidity = indentValidity.getDate() + "." + (indentValidity.getMonth() + 1) + "." + indentValidity.getFullYear();
+            $("#dateOfIndentValidity").val(cIndentValidity);
+
+        }
+
+
         $("#txtOtherOptions").val(aObj.OtherOptions);
 
 

@@ -159,6 +159,7 @@
     <Compile Include="Controllers\AuthoritySetupController.cs" />
     <Compile Include="Controllers\BinLocationController.cs" />
     <Compile Include="Controllers\CapabilityOfWeaponsController.cs" />
+    <Compile Include="Controllers\CompositeCodeMasterController.cs" />
     <Compile Include="Controllers\CountrySetupController.cs" />
     <Compile Include="Controllers\DirectorateInfoController.cs" />
     <Compile Include="Controllers\FiscalYearSetupController.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Controllers\GunModelTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndentController.cs" />
+    <Compile Include="Controllers\IndentReceivedOrCancelController.cs" />
     <Compile Include="Controllers\InspactionController.cs" />
     <Compile Include="Controllers\LocalAgentSetupController.cs" />
     <Compile Include="Controllers\login\AuthorizationAttribute.cs" />
@@ -175,6 +177,7 @@
     <Compile Include="Controllers\PasswordChangeAdminController.cs" />
     <Compile Include="Controllers\PasswordChangeController.cs" />
     <Compile Include="Controllers\ProcurementCategorySetupController.cs" />
+    <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\QuantitySetupController.cs" />
     <Compile Include="Controllers\RoleSetupController.cs" />
     <Compile Include="Controllers\RoleWiseMenuController.cs" />
@@ -235,6 +238,9 @@
     <Content Include="CustomScripts\GunModelType\GunModelTypeSetupSetting.js" />
     <Content Include="CustomScripts\GunModelType\CreateGunModelTypeSetup.js" />
     <Content Include="CustomScripts\GunModelType\ViewGunModelTypeSetup.js" />
+    <Content Include="CustomScripts\IndentReceivedAndCancel\CreateIndentReceivedOrCancel.js" />
+    <Content Include="CustomScripts\IndentReceivedAndCancel\IndentReceivedOrCancelSetting.js" />
+    <Content Include="CustomScripts\IndentReceivedAndCancel\ViewIndentReceivedOrCancel.js" />
     <Content Include="CustomScripts\Indent\CreateIndent.js" />
     <Content Include="CustomScripts\Indent\IndentSetting.js" />
     <Content Include="CustomScripts\Indent\ViewIndent.js" />
@@ -255,6 +261,12 @@
     <Content Include="CustomScripts\ProcurementCategorySetup\CreateProcurementSetup.js" />
     <Content Include="CustomScripts\ProcurementCategorySetup\ProcurementSetupSetting.js" />
     <Content Include="CustomScripts\ProcurementCategorySetup\ViewProcurementSetup.js" />
+    <Content Include="CustomScripts\CompositeCodeMaster\CreateCompositeCode.js" />
+    <Content Include="CustomScripts\CompositeCodeMaster\CompositeCodeSetting.js" />
+    <Content Include="CustomScripts\CompositeCodeMaster\ViewCompositeCode.js" />
+    <Content Include="CustomScripts\ProductCategory\ProductCategorySetting.js" />
+    <Content Include="CustomScripts\ProductCategory\CreateProductCategory.js" />
+    <Content Include="CustomScripts\ProductCategory\ViewProductCategory.js" />
     <Content Include="CustomScripts\ProfileEntry\CreateProfile.js" />
     <Content Include="CustomScripts\ProfileEntry\ProfileSetting.js" />
     <Content Include="CustomScripts\ProfileEntry\ViewProfile.js" />
@@ -620,6 +632,15 @@
     <Content Include="Views\Indent\Index.cshtml" />
     <Content Include="Views\Indent\_Create.cshtml" />
     <Content Include="Views\Indent\_View.cshtml" />
+    <Content Include="Views\IndentReceivedOrCancel\Index.cshtml" />
+    <Content Include="Views\IndentReceivedOrCancel\_Create.cshtml" />
+    <Content Include="Views\IndentReceivedOrCancel\_View.cshtml" />
+    <Content Include="Views\ProductCategory\Index.cshtml" />
+    <Content Include="Views\ProductCategory\_Create.cshtml" />
+    <Content Include="Views\ProductCategory\_View.cshtml" />
+    <Content Include="Views\CompositeCodeMaster\Index.cshtml" />
+    <Content Include="Views\CompositeCodeMaster\_Create.cshtml" />
+    <Content Include="Views\CompositeCodeMaster\_View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
