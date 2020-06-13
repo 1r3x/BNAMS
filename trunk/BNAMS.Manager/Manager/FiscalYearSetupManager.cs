@@ -66,7 +66,9 @@ namespace BNAMS.Manager.Manager
                     a.StartDate,
                     a.EndDate,
                     a.ShortName,
-                    a.IsActive
+                    a.IsActive,
+                    a.SetUpBy,
+                    a.SetUpDateTime
                 };
             return _aModel.Respons(data);
         }
@@ -74,7 +76,7 @@ namespace BNAMS.Manager.Manager
         public ResponseModel CheckDuplicate(M_FiscalYear aObj)
         {
             var data = (from e in _db.M_FiscalYear
-                where e.FiscalYearId != aObj.FiscalYearId && e.ShortName == aObj.ShortName || e.Name == aObj.Name
+                where e.FiscalYearId != aObj.FiscalYearId && e.ShortName == aObj.ShortName && e.Name == aObj.Name
                 select e.FiscalYearId).Any();
             return data == true ? _aModel.Respons(true, "This Fiscal Year already Exist") : _aModel.Respons(false, "");
         }

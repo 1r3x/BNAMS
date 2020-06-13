@@ -17,15 +17,24 @@
 
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Ship/Depot Code
                     </label>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <input type="text" readonly="" id="txtShipDepotCode" class="form-control" placeholder="Ship/Depot Code(Auto)">
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Directorate Name
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlAdmin">
+                            <option></option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="form-group required">
+                @*<div class="form-group required">
                     <label class="col-md-4 control-label">
                         Directorate Name
                     </label>
@@ -34,108 +43,146 @@
                             <option></option>
                         </select>
                     </div>
-                </div>
+                </div>*@
 
                 <div class="form-group required">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Category
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <select class="form-control" id="ddlCategory">
                             <option></option>
                         </select>
                     </div>
+
+                    <label class="col-lg-2 control-label">
+                        Ship/Depot Name
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtShipDepotName" class="form-control" placeholder="Enter Ship/Depot Name">
+                    </div>
                 </div>
 
-                <div class="form-group required">
+                @*<div class="form-group required">
                     <label class="col-md-4 control-label">
                         Ship/Depot Name
                     </label>
                     <div class="col-md-8">
                         <input type="text" id="txtShipDepotName" class="form-control" placeholder="Enter Ship/Depot Name">
                     </div>
-                </div>
+                </div>*@
 
                 <div class="form-group required">
-                    <label class="col-md-4 control-label">
+                    
+
+                    <label class="col-lg-2 control-label">
                         Date Of Commission
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <input readonly="" data-date-format="dd/mm/yyyy" class="form-control form-control-inline input-medium date-picker" id="dateOfCommission" placeholder="Select Date" size="16" type="text" value="">
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        W/T Call Sign
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtWTCallSign" class="form-control" placeholder="Enter W/T Call Sign ">
                     </div>
                 </div>
 
 
-                <div class="form-group">
+                @*<div class="form-group">
                     <label class="col-md-4 control-label">
                         W/T Call Sign
                     </label>
                     <div class="col-md-8">
                         <input type="text" id="txtWTCallSign" class="form-control" placeholder="Enter W/T Call Sign ">
                     </div>
-                </div>
+                </div>*@
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Capability of weapons
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <select class="form-control" id="ddlCapabilityOfWeapons">
                             <option></option>
                         </select>
                     </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Type of The Ship
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <select class="form-control" id="ddlTypeOfShip">
                             <option></option>
                         </select>
                     </div>
                 </div>
 
+
+
+                @*<div class="form-group">
+                    <label class="col-lg-2 control-label">
+                        Type of The Ship
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlTypeOfShip">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>*@
+
                 <div class="form-group ">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Telephone
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <input type="text" id="txtTelephone" class="form-control" placeholder="Enter Telephone">
+                    </div>
+                    
+                    <label class="col-lg-2 control-label">
+                        Email
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtEmail" class="form-control" placeholder="Enter Email">
                     </div>
                 </div>
 
-                <div class="form-group ">
+                @*<div class="form-group ">
                     <label class="col-md-4 control-label">
                         Email
                     </label>
                     <div class="col-md-8">
                         <input type="text" id="txtEmail" class="form-control" placeholder="Enter Email">
                     </div>
-                </div>
+                </div>*@
 
 
                 <div class="form-group ">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Fax No
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <input type="text" id="txtFaxNo" class="form-control" placeholder="Enter Fax No">
+                    </div>
+                    
+                    <label class="col-lg-2 control-label">
+                        Web site Address
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtWebAddress" class="form-control" placeholder="Enter Web site Address ">
                     </div>
                 </div>
 
 
-                <div class="form-group ">
+                @*<div class="form-group ">
                     <label class="col-md-4 control-label">
                         Web site Address
                     </label>
                     <div class="col-md-8">
                         <input type="text" id="txtWebAddress" class="form-control" placeholder="Enter Web site Address ">
                     </div>
-                </div>
+                </div>*@
 
 
 

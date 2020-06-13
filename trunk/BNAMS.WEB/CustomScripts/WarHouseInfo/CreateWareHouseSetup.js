@@ -137,7 +137,7 @@ var WareHouseSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnWareHouseId").val("");
+        $("#hdnWareHouseId").val("0");
         $("#txtProgramName   ").val("");
         $("#dateProcess").val("");
         $("#ddlWaraHousType").val("").trigger("change");

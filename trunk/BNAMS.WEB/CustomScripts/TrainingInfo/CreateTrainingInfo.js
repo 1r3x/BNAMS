@@ -174,6 +174,7 @@ var TrainingInfoHelper = {
 
     ClearField: function () {
         debugger;
+        $("#hdnTrainingInfoId").val("0");
         $("#txtTrainingCode").val("");
         $("#ddlWeaponType").val("").trigger("change");
         $("#txtCourseName").val("");

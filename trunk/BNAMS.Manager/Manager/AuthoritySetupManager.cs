@@ -67,7 +67,9 @@ namespace BNAMS.Manager.Manager
                            b.AreaName,
                            a.Contract,
                            a.Email,
-                           a.IsActive
+                           a.IsActive,
+                           a.SetUpBy,
+                           a.SetUpDateTime
                        };
             return _aModel.Respons(data);
         }

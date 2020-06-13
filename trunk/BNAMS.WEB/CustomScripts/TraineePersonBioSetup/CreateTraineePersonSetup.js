@@ -104,7 +104,7 @@ var TraineePersonBioSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnTraineePersonBioId").val("");
+        $("#hdnTraineePersonBioId").val("0");
         $("#txtBioDataCode").val("");
         $("#txtPNo").val("");
         $("#ddlRank").val("").trigger("change");

@@ -16,10 +16,10 @@
 
             <div class="form-group">
 
-                <label class="col-md-4 control-label">
+                <label class="col-md-4 col-lg-2 control-label">
                     Organization Logo
                 </label>
-                <div class="col-sm-12 col-md-4 col-lg-4">
+                <div class="col-sm-12 col-md-4 col-lg-10">
                     <div class="form-group">
                         <input type="file" id="getFile" onchange="readURL(this);" style="display: none" />
                         <img style="max-width: 180px;" id="blah" src="http://placehold.it/180" alt="No Image Found Please Add An Image" />
@@ -36,70 +36,99 @@
                 
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Organization code
                     </label>
-                    <div class="col-md-4">
+                    <div class="col-lg-4">
                         <input type="text" readonly="" id="txtOrganizationCode" class="form-control" placeholder="Organization Code(Auto)">
+                    </div>
+                    
+                    <label class="col-lg-2 control-label">
+                        Directorate Name
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtAuthorityName" class="form-control" placeholder="Enter Directorate Name">
                     </div>
                 </div>
 
 
 
-                <div class="form-group required">
+                @*<div class="form-group required">
                     <label class="col-md-4 control-label">
                         Directorate Name
                     </label>
                     <div class="col-md-8">
                         <input type="text" id="txtAuthorityName" class="form-control" placeholder="Enter Directorate Name">
                     </div>
-                </div>
+                </div>*@
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Admin Authority
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <select class="form-control" id="ddlAdmin">
                             <option></option>
                         </select>
                     </div>
+                    
+                    <label class="col-lg-2 control-label">
+                        Address
+                    </label>
+                    <div class="col-lg-4">
+                        <textarea id="txtAddress" class="form-control" placeholder="Enter Address" rows="4" cols="50"></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group required">
+                @*<div class="form-group required">
                     <label class="col-md-4 control-label">
                         Address
                     </label>
                     <div class="col-md-8">
                         <textarea id="txtAddress" class="form-control" placeholder="Enter Address" rows="4" cols="50"></textarea>
                     </div>
-                </div>
+                </div>*@
 
                 <div class="form-group required">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Telephone No
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <input type="text" id="txtTelephone" class="form-control" placeholder="Enter Authority Telephone">
+                    </div>
+
+                    <label class="col-lg-2 control-label">
+                        Fax No
+                    </label>
+                    <div class="col-lg-4">
+                        <input type="text" id="txtFaxNo" class="form-control" placeholder="Enter Authority Fax No.">
                     </div>
                 </div>
 
-                <div class="form-group required">
+                @*<div class="form-group required">
                     <label class="col-md-4 control-label">
                         Fax No
                     </label>
                     <div class="col-md-8">
                         <input type="text" id="txtFaxNo" class="form-control" placeholder="Enter Authority Fax No.">
                     </div>
-                </div>
+                </div>*@
 
 
                 <div class="form-group required">
-                    <label class="col-md-4 control-label">
+                    <label class="col-lg-2 control-label">
                         Web site Address
                     </label>
-                    <div class="col-md-8">
+                    <div class="col-lg-4">
                         <input type="text" id="txtWebAddress" class="form-control" placeholder="Enter Authority Web Address">
+                    </div>
+                    <label class="col-lg-2 control-label">
+                        Area
+                    </label>
+                    <div class="col-lg-4">
+                        <select class="form-control" id="ddlArea">
+                            <option></option>
+                        </select>
                     </div>
                 </div>
 
@@ -107,7 +136,7 @@
 
 
 
-                <div class="form-group">
+                @*<div class="form-group">
                     <label class="col-md-4 control-label">
                         Area
                     </label>
@@ -116,7 +145,7 @@
                             <option></option>
                         </select>
                     </div>
-                </div>
+                </div>*@
 
 
 

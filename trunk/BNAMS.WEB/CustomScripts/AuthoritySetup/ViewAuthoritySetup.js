@@ -45,6 +45,15 @@ var viewAuthoritySetupSetupHelper = {
         $("#ddlArea").val(aObj.AreaId).trigger("change");
         $("#txtAuthorityContract").val(aObj.Contract);
         $("#txtAuthorityEmail").val(aObj.Email);
+        //for
+        $("#hdnSetupBy").val(aObj.SetUpBy);
+
+        if (aObj.SetUpDateTime != null) {
+            var setUpDateTime = new Date(parseInt(aObj.SetUpDateTime.substr(6)));
+            var cSetUpDateTime = setUpDateTime.getDate() + "." + (setUpDateTime.getMonth() + 1) + "." + setUpDateTime.getFullYear();
+            $("#hdnSetupDateTime").val(cSetUpDateTime);
+
+        }
         if (aObj.IsActive == 1) {
             $("#chkIsActive").prop("checked", "checked");
         } else {

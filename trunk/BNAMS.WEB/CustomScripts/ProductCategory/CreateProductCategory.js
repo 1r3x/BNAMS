@@ -77,7 +77,7 @@ var ProductCategoryHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnProductCategoryId").val("");
+        $("#hdnProductCategoryId").val("0");
         $("#txtProductCategoryName").val("");
         $("#hdnSetupBy").val("");
         $("#hdnSetupDateTime").val("");

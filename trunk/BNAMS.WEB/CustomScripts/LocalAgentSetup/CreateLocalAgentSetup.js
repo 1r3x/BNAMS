@@ -3,11 +3,14 @@ var CreateLocalAgentSetupSetupManager = {
 
     SaveLocalAgentSetupSetup: function () {
         debugger;
-        if ($("#txtLocalAgentName").val()=="") {
-            toastr.warning("LocalAgent Name is Required.");
+        if ($("#txtSupplierName").val()=="") {
+            toastr.warning("Supplier Name is Required.");
         }
-        else if ($("#ddlArea").val()=="") {
-            toastr.warning("Area is Required.");
+        else if ($("#ddlAgentType").val()=="") {
+            toastr.warning("Agent Type is Required.");
+        }
+        else if ($("#ddlEnlistmentType").val() == "") {
+            toastr.warning("Enlistment Type is Required.");
         }
        
         else {
@@ -165,7 +168,7 @@ var LocalAgentSetupSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnLocalAgentId").val("");
+        $("#hdnLocalAgentId").val("0");
         $("#txtLocalAgentCode").val("");
         $("#txtSupplierName").val("");
         $("#txtAddress").val("");
@@ -174,6 +177,8 @@ var LocalAgentSetupSetupHelper = {
         $("#txtEmail").val("");
         $("#txtContractNumber").val("");
         $("#ddlCountry").val("").trigger("change");
+        $("#hdnSetupBy").val("");
+        $("#hdnSetupDateTime").val("");
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
@@ -191,6 +196,10 @@ var LocalAgentSetupSetupHelper = {
         aObj.Email = $("#txtEmail").val();
         aObj.ContractNumber = $("#txtContractNumber").val();
         aObj.Country = $("#ddlCountry").val();
+        //for 
+        aObj.SetUpBy = $("#hdnSetupBy").val();
+        aObj.SetUpDateTime = $("#hdnSetupDateTime").val();
+
         aObj.IsActive = ($("#chkIsActive").prop("checked") == true) ? 1 : 0;
         return aObj;
     }

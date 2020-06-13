@@ -3,7 +3,11 @@ var CreateGunNameSetupManager = {
 
     SaveGunNameSetup: function () {
         debugger;
-        if ($("#txtGunName").val() == "") {
+        if ($("#ddlWeaponsType").val() == "") {
+            toastr.warning("Weapon Type is Required.");
+        }
+
+        else if ($("#txtGunName").val() == "") {
             toastr.warning("Gun Name is Required.");
         }
 
@@ -77,7 +81,7 @@ var GunNameSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnNameOfGunId").val("");
+        $("#hdnNameOfGunId").val("0");
         $("#ddlWeaponsType").val("").trigger("change");
         $("#txtGunNameCode").val("");
         $("#txtGunName").val("");

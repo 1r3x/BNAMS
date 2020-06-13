@@ -32,10 +32,8 @@
         });
 
     },
-     HideField: function () {
-
-
-
+    HideField: function () {
+        debugger;
          $("#imageDiv").hide();
          $("#btnSubmit").hide();
          $("#btnCancel").hide();
@@ -129,6 +127,30 @@
          $("#dateOfTestFiringL").hide();
          $("#txtCombatDuration").hide();
          $("#txtCombatDurationL").hide();
+    },
+
+    HideForSelect2: function() {
+
+       
+        $("#ddlWeaponsName").next(".select2-container").hide();
+        $("#ddlGunModelType").next(".select2-container").hide();
+        $("#ddlYearOfManufacture").next(".select2-container").hide();
+        $("#ddlCountryOfManufacture").next(".select2-container").hide();
+        $("#ddlCountryOfOrigin").next(".select2-container").hide();
+        $("#ddlYearOfProcurement").next(".select2-container").hide();
+        $("#ddlPriceType").next(".select2-container").hide();
+        $("#ddlQuantityCategory").next(".select2-container").hide();
+        $("#ddlLocalAgent").next(".select2-container").hide();
+        $("#ddlPrincipalAgent").next(".select2-container").hide();
+        $("#ddlManufacturerAgent").next(".select2-container").hide();
+        $("#ddlDepotName").next(".select2-container").hide();
+        $("#ddlProcurementCatagory").next(".select2-container").hide();
+        $("#ddlWarehouseName").next(".select2-container").hide();
+        $("#ddlPreparationTime").next(".select2-container").hide();
+        //todo
+        $("#ddlShelfNo").next(".select2-container").hide();
+        $("#ddlRowNo").next(".select2-container").hide();
+        $("#ddlStatus").next(".select2-container").hide();
     },
 
     ShowForGunEntry: function () {
@@ -388,6 +410,7 @@
     },
 
     ShowForAmmoEntry: function () {
+        debugger;
         $("#btnSubmit").show();
         $("#btnCancel").show();
 

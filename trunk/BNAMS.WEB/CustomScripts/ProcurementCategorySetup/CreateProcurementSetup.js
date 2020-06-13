@@ -77,7 +77,7 @@ var GunModelTypeSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnProcurementId").val("");
+        $("#hdnProcurementId").val("0");
         $("#txtProcurementCode").val("");
         $("#txtProcurementName").val("");
         $("#createDate").val("");

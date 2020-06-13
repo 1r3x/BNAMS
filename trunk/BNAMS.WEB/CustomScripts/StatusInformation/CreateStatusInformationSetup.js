@@ -6,6 +6,9 @@ var CreateGunModelTypeSetupManager = {
         if ($("#txtStatusName").val() == "") {
             toastr.warning("Status Name is Required.");
         }
+        else if ($("#txtShortName").val() == "") {
+            toastr.warning("Short Name is Required.");
+        }
 
         else {
             $.ajax({
@@ -77,7 +80,7 @@ var GunModelTypeSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnStatusInformationId").val("");
+        $("#hdnStatusInformationId").val("0");
         $("#txtStatusCode").val("");
         $("#txtStatusName").val("");
         $("#txtShortName").val("");

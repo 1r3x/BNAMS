@@ -429,7 +429,7 @@ var WeaponsEntryHelper = {
         debugger;
         var parentMenu = WeaponsEntryHelper.LoadQuantityCategory();
         $("#ddlQuantityCategory").select2({
-            placeholder: "Select Manufacture Arent",
+            placeholder: "Select Quantity Category",
             data: parentMenu
         });
     },

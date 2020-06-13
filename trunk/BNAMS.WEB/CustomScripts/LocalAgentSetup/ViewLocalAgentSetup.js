@@ -51,6 +51,16 @@ var viewLocalAgentSetupSetupHelper = {
         $("#txtEmail").val(aObj.Email);
         $("#txtContractNumber").val(aObj.ContractNumber);
         $("#ddlCountry").val(aObj.Country).trigger("change");
+
+        $("#hdnSetupBy").val(aObj.SetUpBy);
+
+        if (aObj.SetUpDateTime != null) {
+            var setUpDateTime = new Date(parseInt(aObj.SetUpDateTime.substr(6)));
+            var cSetUpDateTime = setUpDateTime.getDate() + "." + (setUpDateTime.getMonth() + 1) + "." + setUpDateTime.getFullYear();
+            $("#hdnSetupDateTime").val(cSetUpDateTime);
+
+        }
+
         if (aObj.IsActive == 1) {
             $("#chkIsActive").prop("checked", "checked");
         } else {

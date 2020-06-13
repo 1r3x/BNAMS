@@ -77,7 +77,7 @@ var CapabilityOfWeaponsSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnCapabilityId").val("");
+        $("#hdnCapabilityId").val("0");
         $("#txtCapabilityCode").val("");
         $("#txtCapabilityName").val("");
         $("#txtTelephone").val("");

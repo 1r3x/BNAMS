@@ -107,13 +107,15 @@ var BinLocationSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnWareHouseId").val("");
-        $("#txtWarehouseName").val("");
-        $("#txtWarehouseCode").val("");
+        //$("#hdnWareHouseId").val("0");
+        //$("#txtWarehouseName").val("");
+        //$("#txtWarehouseCode").val("");
 
-        $("#hdnBinLocationId").val("");
+        $("#hdnBinLocationId").val("0");
         $("#txtProgramName   ").val("");
         $("#dateProcess").val("");
+        $("#txtWarehouseCode").val("");
+        $("#txtWarehouseName").val("");
         $("#hdnWareHouseId").val("");
         $("#txtSehlfId").val("");
         $("#txtRowId").val("");

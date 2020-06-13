@@ -85,12 +85,14 @@ var FiscalYearSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#FiscalYearId").val("");
+        $("#FiscalYearId").val("0");
         $("#txtFiscalYearCode").val("");
         $("#txtFiscalYearName").val("");
         $("#txtFiscalYearShortName").val("");
         $("#startDate").val("");
         $("#endDate").val("");
+        $("#hdnSetupBy").val("");
+        $("#hdnSetupDateTime").val("");
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
@@ -105,6 +107,9 @@ var FiscalYearSetupHelper = {
         aObj.ShortName = $("#txtFiscalYearShortName").val();
         aObj.StartDate = $("#startDate").val();
         aObj.EndDate = $("#endDate").val();
+        // for 
+        aObj.SetUpBy = $("#hdnSetupBy").val();
+        aObj.SetUpDateTime = $("#hdnSetupDateTime").val();
         aObj.IsActive = ($("#chkIsActive").prop("checked") == true) ? 1 : 0;
         return aObj;
     }

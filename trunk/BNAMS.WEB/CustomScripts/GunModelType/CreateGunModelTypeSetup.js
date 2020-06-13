@@ -3,8 +3,11 @@ var CreateGunModelTypeSetupManager = {
 
     SaveGunModelTypeSetup: function () {
         debugger;
-        if ($("#txtCapabilityName").val() == "") {
-            toastr.warning("Capability Name is Required.");
+        if ($("#ddlWeaponsType").val() == "") {
+            toastr.warning("Weapon Type is Required.");
+        }
+        else if ($("#txtGunModelType").val() == "") {
+            toastr.warning("Model Type is Required.");
         }
 
         else {
@@ -107,7 +110,7 @@ var GunModelTypeSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnGunModelTypeId").val("");
+        $("#hdnGunModelTypeId").val("0");
         $("#ddlWeaponsType").val("").trigger("change");
         $("#txtGunModelTypeCode").val("");
         $("#txtGunModelType").val("");

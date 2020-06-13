@@ -11,9 +11,10 @@
 
     $("#ddlWeaponsType").on("change", function (e) {
         debugger;
+        viewWeaponsEntry.HideForSelect2();
         viewWeaponsEntry.HideField();
         var pageLoad = $("#ddlWeaponsType").val();
-        if (pageLoad =="1042020WEAP137") {
+        if (pageLoad == "1042020WEAP137") {
             viewWeaponsEntry.ShowForGunEntry();
             viewWeaponsEntry.GetWeaponsEntryDataTable();
             WeaponsEntryHelper.LoadNameOfWeaponByWeaponTypeDD();

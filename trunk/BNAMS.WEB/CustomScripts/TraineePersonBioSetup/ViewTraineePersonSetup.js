@@ -45,7 +45,12 @@ var viewTraineePersonBioSetupHelper = {
         $("#txtName").val(aObj.Name);
 
         $("#hdnSetupBy").val(aObj.SetUpBy);
-        $("#hdnSetupDateTime").val(aObj.SetUpDateTime);
+        if (aObj.SetUpDateTime != null) {
+            var setUpDateTime = new Date(parseInt(aObj.SetUpDateTime.substr(6)));
+            var cSetUpDateTime = setUpDateTime.getDate() + "." + (setUpDateTime.getMonth() + 1) + "." + setUpDateTime.getFullYear();
+            $("#hdnSetupDateTime").val(cSetUpDateTime);
+
+        }
         if (aObj.IsActive == 1) {
             $("#chkIsActive").prop("checked", "checked");
         } else {

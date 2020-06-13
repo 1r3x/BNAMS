@@ -3,8 +3,14 @@ var CreateCountrySetupManager = {
 
     SaveCountrySetup: function () {
         debugger;
-        if ($("#txtCapabilityName").val() == "") {
-            toastr.warning("Capability Name is Required.");
+        if ($("#txtCountryName").val() == "") {
+            toastr.warning("Country Name is Required.");
+        }
+        else if ($("#txtShortName").val() == "") {
+            toastr.warning("Short Name is Required.");
+        }
+        else if ($("#txtDollerType").val() == "") {
+            toastr.warning("Currency Name is Required.");
         }
 
         else {
@@ -77,7 +83,7 @@ var CountrySetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnCountryId").val("");
+        $("#hdnCountryId").val("0");
         $("#txtCountryCode").val("");
         $("#txtCountryName").val("");
         $("#txtShortName").val("");

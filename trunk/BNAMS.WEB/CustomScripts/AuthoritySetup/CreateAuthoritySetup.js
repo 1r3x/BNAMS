@@ -107,12 +107,14 @@ var AuthoritySetupSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnAuthorityId").val("");
+        $("#hdnAuthorityId").val("0");
         $("#txtAuthorityCode").val("");
         $("#txtAuthorityName").val("");
         $("#ddlArea").val("").trigger("change");
         $("#txtAuthorityContract").val("");
         $("#txtAuthorityEmail").val("");
+        $("#hdnSetupBy").val("");
+        $("#hdnSetupDateTime").val("");
         $("#chkIsActive").removeAttr("checked", "checked");
         $("#btnSubmit").html("Save");
     },
@@ -127,6 +129,9 @@ var AuthoritySetupSetupHelper = {
         aObj.AreaId = $("#ddlArea").val();
         aObj.Contract = $("#txtAuthorityContract").val();
         aObj.Email = $("#txtAuthorityEmail").val();
+        //for
+        aObj.SetUpBy = $("#hdnSetupBy").val();
+        aObj.SetUpDateTime = $("#hdnSetupDateTime").val();
         aObj.IsActive = ($("#chkIsActive").prop("checked") == true) ? 1 : 0;
         return aObj;
     }

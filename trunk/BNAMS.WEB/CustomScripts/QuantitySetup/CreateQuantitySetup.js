@@ -4,7 +4,7 @@ var CreateGunModelTypeSetupManager = {
     SaveGunModelTypeSetup: function () {
         debugger;
         if ($("#txtQuantityName").val() == "") {
-            toastr.warning("Quantity Catagory is Required.");
+            toastr.warning("Quantity Name is Required.");
         }
 
         else {
@@ -77,7 +77,7 @@ var GunModelTypeSetupHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnQuantityId").val("");
+        $("#hdnQuantityId").val("0");
         $("#txtQuantityCode").val("");
         $("#txtQuantityName").val("");
         $("#createDate").val("");

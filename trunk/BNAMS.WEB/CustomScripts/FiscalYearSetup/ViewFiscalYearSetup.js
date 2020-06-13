@@ -79,6 +79,18 @@ var viewFiscalYearSetupHelper = {
             $("#endDate").val(cEndDate);
 
         }
+
+        // for setup id restore
+
+        $("#hdnSetupBy").val(aObj.SetUpBy);
+
+        if (aObj.SetUpDateTime != null) {
+            var setUpDateTime = new Date(parseInt(aObj.SetUpDateTime.substr(6)));
+            var cSetUpDateTime = setUpDateTime.getDate() + "." + (setUpDateTime.getMonth() + 1) + "." + setUpDateTime.getFullYear();
+            $("#hdnSetupDateTime").val(cSetUpDateTime);
+
+        }
+
         if (aObj.IsActive == 1) {
             $("#chkIsActive").prop("checked", "checked");
         } else {

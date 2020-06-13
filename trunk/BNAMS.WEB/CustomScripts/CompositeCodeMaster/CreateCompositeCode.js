@@ -3,11 +3,11 @@ var CreateCompositeCodeManager = {
 
     SaveCompositeCode: function () {
         debugger;
-        if ($("#txtCompositeCodeName").val()=="") {
-            toastr.warning("Composite Name is Required.");
-        }
-        else if ($("#txtCompositeCode").val() == "") {
+        if ($("#txtCompositeCode").val()=="") {
             toastr.warning("Composite Code is Required.");
+        }
+        else if ($("#txtCompositeName").val() == "") {
+            toastr.warning("Composite Name is Required.");
         }
        
         else {
@@ -80,7 +80,7 @@ var CompositeCodeHelper = {
 
     ClearField: function () {
         debugger;
-        $("#hdnCompositeCodeId").val("");
+        $("#hdnCompositeCodeId").val("0");
         $("#txtCompositeCode").val("");
         $("#txtCompositeName").val("");
         $("#hdnSetupBy").val("");
