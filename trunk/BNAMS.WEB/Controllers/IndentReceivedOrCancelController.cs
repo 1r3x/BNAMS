@@ -63,5 +63,12 @@ namespace BNAMS.Controllers
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
 
+        // GET: IndentReceivedOrCancel/LoadAllItem
+        public JsonResult LoadAllItem()
+        {
+            var data = _aManager.LoadAllItem();
+            return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }

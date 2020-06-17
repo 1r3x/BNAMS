@@ -38,7 +38,7 @@ namespace BNAMS.Manager.Manager
 
                 if (inWeaponsINfoTable != null)
                 {
-                    //inWeaponsINfoTable.IsUse = true;
+                    inWeaponsINfoTable.IsUse = true;
                     inWeaponsINfoTable.IsBackup = false;
                 }
                 _db.SaveChanges();

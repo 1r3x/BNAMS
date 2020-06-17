@@ -12,5 +12,6 @@ namespace BNAMS.Manager.Interface
         ResponseModel CreateIndentReceive(I_Indent aObj);
         ResponseModel CreateIndentCancel(I_Indent aObj);
         ResponseModel GetAllIndent();
+        ResponseModel LoadAllItem();
     }
 }

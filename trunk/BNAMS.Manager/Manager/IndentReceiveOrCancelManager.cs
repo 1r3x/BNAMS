@@ -31,18 +31,19 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateIndentReceive(I_Indent aObj)
         {
-            aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
-            aObj.UpdatedDateTime = DateTime.Now;
-            aObj.IsBackup = false;
-            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+            var inWeaponsINfoTable = (from a in _db.I_WeaponsInfo
+                where a.WeaponsInfoId == aObj.ItemId
+                select a).SingleOrDefault();
 
-            _aRepository.Update(aObj);
-            _aRepository.Save();
-            return _aModel.Respons(true, "Indent Received Successfully");
-        }
+            if (inWeaponsINfoTable != null)
+            {
+                inWeaponsINfoTable.DepotId = aObj.IssueTo;
+                inWeaponsINfoTable.IsUse = true;
+                inWeaponsINfoTable.IsBackup = false;
+            }
+            _db.SaveChanges();
 
-        public ResponseModel CreateIndentCancel(I_Indent aObj)
-        {
+
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
             aObj.IsBackup = false;
@@ -52,6 +53,29 @@ namespace BNAMS.Manager.Manager
             _aRepository.Update(aObj);
             _aRepository.Save();
             return _aModel.Respons(true, "Indent Received Successfully");
+        }
+
+        public ResponseModel CreateIndentCancel(I_Indent aObj)
+        {
+            var inWeaponsINfoTable = (from a in _db.I_WeaponsInfo
+                where a.WeaponsInfoId == aObj.ItemId
+                select a).SingleOrDefault();
+
+            if (inWeaponsINfoTable != null)
+            {
+                inWeaponsINfoTable.IsUse = false;
+                inWeaponsINfoTable.IsBackup = false;
+            }
+
+            aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
+            aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsBackup = false;
+            aObj.IsActive = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+
+            _aRepository.Update(aObj);
+            _aRepository.Save();
+            return _aModel.Respons(true, "Indent Cancelled Successfully");
         }
 
         public ResponseModel GetAllIndent()
@@ -86,6 +110,18 @@ namespace BNAMS.Manager.Manager
                     a.ItemId,
                     a.OtherOptions
 
+                };
+            return _aModel.Respons(data);
+        }
+
+        public ResponseModel LoadAllItem()
+        {
+            var data = from parentMenu in _db.I_WeaponsInfo
+                where parentMenu.IsActive == true
+                select new
+                {
+                    id = parentMenu.WeaponsInfoId,
+                    text = parentMenu.RegistrationNo
                 };
             return _aModel.Respons(data);
         }

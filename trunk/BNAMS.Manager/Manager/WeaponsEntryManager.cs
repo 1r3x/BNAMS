@@ -29,52 +29,116 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateWeaponsItem(I_WeaponsInfo aObj)
         {
-            var quantity = from a in _db.I_WeaponsInfo
-                           where a.IsActive == true && a.WeaponsTypeId == aObj.WeaponsTypeId
-                                                    && a.NameOfWeaponsId == aObj.NameOfWeaponsId
-                           select new
-                           {
-                               a.WeaponsInfoId
-                           };
 
-            var trackingNo = 0;
-            if (quantity.Any())
-            {
-                trackingNo = Convert.ToInt32(quantity.Count());
-            }
+            //this id code is for multyple entry and now disabled
 
-            if (aObj.Image != null)
-            {
-                aObj.Image = "uploads/" + (string)HttpContext.Current.Session["directorateId"] + aObj.WeaponsTypeId + aObj.NameOfWeaponsId + aObj.Image.Replace(@"/", ".");
 
-            }
-            var maxQuantity = trackingNo + 1;
-            var actualEntry = Convert.ToInt32(aObj.Quantity);
-            for (var i = 0; i < actualEntry; i++)
+            //var quantity = from a in _db.I_WeaponsInfo
+            //               where a.IsActive == true && a.WeaponsTypeId == aObj.WeaponsTypeId
+            //                                        && a.NameOfWeaponsId == aObj.NameOfWeaponsId
+            //               select new
+            //               {
+            //                   a.WeaponsInfoId
+            //               };
+
+            //var trackingNo = 0;
+            //if (quantity.Any())
+            //{
+            //    trackingNo = Convert.ToInt32(quantity.Count());
+            //}
+
+            //if (aObj.Image != null)
+            //{
+            //    aObj.Image = "uploads/" + (string)HttpContext.Current.Session["directorateId"] + aObj.WeaponsTypeId + aObj.NameOfWeaponsId + aObj.Image.Replace(@"/", ".");
+
+            //}
+            //var maxQuantity = trackingNo + 1;
+            //var actualEntry = Convert.ToInt32(aObj.Quantity);
+            //for (var i = 0; i < actualEntry; i++)
+            //{
+            //    //for image
+
+            //    aObj.WeaponsInfoId = (string)HttpContext.Current.Session["directorateId"] + "-W-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + "-W-" + maxQuantity + i;
+            //    aObj.TrackingNo = Convert.ToString(maxQuantity + i);
+            //    aObj.SetUpDateTime = DateTime.Now;
+            //    aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
+            //    aObj.IsActive = true;
+            //    aObj.IsBackup = false;
+            //    aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+            //    aObj.IsUse = false;
+
+            //    _aRepository.Insert(aObj);
+            //    _aRepository.Save();
+            //}
+            //return _aModel.Respons(true, "New Stock Entry Successfully.");
+
+            //new code start from here
+
+
+
+            if (aObj.WeaponsInfoId == "0")
             {
+                //this id code is for multyple entry and now disabled
+
+
+                var quantity = from a in _db.I_WeaponsInfo
+                               where a.IsActive == true && a.WeaponsTypeId == aObj.WeaponsTypeId
+                                                        && a.NameOfWeaponsId == aObj.NameOfWeaponsId
+                               select new
+                               {
+                                   a.WeaponsInfoId
+                               };
+
+                var trackingNo = 0;
+                if (quantity.Any())
+                {
+                    trackingNo = Convert.ToInt32(quantity.Count());
+                }
+
+                if (aObj.Image != null)
+                {
+                    aObj.Image = "uploads/" + (string)HttpContext.Current.Session["directorateId"] + aObj.WeaponsTypeId + aObj.NameOfWeaponsId + aObj.Image.Replace(@"/", ".");
+
+                }
+                var maxQuantity = trackingNo + 1;
+
                 //for image
-                
-                aObj.WeaponsInfoId = (string)HttpContext.Current.Session["directorateId"] + "-W-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + "-W-" + maxQuantity + i;
-                aObj.TrackingNo = Convert.ToString(maxQuantity + i);
-                aObj.SetUpDateTime = DateTime.Now;
+                aObj.WeaponsInfoId = (string)HttpContext.Current.Session["directorateId"] + "-W-" + (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds + "-W-" + maxQuantity;
+                aObj.TrackingNo = Convert.ToString(maxQuantity);
+                aObj.IsUse = false;
+                //
+
+
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
+                aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
                 aObj.IsBackup = false;
                 aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
-                aObj.IsUse = false;
-
                 _aRepository.Insert(aObj);
                 _aRepository.Save();
+
+
+                return _aModel.Respons(true, "New Weapon Saved Successfully.");
             }
-            return _aModel.Respons(true, "New Stock Entry Successfully.");
+            aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
+            aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsBackup = false;
+            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
+
+            _aRepository.Update(aObj);
+            _aRepository.Save();
+            return _aModel.Respons(true, "Weapon Updated Successfully");
+
+
+
         }
 
         public ResponseModel GetWeaponsByWeaponType(string weaponId)
         {
             var data = from a in _db.I_WeaponsInfo
-                join b in _db.M_WeaponsType on a.WeaponsTypeId equals b.WeaponsTypeId
-                join c in _db.M_NameOfWeapon on a.NameOfWeaponsId equals c.NameOfGunId
-                       where a.WeaponsTypeId==weaponId
+                       join b in _db.M_WeaponsType on a.WeaponsTypeId equals b.WeaponsTypeId
+                       join c in _db.M_NameOfWeapon on a.NameOfWeaponsId equals c.NameOfGunId
+                       where a.WeaponsTypeId == weaponId
                        select new
                        {
                            b.WeaponsType,
@@ -284,12 +348,12 @@ namespace BNAMS.Manager.Manager
         public ResponseModel LoadPreparationTime()
         {
             var data = from parentMenu in _db.M_MissilePrepType
-                where parentMenu.IsActive == true
-                select new
-                {
-                    id = parentMenu.MissilePrepTimeId,
-                    text = parentMenu.MissilePrepTime
-                };
+                       where parentMenu.IsActive == true
+                       select new
+                       {
+                           id = parentMenu.MissilePrepTimeId,
+                           text = parentMenu.MissilePrepTime
+                       };
             return _aModel.Respons(data);
         }
     }

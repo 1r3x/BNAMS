@@ -4849,9 +4849,15 @@ Customized Bootstrap Panels
 .panel-group .panel {
     overflow: visible;
 }
-
+/*=============================================================================================================================here editing*/
 .panel .panel-body {
     font-size: 13px;
+    /*background-image: url("../..//global/img/navybd.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    /*height: 100%;*/
+    /*background-color: rgba(0,0,0, 0.4);*/
 }
 
 .panel .panel-title > a:hover {
@@ -4898,15 +4904,23 @@ Customized Bootstrap Panels
     .panel-default > .panel-footer + .panel-collapse .panel-body {
         border-bottom-color: #e0e0e0;
     }
+    /*==========================================================================================another edit*/
 
+    /*customImage*/
 .panel-primary {
     border-color: #3595bd;
     box-shadow: -1px 4px 6px #888888 !important;
+
+
+    background-image: url("../..//global/img/navybd2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
     .panel-primary > .panel-heading {
         color: #D8E3F2;
-        background-color: #e6f7f0;
+        background-color: #fdfdfd;
         border-color: #3595bd;
     }
 

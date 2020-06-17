@@ -1,6 +1,7 @@
 ﻿$(document).ready(function () {
     debugger;
-
+    $("#btnSubmit").hide();
+    $("#btnAbort").hide();
     $("#txtIdentQuantiryDiv").hide();
     IndentHelper.InitIndent();
     viewIndent.GetIndentDataTable();
@@ -14,7 +15,10 @@
     }
 
     $("#dataTable tbody").on("click", "#btnEdit", function (e) {
-        $("#btnSubmit").html("Update");
+        //$("#btnSubmit").html("Update");
+        $("#btnSubmit").show();
+        $("#btnAbort").show();
+
         topFunction();
         var table = $("#dataTable").DataTable();
         var data = table.row($(this).parents("tr")).data();

@@ -334,6 +334,8 @@
         $("#ddlWeaponsNameL").show();
         $("#ddlGunModelType").show();
         $("#ddlGunModelTypeL").show();
+        $("#txtGunRegNo").show();
+        $("#txtGunRegNoL").show();
         $("#txtBrand").show();
         $("#txtBrandL").show();
         $("#ddlYearOfManufacture").show();
@@ -419,6 +421,8 @@
         $("#ddlWeaponsName").show();
         $("#ddlWeaponsNameL").show();
         $("#ddlGunModelType").show();
+        $("#txtGunRegNo").show();
+        $("#txtGunRegNoL").show();
         $("#ddlGunModelTypeL").show();
         $("#ddlYearOfManufacture").show();
         $("#ddlYearOfManufactureL").show();
@@ -499,7 +503,9 @@
         $("#ddlWeaponsNameL").show();
         $("#ddlGunModelType").show();
         $("#ddlGunModelTypeL").show();
-       
+
+        $("#txtGunRegNo").show();
+        $("#txtGunRegNoL").show();
         $("#ddlYearOfManufacture").show();
         $("#ddlYearOfManufactureL").show();
         $("#ddlCountryOfOrigin").show();

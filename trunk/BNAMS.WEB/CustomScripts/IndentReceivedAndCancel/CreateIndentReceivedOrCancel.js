@@ -8,7 +8,7 @@ var CreateIndentManager = {
         } else {
             $.ajax({
                 type: "POST",
-                url: "/Indent/CreateIndent",
+                url: "/IndentReceivedOrCancel/CreateIndentReceive",
                 data: JSON.stringify(IndentHelper.GetIndentData()),
                 success: function (response) {
                     debugger;
@@ -17,7 +17,37 @@ var CreateIndentManager = {
                         toastr.success(response.data.Message);
                         viewIndent.GetIndentDataTable();
                         IndentHelper.ClearField();
-                        $("#btnSubmit").html("Save");
+                        $("#btnSubmit").hide();
+                        $("#btnAbort").hide();
+                    }
+                },
+                error: function (response) {
+
+                },
+                dataType: "json",
+                contentType: "application/json"
+            });
+        }
+
+    },
+    CancelIndent: function () {
+        debugger;
+        if ($("#txtBinLocationName").val() == "") {
+            toastr.warning("Ware House Name is Required.");
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "/IndentReceivedOrCancel/CreateIndentCancel",
+                data: JSON.stringify(IndentHelper.GetIndentData()),
+                success: function (response) {
+                    debugger;
+                    if (response != null) {
+
+                        toastr.success(response.data.Message);
+                        viewIndent.GetIndentDataTable();
+                        IndentHelper.ClearField();
+                        $("#btnSubmit").hide();
+                        $("#btnAbort").hide();
                     }
                 },
                 error: function (response) {
@@ -68,16 +98,25 @@ var IndentHelper = {
         IndentHelper.LoadCompositCodeDD();
         IndentHelper.LoadIndentTypeDD();
         IndentHelper.LoadLocalAgentsDD();
-
+        IndentHelper.LoadItemCodeDD();
+        $("#ddlIndentFrom").attr("disabled", true);
+        $("#ddlIssuePerson").attr("disabled", true);
+        $("#ddlItemCode").attr("disabled", true);
+        $("#ddlCompositeCode").attr("disabled", true);
 
         $("#btnSubmit").unbind("click").click(function () {
             CreateIndentManager.SaveIndent();
 
         });
-        $("#btnCancel").unbind("click").click(function () {
-            IndentHelper.ClearField();
+
+        $("#btnAbort").unbind("click").click(function () {
+            CreateIndentManager.CancelIndent();
 
         });
+        //$("#btnCancel").unbind("click").click(function () {
+        //    IndentHelper.ClearField();
+
+        //});
     },
 
     LoadAllDepotAndShipForIndentFrom: function () {
@@ -141,16 +180,13 @@ var IndentHelper = {
     },
 
     LoadItemCode: function () {
-        debugger;
-        var depotShipId = $("#ddlIndentFrom").val();
         var b = [];
         $.ajax({
             type: "Get",
             dataType: "json",
             cache: true,
             async: false,
-            url: "/Indent/LoadItemCode",
-            data: { depotShipId: depotShipId },
+            url: "/IndentReceivedOrCancel/LoadAllItem",
             success: function (response) {
 
                 b = response.data;
@@ -165,16 +201,13 @@ var IndentHelper = {
     },
 
     LoadItemCodeDD: function () {
-        $("#ddlItemCode").empty();
-        $("#ddlItemCode").append(
-            $("<option></option>")
-        );
+       
         var parentMenu = IndentHelper.LoadItemCode();
         $("#ddlItemCode").select2({
             placeholder: "Select Lot/Registration No.",
             data: parentMenu
         });
-        $("#ddlItemCode").select2("val", "");
+        
     },
     //on change item name load
     LoadItemNameByItemCode: function () {
@@ -361,13 +394,13 @@ var IndentHelper = {
     ClearField: function () {
 
         $("#hdnIndentId").val("");
-        $("#ddlIndentType").val("");
+        $("#ddlIndentType").val("").trigger("change");
         $("#txtProgramId").val("");
         $("#txtIndentNo").val("");
-        $("#ddlIndentFrom").val("");
-        $("#ddlIssuePerson").val("");
-        $("#ddlItemCode").val("");
-        $("#ddlCompositeCode").val("");
+        $("#ddlIndentFrom").val("").trigger("change");
+        $("#ddlIssuePerson").val("").trigger("change");
+        $("#ddlItemCode").val("").trigger("change");
+        $("#ddlCompositeCode").val("").trigger("change");
         $("#txtIdentQuantiry").val("");
         $("#dateOfIndentValidity").val("");
         $("#txtOtherOptions").val("");

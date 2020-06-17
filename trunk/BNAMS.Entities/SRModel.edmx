@@ -190,6 +190,8 @@
           <Property Name="IsActive" Type="bit" />
           <Property Name="SetUpBy" Type="int" />
           <Property Name="SetUpDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
           <Property Name="Brand" Type="nvarchar" MaxLength="50" />
@@ -704,10 +706,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Parameter Name="roleId" Type="int" Mode="In" />
         </Function>
         <Function Name="spVerifiedAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="Validate_User" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="Username" Type="nvarchar" Mode="In" />
-          <Parameter Name="Password" Type="nvarchar" Mode="In" />
-        </Function>
         <EntityContainer Name="SmartRecordModelStoreContainer">
           <EntitySet Name="HR_TraineePersonBio" EntityType="Self.HR_TraineePersonBio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HR_TraningInformation" EntityType="Self.HR_TraningInformation" Schema="dbo" store:Type="Tables" />
@@ -817,7 +815,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="I_Indent" EntityType="SmartRecordModel.I_Indent" />
           <EntitySet Name="I_MaintenanceInfo" EntityType="SmartRecordModel.I_MaintenanceInfo" />
           <EntitySet Name="I_StatusAfterMaintaince" EntityType="SmartRecordModel.I_StatusAfterMaintaince" />
-          <EntitySet Name="I_WeaponsInfo" EntityType="SmartRecordModel.I_WeaponsInfo" />
           <EntitySet Name="M_Agent" EntityType="SmartRecordModel.M_Agent" />
           <EntitySet Name="M_AgentEnlistment" EntityType="SmartRecordModel.M_AgentEnlistment" />
           <EntitySet Name="M_AgentType" EntityType="SmartRecordModel.M_AgentType" />
@@ -853,6 +850,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="UserRoles" EntityType="SmartRecordModel.UserRole" />
           <EntitySet Name="W_Inspection" EntityType="SmartRecordModel.W_Inspection" />
           <EntitySet Name="M_PriceType" EntityType="SmartRecordModel.M_PriceType" />
+          <EntitySet Name="I_WeaponsInfo" EntityType="SmartRecordModel.I_WeaponsInfo" />
           </EntityContainer>
         <ComplexType Name="SessionHelper_Result">
           <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -1074,71 +1072,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="I_WeaponsInfo">
-          <Key>
-            <PropertyRef Name="IdFake" />
-          </Key>
-          <Property Name="IdFake" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="WeaponsInfoId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WeaponsTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NameOfWeaponsId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TrackingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WeaponsModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RegistrationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ManufactureYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FiscalYearId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OriginCountryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ManufactureCountryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProcurementYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WarrantyPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PriceTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UnitPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="QuantityCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TotalPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LocalAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PrincipalAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ManufactureAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="DepotId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProcurementCatId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="WareHouseId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BinLocationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TechnicalSpec" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Dimention" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaximumRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EffectiveRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MuzzeleVelocity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BarrelLife" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OperatingTemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StoringTemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PreservatingTemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DateAfterAcceptance" Type="DateTime" Precision="3" />
-          <Property Name="WorkOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="MissilTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ShelfLifeOfWeapon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ShelfLifeOfLauncher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PreparationTimeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CombatDuration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Caliber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="AmmunitationTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LotNumberId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProofFiringStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ProofFiringDate" Type="DateTime" Precision="3" />
-          <Property Name="Humidity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsUse" Type="Boolean" />
-          <Property Name="IsActive" Type="Boolean" />
-          <Property Name="SetUpBy" Type="Int32" />
-          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
-          <Property Name="IsBackup" Type="Boolean" />
-          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="M_Agent">
           <Key>
@@ -1634,6 +1567,73 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="PriceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
+        <EntityType Name="I_WeaponsInfo">
+          <Key>
+            <PropertyRef Name="IdFake" />
+          </Key>
+          <Property Name="IdFake" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WeaponsInfoId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WeaponsTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameOfWeaponsId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrackingNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WeaponsModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegistrationNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManufactureYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FiscalYearId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OriginCountryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManufactureCountryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProcurementYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WarrantyPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PriceTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UnitPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="QuantityCategoryId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPrice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LocalAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PrincipalAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManufactureAgentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DepotId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProcurementCatId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WareHouseId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BinLocationId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TechnicalSpec" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dimention" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaximumRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EffectiveRange" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MuzzeleVelocity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BarrelLife" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperatingTemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoringTemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PreservatingTemp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateAfterAcceptance" Type="DateTime" Precision="3" />
+          <Property Name="WorkOrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MissilTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShelfLifeOfWeapon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShelfLifeOfLauncher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PreparationTimeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CombatDuration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Caliber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AmmunitationTypeId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LotNumberId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProofFiringStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProofFiringDate" Type="DateTime" Precision="3" />
+          <Property Name="Humidity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsUse" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="SetUpBy" Type="Int32" />
+          <Property Name="SetUpDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1655,16 +1655,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />
                 <ScalarProperty Name="MenuName" ColumnName="MenuName" />
                 <ScalarProperty Name="Selected" ColumnName="Selected" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Validate_User" FunctionName="SmartRecordModel.Store.Validate_User">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="SmartRecordModel.Validate_User_Result">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="LoginDate" ColumnName="LoginDate" />
-                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
-                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1881,72 +1871,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="WeaponsInfoId" ColumnName="WeaponsInfoId" />
                 <ScalarProperty Name="AfterMaintainceStatusCode" ColumnName="AfterMaintainceStatusCode" />
                 <ScalarProperty Name="AfterMaintainceStatusId" ColumnName="AfterMaintainceStatusId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="I_WeaponsInfo">
-            <EntityTypeMapping TypeName="SmartRecordModel.I_WeaponsInfo">
-              <MappingFragment StoreEntitySet="I_WeaponsInfo">
-                <ScalarProperty Name="Brand" ColumnName="Brand" />
-                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
-                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
-                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
-                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
-                <ScalarProperty Name="Humidity" ColumnName="Humidity" />
-                <ScalarProperty Name="ProofFiringDate" ColumnName="ProofFiringDate" />
-                <ScalarProperty Name="ProofFiringStatus" ColumnName="ProofFiringStatus" />
-                <ScalarProperty Name="LotNumberId" ColumnName="LotNumberId" />
-                <ScalarProperty Name="AmmunitationTypeId" ColumnName="AmmunitationTypeId" />
-                <ScalarProperty Name="Caliber" ColumnName="Caliber" />
-                <ScalarProperty Name="CombatDuration" ColumnName="CombatDuration" />
-                <ScalarProperty Name="PreparationTimeId" ColumnName="PreparationTimeId" />
-                <ScalarProperty Name="ShelfLifeOfLauncher" ColumnName="ShelfLifeOfLauncher" />
-                <ScalarProperty Name="ShelfLifeOfWeapon" ColumnName="ShelfLifeOfWeapon" />
-                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
-                <ScalarProperty Name="MissilTypeId" ColumnName="MissilTypeId" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="WorkOrderNumber" ColumnName="WorkOrderNumber" />
-                <ScalarProperty Name="DateAfterAcceptance" ColumnName="DateAfterAcceptance" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="PreservatingTemp" ColumnName="PreservatingTemp" />
-                <ScalarProperty Name="StoringTemp" ColumnName="StoringTemp" />
-                <ScalarProperty Name="OperatingTemp" ColumnName="OperatingTemp" />
-                <ScalarProperty Name="BarrelLife" ColumnName="BarrelLife" />
-                <ScalarProperty Name="MuzzeleVelocity" ColumnName="MuzzeleVelocity" />
-                <ScalarProperty Name="EffectiveRange" ColumnName="EffectiveRange" />
-                <ScalarProperty Name="MaximumRange" ColumnName="MaximumRange" />
-                <ScalarProperty Name="Dimention" ColumnName="Dimention" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
-                <ScalarProperty Name="TechnicalSpec" ColumnName="TechnicalSpec" />
-                <ScalarProperty Name="BinLocationId" ColumnName="BinLocationId" />
-                <ScalarProperty Name="WareHouseId" ColumnName="WareHouseId" />
-                <ScalarProperty Name="ProcurementCatId" ColumnName="ProcurementCatId" />
-                <ScalarProperty Name="DepotId" ColumnName="DepotId" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="ManufactureAgentId" ColumnName="ManufactureAgentId" />
-                <ScalarProperty Name="PrincipalAgentId" ColumnName="PrincipalAgentId" />
-                <ScalarProperty Name="LocalAgentId" ColumnName="LocalAgentId" />
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="QuantityCategoryId" ColumnName="QuantityCategoryId" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
-                <ScalarProperty Name="PriceTypeId" ColumnName="PriceTypeId" />
-                <ScalarProperty Name="WarrantyPeriod" ColumnName="WarrantyPeriod" />
-                <ScalarProperty Name="ProcurementYear" ColumnName="ProcurementYear" />
-                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
-                <ScalarProperty Name="ManufactureCountryId" ColumnName="ManufactureCountryId" />
-                <ScalarProperty Name="OriginCountryId" ColumnName="OriginCountryId" />
-                <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
-                <ScalarProperty Name="ManufactureYear" ColumnName="ManufactureYear" />
-                <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
-                <ScalarProperty Name="WeaponsModel" ColumnName="WeaponsModel" />
-                <ScalarProperty Name="TrackingNo" ColumnName="TrackingNo" />
-                <ScalarProperty Name="NameOfWeaponsId" ColumnName="NameOfWeaponsId" />
-                <ScalarProperty Name="WeaponsTypeId" ColumnName="WeaponsTypeId" />
-                <ScalarProperty Name="WeaponsInfoId" ColumnName="WeaponsInfoId" />
-                <ScalarProperty Name="IdFake" ColumnName="IdFake" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2476,6 +2400,74 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="PriceType" ColumnName="PriceType" />
                 <ScalarProperty Name="PriceTypeId" ColumnName="PriceTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="I_WeaponsInfo">
+            <EntityTypeMapping TypeName="SmartRecordModel.I_WeaponsInfo">
+              <MappingFragment StoreEntitySet="I_WeaponsInfo">
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
+                <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="SetUpDateTime" ColumnName="SetUpDateTime" />
+                <ScalarProperty Name="SetUpBy" ColumnName="SetUpBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsUse" ColumnName="IsUse" />
+                <ScalarProperty Name="Humidity" ColumnName="Humidity" />
+                <ScalarProperty Name="ProofFiringDate" ColumnName="ProofFiringDate" />
+                <ScalarProperty Name="ProofFiringStatus" ColumnName="ProofFiringStatus" />
+                <ScalarProperty Name="LotNumberId" ColumnName="LotNumberId" />
+                <ScalarProperty Name="AmmunitationTypeId" ColumnName="AmmunitationTypeId" />
+                <ScalarProperty Name="Caliber" ColumnName="Caliber" />
+                <ScalarProperty Name="CombatDuration" ColumnName="CombatDuration" />
+                <ScalarProperty Name="PreparationTimeId" ColumnName="PreparationTimeId" />
+                <ScalarProperty Name="ShelfLifeOfLauncher" ColumnName="ShelfLifeOfLauncher" />
+                <ScalarProperty Name="ShelfLifeOfWeapon" ColumnName="ShelfLifeOfWeapon" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="MissilTypeId" ColumnName="MissilTypeId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="WorkOrderNumber" ColumnName="WorkOrderNumber" />
+                <ScalarProperty Name="DateAfterAcceptance" ColumnName="DateAfterAcceptance" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="PreservatingTemp" ColumnName="PreservatingTemp" />
+                <ScalarProperty Name="StoringTemp" ColumnName="StoringTemp" />
+                <ScalarProperty Name="OperatingTemp" ColumnName="OperatingTemp" />
+                <ScalarProperty Name="BarrelLife" ColumnName="BarrelLife" />
+                <ScalarProperty Name="MuzzeleVelocity" ColumnName="MuzzeleVelocity" />
+                <ScalarProperty Name="EffectiveRange" ColumnName="EffectiveRange" />
+                <ScalarProperty Name="MaximumRange" ColumnName="MaximumRange" />
+                <ScalarProperty Name="Dimention" ColumnName="Dimention" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="TechnicalSpec" ColumnName="TechnicalSpec" />
+                <ScalarProperty Name="BinLocationId" ColumnName="BinLocationId" />
+                <ScalarProperty Name="WareHouseId" ColumnName="WareHouseId" />
+                <ScalarProperty Name="ProcurementCatId" ColumnName="ProcurementCatId" />
+                <ScalarProperty Name="DepotId" ColumnName="DepotId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ManufactureAgentId" ColumnName="ManufactureAgentId" />
+                <ScalarProperty Name="PrincipalAgentId" ColumnName="PrincipalAgentId" />
+                <ScalarProperty Name="LocalAgentId" ColumnName="LocalAgentId" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="QuantityCategoryId" ColumnName="QuantityCategoryId" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="PriceTypeId" ColumnName="PriceTypeId" />
+                <ScalarProperty Name="WarrantyPeriod" ColumnName="WarrantyPeriod" />
+                <ScalarProperty Name="ProcurementYear" ColumnName="ProcurementYear" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="ManufactureCountryId" ColumnName="ManufactureCountryId" />
+                <ScalarProperty Name="OriginCountryId" ColumnName="OriginCountryId" />
+                <ScalarProperty Name="FiscalYearId" ColumnName="FiscalYearId" />
+                <ScalarProperty Name="ManufactureYear" ColumnName="ManufactureYear" />
+                <ScalarProperty Name="RegistrationNo" ColumnName="RegistrationNo" />
+                <ScalarProperty Name="WeaponsModel" ColumnName="WeaponsModel" />
+                <ScalarProperty Name="TrackingNo" ColumnName="TrackingNo" />
+                <ScalarProperty Name="NameOfWeaponsId" ColumnName="NameOfWeaponsId" />
+                <ScalarProperty Name="WeaponsTypeId" ColumnName="WeaponsTypeId" />
+                <ScalarProperty Name="WeaponsInfoId" ColumnName="WeaponsInfoId" />
+                <ScalarProperty Name="IdFake" ColumnName="IdFake" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

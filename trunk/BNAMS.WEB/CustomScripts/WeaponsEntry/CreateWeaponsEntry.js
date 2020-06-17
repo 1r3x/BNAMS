@@ -661,7 +661,7 @@ var WeaponsEntryHelper = {
 
         input.replaceWith(input.val("").clone(true));
         $("#blah").attr("src", "http://placehold.it/180");
-
+        $("#hdnWeaponsInfoId").val("0");
         //$("#ddlWeaponsType").val("");
         $("#ddlWeaponsName").val("").trigger("change");
         $("#").val("");
@@ -722,7 +722,7 @@ var WeaponsEntryHelper = {
     GetWeaponsEntryData: function () {
         debugger;
         var aObj = new Object();
-
+        aObj.WeaponsInfoId = $("#hdnWeaponsInfoId").val();
 
         if (document.getElementById("getFile").files[0] != undefined) {
             aObj.Image = document.getElementById("getFile").files[0].type.toString().replace(/application/i, "");
