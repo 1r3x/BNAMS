@@ -4,13 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="700a74c06c60408bb29af757d892b2b4" Name="Diagram1" ZoomLevel="65">
+      <Diagram DiagramId="700a74c06c60408bb29af757d892b2b4" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="SmartRecordModel.HR_TraineePersonBio" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.HR_TraningInformation" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.I_BinLocation" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.I_Indent" Width="1.5" PointX="4.75" PointY="5.75" />
         <EntityTypeShape EntityType="SmartRecordModel.I_MaintenanceInfo" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.I_StatusAfterMaintaince" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartRecordModel.I_WeaponsInfo" Width="1.5" PointX="6.75" PointY="6.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_Agent" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_AgentEnlistment" Width="1.5" PointX="8.75" PointY="5.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_AgentType" Width="1.5" PointX="8.75" PointY="8.75" />
@@ -46,7 +47,6 @@
         <EntityTypeShape EntityType="SmartRecordModel.UserRole" Width="1.5" PointX="8.75" PointY="19.75" />
         <EntityTypeShape EntityType="SmartRecordModel.W_Inspection" Width="1.5" PointX="10.75" PointY="19.75" />
         <EntityTypeShape EntityType="SmartRecordModel.M_PriceType" Width="1.5" PointX="12.75" PointY="19.75" />
-        <EntityTypeShape EntityType="SmartRecordModel.I_WeaponsInfo" Width="1.5" PointX="5.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

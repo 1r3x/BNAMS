@@ -37,7 +37,7 @@ namespace BNAMS.Manager.Manager
 
             if (inWeaponsINfoTable != null)
             {
-                inWeaponsINfoTable.DepotId = aObj.IssueTo;
+                //inWeaponsINfoTable.DepotId = aObj.IssueTo;
                 inWeaponsINfoTable.IsUse = true;
                 inWeaponsINfoTable.IsBackup = false;
             }
@@ -47,7 +47,8 @@ namespace BNAMS.Manager.Manager
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
             aObj.IsBackup = false;
-            aObj.IsActive = false;
+            aObj.IsActive = true;
+            aObj.IsStatus = 1;//1 for approved
             aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
 
             _aRepository.Update(aObj);
@@ -69,6 +70,7 @@ namespace BNAMS.Manager.Manager
 
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
+            aObj.IsStatus = 2;//2 for cancell
             aObj.IsBackup = false;
             aObj.IsActive = false;
             aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
@@ -80,6 +82,9 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel GetAllIndent()
         {
+
+            var dirId = (string) HttpContext.Current.Session["directorateId"];
+
             var data = from a in _db.I_Indent
                 join b in _db.O_ShipOrDepotInfo on a.IndentFrom equals b.ShipOrDepotId
                 join c in _db.O_ShipOrDepotInfo on a.IssueTo equals c.ShipOrDepotId
@@ -87,7 +92,7 @@ namespace BNAMS.Manager.Manager
                 join e in _db.M_NameOfWeapon on d.NameOfWeaponsId equals e.NameOfGunId
                 join f in _db.M_Composite on a.CompositeId equals f.CompositeId
 
-                where a.IsActive == true && a.DerectorateId== (string)HttpContext.Current.Session["directorateId"] && a.IndentStatusId== "862020INst1136"
+                where a.IsActive == true && a.DerectorateId== dirId && a.IsStatus==0
                        select new
                 {
                     indentFrom = b.ShipDepotName,
@@ -106,6 +111,7 @@ namespace BNAMS.Manager.Manager
                     a.IndentType,
                     a.IndentValidity,
                     a.IsActive,
+                    a.IsStatus,
                     a.IssueTo,
                     a.ItemId,
                     a.OtherOptions

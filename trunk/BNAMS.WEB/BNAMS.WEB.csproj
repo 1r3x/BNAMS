@@ -157,16 +157,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AuthoritySetupController.cs" />
+    <Compile Include="Controllers\BackupPlan\BackupPlanController.cs" />
     <Compile Include="Controllers\BinLocationController.cs" />
     <Compile Include="Controllers\CapabilityOfWeaponsController.cs" />
     <Compile Include="Controllers\CompositeCodeMasterController.cs" />
     <Compile Include="Controllers\CountrySetupController.cs" />
     <Compile Include="Controllers\DirectorateInfoController.cs" />
     <Compile Include="Controllers\FiscalYearSetupController.cs" />
+    <Compile Include="Controllers\SetGunAmmoMaintainceController.cs" />
     <Compile Include="Controllers\GunAmmoMaintainceController.cs" />
     <Compile Include="Controllers\GunModelTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndentController.cs" />
+    <Compile Include="Controllers\IndentAcceptController.cs" />
     <Compile Include="Controllers\IndentReceivedOrCancelController.cs" />
     <Compile Include="Controllers\InspactionController.cs" />
     <Compile Include="Controllers\LocalAgentSetupController.cs" />
@@ -232,12 +235,18 @@
     <Content Include="CustomScripts\FiscalYearSetup\CreateFiscalYearSetup.js" />
     <Content Include="CustomScripts\FiscalYearSetup\FiscalYearSetting.js" />
     <Content Include="CustomScripts\FiscalYearSetup\ViewFiscalYearSetup.js" />
+    <Content Include="CustomScripts\SetGunAmmoMaintaince\CreateGunAmmoMaintaince.js" />
+    <Content Include="CustomScripts\SetGunAmmoMaintaince\GunAmmoMaintainceSetting.js" />
+    <Content Include="CustomScripts\SetGunAmmoMaintaince\ViewGunAmmoMaintaince.js" />
     <Content Include="CustomScripts\GunAmmoMaintaince\CreateGunAmmoMaintaince.js" />
     <Content Include="CustomScripts\GunAmmoMaintaince\GunAmmoMaintainceSetting.js" />
     <Content Include="CustomScripts\GunAmmoMaintaince\ViewGunAmmoMaintaince.js" />
     <Content Include="CustomScripts\GunModelType\GunModelTypeSetupSetting.js" />
     <Content Include="CustomScripts\GunModelType\CreateGunModelTypeSetup.js" />
     <Content Include="CustomScripts\GunModelType\ViewGunModelTypeSetup.js" />
+    <Content Include="CustomScripts\IndentAccept\CreateIndentAccept.js" />
+    <Content Include="CustomScripts\IndentAccept\IndentAcceptSetting.js" />
+    <Content Include="CustomScripts\IndentAccept\ViewIndentAccept.js" />
     <Content Include="CustomScripts\IndentReceivedAndCancel\CreateIndentReceivedOrCancel.js" />
     <Content Include="CustomScripts\IndentReceivedAndCancel\IndentReceivedOrCancelSetting.js" />
     <Content Include="CustomScripts\IndentReceivedAndCancel\ViewIndentReceivedOrCancel.js" />
@@ -641,10 +650,17 @@
     <Content Include="Views\CompositeCodeMaster\Index.cshtml" />
     <Content Include="Views\CompositeCodeMaster\_Create.cshtml" />
     <Content Include="Views\CompositeCodeMaster\_View.cshtml" />
+    <Content Include="Views\IndentAccept\_Create.cshtml" />
+    <Content Include="Views\IndentAccept\_View.cshtml" />
+    <Content Include="Views\IndentAccept\Index.cshtml" />
+    <Content Include="Views\SetGunAmmoMaintaince\_Create.cshtml" />
+    <Content Include="Views\SetGunAmmoMaintaince\_View.cshtml" />
+    <Content Include="Views\SetGunAmmoMaintaince\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templates\" />
+    <Folder Include="Views\BackupPlan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

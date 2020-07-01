@@ -8,7 +8,7 @@
                 "url": "/WeaponsEntry/GetAllWeaponsByTypeId",
                 data: {
                     "weaponsTypeId": $("#ddlWeaponsType").val()
-    },
+                },
                 "type": "GET",
                 "datatype": "json",
                 "contentType": "application/json; charset=utf-8"
@@ -19,7 +19,7 @@
                 { "data": "TrackingNo", "autoWidth": true },
                 { "data": "IsActive", "autoWidth": true },
                 //{ "defaultContent": '<button class="btn btn-primary glyphicon glyphicon-edit" id="btnEdit" type="button"></button>' }
-                //{ "defaultContent": '<button class="btn btn-danger glyphicon glyphicon-remove" id="btnDelete" type="button"></button>' }
+                { "defaultContent": '<button class="btn btn-danger glyphicon glyphicon-remove" id="btnDelete" type="button"></button>' }
             ],
             "columnDefs": [
                 {
@@ -31,107 +31,116 @@
             ]
         });
 
+
+        $("#dataTable tbody").on("click", "#btnDelete", function (e) {
+            debugger;
+            var table = $("#dataTable").DataTable();
+            var data = table.row($(this).parents("tr")).data();
+            CreateWeaponsEntryManager.DelWeaponsEntry(data);
+
+        });
+
     },
     HideField: function () {
         debugger;
-         $("#imageDiv").hide();
-         $("#btnSubmit").hide();
-         $("#btnCancel").hide();
-         $("#ddlWeaponsName").hide();
-         $("#ddlWeaponsNameL").hide();
-         $("#ddlGunModelType").hide();
-         $("#ddlGunModelTypeL").hide();
-         $("#txtBrand").hide();
-         $("#txtBrandL").hide();
-         $("#txtGunRegNo").hide();
-         $("#txtGunRegNoL").hide();
-         $("#ddlYearOfManufacture").hide();
-         $("#ddlYearOfManufactureL").hide();
-         $("#ddlCountryOfManufacture").hide();
-         $("#ddlCountryOfManufactureL").hide();
-         $("#ddlCountryOfOrigin").hide();
-         $("#ddlCountryOfOriginL").hide();
-         $("#txtPurpose").hide();
-         $("#txtPurposeL").hide();
-         $("#ddlYearOfProcurement").hide();
-         $("#ddlYearOfProcurementL").hide();
-         $("#txtWarrentyPeriod").hide();
-         $("#txtWarrentyPeriodL").hide();
-         $("#ddlPriceType").hide();
-         $("#ddlPriceTypeL").hide();
-         $("#txtUnitPrice").hide();
-         $("#txtUnitPriceL").hide();
-         $("#txtQuantity").hide();
-         $("#txtQuantityL").hide();
-         $("#ddlQuantityCategory").hide();
-         $("#ddlQuantityCategoryL").hide();
-         //todo
-         $("#txtTotalPrice").hide();
-         $("#txtTotalPriceL").hide();
-         $("#ddlLocalAgent").hide();
-         $("#ddlLocalAgentL").hide();
-         $("#ddlPrincipalAgent").hide();
-         $("#ddlPrincipalAgentL").hide();
-         $("#ddlManufacturerAgent").hide();
-         $("#ddlManufacturerAgentL").hide();
-         $("#ddlDepotName").hide();
-         $("#ddlDepotNameL").hide();
-         $("#ddlProcurementCatagory").hide();
-         $("#ddlProcurementCatagoryL").hide();
-         $("#ddlWarehouseName").hide();
-         $("#ddlWarehouseNameL").hide();
-         $("#ddlPreparationTime").hide();
-         $("#ddlPreparationTimeL").hide();
-         //todo
-         $("#ddlShelfNo").hide();
-         $("#ddlShelfNoL").hide();
-         $("#ddlRowNo").hide();
-         $("#ddlRowNoL").hide();
-         $("#txtTechnicalSpecification").hide();
-         $("#txtTechnicalSpecificationL").hide();
-         $("#txtWeight").hide();
-         $("#txtWeightL").hide();
-         $("#txtDimentions").hide();
-         $("#txtDimentionsL").hide();
-         $("#txtMaximumRange").hide();
-         $("#txtMaximumRangeL").hide();
-         $("#txtEffectiveRange").hide();
-         $("#txtEffectiveRangeL").hide();
-         $("#txtMuzzleVelocity").hide();
-         $("#txtMuzzleVelocityL").hide();
-         $("#txtBarrelLife").hide();
-         $("#txtBarrelLifeL").hide();
-         $("#txtOperatingTemp").hide();
-         $("#txtOperatingTempL").hide();
-         $("#txtStoringTemp").hide();
-         $("#txtStoringTempL").hide();
-         $("#txtPreservationTemp").hide();
-         $("#txtPreservationTempL").hide();
-         $("#txtHumadity").hide();
-         $("#txtHumadityL").hide();
-         $("#ddlStatus").hide();
-         $("#ddlStatusL").hide();
-         $("#dateOfReceived").hide();
-         $("#dateOfReceivedL").hide();
-         $("#txtWorkOrder").hide();
-         $("#txtWorkOrderL").hide();
-         $("#txtShelfLifeItem").hide();
-         $("#txtShelfLifeItemL").hide();
-         $("#txtShelfLifeLauncherL").hide();
-         $("#txtShelfLifeLauncher").hide();
-         $("#txtRemarks").hide();
-         $("#txtRemarksL").hide();
-         $("#txtTestFiring").hide();
-         $("#txtTestFiringL").hide();
-         $("#dateOfTestFiring").hide();
-         $("#dateOfTestFiringL").hide();
-         $("#txtCombatDuration").hide();
-         $("#txtCombatDurationL").hide();
+        $("#imageDiv").hide();
+        $("#btnSubmit").hide();
+        $("#btnCancel").hide();
+        $("#ddlWeaponsName").hide();
+        $("#ddlWeaponsNameL").hide();
+        $("#ddlGunModelType").hide();
+        $("#ddlGunModelTypeL").hide();
+        $("#txtBrand").hide();
+        $("#txtBrandL").hide();
+        $("#txtGunRegNo").hide();
+        $("#txtGunRegNoL").hide();
+        $("#ddlYearOfManufacture").hide();
+        $("#ddlYearOfManufactureL").hide();
+        $("#ddlCountryOfManufacture").hide();
+        $("#ddlCountryOfManufactureL").hide();
+        $("#ddlCountryOfOrigin").hide();
+        $("#ddlCountryOfOriginL").hide();
+        $("#txtPurpose").hide();
+        $("#txtPurposeL").hide();
+        $("#ddlYearOfProcurement").hide();
+        $("#ddlYearOfProcurementL").hide();
+        $("#txtWarrentyPeriod").hide();
+        $("#txtWarrentyPeriodL").hide();
+        $("#ddlPriceType").hide();
+        $("#ddlPriceTypeL").hide();
+        $("#txtUnitPrice").hide();
+        $("#txtUnitPriceL").hide();
+        $("#txtQuantity").hide();
+        $("#txtQuantityL").hide();
+        $("#ddlQuantityCategory").hide();
+        $("#ddlQuantityCategoryL").hide();
+        //todo
+        $("#txtTotalPrice").hide();
+        $("#txtTotalPriceL").hide();
+        $("#ddlLocalAgent").hide();
+        $("#ddlLocalAgentL").hide();
+        $("#ddlPrincipalAgent").hide();
+        $("#ddlPrincipalAgentL").hide();
+        $("#ddlManufacturerAgent").hide();
+        $("#ddlManufacturerAgentL").hide();
+        $("#ddlDepotName").hide();
+        $("#ddlDepotNameL").hide();
+        $("#ddlProcurementCatagory").hide();
+        $("#ddlProcurementCatagoryL").hide();
+        $("#ddlWarehouseName").hide();
+        $("#ddlWarehouseNameL").hide();
+        $("#ddlPreparationTime").hide();
+        $("#ddlPreparationTimeL").hide();
+        //todo
+        $("#ddlShelfNo").hide();
+        $("#ddlShelfNoL").hide();
+        $("#ddlRowNo").hide();
+        $("#ddlRowNoL").hide();
+        $("#txtTechnicalSpecification").hide();
+        $("#txtTechnicalSpecificationL").hide();
+        $("#txtWeight").hide();
+        $("#txtWeightL").hide();
+        $("#txtDimentions").hide();
+        $("#txtDimentionsL").hide();
+        $("#txtMaximumRange").hide();
+        $("#txtMaximumRangeL").hide();
+        $("#txtEffectiveRange").hide();
+        $("#txtEffectiveRangeL").hide();
+        $("#txtMuzzleVelocity").hide();
+        $("#txtMuzzleVelocityL").hide();
+        $("#txtBarrelLife").hide();
+        $("#txtBarrelLifeL").hide();
+        $("#txtOperatingTemp").hide();
+        $("#txtOperatingTempL").hide();
+        $("#txtStoringTemp").hide();
+        $("#txtStoringTempL").hide();
+        $("#txtPreservationTemp").hide();
+        $("#txtPreservationTempL").hide();
+        $("#txtHumadity").hide();
+        $("#txtHumadityL").hide();
+        $("#ddlStatus").hide();
+        $("#ddlStatusL").hide();
+        $("#dateOfReceived").hide();
+        $("#dateOfReceivedL").hide();
+        $("#txtWorkOrder").hide();
+        $("#txtWorkOrderL").hide();
+        $("#txtShelfLifeItem").hide();
+        $("#txtShelfLifeItemL").hide();
+        $("#txtShelfLifeLauncherL").hide();
+        $("#txtShelfLifeLauncher").hide();
+        $("#txtRemarks").hide();
+        $("#txtRemarksL").hide();
+        $("#txtTestFiring").hide();
+        $("#txtTestFiringL").hide();
+        $("#dateOfTestFiring").hide();
+        $("#dateOfTestFiringL").hide();
+        $("#txtCombatDuration").hide();
+        $("#txtCombatDurationL").hide();
     },
 
-    HideForSelect2: function() {
+    HideForSelect2: function () {
 
-       
+
         $("#ddlWeaponsName").next(".select2-container").hide();
         $("#ddlGunModelType").next(".select2-container").hide();
         $("#ddlYearOfManufacture").next(".select2-container").hide();
@@ -233,7 +242,7 @@
         $("#txtRemarksL").show();
 
 
-  
+
         WeaponsEntryHelper.LoadFiscalYearDD();
         WeaponsEntryHelper.LoadCountryDD();
         WeaponsEntryHelper.LoadYearDD();
@@ -246,6 +255,8 @@
         WeaponsEntryHelper.LoadProcurementCategoryDD();
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
+        WeaponsEntryHelper.LoadShelfNameByWraehouseIdDD();
+        WeaponsEntryHelper.LoadRowNameByWraehouseIdDD();
     },
 
     ShowForWebEntry: function () {
@@ -322,6 +333,8 @@
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
         WeaponsEntryHelper.LoadCountryOFManuDD();
+        WeaponsEntryHelper.LoadShelfNameByWraehouseIdDD();
+        WeaponsEntryHelper.LoadRowNameByWraehouseIdDD();
     },
 
     ShowForSpairPartsEntry: function () {
@@ -409,6 +422,8 @@
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
         WeaponsEntryHelper.LoadCountryOFManuDD();
+        WeaponsEntryHelper.LoadShelfNameByWraehouseIdDD();
+        WeaponsEntryHelper.LoadRowNameByWraehouseIdDD();
     },
 
     ShowForAmmoEntry: function () {
@@ -463,7 +478,7 @@
         $("#txtTestFiringL").show();
         $("#dateOfTestFiring").show();
         $("#dateOfTestFiringL").show();
-        
+
         $("#txtOperatingTemp").show();
         $("#txtOperatingTempL").show();
         $("#txtStoringTemp").show();
@@ -474,7 +489,7 @@
         $("#txtHumadityL").show();
         $("#ddlStatus").show();
         $("#ddlStatusL").show();
-        
+
         $("#txtRemarks").show();
         $("#txtRemarksL").show();
 
@@ -491,6 +506,8 @@
         WeaponsEntryHelper.LoadWareHouseDD();
         WeaponsEntryHelper.LoadStatusDD();
         WeaponsEntryHelper.LoadCountryOFManuDD();
+        WeaponsEntryHelper.LoadShelfNameByWraehouseIdDD();
+        WeaponsEntryHelper.LoadRowNameByWraehouseIdDD();
     },
 
     ShowForMissileEntry: function () {
@@ -538,7 +555,7 @@
         $("#txtQuantity").show();
         $("#txtQuantityL").show();
         //serial number
-       
+
         $("#txtTotalPrice").show();
         $("#txtTotalPriceL").show();
         $("#ddlLocalAgent").show();
@@ -549,7 +566,7 @@
         $("#ddlManufacturerAgentL").show();
         $("#ddlDepotName").show();
         $("#ddlDepotNameL").show();
-        
+
         $("#ddlWarehouseName").show();
         $("#ddlWarehouseNameL").show();
         $("#ddlShelfNo").show();
@@ -558,7 +575,7 @@
         $("#ddlRowNoL").show();
         $("#txtTechnicalSpecification").show();
         $("#txtTechnicalSpecificationL").show();
-        
+
         $("#txtOperatingTemp").show();
         $("#txtOperatingTempL").show();
         $("#txtStoringTemp").show();
@@ -586,7 +603,10 @@
         WeaponsEntryHelper.LoadStatusDD();
         WeaponsEntryHelper.LoadCountryOFManuDD();
         WeaponsEntryHelper.LoadMissilePrepDD();
-    },
+        WeaponsEntryHelper.LoadShelfNameByWraehouseIdDD();
+        WeaponsEntryHelper.LoadRowNameByWraehouseIdDD();
+    }
 
 
 }
+

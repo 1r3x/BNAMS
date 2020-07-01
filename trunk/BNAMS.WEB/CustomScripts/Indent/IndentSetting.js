@@ -52,6 +52,13 @@
 
         
     });
+    $("#ddlIndentFrom").change(function () {
+        if ($("#ddlIssuePerson").val() != "") {
+            IndentHelper.CheckIsItSameId();
+        }
+
+
+    });
 
 
 });

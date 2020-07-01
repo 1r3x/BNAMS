@@ -51,9 +51,9 @@ namespace BNAMS.Manager.Manager
 
                 //check if it is ammo
                 var isAmmoData = from a in _db.I_WeaponsInfo
-                    join weaponTable in _db.M_WeaponsType on a.WeaponsTypeId equals weaponTable.WeaponsTypeId
-                    where weaponTable.WeaponsTypeId == "1042020WEAP139"
-                    select a;
+                                 join weaponTable in _db.M_WeaponsType on a.WeaponsTypeId equals weaponTable.WeaponsTypeId
+                                 where weaponTable.WeaponsTypeId == "1042020WEAP139"
+                                 select a;
                 var isAmmo = isAmmoData.Count();
 
                 if (previousIndent != null)
@@ -67,7 +67,7 @@ namespace BNAMS.Manager.Manager
                 var count = row.Count();
 
 
-                if (isAmmo==0)
+                if (isAmmo == 0)
                 {
                     aObj.IndentQuantity = 1;
                 }
@@ -77,6 +77,7 @@ namespace BNAMS.Manager.Manager
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;
                 aObj.IsActive = true;
+                aObj.IsStatus = 0;//0 for indent create
                 aObj.IsBackup = false;
                 aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
                 _aRepository.Insert(aObj);
@@ -134,9 +135,12 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel LoadAllDepotAndShipForIndentFrom()
         {
+            var userDirectoryId = (string) HttpContext.Current.Session["directorateId"];
+
+
             var data = from parentMenu in _db.O_ShipOrDepotInfo
                        join directorate in _db.O_DirectorateInfo on parentMenu.DerectorateId equals directorate.DirectorateID
-                       where parentMenu.IsActive == true
+                       where parentMenu.IsActive == true && parentMenu.DirectorateId == userDirectoryId
                        select new
                        {
                            id = parentMenu.ShipOrDepotId,
@@ -225,9 +229,9 @@ namespace BNAMS.Manager.Manager
         public ResponseModel CheckIsItAmmo(string itemId)
         {
             var isAmmoData = from a in _db.I_WeaponsInfo
-                join weaponTable in _db.M_WeaponsType on a.WeaponsTypeId equals weaponTable.WeaponsTypeId
-                where weaponTable.WeaponsTypeId == "1042020WEAP139"
-                select a;
+                             join weaponTable in _db.M_WeaponsType on a.WeaponsTypeId equals weaponTable.WeaponsTypeId
+                             where weaponTable.WeaponsTypeId == "1042020WEAP139"
+                             select a;
             var data = isAmmoData.Any();
             return _aModel.Respons(data);
         }

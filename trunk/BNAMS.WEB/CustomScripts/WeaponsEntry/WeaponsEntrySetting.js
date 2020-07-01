@@ -2,12 +2,18 @@
     WeaponsEntryHelper.InitWeaponsEntry();
     viewWeaponsEntry.HideField();
 
+   
+
     function topFunction() {
         //for safari 
         document.body.scrollTop = 0;
         //for others browsers
         document.documentElement.scrollTop = 0;
     }
+
+   
+    
+   
 
     $("#ddlWeaponsType").on("change", function (e) {
         debugger;
@@ -109,6 +115,11 @@
         WeaponsEntryHelper.LoadShelfNameByWraehouseIdDD();
         WeaponsEntryHelper.LoadRowNameByWraehouseIdDD();
     });
+
+    $("#ddlDepotName").on("change", function (e) {
+        debugger;
+        WeaponsEntryHelper.LoadWareHouseDD();
+    });
     $("#txtQuantity").on("change", function (e) {
 
         var unitPrice = $("#txtUnitPrice").val();
@@ -124,5 +135,5 @@
         $("#txtTotalPrice").val(totalPrice);
     });
 
-
+   
 });

@@ -6,7 +6,7 @@ var CreateWeaponsEntryManager = {
         if ($("#txtAuthorityName").val() == "") {
             toastr.warning("Directorate Name is Required.");
         }
-       
+
 
         else {
             $.ajax({
@@ -65,12 +65,42 @@ var CreateWeaponsEntryManager = {
 
     },
 
+
+    DelWeaponsEntry: function (aObj) {
+        debugger;
+        var weaponsInfoId = aObj.WeaponsInfoId;
+        $.ajax({
+            type: "Get",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/WeaponsEntry/DeleteWeapon",
+            data: { weaponsInfoId: weaponsInfoId },
+            success: function (response) {
+                debugger;
+                if (response != null) {
+
+                    toastr.warning(response.data.Message);
+                    viewWeaponsEntry.GetWeaponsEntryDataTable();
+                    WeaponsEntryHelper.ClearField();
+                    $("#btnSubmit").html("Save");
+                }
+            },
+            error: function (response) {
+
+            }
+
+        });
+
+    }
+
+
 };
 
 
 var WeaponsEntryHelper = {
     InitWeaponsEntry: function () {
-       
+
         WeaponsEntryHelper.LoadWeaponsTypeDD();
 
         $("#btnSubmit").unbind("click").click(function () {
@@ -80,6 +110,8 @@ var WeaponsEntryHelper = {
         $("#btnCancel").unbind("click").click(function () {
             WeaponsEntryHelper.ClearField();
         });
+
+
     },
     //weapon type
     LoadWeaponsType: function () {
@@ -493,13 +525,17 @@ var WeaponsEntryHelper = {
     },
     //LoadWareHouse
     LoadWareHouse: function () {
+        debugger;
+        var depotId = $("#ddlDepotName").val();
+
         var b = [];
         $.ajax({
             type: "GET",
             dataType: "json",
             cache: true,
             async: false,
-            url: "/WeaponsEntry/LoadWareHouse",
+            url: "/WeaponsEntry/LoadWareHouseByDepotId",
+            data: { depotId: depotId },
             success: function (response) {
 
                 b = response.data;
@@ -512,12 +548,17 @@ var WeaponsEntryHelper = {
         return b;
     },
     LoadWareHouseDD: function () {
+        $("#ddlWarehouseName").empty();
+        $("#ddlWarehouseName").append(
+            $("<option></option>")
+        );
         debugger;
         var parentMenu = WeaponsEntryHelper.LoadWareHouse();
         $("#ddlWarehouseName").select2({
-            placeholder: "Select Procurement Category",
+            placeholder: "Select Warehouse Name",
             data: parentMenu
         });
+        $("#ddlWarehouseName").select2("val", "");
     },
 
     //LoadShelfNameByWraehouseId
@@ -729,7 +770,7 @@ var WeaponsEntryHelper = {
         } else {
             aObj.Image = $("#blah").attr("src");
         }
-        
+
         aObj.WeaponsTypeId = $("#ddlWeaponsType").val();
         aObj.NameOfWeaponsId = $("#ddlWeaponsName").val();
         aObj.WeaponsModel = $("#ddlGunModelType").val();

@@ -3,10 +3,9 @@
     GetIndentDataTable: function () {
         $("#dataTable").dataTable().fnDestroy();
         $("#dataTable").DataTable({
-
             "scrollX": true,
             "ajax": {
-                "url": "/Indent/GetAllIndent",
+                "url": "/IndentReceivedOrCancel/GetAllIndent",
                 "type": "GET",
                 "datatype": "json",
                 "contentType": "application/json; charset=utf-8"
@@ -20,7 +19,7 @@
                 {
                     "data": "IndentValidity",
                     "type": "date",
-                    "render": function (value) {
+                    "render": function(value) {
                         if (value === null) return "";
 
                         var pattern = /Date\(([^)]+)\)/;
@@ -30,21 +29,34 @@
                         return dt.getDate() + "." + (dt.getMonth() + 1) + "." + dt.getFullYear();
                     }
                 },
-
-
+                { "data": "IsStatus", "autoWidth": true },
                 { "data": "IsActive", "autoWidth": true },
-                { "defaultContent": '<button class="btn btn-primary glyphicon glyphicon-edit" id="btnEdit" type="button"></button>' }
+                {
+                    "defaultContent":
+                        '<button class="btn btn-primary glyphicon glyphicon-open" id="btnEdit" type="button"></button>'
+                }
                 //{ "defaultContent": '<button class="btn btn-danger glyphicon glyphicon-remove" id="btnDelete" type="button"></button>' }
             ],
-
-            "columnDefs": [
+            "columnDefs1": [
                 {
                     targets: [6],
                     render: function (data, type, row) {
+                        debugger;
+                        return data == "1" ? "Waiting" : "Inactive";
+                    }
+                }
+            ],
+            "columnDefs": [
+                {
+                    targets: [7],
+                    render: function (data, type, row) {
+
+                        debugger;
                         return data == "1" ? "Active" : "Inactive";
                     }
                 }
             ]
+          
 
         });
 

@@ -29,6 +29,7 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> IndentStatusDate { get; set; }
         public string CompositeId { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<int> IsStatus { get; set; }
         public Nullable<int> SetUpBy { get; set; }
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }

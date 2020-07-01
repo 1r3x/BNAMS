@@ -207,6 +207,7 @@
     <Compile Include="Validate_User_Result.cs">
       <DependentUpon>SRModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\SetForMaintainceViewModel.cs" />
     <Compile Include="ViewModels\WeaponsMaintainceViewModel.cs" />
     <Compile Include="W_Inspection.cs">
       <DependentUpon>SRModel.tt</DependentUpon>

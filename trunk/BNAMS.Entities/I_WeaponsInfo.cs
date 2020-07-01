@@ -69,6 +69,7 @@ namespace BNAMS.Entities
         public string Humidity { get; set; }
         public Nullable<bool> IsUse { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public Nullable<bool> IsMaintaince { get; set; }
         public Nullable<int> SetUpBy { get; set; }
         public Nullable<System.DateTime> SetUpDateTime { get; set; }
         public Nullable<int> UpdatedBy { get; set; }

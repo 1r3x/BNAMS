@@ -141,6 +141,7 @@ namespace BNAMS.Manager.Manager
                        where a.WeaponsTypeId == weaponId
                        select new
                        {
+                           a.WeaponsInfoId,
                            b.WeaponsType,
                            c.NameOfGun,
                            a.IsActive,
@@ -185,6 +186,30 @@ namespace BNAMS.Manager.Manager
                        };
             return _aModel.Respons(data);
         }
+
+       
+
+        public ResponseModel DelWeaponsInfo(string weaponInfoId)
+        {
+            var data = (from e in _db.I_WeaponsInfo
+                where e.WeaponsInfoId == weaponInfoId
+                select e.IsUse).SingleOrDefault();
+
+            if (data==true)
+            {
+                return _aModel.Respons(true, "This Weapon Is in Use.");
+            }
+            else
+            {
+                var x = (from y in _db.I_WeaponsInfo
+                            where y.WeaponsInfoId==weaponInfoId
+                            select y).FirstOrDefault() ?? throw new ArgumentNullException(nameof(weaponInfoId));
+                _db.I_WeaponsInfo.Remove(x);
+                _db.SaveChanges();
+                return _aModel.Respons(true, "New Weapon Delete Successfully.");
+            }
+            
+            }
 
         public ResponseModel LoadFiscalYear()
         {
@@ -296,7 +321,7 @@ namespace BNAMS.Manager.Manager
                        };
             return _aModel.Respons(data);
         }
-
+        //inactive
         public ResponseModel LoadWareHouse()
         {
             var data = from parentMenu in _db.O_WareHouse
@@ -353,6 +378,18 @@ namespace BNAMS.Manager.Manager
                        {
                            id = parentMenu.MissilePrepTimeId,
                            text = parentMenu.MissilePrepTime
+                       };
+            return _aModel.Respons(data);
+        }
+
+        public ResponseModel LoadWareHouseByDepotId(string depotId)
+        {
+            var data = from parentMenu in _db.O_WareHouse
+                       where parentMenu.IsActive == true && parentMenu.UnitShipId==depotId
+                       select new
+                       {
+                           id = parentMenu.WareHouseId,
+                           text = parentMenu.WareHouseName
                        };
             return _aModel.Respons(data);
         }

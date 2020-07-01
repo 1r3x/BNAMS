@@ -84,7 +84,12 @@ namespace BNAMS.Controllers
             var data = _aManager.GetWeaponsByWeaponType(weaponsTypeId);
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
-
+        // GET: WeaponsEntry/DeleteWeapon
+        public JsonResult DeleteWeapon(string weaponsInfoId)
+        {
+            var data = _aManager.DelWeaponsInfo(weaponsInfoId);
+            return Json(new { success = data.Status, data }, JsonRequestBehavior.AllowGet);
+        }
 
 
         // GET: WeaponsEntry/LoadWeaponsType
@@ -159,10 +164,10 @@ namespace BNAMS.Controllers
             var data = _aManager.LoadProcurementCategory();
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         }
-        // GET: WeaponsEntry/LoadWareHouse
-        public JsonResult LoadWareHouse()
+        // GET: WeaponsEntry/LoadWareHouseByDepotId
+        public JsonResult LoadWareHouseByDepotId(string depotId)
         {
-            var data = _aManager.LoadWareHouse();
+            var data = _aManager.LoadWareHouseByDepotId(depotId);
             return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
         } 
         // GET: WeaponsEntry/LoadShelfNameByWraehouseId

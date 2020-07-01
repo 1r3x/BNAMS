@@ -36,7 +36,7 @@ namespace BNAMS.Controllers.login
         [HttpPost]
         public ActionResult Login(SR.Models.login.User user)
         {
-            if (DateTime.Now <= Convert.ToDateTime("07-01-2020"))
+            if (DateTime.Now <= Convert.ToDateTime("05-07-2020"))// for vs (date-month-year) and for IIS (month-date-year)
             {
                 SmartRecordEntities usersEntities = new SmartRecordEntities();
                 var keyNew = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) select s).FirstOrDefault();

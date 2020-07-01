@@ -14,6 +14,7 @@ namespace BNAMS.Manager.Interface
         ResponseModel LoadWeaponsType();
         ResponseModel LoadWeaponsByType(string weaponsTypeId);
         ResponseModel LoadWeaponModelByWeaponId(string weaponsTypeId);
+        ResponseModel DelWeaponsInfo(string weaponInfoId);
         //from 
         ResponseModel LoadFiscalYear();
         ResponseModel LoadCountry();
@@ -24,7 +25,7 @@ namespace BNAMS.Manager.Interface
         ResponseModel LoadQuantityCategory();
         ResponseModel LoadDepot();
         ResponseModel LoadProcurementCategory();
-        ResponseModel LoadWareHouse();
+        ResponseModel LoadWareHouseByDepotId(string depotId);
         ResponseModel LoadShelfNameByWraehouseId(string warehouseId);
         ResponseModel LoadRowNameByWraehouseId(string binLocationId);
         ResponseModel LoadStatus();
