@@ -707,6 +707,9 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
         <Function Name="spRoleWiseMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="roleId" Type="int" Mode="In" />
         </Function>
+        <Function Name="spSetTabelBackUpStatusToTrue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tableName" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="spVerifiedAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="SmartRecordModelStoreContainer">
           <EntitySet Name="HR_TraineePersonBio" EntityType="Self.HR_TraineePersonBio" Schema="dbo" store:Type="Tables" />
@@ -853,6 +856,9 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="UserRoles" EntityType="SmartRecordModel.UserRole" />
           <EntitySet Name="W_Inspection" EntityType="SmartRecordModel.W_Inspection" />
           <EntitySet Name="M_PriceType" EntityType="SmartRecordModel.M_PriceType" />
+          <FunctionImport Name="spSetTabelBackUpStatusToTrue">
+            <Parameter Name="tableName" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="SessionHelper_Result">
           <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -2477,6 +2483,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spSetTabelBackUpStatusToTrue" FunctionName="SmartRecordModel.Store.spSetTabelBackUpStatusToTrue" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

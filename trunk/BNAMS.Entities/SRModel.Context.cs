@@ -231,5 +231,14 @@ namespace BNAMS.Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spLoadWeaponDetails_Result>("spLoadWeaponDetails", weaponsInfoIdParameter);
         }
+    
+        public virtual int spSetTabelBackUpStatusToTrue(string tableName)
+        {
+            var tableNameParameter = tableName != null ?
+                new ObjectParameter("tableName", tableName) :
+                new ObjectParameter("tableName", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("spSetTabelBackUpStatusToTrue", tableNameParameter);
+        }
     }
 }

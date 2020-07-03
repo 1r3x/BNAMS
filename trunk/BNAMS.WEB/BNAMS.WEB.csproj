@@ -220,6 +220,8 @@
     <Content Include="CustomScripts\AuthoritySetup\CreateAuthoritySetup.js" />
     <Content Include="CustomScripts\AuthoritySetup\AuthoritySetupSetting.js" />
     <Content Include="CustomScripts\AuthoritySetup\ViewAuthoritySetup.js" />
+    <Content Include="CustomScripts\BackupPlan\BackupPlan.js" />
+    <Content Include="CustomScripts\BackupPlan\Console.css" />
     <Content Include="CustomScripts\BinLocation\CreateBinLocationSetup.js" />
     <Content Include="CustomScripts\BinLocation\ViewBinLocationSetup.js" />
     <Content Include="CustomScripts\BinLocation\BinLocationSetupSetting.js" />
@@ -656,11 +658,12 @@
     <Content Include="Views\SetGunAmmoMaintaince\_Create.cshtml" />
     <Content Include="Views\SetGunAmmoMaintaince\_View.cshtml" />
     <Content Include="Views\SetGunAmmoMaintaince\Index.cshtml" />
+    <Content Include="Views\BackupPlan\Index.cshtml" />
+    <Content Include="Views\BackupPlan\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="templates\" />
-    <Folder Include="Views\BackupPlan\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\CommonManager.cs" />
+    <Compile Include="Interface\IBackupPlan.cs" />
     <Compile Include="Interface\IBinLocation.cs" />
     <Compile Include="Interface\ICapabilityOfWeaponsSetup.cs" />
     <Compile Include="Interface\IAuthoritySetup.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Interface\IWareHouseInfo.cs" />
     <Compile Include="Interface\IWeaponsEntry.cs" />
     <Compile Include="Manager\AuthoritySetupManager.cs" />
+    <Compile Include="Manager\BackupPlanManager.cs" />
     <Compile Include="Manager\BinLocationManager.cs" />
     <Compile Include="Manager\CapabilityOfWaeponsSetupManager.cs" />
     <Compile Include="Manager\CompositeCodeManager.cs" />
