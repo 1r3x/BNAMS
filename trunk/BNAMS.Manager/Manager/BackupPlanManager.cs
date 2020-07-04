@@ -20,15 +20,41 @@ namespace BNAMS.Manager.Manager
 
         public BackupPlanManager()
         {
-            _backupList = new List<string> { "USE BNAMS \n", "GO \n",
-                "-- Auto generated BackUp\n",
-                $"-- BackUpFrom----{(string)System.Web.HttpContext.Current.Session["directorateId"]}\n",
-                $"-- BackUpBy----{(int?)System.Web.HttpContext.Current.Session["userid"]}\n",
+            _backupList = new List<string> {
+                "USE BNAMS \n"
+                //, "GO \n",
+                //"-- Auto generated BackUp\n",
+                //$"-- BackUpFrom----{(string)System.Web.HttpContext.Current.Session["directorateId"]}\n",
+                //$"-- BackUpBy----{(int?)System.Web.HttpContext.Current.Session["userid"]}\n",
             };
             _db = new SmartRecordEntities();
             _aModel = new ResponseModel();
             _listOfTablesToSearch = new List<string>
-            { "O_DirectorateInfo",
+            {
+                "HR_TraineePersonBio",
+                "HR_TraningInformation",
+                "I_BinLocation",
+                "I_Indent",
+                "I_MaintenanceInfo",
+                "I_StatusAfterMaintaince",
+                "I_WeaponsInfo",
+                "M_Agent",
+                "M_Authorirty",
+                "M_CapabilityOfWeapons",
+                "M_Composite",
+                "M_Country",
+                "M_FiscalYear",
+                "M_NameOfWeapon",
+                "M_ProcurementCategory",
+                "M_ProductCategory",
+                "M_QuantityCategory",
+                "M_RankSetup",
+                "M_StatusInformation",
+                "M_WeaponsModelType",
+                "O_DirectorateInfo",
+                "O_ShipOrDepotInfo",
+                "O_WareHouse",
+                "W_Inspection"
             };
         }
 

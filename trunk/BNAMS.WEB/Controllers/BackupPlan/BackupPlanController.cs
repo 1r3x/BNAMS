@@ -53,7 +53,7 @@ namespace BNAMS.Controllers.BackupPlan
             var tast = new Task<string>(_aManager.GetFullBackupScript);
             tast.Start();
 
-            System.Threading.Thread.Sleep(10000);
+            //System.Threading.Thread.Sleep(10000);
             var result = await tast;
 
 
@@ -68,7 +68,7 @@ namespace BNAMS.Controllers.BackupPlan
         {
             var tast = new Task<string>(_aManager.UpdateAllIsBackupStatus);
             tast.Start();
-            System.Threading.Thread.Sleep(10000);
+            //System.Threading.Thread.Sleep(10000);
             var result = await tast;
             return result;
         }

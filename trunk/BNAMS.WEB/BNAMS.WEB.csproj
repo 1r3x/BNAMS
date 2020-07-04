@@ -158,6 +158,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AuthoritySetupController.cs" />
     <Compile Include="Controllers\BackupPlan\BackupPlanController.cs" />
+    <Compile Include="Controllers\BackupPlan\RestorePlanController.cs" />
     <Compile Include="Controllers\BinLocationController.cs" />
     <Compile Include="Controllers\CapabilityOfWeaponsController.cs" />
     <Compile Include="Controllers\CompositeCodeMasterController.cs" />
@@ -220,8 +221,8 @@
     <Content Include="CustomScripts\AuthoritySetup\CreateAuthoritySetup.js" />
     <Content Include="CustomScripts\AuthoritySetup\AuthoritySetupSetting.js" />
     <Content Include="CustomScripts\AuthoritySetup\ViewAuthoritySetup.js" />
+    <Content Include="CustomScripts\RestorePlan\RestorePlan.js" />
     <Content Include="CustomScripts\BackupPlan\BackupPlan.js" />
-    <Content Include="CustomScripts\BackupPlan\Console.css" />
     <Content Include="CustomScripts\BinLocation\CreateBinLocationSetup.js" />
     <Content Include="CustomScripts\BinLocation\ViewBinLocationSetup.js" />
     <Content Include="CustomScripts\BinLocation\BinLocationSetupSetting.js" />
@@ -660,6 +661,8 @@
     <Content Include="Views\SetGunAmmoMaintaince\Index.cshtml" />
     <Content Include="Views\BackupPlan\Index.cshtml" />
     <Content Include="Views\BackupPlan\_Create.cshtml" />
+    <Content Include="Views\RestorePlan\Index.cshtml" />
+    <Content Include="Views\RestorePlan\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
