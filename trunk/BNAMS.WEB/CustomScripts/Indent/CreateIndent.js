@@ -370,8 +370,37 @@ var IndentHelper = {
                 if (response.data == true) {
                     debugger;
                     $("#txtIdentQuantiryDiv").show();
+                } else {
+                    $("#txtIdentQuantiryDiv").hide();
                 }
 
+            },
+            error: function (response) {
+
+            }
+        });
+    },
+
+
+    CheckQuantity: function () {
+
+        var weaponInfoId = $("#ddlItemCode").val();
+        $.ajax({
+            type: "Get",
+            dataType: "json",
+            cache: true,
+            async: false,
+            url: "/Indent/CheckItemQuantity",
+            data: { weaponInfoId: weaponInfoId },
+            success: function (response) {
+                debugger;
+                    debugger;
+                    var totalReserve = response.data[0].Quantity;
+                var desireQuantity = $("#txtIdentQuantiry").val();
+                if (totalReserve < desireQuantity) {
+                    toastr.success("Total reserve "+totalReserve+". Please reduce quantity.");
+                    $("#txtIdentQuantiry").val("1");
+                }
             },
             error: function (response) {
 

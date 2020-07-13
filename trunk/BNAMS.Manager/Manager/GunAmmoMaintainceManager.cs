@@ -83,6 +83,8 @@ namespace BNAMS.Manager.Manager
                         inWeaponsINfoTable.WareHouseId = aObj.WareHouseId;
                         inWeaponsINfoTable.BinLocationId = aObj.BinLOcationId;
                         inWeaponsINfoTable.IsBackup = false;
+                        inWeaponsINfoTable.IsMaintaince = false;
+                        inWeaponsINfoTable.IsUse = false;
                     }
                     _db.SaveChanges();
 
@@ -116,7 +118,7 @@ namespace BNAMS.Manager.Manager
         public ResponseModel LoadRegistrationNo(string weaponType)
         {
             var data = from parentMenu in _db.I_WeaponsInfo
-                       where parentMenu.IsActive == true && parentMenu.WeaponsTypeId == weaponType
+                       where parentMenu.IsActive == true && parentMenu.WeaponsTypeId == weaponType && parentMenu.IsMaintaince==true
                        select new
                        {
                            id = parentMenu.WeaponsInfoId,

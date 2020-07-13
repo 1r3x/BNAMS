@@ -36,7 +36,8 @@ namespace BNAMS.Controllers.login
         [HttpPost]
         public ActionResult Login(SR.Models.login.User user)
         {
-            if (DateTime.Now <= Convert.ToDateTime("05-07-2020"))// for vs (date-month-year) and for IIS (month-date-year)
+            //if (DateTime.Now <= Convert.ToDateTime("25-07-2020"))// for vs (date-month-year) and for IIS (month-date-year)
+            if (DateTime.Now <= Convert.ToDateTime("07-25-2020"))// for vs (date-month-year) and for IIS (month-date-year)
             {
                 SmartRecordEntities usersEntities = new SmartRecordEntities();
                 var keyNew = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) select s).FirstOrDefault();
@@ -51,18 +52,30 @@ namespace BNAMS.Controllers.login
                 }
 
                 //var validateDate = usersEntities.Validate_User(user.Username, user.Password).FirstOrDefault();
-                var validateDate = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) && s.Password.Equals(password) select s).FirstOrDefault();
+                var validateDate =
+                    (from s in usersEntities.UserLogins
+                     join dir in usersEntities.O_DirectorateInfo on s.DirectorateId equals dir.DirectorateID
+                     where (s.UserName == user.Username || s.Email == user.Username)
+                     && s.Password.Equals(password)
+                     select new { s, dir.DirectorateName }
+                ).FirstOrDefault();
+
+
+
                 //ar query = (from s in context.ObjRegisterUser where(s.UserName == userName || s.EmailId == userName) && s.Password.Equals(encodingPasswordString) select s).FirstOrDefault();
-                if (validateDate != null && validateDate.Id > 0)
+                if (validateDate != null && validateDate.s.Id > 0)
                 {
-                    var sessionData = (from s in usersEntities.UserLogins where (s.Id == validateDate.Id) select s)
+                    var sessionData = (from s in usersEntities.UserLogins where (s.Id == validateDate.s.Id) select s)
                         .FirstOrDefault();
                     FormsAuthentication.SetAuthCookie(user.Username, user.RememberMe);
-                    Session["userid"] = validateDate.Id;
+                    Session["userid"] = validateDate.s.Id;
                     Session["username"] = user.Username;
-                    Session["directorateId"] = validateDate.DirectorateId;
-                    Session["roleId"] = validateDate.UserRole;
-                    Session["empIdNo"] = validateDate.EmpIdNumber;
+                    Session["directorateId"] = validateDate.s.DirectorateId;
+                    Session["roleId"] = validateDate.s.UserRole;
+                    Session["empIdNo"] = validateDate.s.EmpIdNumber;
+                    Session["empDirName"] = validateDate.DirectorateName;
+                    Session["empIdNo"] = validateDate.s.EmpIdNumber;
+
 
 
                     if (sessionData != null) Session["imageUrl"] = sessionData.EmpImage;

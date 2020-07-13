@@ -16,14 +16,18 @@
             "columns": [
                 { "data": "WeaponsType", "autoWidth": true },
                 { "data": "NameOfGun", "autoWidth": true },
+                { "data": "GunModelName", "autoWidth": true },
                 { "data": "TrackingNo", "autoWidth": true },
+                { "data": "RegistrationNo", "autoWidth": true },
+                { "data": "Quantity", "autoWidth": true },
+                { "data": "CountryName", "autoWidth": true },
                 { "data": "IsActive", "autoWidth": true },
                 //{ "defaultContent": '<button class="btn btn-primary glyphicon glyphicon-edit" id="btnEdit" type="button"></button>' }
                 { "defaultContent": '<button class="btn btn-danger glyphicon glyphicon-remove" id="btnDelete" type="button"></button>' }
             ],
             "columnDefs": [
                 {
-                    targets: [3],
+                    targets: [7],
                     render: function (data, type, row) {
                         return data == "1" ? "Active" : "Inactive";
                     }

@@ -28,5 +28,6 @@ namespace BNAMS.Entities
         public Nullable<System.DateTime> UpdatedDateTime { get; set; }
         public Nullable<bool> IsBackup { get; set; }
         public string DerectorateId { get; set; }
+        public Nullable<System.DateTime> LastBackupDate { get; set; }
     }
 }

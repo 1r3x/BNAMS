@@ -12796,37 +12796,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2018 14:27:45</publishTime>
     </File>
     <File Include="bin/BNAMS.dll">
-      <publishTime>06/30/2020 06:48:07</publishTime>
+      <publishTime>07/13/2020 13:49:47</publishTime>
     </File>
     <File Include="bin/BNAMS.Entities.dll">
-      <publishTime>06/30/2020 06:47:58</publishTime>
+      <publishTime>07/08/2020 20:34:14</publishTime>
     </File>
     <File Include="bin/BNAMS.Entities.dll.config">
       <publishTime>03/15/2020 16:56:37</publishTime>
     </File>
     <File Include="bin/BNAMS.Entities.pdb">
-      <publishTime>06/30/2020 06:47:58</publishTime>
+      <publishTime>07/08/2020 20:34:14</publishTime>
     </File>
     <File Include="bin/BNAMS.Manager.dll">
-      <publishTime>06/30/2020 06:47:59</publishTime>
+      <publishTime>07/13/2020 13:49:42</publishTime>
     </File>
     <File Include="bin/BNAMS.Manager.dll.config">
       <publishTime>09/07/2019 12:02:25</publishTime>
     </File>
     <File Include="bin/BNAMS.Manager.pdb">
-      <publishTime>06/30/2020 06:47:59</publishTime>
+      <publishTime>07/13/2020 13:49:42</publishTime>
     </File>
     <File Include="bin/BNAMS.pdb">
-      <publishTime>06/30/2020 06:48:07</publishTime>
+      <publishTime>07/13/2020 13:49:47</publishTime>
     </File>
     <File Include="bin/BNAMS.Repositories.dll">
-      <publishTime>06/30/2020 06:47:58</publishTime>
+      <publishTime>07/08/2020 20:34:14</publishTime>
     </File>
     <File Include="bin/BNAMS.Repositories.dll.config">
       <publishTime>04/11/2018 14:27:45</publishTime>
     </File>
     <File Include="bin/BNAMS.Repositories.pdb">
-      <publishTime>06/30/2020 06:47:58</publishTime>
+      <publishTime>07/08/2020 20:34:14</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.ReportSource.dll">
       <publishTime>05/27/2018 14:21:45</publishTime>
@@ -13098,6 +13098,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="CustomScripts/BaaSec/ViewBaaSec.js">
       <publishTime>10/19/2019 17:54:32</publishTime>
     </File>
+    <File Include="CustomScripts/BackupPlan/BackupPlan.js">
+      <publishTime>07/03/2020 05:18:42</publishTime>
+    </File>
     <File Include="CustomScripts/Batch/BatchSetting.js">
       <publishTime>10/15/2019 09:09:14</publishTime>
     </File>
@@ -13135,13 +13138,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/19/2019 18:13:31</publishTime>
     </File>
     <File Include="CustomScripts/CompositeCodeMaster/CompositeCodeSetting.js">
-      <publishTime>01/06/2020 22:53:03</publishTime>
+      <publishTime>06/01/2020 22:53:03</publishTime>
     </File>
     <File Include="CustomScripts/CompositeCodeMaster/CreateCompositeCode.js">
       <publishTime>06/12/2020 01:22:22</publishTime>
     </File>
     <File Include="CustomScripts/CompositeCodeMaster/ViewCompositeCode.js">
-      <publishTime>01/06/2020 23:57:41</publishTime>
+      <publishTime>06/01/2020 23:57:41</publishTime>
     </File>
     <File Include="CustomScripts/CountrySetup/CountrySetupSetting.js">
       <publishTime>03/31/2020 03:52:43</publishTime>
@@ -13288,13 +13291,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/10/2020 17:43:03</publishTime>
     </File>
     <File Include="CustomScripts/Indent/CreateIndent.js">
-      <publishTime>06/25/2020 13:34:16</publishTime>
+      <publishTime>07/08/2020 20:25:57</publishTime>
     </File>
     <File Include="CustomScripts/Indent/IndentSetting.js">
-      <publishTime>06/25/2020 15:39:26</publishTime>
+      <publishTime>07/08/2020 20:11:01</publishTime>
     </File>
     <File Include="CustomScripts/Indent/ViewIndent.js">
-      <publishTime>06/07/2020 21:37:36</publishTime>
+      <publishTime>07/06/2020 03:40:35</publishTime>
     </File>
     <File Include="CustomScripts/IndentAccept/CreateIndentAccept.js">
       <publishTime>06/27/2020 20:44:49</publishTime>
@@ -13457,6 +13460,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="CustomScripts/Rank/ViewRank.js">
       <publishTime>10/15/2019 09:09:15</publishTime>
+    </File>
+    <File Include="CustomScripts/RestorePlan/RestorePlan.js">
+      <publishTime>07/03/2020 21:50:25</publishTime>
     </File>
     <File Include="CustomScripts/RoleSetup/CreateRoleSetup.js">
       <publishTime>03/27/2020 22:04:57</publishTime>
@@ -13642,10 +13648,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2020 06:01:18</publishTime>
     </File>
     <File Include="CustomScripts/WeaponsEntry/CreateWeaponsEntry.js">
-      <publishTime>06/29/2020 22:59:35</publishTime>
+      <publishTime>07/05/2020 16:23:16</publishTime>
     </File>
     <File Include="CustomScripts/WeaponsEntry/ViewWeaponsEntry.js">
-      <publishTime>06/29/2020 22:31:22</publishTime>
+      <publishTime>07/13/2020 13:06:35</publishTime>
     </File>
     <File Include="CustomScripts/WeaponsEntry/WeaponsEntrySetting.js">
       <publishTime>06/29/2020 22:09:02</publishTime>
@@ -14391,6 +14397,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/BaaSecSetup/_CreateModal.cshtml">
       <publishTime>10/19/2019 17:47:50</publishTime>
     </File>
+    <File Include="Views/BackupPlan/Index.cshtml">
+      <publishTime>07/03/2020 03:26:56</publishTime>
+    </File>
+    <File Include="Views/BackupPlan/_Create.cshtml">
+      <publishTime>07/03/2020 04:04:40</publishTime>
+    </File>
     <File Include="Views/Batch/index.cshtml">
       <publishTime>09/23/2019 14:41:43</publishTime>
     </File>
@@ -14443,13 +14455,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2019 17:59:32</publishTime>
     </File>
     <File Include="Views/CompositeCodeMaster/Index.cshtml">
-      <publishTime>01/06/2020 23:48:58</publishTime>
+      <publishTime>06/01/2020 23:48:58</publishTime>
     </File>
     <File Include="Views/CompositeCodeMaster/_Create.cshtml">
       <publishTime>06/11/2020 15:22:08</publishTime>
     </File>
     <File Include="Views/CompositeCodeMaster/_View.cshtml">
-      <publishTime>01/06/2020 22:29:02</publishTime>
+      <publishTime>06/01/2020 22:29:02</publishTime>
     </File>
     <File Include="Views/CountrySetup/Index.cshtml">
       <publishTime>03/31/2020 04:11:51</publishTime>
@@ -14569,7 +14581,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2020 14:14:53</publishTime>
     </File>
     <File Include="Views/Indent/_View.cshtml">
-      <publishTime>06/07/2020 21:20:09</publishTime>
+      <publishTime>07/06/2020 03:40:55</publishTime>
     </File>
     <File Include="Views/IndentAccept/Index.cshtml">
       <publishTime>06/27/2020 20:45:58</publishTime>
@@ -14608,10 +14620,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/17/2019 15:02:32</publishTime>
     </File>
     <File Include="Views/Inspaction/Index.cshtml">
-      <publishTime>04/05/2020 04:36:49</publishTime>
+      <publishTime>05/04/2020 04:36:49</publishTime>
     </File>
     <File Include="Views/Inspaction/_Create.cshtml">
-      <publishTime>05/09/2020 18:20:04</publishTime>
+      <publishTime>07/13/2020 13:08:47</publishTime>
     </File>
     <File Include="Views/Inspaction/_View.cshtml">
       <publishTime>05/05/2020 21:11:39</publishTime>
@@ -14764,7 +14776,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/11/2020 15:19:55</publishTime>
     </File>
     <File Include="Views/ProductCategory/_View.cshtml">
-      <publishTime>01/06/2020 22:28:50</publishTime>
+      <publishTime>06/01/2020 22:28:50</publishTime>
     </File>
     <File Include="Views/QuantitySetup/Index.cshtml">
       <publishTime>03/31/2020 21:42:56</publishTime>
@@ -14783,6 +14795,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Rank/_View.cshtml">
       <publishTime>10/15/2019 09:09:17</publishTime>
+    </File>
+    <File Include="Views/RestorePlan/Index.cshtml">
+      <publishTime>07/03/2020 19:18:02</publishTime>
+    </File>
+    <File Include="Views/RestorePlan/_Create.cshtml">
+      <publishTime>07/03/2020 19:15:10</publishTime>
     </File>
     <File Include="Views/RoleSetup/Index.cshtml">
       <publishTime>03/27/2020 19:13:58</publishTime>
@@ -14812,7 +14830,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2018 14:26:29</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutPageMetronic.cshtml">
-      <publishTime>06/29/2020 21:46:56</publishTime>
+      <publishTime>07/13/2020 13:10:36</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>04/11/2018 14:26:29</publishTime>
@@ -14977,7 +14995,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/07/2020 20:19:10</publishTime>
     </File>
     <File Include="Views/UserLogins/Login.cshtml">
-      <publishTime>03/14/2020 02:19:51</publishTime>
+      <publishTime>07/13/2020 13:10:29</publishTime>
     </File>
     <File Include="Views/UserPrivileges/Index.cshtml">
       <publishTime>07/01/2018 12:45:44</publishTime>
@@ -15001,7 +15019,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2020 22:05:03</publishTime>
     </File>
     <File Include="Views/WeaponsEntry/_View.cshtml">
-      <publishTime>06/25/2020 01:10:38</publishTime>
+      <publishTime>07/13/2020 13:04:11</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>09/07/2019 12:41:05</publishTime>

@@ -138,6 +138,8 @@ namespace BNAMS.Manager.Manager
             var data = from a in _db.I_WeaponsInfo
                        join b in _db.M_WeaponsType on a.WeaponsTypeId equals b.WeaponsTypeId
                        join c in _db.M_NameOfWeapon on a.NameOfWeaponsId equals c.NameOfGunId
+                       join d in _db.M_Country on a.OriginCountryId equals d.CountryNameId
+                       join e in _db.M_WeaponsModelType on a.WeaponsModel equals e.GunModelId
                        where a.WeaponsTypeId == weaponId
                        select new
                        {
@@ -145,8 +147,11 @@ namespace BNAMS.Manager.Manager
                            b.WeaponsType,
                            c.NameOfGun,
                            a.IsActive,
-                           a.TrackingNo
-
+                           a.TrackingNo,
+                           a.RegistrationNo,
+                           a.Quantity,
+                           d.CountryName,
+                           e.GunModelName
                        };
             return _aModel.Respons(data);
         }
@@ -187,29 +192,29 @@ namespace BNAMS.Manager.Manager
             return _aModel.Respons(data);
         }
 
-       
+
 
         public ResponseModel DelWeaponsInfo(string weaponInfoId)
         {
             var data = (from e in _db.I_WeaponsInfo
-                where e.WeaponsInfoId == weaponInfoId
-                select e.IsUse).SingleOrDefault();
+                        where e.WeaponsInfoId == weaponInfoId
+                        select e.IsUse).SingleOrDefault();
 
-            if (data==true)
+            if (data == true)
             {
                 return _aModel.Respons(true, "This Weapon Is in Use.");
             }
             else
             {
                 var x = (from y in _db.I_WeaponsInfo
-                            where y.WeaponsInfoId==weaponInfoId
-                            select y).FirstOrDefault() ?? throw new ArgumentNullException(nameof(weaponInfoId));
+                         where y.WeaponsInfoId == weaponInfoId
+                         select y).FirstOrDefault() ?? throw new ArgumentNullException(nameof(weaponInfoId));
                 _db.I_WeaponsInfo.Remove(x);
                 _db.SaveChanges();
                 return _aModel.Respons(true, "New Weapon Delete Successfully.");
             }
-            
-            }
+
+        }
 
         public ResponseModel LoadFiscalYear()
         {
@@ -343,6 +348,7 @@ namespace BNAMS.Manager.Manager
                            id = parentMenu.BinLocationId,
                            text = parentMenu.SelfIdNo
                        };
+
             return _aModel.Respons(data);
         }
 
@@ -385,7 +391,7 @@ namespace BNAMS.Manager.Manager
         public ResponseModel LoadWareHouseByDepotId(string depotId)
         {
             var data = from parentMenu in _db.O_WareHouse
-                       where parentMenu.IsActive == true && parentMenu.UnitShipId==depotId
+                       where parentMenu.IsActive == true && parentMenu.UnitShipId == depotId
                        select new
                        {
                            id = parentMenu.WareHouseId,

@@ -121,6 +121,14 @@ namespace BNAMS.Controllers
         }
 
 
+        // GET: Indent/CheckItemQuantity
+        public JsonResult CheckItemQuantity(string weaponInfoId)
+        {
+            var data = _aManager.CheckItemQuantity(weaponInfoId);
+            return Json(new { data = data.Data }, JsonRequestBehavior.AllowGet);
+        }
+
+
 
 
     }

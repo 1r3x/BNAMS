@@ -21,6 +21,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="HR_TraningInformation">
           <Key>
@@ -44,6 +45,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="I_BinLocation">
           <Key>
@@ -63,6 +65,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="I_Indent">
           <Key>
@@ -90,6 +93,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="I_MaintenanceInfo">
           <Key>
@@ -112,6 +116,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="I_StatusAfterMaintaince">
           <Key>
@@ -129,12 +134,12 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="I_WeaponsInfo">
           <Key>
-            <PropertyRef Name="IdFake" />
+            <PropertyRef Name="WeaponsInfoId" />
           </Key>
-          <Property Name="IdFake" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="WeaponsInfoId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="WeaponsTypeId" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NameOfWeaponsId" Type="nvarchar" MaxLength="50" />
@@ -197,6 +202,7 @@
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
           <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_Agent">
           <Key>
@@ -218,6 +224,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_AgentEnlistment">
           <Key>
@@ -260,6 +267,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_CapabilityOfWeapons">
           <Key>
@@ -277,6 +285,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_Composite">
           <Key>
@@ -292,6 +301,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_Country">
           <Key>
@@ -310,6 +320,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_DepotShipCategory">
           <Key>
@@ -336,6 +347,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_IndentStatus">
           <Key>
@@ -412,6 +424,7 @@
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -438,6 +451,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_ProductCategory">
           <Key>
@@ -452,6 +466,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_QuantityCategory">
           <Key>
@@ -468,6 +483,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_RankSetup">
           <Key>
@@ -482,6 +498,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_StatusInformation">
           <Key>
@@ -499,6 +516,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_TraningOrg">
           <Key>
@@ -545,6 +563,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="M_WeaponsType">
           <Key>
@@ -574,6 +593,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="O_ShipOrDepotInfo">
           <Key>
@@ -599,6 +619,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="O_WareHouse">
           <Key>
@@ -620,6 +641,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <EntityType Name="UserLogin">
           <Key>
@@ -693,6 +715,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="datetime" />
           <Property Name="IsBackup" Type="bit" />
           <Property Name="DerectorateId" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastBackupDate" Type="datetime" />
         </EntityType>
         <Function Name="SessionHelper" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="empId" Type="int" Mode="In" />
@@ -814,6 +837,9 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <FunctionImport Name="spLoadWeaponDetails" ReturnType="Collection(SmartRecordModel.spLoadWeaponDetails_Result)">
           <Parameter Name="weaponsInfoId" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="spSetTabelBackUpStatusToTrue">
+          <Parameter Name="tableName" Mode="In" Type="String" />
+          </FunctionImport>
           <EntitySet Name="HR_TraineePersonBio" EntityType="SmartRecordModel.HR_TraineePersonBio" />
           <EntitySet Name="HR_TraningInformation" EntityType="SmartRecordModel.HR_TraningInformation" />
           <EntitySet Name="I_BinLocation" EntityType="SmartRecordModel.I_BinLocation" />
@@ -856,9 +882,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySet Name="UserRoles" EntityType="SmartRecordModel.UserRole" />
           <EntitySet Name="W_Inspection" EntityType="SmartRecordModel.W_Inspection" />
           <EntitySet Name="M_PriceType" EntityType="SmartRecordModel.M_PriceType" />
-          <FunctionImport Name="spSetTabelBackUpStatusToTrue">
-            <Parameter Name="tableName" Mode="In" Type="String" />
-          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="SessionHelper_Result">
           <Property Type="String" Name="EmpImage" Nullable="false" MaxLength="100" />
@@ -973,6 +996,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="HR_TraningInformation">
           <Key>
@@ -996,6 +1020,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="I_BinLocation">
           <Key>
@@ -1015,6 +1040,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="I_Indent">
           <Key>
@@ -1042,6 +1068,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="I_MaintenanceInfo">
           <Key>
@@ -1064,6 +1091,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="I_StatusAfterMaintaince">
           <Key>
@@ -1081,12 +1109,12 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="I_WeaponsInfo">
           <Key>
-            <PropertyRef Name="IdFake" />
+            <PropertyRef Name="WeaponsInfoId" />
           </Key>
-          <Property Name="IdFake" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="WeaponsInfoId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="WeaponsTypeId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NameOfWeaponsId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1149,6 +1177,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_Agent">
           <Key>
@@ -1170,6 +1199,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_AgentEnlistment">
           <Key>
@@ -1212,6 +1242,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_CapabilityOfWeapons">
           <Key>
@@ -1229,6 +1260,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_Composite">
           <Key>
@@ -1244,6 +1276,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_Country">
           <Key>
@@ -1262,6 +1295,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_DepotShipCategory">
           <Key>
@@ -1288,6 +1322,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_IndentStatus">
           <Key>
@@ -1364,6 +1399,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_ProcurementCategory">
           <Key>
@@ -1380,6 +1416,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_ProductCategory">
           <Key>
@@ -1394,6 +1431,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_QuantityCategory">
           <Key>
@@ -1410,6 +1448,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_RankSetup">
           <Key>
@@ -1424,6 +1463,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_StatusInformation">
           <Key>
@@ -1441,6 +1481,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_TraningOrg">
           <Key>
@@ -1487,6 +1528,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_WeaponsType">
           <Key>
@@ -1516,6 +1558,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="O_ShipOrDepotInfo">
           <Key>
@@ -1541,6 +1584,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="O_WareHouse">
           <Key>
@@ -1562,6 +1606,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="UserLogin">
           <Key>
@@ -1635,6 +1680,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
           <Property Name="IsBackup" Type="Boolean" />
           <Property Name="DerectorateId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastBackupDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="M_PriceType">
           <Key>
@@ -1754,9 +1800,11 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spSetTabelBackUpStatusToTrue" FunctionName="SmartRecordModel.Store.spSetTabelBackUpStatusToTrue" />
           <EntitySetMapping Name="HR_TraineePersonBio">
             <EntityTypeMapping TypeName="SmartRecordModel.HR_TraineePersonBio">
               <MappingFragment StoreEntitySet="HR_TraineePersonBio">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -1775,6 +1823,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="HR_TraningInformation">
             <EntityTypeMapping TypeName="SmartRecordModel.HR_TraningInformation">
               <MappingFragment StoreEntitySet="HR_TraningInformation">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -1799,6 +1848,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="I_BinLocation">
             <EntityTypeMapping TypeName="SmartRecordModel.I_BinLocation">
               <MappingFragment StoreEntitySet="I_BinLocation">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -1819,6 +1869,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="I_Indent">
             <EntityTypeMapping TypeName="SmartRecordModel.I_Indent">
               <MappingFragment StoreEntitySet="I_Indent">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -1847,6 +1898,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="I_MaintenanceInfo">
             <EntityTypeMapping TypeName="SmartRecordModel.I_MaintenanceInfo">
               <MappingFragment StoreEntitySet="I_MaintenanceInfo">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -1870,6 +1922,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="I_StatusAfterMaintaince">
             <EntityTypeMapping TypeName="SmartRecordModel.I_StatusAfterMaintaince">
               <MappingFragment StoreEntitySet="I_StatusAfterMaintaince">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -1888,6 +1941,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="I_WeaponsInfo">
             <EntityTypeMapping TypeName="SmartRecordModel.I_WeaponsInfo">
               <MappingFragment StoreEntitySet="I_WeaponsInfo">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="Brand" ColumnName="Brand" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
@@ -1950,13 +2004,13 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
                 <ScalarProperty Name="NameOfWeaponsId" ColumnName="NameOfWeaponsId" />
                 <ScalarProperty Name="WeaponsTypeId" ColumnName="WeaponsTypeId" />
                 <ScalarProperty Name="WeaponsInfoId" ColumnName="WeaponsInfoId" />
-                <ScalarProperty Name="IdFake" ColumnName="IdFake" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="M_Agent">
             <EntityTypeMapping TypeName="SmartRecordModel.M_Agent">
               <MappingFragment StoreEntitySet="M_Agent">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2006,6 +2060,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_Authorirty">
             <EntityTypeMapping TypeName="SmartRecordModel.M_Authorirty">
               <MappingFragment StoreEntitySet="M_Authorirty">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2025,6 +2080,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_CapabilityOfWeapons">
             <EntityTypeMapping TypeName="SmartRecordModel.M_CapabilityOfWeapons">
               <MappingFragment StoreEntitySet="M_CapabilityOfWeapons">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2043,6 +2099,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_Composite">
             <EntityTypeMapping TypeName="SmartRecordModel.M_Composite">
               <MappingFragment StoreEntitySet="M_Composite">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2059,6 +2116,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_Country">
             <EntityTypeMapping TypeName="SmartRecordModel.M_Country">
               <MappingFragment StoreEntitySet="M_Country">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2087,6 +2145,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_FiscalYear">
             <EntityTypeMapping TypeName="SmartRecordModel.M_FiscalYear">
               <MappingFragment StoreEntitySet="M_FiscalYear">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2170,6 +2229,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_NameOfWeapon">
             <EntityTypeMapping TypeName="SmartRecordModel.M_NameOfWeapon">
               <MappingFragment StoreEntitySet="M_NameOfWeapon">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2189,6 +2249,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_ProcurementCategory">
             <EntityTypeMapping TypeName="SmartRecordModel.M_ProcurementCategory">
               <MappingFragment StoreEntitySet="M_ProcurementCategory">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2206,6 +2267,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_ProductCategory">
             <EntityTypeMapping TypeName="SmartRecordModel.M_ProductCategory">
               <MappingFragment StoreEntitySet="M_ProductCategory">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2221,6 +2283,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_QuantityCategory">
             <EntityTypeMapping TypeName="SmartRecordModel.M_QuantityCategory">
               <MappingFragment StoreEntitySet="M_QuantityCategory">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2238,6 +2301,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_RankSetup">
             <EntityTypeMapping TypeName="SmartRecordModel.M_RankSetup">
               <MappingFragment StoreEntitySet="M_RankSetup">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2253,6 +2317,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_StatusInformation">
             <EntityTypeMapping TypeName="SmartRecordModel.M_StatusInformation">
               <MappingFragment StoreEntitySet="M_StatusInformation">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2302,6 +2367,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="M_WeaponsModelType">
             <EntityTypeMapping TypeName="SmartRecordModel.M_WeaponsModelType">
               <MappingFragment StoreEntitySet="M_WeaponsModelType">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2330,6 +2396,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="O_DirectorateInfo">
             <EntityTypeMapping TypeName="SmartRecordModel.O_DirectorateInfo">
               <MappingFragment StoreEntitySet="O_DirectorateInfo">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
@@ -2352,6 +2419,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="O_ShipOrDepotInfo">
             <EntityTypeMapping TypeName="SmartRecordModel.O_ShipOrDepotInfo">
               <MappingFragment StoreEntitySet="O_ShipOrDepotInfo">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2378,6 +2446,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="O_WareHouse">
             <EntityTypeMapping TypeName="SmartRecordModel.O_WareHouse">
               <MappingFragment StoreEntitySet="O_WareHouse">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2450,6 +2519,7 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
           <EntitySetMapping Name="W_Inspection">
             <EntityTypeMapping TypeName="SmartRecordModel.W_Inspection">
               <MappingFragment StoreEntitySet="W_Inspection">
+                <ScalarProperty Name="LastBackupDate" ColumnName="LastBackupDate" />
                 <ScalarProperty Name="DerectorateId" ColumnName="DerectorateId" />
                 <ScalarProperty Name="IsBackup" ColumnName="IsBackup" />
                 <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
@@ -2483,7 +2553,6 @@ warning 6002: The table/view 'BNAMS.dbo.M_PriceType' does not have a primary key
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="spSetTabelBackUpStatusToTrue" FunctionName="SmartRecordModel.Store.spSetTabelBackUpStatusToTrue" />
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

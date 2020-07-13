@@ -21,5 +21,8 @@ namespace BNAMS.Manager.Interface
         ResponseModel LoadCompositNameByCompositId(string compositCodeId);
         ResponseModel LoadIndentType();
         ResponseModel CheckIsItAmmo(string itemId);
+
+
+        ResponseModel CheckItemQuantity(string weaponInfoId);
     }
 }

@@ -717,7 +717,7 @@ var WeaponsEntryHelper = {
         $("#txtWarrentyPeriod").val("");
         $("#ddlPriceType").val("").trigger("change");
         $("#txtUnitPrice").val("");
-        $("#txtQuantity").val("");
+        $("#txtQuantity").val("1");
         $("#ddlQuantityCategory").val("").trigger("change");
         //todo
         $("#txtTotalPrice").val("");

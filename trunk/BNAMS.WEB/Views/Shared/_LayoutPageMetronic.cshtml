@@ -112,6 +112,8 @@
                                 <img alt="" class="img-circle" src="/@HttpContext.Current.Session["imageUrl"].ToString()" />
                                 <span class="username username-hide-on-mobile">
                                     @HttpContext.Current.Session["username"].ToString()
+                                    -@HttpContext.Current.Session["empIdNo"].ToString()
+                                    (@HttpContext.Current.Session["empDirName"].ToString())
                                 </span>
                             }
                             @*<img alt="" class="img-circle" src="../@HttpContext.Current.Session["imageUrl"].ToString()" />*@
@@ -1061,7 +1063,7 @@
     <!-- BEGIN FOOTER -->
     <div class="page-footer">
         <div class="page-footer-inner">
-            2019 &copy; MaxPro IT Solutions..
+            2020 &copy; Infinity Technology International Ltd.
         </div>
         <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>

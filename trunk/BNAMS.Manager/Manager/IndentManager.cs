@@ -230,9 +230,20 @@ namespace BNAMS.Manager.Manager
         {
             var isAmmoData = from a in _db.I_WeaponsInfo
                              join weaponTable in _db.M_WeaponsType on a.WeaponsTypeId equals weaponTable.WeaponsTypeId
-                             where weaponTable.WeaponsTypeId == "1042020WEAP139"
+                             where a.WeaponsInfoId==itemId && weaponTable.WeaponsTypeId == "1042020WEAP139"
                              select a;
             var data = isAmmoData.Any();
+            return _aModel.Respons(data);
+        }
+
+        public ResponseModel CheckItemQuantity(string weaponInfoId)
+        {
+            var data = from parentMenu in _db.I_WeaponsInfo
+                       where parentMenu.IsActive == true && parentMenu.WeaponsInfoId == weaponInfoId
+                       select new
+                       {
+                           parentMenu.Quantity
+                       };
             return _aModel.Respons(data);
         }
     }

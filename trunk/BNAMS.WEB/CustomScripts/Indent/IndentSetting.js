@@ -61,4 +61,9 @@
     });
 
 
+    $("#txtIdentQuantiry").on("change", function (e) {
+        debugger;
+        IndentHelper.CheckQuantity();
+    });
+
 });
