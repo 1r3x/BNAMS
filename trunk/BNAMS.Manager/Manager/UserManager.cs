@@ -33,7 +33,7 @@ namespace BNAMS.Manager.Manager
                 }
                 aObj.Id=(int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
 
-                aObj.Password = "E1-2A-D2-67-AA-6D-09-43-55-00-FA-FA-9B-4E-2C-50";//b@ng1ad3shn@vy
+                aObj.Password = "1A-F4-E5-5F-04-B9-37-0A-E7-2B-1A-89-7B-07-48-0D";//bang1@63$h_navy
                 aObj.SessionKey = "PBqXTQjO6x";
                 aObj.SetUpBy = (int?)HttpContext.Current.Session["userid"];
                 aObj.SetUpDateTime = DateTime.Now;

@@ -32,12 +32,14 @@ namespace BNAMS.Controllers.login
             return View();
         }
 
-
+        
         [HttpPost]
         public ActionResult Login(SR.Models.login.User user)
         {
-            //if (DateTime.Now <= Convert.ToDateTime("25-07-2020"))// for vs (date-month-year) and for IIS (month-date-year)
-            if (DateTime.Now <= Convert.ToDateTime("07-25-2020"))// for vs (date-month-year) and for IIS (month-date-year)
+            // for vs (date-month-year) and for IIS (month-date-year)
+
+            //if (DateTime.Now <= Convert.ToDateTime("30-08-2020"))//for vs 
+            if (DateTime.Now <= Convert.ToDateTime("09-15-2020"))//for IIS
             {
                 SmartRecordEntities usersEntities = new SmartRecordEntities();
                 var keyNew = (from s in usersEntities.UserLogins where (s.UserName == user.Username || s.Email == user.Username) select s).FirstOrDefault();
