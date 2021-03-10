@@ -165,6 +165,8 @@
     <Compile Include="Controllers\CountrySetupController.cs" />
     <Compile Include="Controllers\DirectorateInfoController.cs" />
     <Compile Include="Controllers\FiscalYearSetupController.cs" />
+    <Compile Include="Controllers\IndentHistoryController.cs" />
+    <Compile Include="Controllers\IndentReturnController.cs" />
     <Compile Include="Controllers\SetGunAmmoMaintainceController.cs" />
     <Compile Include="Controllers\GunAmmoMaintainceController.cs" />
     <Compile Include="Controllers\GunModelTypeController.cs" />
@@ -221,6 +223,11 @@
     <Content Include="CustomScripts\AuthoritySetup\CreateAuthoritySetup.js" />
     <Content Include="CustomScripts\AuthoritySetup\AuthoritySetupSetting.js" />
     <Content Include="CustomScripts\AuthoritySetup\ViewAuthoritySetup.js" />
+    <Content Include="CustomScripts\IndentReturn\CreateIndentAccept.js" />
+    <Content Include="CustomScripts\IndentReturn\IndentAcceptSetting.js" />
+    <Content Include="CustomScripts\IndentReturn\ViewIndentAccept.js" />
+    <Content Include="CustomScripts\IndentHistory\IndentSetting.js" />
+    <Content Include="CustomScripts\IndentHistory\ViewIndent.js" />
     <Content Include="CustomScripts\RestorePlan\RestorePlan.js" />
     <Content Include="CustomScripts\BackupPlan\BackupPlan.js" />
     <Content Include="CustomScripts\BinLocation\CreateBinLocationSetup.js" />
@@ -663,6 +670,12 @@
     <Content Include="Views\BackupPlan\_Create.cshtml" />
     <Content Include="Views\RestorePlan\Index.cshtml" />
     <Content Include="Views\RestorePlan\_Create.cshtml" />
+    <Content Include="Views\IndentHistory\Index.cshtml" />
+    <Content Include="Views\IndentHistory\_View.cshtml" />
+    <Content Include="Views\IndentHistory\_Create.cshtml" />
+    <Content Include="Views\IndentReturn\_View.cshtml" />
+    <Content Include="Views\IndentReturn\Index.cshtml" />
+    <Content Include="Views\IndentReturn\_Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

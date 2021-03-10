@@ -8,7 +8,7 @@ var CreateIndentManager = {
         } else {
             $.ajax({
                 type: "POST",
-                url: "/IndentReceivedOrCancel/CreateIndentReceive",
+                url: "/IndentReturn/CreateIndentReturn",
                 data: JSON.stringify(IndentHelper.GetIndentData()),
                 success: function (response) {
                     debugger;
@@ -37,7 +37,7 @@ var CreateIndentManager = {
         } else {
             $.ajax({
                 type: "POST",
-                url: "/IndentReceivedOrCancel/CreateIndentCancel",
+                url: "/IndentReturn/CreateIndentCancel",
                 data: JSON.stringify(IndentHelper.GetIndentData()),
                 success: function (response) {
                     debugger;
@@ -67,7 +67,7 @@ var CreateIndentManager = {
             dataType: "json",
             cache: true,
             async: false,
-            url: "/BinLocation/LoadWareHouseByCode",
+            url: "/IndentReturn/LoadWareHouseByCode",
             data: { wareHouseCode: warehouseCode },
             success: function (response) {
                 debugger;
@@ -186,7 +186,7 @@ var IndentHelper = {
             dataType: "json",
             cache: true,
             async: false,
-            url: "/IndentReceivedOrCancel/LoadAllItem",
+            url: "/IndentReturn/LoadAllItem",
             success: function (response) {
 
                 b = response.data;
@@ -404,7 +404,6 @@ var IndentHelper = {
         $("#txtIdentQuantiry").val("");
         $("#dateOfIndentValidity").val("");
         $("#txtOtherOptions").val("");
-        $("#txtRemarks").val("");
         //aObj.Remarks = $("#txtInspectionMethod").val();
         //aObj.IndentStatusId = $("#txtInspectionBy").val();
         //aObj.IndentStatusDate = $("#txtCommence").val();

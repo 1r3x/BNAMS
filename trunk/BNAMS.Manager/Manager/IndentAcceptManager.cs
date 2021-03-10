@@ -31,17 +31,17 @@ namespace BNAMS.Manager.Manager
 
         public ResponseModel CreateIndentReceive(I_Indent aObj)
         {
-            //var inWeaponsINfoTable = (from a in _db.I_WeaponsInfo
-            //    where a.WeaponsInfoId == aObj.ItemId
-            //    select a).SingleOrDefault();
+            var inWeaponsINfoTable = (from a in _db.I_WeaponsInfo
+                                      where a.WeaponsInfoId == aObj.ItemId
+                                      select a).SingleOrDefault();
 
-            //if (inWeaponsINfoTable != null)
-            //{
-            //    //inWeaponsINfoTable.DepotId = aObj.IssueTo;
-            //    inWeaponsINfoTable.IsUse = true;
-            //    inWeaponsINfoTable.IsBackup = false;
-            //}
-            //_db.SaveChanges();
+            if (inWeaponsINfoTable != null)
+            {
+                //inWeaponsINfoTable.Quantity -= aObj.IndentQuantity;
+                //inWeaponsINfoTable.IsUse = false;
+                inWeaponsINfoTable.IsBackup = false;
+            }
+            _db.SaveChanges();
 
 
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
@@ -64,7 +64,7 @@ namespace BNAMS.Manager.Manager
 
             if (inWeaponsINfoTable != null)
             {
-                inWeaponsINfoTable.IsUse = false;
+                inWeaponsINfoTable.Quantity += aObj.IndentQuantity;
                 inWeaponsINfoTable.IsBackup = false;
             }
 

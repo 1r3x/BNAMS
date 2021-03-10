@@ -398,7 +398,7 @@ var IndentHelper = {
                     var totalReserve = response.data[0].Quantity;
                 var desireQuantity = $("#txtIdentQuantiry").val();
                 if (totalReserve < desireQuantity) {
-                    toastr.success("Total reserve "+totalReserve+". Please reduce quantity.");
+                    toastr.warning("Total reserve "+totalReserve+". Please reduce quantity.");
                     $("#txtIdentQuantiry").val("1");
                 }
             },
@@ -411,8 +411,8 @@ var IndentHelper = {
 
 
     ClearField: function () {
-
-        $("#hdnIndentId").val("");
+        debugger;
+        $("#hdnIndentId").val("0");
         $("#ddlIndentType").val("").change();
         $("#txtProgramId").val("");
         $("#txtIndentNo").val("");
@@ -426,6 +426,7 @@ var IndentHelper = {
         $("#txtCompositeName").val("");
         $("#txtProductSupplierName").val("");
         $("#txtItemName").val("");
+       
 
         $("#hdnSetupBy").val("");
         $("#hdnSetupDateTime").val("");

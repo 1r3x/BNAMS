@@ -56,6 +56,8 @@
     <Compile Include="Interface\ICountrySetup.cs" />
     <Compile Include="Interface\IDirectorateInfo.cs" />
     <Compile Include="Interface\IFiscalYearSetup.cs" />
+    <Compile Include="Interface\IIndentReturn.cs" />
+    <Compile Include="Interface\IIndentHistory.cs" />
     <Compile Include="Interface\ISetGunAmmoMaintaince.cs" />
     <Compile Include="Interface\IGunAmmoMaintaince.cs" />
     <Compile Include="Interface\IGunModel.cs" />
@@ -91,6 +93,8 @@
     <Compile Include="Manager\CountrySetupManager.cs" />
     <Compile Include="Manager\DirectorateInfoManager.cs" />
     <Compile Include="Manager\FiscalYearSetupManager.cs" />
+    <Compile Include="Manager\IndentReturnManager.cs" />
+    <Compile Include="Manager\IndentHistoryManger.cs" />
     <Compile Include="Manager\SetGunAmmoMaintainceManager.cs" />
     <Compile Include="Manager\GunAmmoMaintainceManager.cs" />
     <Compile Include="Manager\GunModelTypeSetupManager.cs" />

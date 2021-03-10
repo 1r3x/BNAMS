@@ -39,6 +39,7 @@ namespace BNAMS.Controllers
                               }).Any();
 
             return permission ? (ActionResult)View() : RedirectToAction("Login", "Userlogins");
+            //return (ActionResult)View();
         }
 
         // SET: User/CreateUser

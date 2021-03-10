@@ -3,8 +3,35 @@ var CreateWeaponsEntryManager = {
 
     SaveWeaponsEntry: function () {
         debugger;
-        if ($("#txtAuthorityName").val() == "") {
-            toastr.warning("Directorate Name is Required.");
+        if ($("#ddlWeaponsName").val() == "") {
+            toastr.warning(" Name of the weapon is Required.");
+        }
+        else if ($("#ddlWeaponsName").val() == "") {
+            toastr.warning(" Name of the weapon is Required.");
+        }
+        else if ($("#ddlGunModelType").val() == "") {
+            toastr.warning("Model of the weapon is Required.");
+        }
+        else if ($("#txtGunRegNo").val() == "") {
+            toastr.warning("Lot/Reg No. is require.");
+        }
+        else if ($("#ddlDepotName").val() == "") {
+            toastr.warning("Depot Name is require.");
+        }
+        else if ($("#ddlCountryOfOrigin").val() == "") {
+            toastr.warning("Country Of origin is require.");
+        }
+        else if ($("#ddlWarehouseName").val() == "") {
+            toastr.warning("Warehouse Name is required.");
+        }
+        else if ($("#ddlShelfNo").val() == "") {
+            toastr.warning("Self No is require.");
+        }
+        else if ($("#ddlRowNo").val() == "") {
+            toastr.warning("Row No is require.");
+        }
+        else if ($("#ddlStatus").val() == "") {
+            toastr.warning("Weapon Status is require.");
         }
 
 

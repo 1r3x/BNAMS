@@ -393,7 +393,7 @@ var IndentHelper = {
 
     ClearField: function () {
 
-        $("#hdnIndentId").val("");
+        $("#hdnIndentId").val("0");
         $("#ddlIndentType").val("").trigger("change");
         $("#txtProgramId").val("");
         $("#txtIndentNo").val("");
@@ -404,6 +404,7 @@ var IndentHelper = {
         $("#txtIdentQuantiry").val("");
         $("#dateOfIndentValidity").val("");
         $("#txtOtherOptions").val("");
+        $("#txtRemarks").val("");
         //aObj.Remarks = $("#txtInspectionMethod").val();
         //aObj.IndentStatusId = $("#txtInspectionBy").val();
         //aObj.IndentStatusDate = $("#txtCommence").val();

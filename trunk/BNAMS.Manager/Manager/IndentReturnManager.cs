@@ -12,14 +12,14 @@ using SR.Repositories;
 
 namespace BNAMS.Manager.Manager
 {
-    public class IndentReceiveOrCancelManager:IIndentReceiveOrCancel
+    public class IndentReturnManager:IIndentReturn
     {
         private readonly ResponseModel _aModel;
         private readonly IGenericRepository<I_Indent> _aRepository;
         private readonly SmartRecordEntities _db;
         private readonly CommonManager _commonCode;
 
-        public IndentReceiveOrCancelManager()
+        public IndentReturnManager()
         {
             _aRepository = new GenericRepository<I_Indent>();
             _db = new SmartRecordEntities();
@@ -29,28 +29,26 @@ namespace BNAMS.Manager.Manager
 
 
 
-        public ResponseModel CreateIndentReceive(I_Indent aObj)
+        public ResponseModel CreateIndentReturn(I_Indent aObj)
         {
             var inWeaponsINfoTable = (from a in _db.I_WeaponsInfo
-                where a.WeaponsInfoId == aObj.ItemId
-                select a).SingleOrDefault();
+                                      where a.WeaponsInfoId == aObj.ItemId
+                                      select a).SingleOrDefault();
 
             if (inWeaponsINfoTable != null)
             {
-                //inWeaponsINfoTable.DepotId = aObj.IssueTo;
+                inWeaponsINfoTable.Quantity += aObj.IndentQuantity;
                 inWeaponsINfoTable.IsUse = false;
                 inWeaponsINfoTable.IsBackup = false;
-                inWeaponsINfoTable.Quantity -= aObj.IndentQuantity;
             }
-
             _db.SaveChanges();
 
 
             aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
             aObj.UpdatedDateTime = DateTime.Now;
             aObj.IsBackup = false;
-            aObj.IsActive = true;
-            aObj.IsStatus = 1;//1 for approved
+            aObj.IsActive = false;
+            aObj.IsStatus = 5;// 5 for returned
             aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
 
             _aRepository.Update(aObj);
@@ -58,30 +56,7 @@ namespace BNAMS.Manager.Manager
             return _aModel.Respons(true, "Indent Received Successfully");
         }
 
-        public ResponseModel CreateIndentCancel(I_Indent aObj)
-        {
-            var inWeaponsINfoTable = (from a in _db.I_WeaponsInfo
-                where a.WeaponsInfoId == aObj.ItemId
-                select a).SingleOrDefault();
 
-            if (inWeaponsINfoTable != null)
-            {
-                inWeaponsINfoTable.IsUse = false;
-                inWeaponsINfoTable.IsBackup = false;
-                //inWeaponsINfoTable.Quantity -= aObj.IndentQuantity;
-            }
-
-            aObj.UpdatedBy = (int?)HttpContext.Current.Session["userid"];
-            aObj.UpdatedDateTime = DateTime.Now;
-            aObj.IsStatus = 2;//2 for cancell
-            aObj.IsBackup = false;
-            aObj.IsActive = false;
-            aObj.DerectorateId = (string)HttpContext.Current.Session["directorateId"];
-
-            _aRepository.Update(aObj);
-            _aRepository.Save();
-            return _aModel.Respons(true, "Indent Cancelled Successfully");
-        }
 
         public ResponseModel GetAllIndent()
         {
@@ -95,7 +70,7 @@ namespace BNAMS.Manager.Manager
                 join e in _db.M_NameOfWeapon on d.NameOfWeaponsId equals e.NameOfGunId
                 join f in _db.M_Composite on a.CompositeId equals f.CompositeId
 
-                where a.IsActive == true && a.DerectorateId== dirId && a.IsStatus==0
+                where a.IsActive == false && a.DerectorateId== dirId && a.IsStatus==3
                        select new
                 {
                     indentFrom = b.ShipDepotName,

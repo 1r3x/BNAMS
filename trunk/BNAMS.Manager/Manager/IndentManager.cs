@@ -166,7 +166,7 @@ namespace BNAMS.Manager.Manager
         {
             var data = from parentMenu in _db.I_WeaponsInfo
                        where parentMenu.IsActive == true && parentMenu.DepotId == depotShipId &&
-                             parentMenu.IsUse == false
+                             parentMenu.IsUse == false && parentMenu.Quantity > 0
                        select new
                        {
                            id = parentMenu.WeaponsInfoId,
